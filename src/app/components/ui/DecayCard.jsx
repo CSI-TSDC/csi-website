@@ -7,11 +7,18 @@ import './DecayCard.css';
 const DecayCard = ({ width = 300, height = 400, image = 'https://picsum.photos/300/400?grayscale', children }) => {
   const svgRef = useRef(null);
   const displacementMapRef = useRef(null);
-  const cursor = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const cachedCursor = useRef({ ...cursor.current });
-  const winsize = useRef({ width: window.innerWidth, height: window.innerHeight });
+  const cursor = useRef({ x: 0, y: 0 });
+  const cachedCursor = useRef({ x: 0, y: 0 });
+  const winsize = useRef({ width: 0, height: 0 });
 
   useEffect(() => {
+    // Initialize window size and cursor position on client side
+    if (typeof window !== 'undefined') {
+      winsize.current = { width: window.innerWidth, height: window.innerHeight };
+      cursor.current = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+      cachedCursor.current = { ...cursor.current };
+    }
+
     const lerp = (a, b, n) => (1 - n) * a + n * b;
 
     const map = (x, a, b, c, d) => ((x - a) * (d - c)) / (b - a) + c;
@@ -21,6 +28,8 @@ const DecayCard = ({ width = 300, height = 400, image = 'https://picsum.photos/3
       const b = y1 - y2;
       return Math.hypot(a, b);
     };
+
+    if (typeof window === 'undefined') return;
 
     const handleResize = () => {
       winsize.current = { width: window.innerWidth, height: window.innerHeight };
@@ -86,8 +95,10 @@ const DecayCard = ({ width = 300, height = 400, image = 'https://picsum.photos/3
     render();
 
     return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('mousemove', handleMouseMove);
+      }
     };
   }, []);
 
