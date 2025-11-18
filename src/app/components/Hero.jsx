@@ -1,6 +1,35 @@
+'use client'
+
 import React from "react";
+import { useRef } from "react";
+import { gsap } from "gsap";
+
 
 const Hero = () => {
+
+    const btnRef = useRef(null);
+
+      const handleEnter = () => {
+    gsap.to(btnRef.current, {
+      scale: 1.08,
+      background:
+        "linear-gradient(135deg, rgba(56,189,248,0.5), rgba(59,130,246,0.5))",
+      boxShadow: "0 10px 30px rgba(59,130,246,0.4)",
+      duration: 0.4,
+      ease: "power3.out",
+    });
+  };
+
+  const handleLeave = () => {
+    gsap.to(btnRef.current, {
+      scale: 1,
+      background: "rgba(255,255,255,0.08)",
+      boxShadow: "0 0 0 rgba(0,0,0,0)",
+      duration: 0.4,
+      ease: "power3.out",
+    });
+  };
+
   return (
     <section
       id="home"
@@ -37,8 +66,17 @@ const Hero = () => {
           leap into electronic typesetting, remaining essentially unchanged.
         </p>
 
-        <button className="mt-8 bg-[linear-gradient(to_right,#FF512F_0%,#F09819_51%,#FF512F_100%)] 
-  transition text-white px-6 py-3 rounded-xl text-lg shadow-md font-youth-bold">
+        <button
+          ref={btnRef}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+          className="
+        px-6 py-3 mt-6 relative rounded-2xl text-white font-medium backdrop-blur-xl border border-white/10 transition-colors duration-300
+      "
+          style={{
+            background: "rgba(255,255,255,0.08)",
+          }}
+        >
           Let's Explore
         </button>
       </div>

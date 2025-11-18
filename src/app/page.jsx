@@ -1,5 +1,7 @@
+import Events from './components/Events'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
+import Test from './components/Test'
 import Vision from './components/Vision'
 import WhatWeAre from './components/WhatWeAre'
 
@@ -10,6 +12,8 @@ export default function Home() {
       <WhatWeAre />
       <Vision />
       <Projects />
+      <Events />
+      <Test />
     </main>
   )
 }

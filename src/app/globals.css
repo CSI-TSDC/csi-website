@@ -8,7 +8,7 @@
   html {
     font-family: "Outfit", sans-serif;
   }
-  
+
   @font-face {
     font-family: 'Youth';
     src: url('/Fonts/Youth Bold.otf') format('opentype');
@@ -16,7 +16,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: 'Youth';
     src: url('/Fonts/Youth Black.otf') format('opentype');
@@ -24,7 +24,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: 'PP Neue Montreal';
     src: url('/Fonts/PPNeueMontreal-Book.otf') format('opentype');
@@ -32,7 +32,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: 'PP Neue Montreal';
     src: url('/Fonts/PPNeueMontreal-Regular.otf') format('opentype');
@@ -42,13 +42,40 @@
   }
 }
 
+
+/* Scrollbar Track */
+::-webkit-scrollbar {
+  width: 8px;     /* scrollbar width */
+}
+
+/* Scrollbar Background */
+::-webkit-scrollbar-track {
+  background: #111;     /* track color */
+  border-radius: 10px;
+}
+
+/* Scrollbar Thumb (draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #ff4747;  /* scrollbar color */
+  border-radius: 10px;
+  border: 2px solid #111;  /* adds spacing around thumb */
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff2a2a;
+}
+
+
 html {
-  overscroll-behavior: none;
+  overscroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ff4747 #111;
 }
 
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
-
