@@ -1,41 +1,62 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Add blur effect after scrolling 50px
-      setIsScrolled(window.scrollY > 50)
-    }
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const toggleMenu = () => setIsMenuOpen(prev => !prev)
+  const closeMenu = () => setIsMenuOpen(false)
 
-  const closeMenu = () => {
-    setIsMenuOpen(false)
-  }
-
+  // navLinks can include both internal routes and page-section hash links
   const navLinks = [
     { href: '#home', label: 'Home' },
     { href: '#what-we-are', label: 'What We Are' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#events', label: 'Events' },
-    { href: '#team', label: 'Team' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/events', label: 'Events' },
+    { href: '/team', label: 'Team' },        // ← navigates to /team page
     { href: '#contact', label: 'Contact' },
   ]
 
+  // Handles navigation for hashes (smooth scroll) and normal routes (router.push)
+  const handleNavClick = (e, href) => {
+    // Keep default behaviour for external links
+    if (href.startsWith('http')) return
+
+    e.preventDefault()
+    closeMenu()
+
+    if (href.startsWith('#')) {
+      // smooth scroll to section on same page
+      const id = href.slice(1)
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // update hash without jumping (optional)
+        history.replaceState(null, '', href)
+      } else {
+        // if section not found, still update hash
+        history.replaceState(null, '', href)
+      }
+    } else {
+      // navigate to page route (App Router)
+      router.push(href)
+    }
+  }
+
   return (
     <>
-      {/* Backdrop overlay - dims background when menu is open */}
+      {/* Backdrop overlay when menu open (mobile) */}
       {isMenuOpen && (
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden"
@@ -43,21 +64,23 @@ const Navbar = () => {
         />
       )}
 
-      <nav 
-        id='nav' 
+      <nav
+        id="nav"
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-black/20 backdrop-blur-md border-b border-white/10' 
-            : 'bg-transparent'
+          isScrolled ? 'bg-black/20 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <h1 className="text-white text-xl md:text-2xl font-bold font-youth-bold cursor-pointer transition-transform hover:scale-105">
+              <button
+                onClick={(e) => handleNavClick(e, '#home')}
+                className="text-white text-xl md:text-2xl font-bold cursor-pointer transition-transform hover:scale-105"
+                aria-label="Go to home"
+              >
                 Logo
-              </h1>
+              </button>
             </div>
 
             {/* Desktop Navigation Links */}
@@ -65,8 +88,10 @@ const Navbar = () => {
               <ul className="flex items-center space-x-8">
                 {navLinks.map((link) => (
                   <li key={link.href}>
+                    {/* Use button-like anchor so we can intercept both hash and route clicks */}
                     <a
                       href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className="text-white text-sm md:text-base font-medium hover:text-blue-400 transition-colors duration-200 cursor-pointer py-2 px-3 rounded-md hover:bg-white/5"
                     >
                       {link.label}
@@ -107,7 +132,7 @@ const Navbar = () => {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={closeMenu}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="block text-white text-base font-medium hover:text-blue-400 transition-colors duration-200 cursor-pointer py-3 px-4 rounded-md hover:bg-white/10"
                   >
                     {link.label}
@@ -123,4 +148,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
