@@ -5,6 +5,7 @@ import Vision from './components/Vision'
 import WhatWeAre from './components/WhatWeAre'
 import Statistics from './components/Statistics'
 import Gallery from './components/Gallery'
+import Team from './components/Team'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Projects />
       <Events />
       <Gallery />
+      <Team />
     </main>
   )
 }
