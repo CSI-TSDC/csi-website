@@ -52,7 +52,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       
       {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center space-y-20 text-white pt-20 md:pt-24 px-6 font-youth-bold flex-1">
+      <div className="relative z-10 flex flex-col items-center justify-center space-y-20 text-white/50 stroke-white pt-20 md:pt-24 px-6 font-youth-bold flex-1">
         <div className="w-full flex flex-row items-center justify-center text-[18vw]/[14vw]" id="hero-text">
           <div className="">
               <span>
@@ -85,7 +85,7 @@ const Hero = () => {
               </span>
             </div>
         </div>
-        <h2 id="hero-line" className="text-5xl md:text-4xl font-bold leading-snug">
+        <h2 id="hero-line" className="text-5xl md:text-4xl font-bold leading-snug text-white">
           <span className="space-x-2">
             <span>
               <AnimatedLetter delay={0.8} isInView={isInView}>Together</AnimatedLetter>

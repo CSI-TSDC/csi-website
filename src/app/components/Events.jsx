@@ -8,7 +8,7 @@ const Events = () => {
     <section className="w-full min-h-screen py-16 px-8 md:px-16 bg-transparent">
 
       {/* Heading */}
-      <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-white">
+      <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-black">
         Events, <span className="text-red-500">Events Done by Us..</span>
       </h2>
 
@@ -17,7 +17,7 @@ const Events = () => {
 
         {/* EVENT 1 */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-white"
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-blacl"
         >
           <div>
             <h3 className="text-3xl md:text-4xl font-bold mb-2">Event Title</h3>
@@ -37,7 +37,7 @@ const Events = () => {
 
         {/* EVENT 2 */}
         <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-white"
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-black"
         >
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvL8KnEdIemiK4bUhR6HwHXf6Eo3BXXHsqHg&s"

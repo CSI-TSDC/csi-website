@@ -45,7 +45,7 @@
 
 /* Scrollbar Track */
 ::-webkit-scrollbar {
-  width: 8px;     /* scrollbar width */
+  width: 1vw;     /* scrollbar width */
 }
 
 /* Scrollbar Background */
