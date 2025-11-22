@@ -1,7 +1,6 @@
 import Events from './components/Events'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
-import Footer from './components/ui/Footer'
 import Vision from './components/Vision'
 import WhatWeAre from './components/WhatWeAre'
 import Statistics from './components/Statistics'
@@ -15,7 +14,6 @@ export default function Home() {
       <Vision />
       <Projects />
       <Events />
-      <Footer />
     </main>
   )
 }

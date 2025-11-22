@@ -1,19 +1,22 @@
 import "./globals.css";
-import SmoothScroll from "./components/SmoothScroll";
-import Navbar from './components/Navbar';
+import Navbar from './components/ui/Navbar';
+import Footer from './components/ui/Footer';
+import { LenisProvider } from './contexts/LenisContext';
 
 export const metadata = {
   title: "My Website",
-  description: "Smooth scroll enabled",
+  description: "CSI x TSDC",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SmoothScroll />
-        <Navbar />
-        {children}
+        <LenisProvider>
+          <Navbar />
+          {children}
+          {/* <Footer /> */}
+        </LenisProvider>
       </body>
     </html>
   );

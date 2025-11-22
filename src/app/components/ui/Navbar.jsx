@@ -26,9 +26,10 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '#home', label: 'Home' },
-    { href: '#what-we-are', label: 'What We Are' },
+    { href: '#what-we-are', label: 'About Us' },
     { href: '#projects', label: 'Projects' },
     { href: '#events', label: 'Events' },
+    { href: '#gallery', label: 'Gallery' },
     { href: '#team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ]
@@ -54,9 +55,12 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <div className="flex-shrink-0">
+            <div className="flex flex-row justify-center items-center gap-6 w-max">
+              <span>
+                <img src="/assets/images/csi_logo.png" alt="Logo" className="h-14" />
+              </span>
               <h1 className="text-white text-xl md:text-2xl font-bold font-youth-bold cursor-pointer transition-transform hover:scale-105">
-                Logo
+                CSI x TSDC 
               </h1>
             </div>
 

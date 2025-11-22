@@ -11,11 +11,14 @@ export default function Statistics() {
   ]
 
   return (
-    <section 
+    <section
       id="statistics" 
-      className="w-full min-h-screen pt-16 md:pt-20 bg-white p-10 font-youth-bold"
+      className="w-full min-h-screen pt-16 md:pt-20 bg-white p-10 font-youth-bold flex flex-col justify-center"
     >
-      <div id="stat-text" className="flex flex-col items-center justify-center w-full mb-12">
+      <div 
+        id="stat-text" 
+        className="flex flex-col items-center justify-center w-full mb-12"
+      >
         <h2 className="text-4xl md:text-6xl font-bold mb-12 pb-10">
           <span>IN NUMBERS</span>
         </h2>

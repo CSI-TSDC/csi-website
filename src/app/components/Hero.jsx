@@ -1,78 +1,119 @@
 'use client'
 
-import React from "react";
-import { useRef } from "react";
-import { gsap } from "gsap";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
 
+const AnimatedLetter = ({ children, delay = 200, isInView }) => {
+  return (
+    <motion.span
+      initial={{ y: '110%' }}
+      animate={isInView ? { y: '0%' } : { y: '110%' }}
+      transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay }}
+      style={{ display: 'inline-block' }}
+    >
+      {children}
+    </motion.span>
+  );
+};
 
 const Hero = () => {
+  const containerRef = useRef(null);
+  const isInViewHook = useInView(containerRef, { once: true, amount: 0.1 });
+  const [isInView, setIsInView] = useState(false);
 
-    const btnRef = useRef(null);
+  useEffect(() => {
+    // Check if already in view on mount (for Hero section at top of page)
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isVisible) {
+        setIsInView(true);
+      }
+    }
+  }, []);
 
-      const handleEnter = () => {
-    gsap.to(btnRef.current, {
-      scale: 1.08,
-      background:
-        "linear-gradient(135deg, rgba(56,189,248,0.5), rgba(59,130,246,0.5))",
-      boxShadow: "0 10px 30px rgba(59,130,246,0.4)",
-      duration: 0.4,
-      ease: "power3.out",
-    });
-  };
-
-  const handleLeave = () => {
-    gsap.to(btnRef.current, {
-      scale: 1,
-      background: "rgba(255,255,255,0.08)",
-      boxShadow: "0 0 0 rgba(0,0,0,0)",
-      duration: 0.4,
-      ease: "power3.out",
-    });
-  };
+  useEffect(() => {
+    if (isInViewHook) {
+      setIsInView(true);
+    }
+  }, [isInViewHook]);
 
   return (
     <section
+      ref={containerRef}
       id="home"
       className="relative min-h-screen w-full h-[95vh] object-fit bg-cover bg-center flex flex-col"
       style={{
         backgroundImage:
-          "url('https://wallpapercat.com/w/full/5/0/6/183908-2000x1333-desktop-hd-bts-background-photo.jpg')",
+          "url('/assets/images/bg1.jpg')",
       }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
-
+      
       {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center text-white pt-20 md:pt-24 px-6 font-youth-bold flex-1">
-        <h1 className="text-5xl md:text-6xl font-bold leading-snug">
-          Together We{" "}
-          <span className="bg-red-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
-            Code
+      <div className="relative z-10 flex flex-col items-center justify-center space-y-20 text-white pt-20 md:pt-24 px-6 font-youth-bold flex-1">
+        <div className="w-full flex flex-row items-center justify-center text-[18vw]/[14vw]" id="hero-text">
+          <div className="">
+              <span>
+                <AnimatedLetter delay={0} isInView={isInView}>C</AnimatedLetter>
+              </span>
+              <span>
+                <AnimatedLetter delay={0.1} isInView={isInView}>S</AnimatedLetter>
+              </span>
+              <span>
+                <AnimatedLetter delay={0.2} isInView={isInView}>I</AnimatedLetter>
+              </span>
+            </div>
+            <div>
+              <span>
+                <AnimatedLetter delay={0.3} isInView={isInView}>x</AnimatedLetter>
+              </span>
+            </div>
+            <div>
+              <span>
+                <AnimatedLetter delay={0.4} isInView={isInView}>T</AnimatedLetter>
+              </span>
+              <span>
+                <AnimatedLetter delay={0.5} isInView={isInView}>S</AnimatedLetter>
+              </span>
+              <span>
+                <AnimatedLetter delay={0.6} isInView={isInView}>D</AnimatedLetter>
+              </span>
+              <span>
+                <AnimatedLetter delay={0.7} isInView={isInView}>C</AnimatedLetter>
+              </span>
+            </div>
+        </div>
+        <h2 id="hero-line" className="text-5xl md:text-4xl font-bold leading-snug">
+          <span className="space-x-2">
+            <span>
+              <AnimatedLetter delay={0.8} isInView={isInView}>Together</AnimatedLetter>
+            </span>
+            {" "}
+            <span>
+              <AnimatedLetter delay={0.85} isInView={isInView}>We</AnimatedLetter>
+            </span>
+            {" "}
+            <span className="bg-red-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
+              <AnimatedLetter delay={0.9} isInView={isInView}>Code,</AnimatedLetter>
+            </span>
+            {" "}
+            <span className="bg-blue-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
+              <AnimatedLetter delay={1.0} isInView={isInView}>Create,</AnimatedLetter>
+            </span>
+            {" "}
+            <span>
+              <AnimatedLetter delay={1.1} isInView={isInView}>and</AnimatedLetter>
+            </span>
+            {" "}
+            <span className="bg-orange-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
+              <AnimatedLetter delay={1.15} isInView={isInView}>Conquer</AnimatedLetter>
+            </span>
           </span>
-          ,{" "}
-          <span className="bg-blue-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
-            Create
-          </span>
-          , and{" "}
-          <span className="bg-orange-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
-            Conquer
-          </span>
-        </h1>
-
-        <p className="max-w-2xl mt-6 text-gray-200 text-sm md:text-base leading-relaxed font-youth-bold">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          since the 1500s. It has survived not only five centuries, but the
-          leap into electronic typesetting, remaining essentially unchanged.
-        </p>
-
+        </h2>
         <button
-          ref={btnRef}
-          onMouseEnter={handleEnter}
-          onMouseLeave={handleLeave}
-          className="
-        px-6 py-3 mt-6 relative rounded-2xl text-white font-medium backdrop-blur-xl border border-white/10 transition-colors duration-300
-      "
+          className="px-8 py-4 mt-6 relative rounded-2xl text-white font-medium backdrop-blur-xl border border-white/10 transition-all duration-300 text-base md:text-lg hover:bg-white/20"
           style={{
             background: "rgba(255,255,255,0.08)",
           }}

@@ -1,70 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
 
 const Events = () => {
-  const sectionsRef = useRef([]);
-
-  useEffect(() => {
-    const originalBg = window.getComputedStyle(document.body).backgroundColor;
-
-    sectionsRef.current.forEach((el) => {
-      // Fade-in animation for event
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 80 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-          },
-        }
-      );
-
-      // SMOOTH PAGE BACKGROUND TRANSITION
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 60%",
-        end: "bottom 40%",
-        onEnter: () => {
-          gsap.to("body", {
-            backgroundColor: "#000",
-            duration: 0.8,
-            ease: "power1.inOut",
-          });
-        },
-        onLeave: () => {
-          gsap.to("body", {
-            backgroundColor: originalBg,
-            duration: 0.8,
-            ease: "power1.inOut",
-          });
-        },
-        onEnterBack: () => {
-          gsap.to("body", {
-            backgroundColor: "#000",
-            duration: 0.8,
-            ease: "power1.inOut",
-          });
-        },
-        onLeaveBack: () => {
-          gsap.to("body", {
-            backgroundColor: originalBg,
-            duration: 0.8,
-            ease: "power1.inOut",
-          });
-        },
-      });
-    });
-  }, []);
 
   return (
     <section className="w-full min-h-screen py-16 px-8 md:px-16 bg-transparent">
@@ -79,7 +17,6 @@ const Events = () => {
 
         {/* EVENT 1 */}
         <div
-          ref={(el) => (sectionsRef.current[0] = el)}
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-white"
         >
           <div>
@@ -100,7 +37,6 @@ const Events = () => {
 
         {/* EVENT 2 */}
         <div
-          ref={(el) => (sectionsRef.current[1] = el)}
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-white"
         >
           <img

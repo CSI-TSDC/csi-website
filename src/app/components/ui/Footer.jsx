@@ -1,7 +1,6 @@
 'use client'
 
 import React from "react";
-import { gsap } from "gsap"; // keep if you plan to animate later
 
 const Footer = () => {
   return (

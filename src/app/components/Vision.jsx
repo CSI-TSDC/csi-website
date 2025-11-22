@@ -1,89 +1,45 @@
 'use client'
 
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const Vision = () => {
-  const containerRef = useRef(null);
-  const textRef = useRef(null);
-  const videoRef = useRef(null);
+  const sectionRef = useRef(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'start 0.2'],
+  })
 
-      gsap.set(videoRef.current, { opacity: 0, height: "60%" });
-      gsap.set(textRef.current, { opacity: 1 });
-
-      containerRef.current.addEventListener("mouseenter", () => {
-        gsap.to(textRef.current, {
-          opacity: 0,
-          duration: 0.6,
-          ease: "easeInOut"
-        });
-
-        gsap.to(videoRef.current, {
-          opacity: 1,
-          height: "100%",
-          duration: 0.6,
-          ease: "easeInOut"
-        });
-      });
-
-      containerRef.current.addEventListener("mouseleave", () => {
-        gsap.to(textRef.current, {
-          opacity: 1,
-          duration: 0.6,
-          ease: "easeInOut"
-        });
-
-        gsap.to(videoRef.current, {
-          opacity: 0,
-          height: "60%",
-          duration: 0.6,
-          ease: "easeInOut"
-        });
-      });
-
-    });
-
-    return () => ctx.revert();
-  }, []);
+  const scale = useTransform(scrollYProgress, [0, 0.45, 1], [0.7, 0.7, 1])
+  const opacity = useTransform(scrollYProgress, [0, 0.45, 1], [0.6, 0.6, 1])
 
   return (
-    <div
+    <section
       id="what-we-are"
-      className="w-full min-h-screen pt-12 md:pt-20 p-10 font-youth-bold"
+      ref={sectionRef}
+      className="w-full min-h-screen px-6 md:px-12 pt-16 md:pt-24 pb-12 font-youth-bold"
     >
-
-      <h2 className="text-center text-4xl md:text-6xl font-bold mb-12 pb-5">
-        Vision, <span className="text-red-500">Our Aim is to..</span>
-      </h2>
-
-      <div
-        ref={containerRef}
-        className="relative flex justify-center items-center cursor-pointer p-20 w-full "
-      >
-
-
-        <h2
-          ref={textRef}
-          className="absolute text-2xl md:text-8xl font-bold text-center select-none"
-        >
-          For The Students,<br />By The Students
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-center text-4xl md:text-7xl font-bold mb-4">
+          Our Vision
         </h2>
-
-        <video
-          ref={videoRef}
-          className="rounded-2xl"
-          style={{ width: "70.5vw" }}
-          autoPlay
-          muted
-          loop
-          src="/assets/test.mp4"
-        />
+        <p className="text-center text-xl md:text-3xl text-neutral-500 uppercase tracking-[0.2em] mb-10">
+          For The Students, By The Students
+        </p>
       </div>
-    </div>
-  );
-};
 
-export default Vision;
+      <motion.video
+        style={{ scale, opacity }}
+        className="w-full aspect-[16/9] object-cover rounded-3xl shadow-2xl"
+        autoPlay
+        muted
+        loop
+        playsInline
+        src="/assets/test.mp4"
+      />
+    </section>
+  )
+}
+
+export default Vision

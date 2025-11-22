@@ -1,35 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import React from "react";
 
 const Projects = () => {
-  const sticker1Ref = useRef(null);
-  const sticker2Ref = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Floating loop animation for sticker 1
-      gsap.to(sticker1Ref.current, {
-        y: -20,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: "power3",
-      });
-
-      // Floating loop animation for sticker 2
-      gsap.to(sticker2Ref.current, {
-        x: -5,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "power2",
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section className="w-full min-h-screen px-6 py-10 flex justify-center">
@@ -59,7 +32,6 @@ const Projects = () => {
 
             {/* Sticker */}
             <div
-              ref={sticker1Ref}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 flex flex-col items-center"
             >
               <img
@@ -86,7 +58,6 @@ const Projects = () => {
 
             {/* Sticker */}
             <div
-              ref={sticker2Ref}
               className="absolute right-4 top-1/2 -translate-y-1/2 translate-x-1/2 flex flex-col items-center pl-7 rotate-45"
             >
               <img
