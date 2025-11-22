@@ -95,20 +95,59 @@ const Hero = () => {
               <AnimatedLetter delay={0.85} isInView={isInView}>We</AnimatedLetter>
             </span>
             {" "}
-            <span className="bg-red-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
-              <AnimatedLetter delay={0.9} isInView={isInView}>Code,</AnimatedLetter>
+            <span className="relative inline-block">
+              <motion.span
+                className="absolute inset-0 bg-red-500 rounded-xl shadow-lg -rotate-3"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ 
+                  duration: 0.4, 
+                  ease: 'easeOut',
+                  delay: 0.7 + 1.3
+                }}
+                style={{ zIndex: 0 }}
+              />
+              <span className="relative px-3 py-1 text-white" style={{ zIndex: 1 }}>
+                <AnimatedLetter delay={0.9} isInView={isInView}>Code,</AnimatedLetter>
+              </span>
             </span>
             {" "}
-            <span className="bg-blue-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
-              <AnimatedLetter delay={1.0} isInView={isInView}>Create,</AnimatedLetter>
+            <span className="relative inline-block">
+              <motion.span
+                className="absolute inset-0 bg-blue-500 rounded-xl shadow-lg -rotate-3"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ 
+                  duration: 0.4, 
+                  ease: 'easeOut',
+                  delay: 0.8 + 1.3 
+                }}
+                style={{ zIndex: 0 }}
+              />
+              <span className="relative px-3 py-1 text-white" style={{ zIndex: 1 }}>
+                <AnimatedLetter delay={1.0} isInView={isInView}>Create,</AnimatedLetter>
+              </span>
             </span>
             {" "}
             <span>
               <AnimatedLetter delay={1.1} isInView={isInView}>and</AnimatedLetter>
             </span>
             {" "}
-            <span className="bg-orange-500 px-3 py-1 rounded-xl text-white shadow-lg inline-block -rotate-3">
-              <AnimatedLetter delay={1.15} isInView={isInView}>Conquer</AnimatedLetter>
+            <span className="relative inline-block">
+              <motion.span
+                className="absolute inset-0 bg-orange-500 rounded-xl shadow-lg -rotate-3"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ 
+                  duration: 0.4, 
+                  ease: 'easeOut',
+                  delay: 0.9 + 1.3 
+                }}
+                style={{ zIndex: 0 }}
+              />
+              <span className="relative px-3 py-1 text-white" style={{ zIndex: 1 }}>
+                <AnimatedLetter delay={1.15} isInView={isInView}>Conquer</AnimatedLetter>
+              </span>
             </span>
           </span>
         </h2>
