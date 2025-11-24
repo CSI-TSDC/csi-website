@@ -105,3 +105,9 @@ export default function ParallaxComponent() {
 ```
 
 
+
+
+
+
+
+

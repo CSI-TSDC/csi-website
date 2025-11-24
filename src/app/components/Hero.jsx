@@ -52,7 +52,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       
       {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center space-y-20 text-white/50 stroke-white pt-20 md:pt-24 px-6 font-youth-bold flex-1">
+      <div className="relative z-10 flex flex-col items-center justify-center space-y-20 text-white/80 stroke-white pt-20 md:pt-24 px-6 font-youth-bold flex-1">
         <div className="w-full flex flex-row items-center justify-center text-[18vw]/[14vw]" id="hero-text">
           <div className="">
               <span>

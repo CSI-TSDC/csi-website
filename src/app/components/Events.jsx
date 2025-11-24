@@ -1,63 +1,37 @@
 "use client";
 
-import React from "react";
+const caseStudies = [
+  {
+    number: "01",
+    title: "bath & body works",
+    tags: ["Product Discovery", "AI"],
+    subtitle: "Fragrance Finder",
+    description:
+      "Product Discovery and exploration through conversation with AI. Design systems, Rapid Prototyping, Conversation UI",
+    image:
+      "https://images.unsplash.com/photo-1763493411066-48cc93cc82db?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "#",
+  },
+  {
+    number: "02",
+    title: "another case study",
+    tags: ["Research", "UX"],
+    subtitle: "User Experience Study",
+    description:
+      "Product Discovery and exploration through conversation with AI. Design systems, Rapid Prototyping, Conversation UI",
+    image:
+      "https://images.unsplash.com/photo-1763493411066-48cc93cc82db?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "#",
+  },
+];
 
-const Events = () => {
-
+export default function CaseStudies() {
   return (
-    <section className="w-full min-h-screen py-16 px-8 md:px-16 bg-transparent">
+    <section className="w-full max-w-7xl mx-auto px-6 py-8">
+      <h1 className="flex justify-center font-semibold text-[4vw] mb-6">Events</h1>
+      <hr className="mb-12 border-gray-200" />
 
-      {/* Heading */}
-      <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center text-black">
-        Events, <span className="text-red-500">Events Done by Us..</span>
-      </h2>
-
-      {/* EVENTS LIST */}
-      <div className="flex flex-col gap-24 w-full">
-
-        {/* EVENT 1 */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-blacl"
-        >
-          <div>
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">Event Title</h3>
-            <p className="text-xl font-semibold mb-3">Event Description:</p>
-            <p className="leading-relaxed opacity-80">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-
-          <img
-            src="https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg"
-            alt="event"
-            className="rounded-2xl w-[300px] justify-self-center md:justify-self-end"
-          />
-        </div>
-
-        {/* EVENT 2 */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center text-black"
-        >
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvL8KnEdIemiK4bUhR6HwHXf6Eo3BXXHsqHg&s"
-            alt="event"
-            className="rounded-2xl w-[300px] justify-self-center md:justify-self-start"
-          />
-
-          <div className="text-right">
-            <h3 className="text-3xl md:text-4xl font-bold mb-2">Event Title</h3>
-            <p className="text-xl font-semibold mb-3">Event Description:</p>
-            <p className="leading-relaxed opacity-80">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        </div>
-
-      </div>
+      
     </section>
   );
-};
-
-export default Events;
+}

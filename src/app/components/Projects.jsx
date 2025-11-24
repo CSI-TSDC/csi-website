@@ -1,77 +1,115 @@
 "use client";
 
-import React from "react";
+const caseStudies = [
+  {
+    number: "01",
+    title: "bath & body works",
+    tags: ["Product Discovery", "AI"],
+    subtitle: "Fragrance Finder",
+    description:
+      "Product Discovery and exploration through conversation with AI. Design systems, Rapid Prototyping, Conversation UI",
+    image:
+      "https://images.unsplash.com/photo-1763493411066-48cc93cc82db?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "#",
+  },
+  {
+    number: "02",
+    title: "another case study",
+    tags: ["Research", "UX"],
+    subtitle: "User Experience Study",
+    description:
+      "Product Discovery and exploration through conversation with AI. Design systems, Rapid Prototyping, Conversation UI",
+    image:
+      "https://images.unsplash.com/photo-1763493411066-48cc93cc82db?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "#",
+  },
+];
 
-const Projects = () => {
-
+export default function CaseStudies() {
   return (
-    <section className="w-full min-h-screen px-6 py-10 flex justify-center">
-      <div className="w-full max-w-6xl p-10 shadow-sm">
-
-        {/* Heading */}
-        <h2 className="text-4xl md:text-6xl font-bold text-center mb-12">
+    <section className="w-full max-w-7xl mx-auto px-6 py-8">
+      <h2 className="text-4xl md:text-6xl font-bold text-center mb-12">
           Projects,{" "}
           <span className="text-red-500">See What We Build..</span>
         </h2>
 
-        <div className="flex flex-col gap-10">
+      <hr className="mb-12 border-gray-200" />
 
-          {/* Project Card 1 */}
-          <div className="relative w-full bg-[url('/assets/P-image.avif')] bg-cover bg-center rounded-3xl p-10 text-white flex">
-            <div className="w-3/4">
-              <h3 className="text-4xl font-bold mb-4 text-black">Project 1</h3>
+      <div className="space-y-24">
+        {caseStudies.map((study, idx) => (
+          <article key={idx} className="space-y-6">
+            
+            <div className="flex items-center gap-6">
+              
+              <div className="text-6xl font-extralight text-gray-300 select-none min-w-[4rem] text-center">
+                {study.number}
+              </div>
 
-              <p className="text-xl font-semibold mb-2">Project Description:</p>
+       
+              <div className="flex items-center justify-between w-full">
 
-              <p className="leading-relaxed text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
+                <h3 className="text-4xl font-semibold lowercase tracking-wide">
+                  {study.title}
+                </h3>
+
+                
+                <div className="flex items-center gap-3 mr-[10px]">
+                  {study.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-xs bg-gray-200 rounded-full px-3 py-0.5 font-semibold text-gray-600"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+
+                  <a
+                    href={study.url}
+                    className="inline-flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full hover:bg-gray-200 transition"
+                    aria-label={`Go to ${study.title} details`}
+                  >
+                    <svg
+                      className="w-6 h-6 text-gray-600"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Sticker */}
-            <div
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 flex flex-col items-center"
-            >
-              <img
-                src="/assets/sticker-pizza.png"
-                alt="sticker"
-                className="w-28 md:w-28 object-contain"
-              />
+            
+            
+
+
+            <div className="flex flex-col md:flex-row md:items-start gap-8">
+
+              <div className="flex-shrink-0 w-full md:w-[50vw] h-20 md:h-[19vw] rounded-3xl overflow-hidden shadow-lg">
+                <img
+                  src={study.image}
+                  alt={study.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+
+              <div className="flex-1 text-gray-600 ">
+                <p className="text-center flex justify-center mt-24">
+                  {study.description}
+                </p>
+              </div>
             </div>
-          </div>
-
-          {/* Project Card 2 */}
-          <div className="relative w-full bg-[url('/assets/P-image.avif')] bg-cover bg-center rounded-3xl p-10 text-white flex">
-            <div className="w-3/4">
-              <h3 className="text-4xl font-bold mb-4 text-black">Project 2</h3>
-
-              <p className="text-xl font-semibold mb-2">Project Description:</p>
-
-              <p className="leading-relaxed text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-            </div>
-
-            {/* Sticker */}
-            <div
-              className="absolute right-4 top-1/2 -translate-y-1/2 translate-x-1/2 flex flex-col items-center pl-7 rotate-45"
-            >
-              <img
-                src="/assets/sticker-anime.png"
-                alt="sticker"
-                className="w-24 md:w-28 object-contain"
-              />
-            </div>
-          </div>
-
-        </div>
+            <div className="border-t border-gray-300 pt-8"></div>
+          </article>
+        ))}
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

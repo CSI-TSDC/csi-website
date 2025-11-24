@@ -4,8 +4,7 @@ import Projects from './components/Projects'
 import Vision from './components/Vision'
 import WhatWeAre from './components/WhatWeAre'
 import Statistics from './components/Statistics'
-import Gallery from './components/Gallery'
-import Team from './components/Team'
+import Footer from './components/ui/Footer'
 
 export default function Home() {
   return (
@@ -16,8 +15,7 @@ export default function Home() {
       <Vision />
       <Projects />
       <Events />
-      <Gallery />
-      <Team />
+      <Footer />
     </main>
   )
 }
