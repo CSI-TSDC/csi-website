@@ -157,7 +157,7 @@ const Hero = () => {
             background: "rgba(255,255,255,0.08)",
           }}
         >
-          Let's Explore
+          Let&apos;s Explore
         </button>
       </div>
     </section>
