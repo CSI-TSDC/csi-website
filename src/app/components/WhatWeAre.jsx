@@ -7,7 +7,7 @@ const WhatWeAre = () => {
       {/* Heading */}
       <h2 className=" text-center text-4xl md:text-6xl font-bold  mb-12 pb-10">
         What We Are,{" "}
-        <span className="text-red-500">Let's Know About Us..</span>
+        <span className="text-red-500">Let&apos;s Know About Us..</span>
       </h2>
 
      {/* Content Section */}
