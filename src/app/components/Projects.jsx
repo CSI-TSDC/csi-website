@@ -1,5 +1,54 @@
 "use client";
 
+import { useState, useRef } from "react";
+
+// Parallax Image Container Component
+function ParallaxImageContainer({ image, alt }) {
+  const containerRef = useRef(null);
+  const [transform, setTransform] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return;
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Calculate normalized position (0 to 1)
+    const normalizedX = x / rect.width;
+    const normalizedY = y / rect.height;
+
+    // Calculate offset (subtle movement, max 10px)
+    // Moving opposite to mouse direction
+    const offsetX = (normalizedX - 0.5) * -10;
+    const offsetY = (normalizedY - 0.5) * -10;
+
+    setTransform({ x: offsetX, y: offsetY });
+  };
+
+  const handleMouseLeave = () => {
+    setTransform({ x: 0, y: 0 });
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className="flex-shrink-0 w-full md:w-[50vw] h-20 md:h-[19vw] rounded-3xl overflow-hidden shadow-lg"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img
+        src={image}
+        alt={alt}
+        className="w-full h-full object-cover transition-transform duration-300 ease-out"
+        style={{
+          transform: `scale(1.2) translate(${transform.x}px, ${transform.y}px)`,
+        }}
+      />
+    </div>
+  );
+}
+
 const caseStudies = [
   {
     number: "01",
@@ -91,13 +140,10 @@ export default function CaseStudies() {
 
             <div className="flex flex-col md:flex-row md:items-start gap-8">
 
-              <div className="flex-shrink-0 w-full md:w-[50vw] h-20 md:h-[19vw] rounded-3xl overflow-hidden shadow-lg">
-                <img
-                  src={study.image}
-                  alt={study.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <ParallaxImageContainer
+                image={study.image}
+                alt={study.title}
+              />
 
 
               <div className="flex-1 text-gray-600 ">
