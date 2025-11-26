@@ -1,45 +1,91 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
 
-const Vision = () => {
-  const sectionRef = useRef(null)
+export default function Vision() {
+  const textRef = useRef(null)
+  const videoRef = useRef(null)
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start 0.2'],
-  })
+  useEffect(() => {
+    if (!textRef.current || !videoRef.current) return
 
-  const scale = useTransform(scrollYProgress, [0, 0.45, 1], [0.7, 0.7, 1])
-  const opacity = useTransform(scrollYProgress, [0, 0.45, 1], [0.6, 0.6, 1])
+    // initial states
+    gsap.set(textRef.current, { opacity: 1, scale: 1 })
+    gsap.set(videoRef.current, { opacity: 0, scale: 0.95 })
+  }, [])
+
+  const handleMouseEnter = () => {
+    if (!textRef.current || !videoRef.current) return
+
+    gsap.to(textRef.current, {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.3,
+      ease: 'power2.out',
+    })
+
+    gsap.to(videoRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.35,
+      ease: 'power2.out',
+    })
+  }
+
+  const handleMouseLeave = () => {
+    if (!textRef.current || !videoRef.current) return
+
+    gsap.to(videoRef.current, {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.3,
+      ease: 'power2.out',
+    })
+
+    gsap.to(textRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.35,
+      ease: 'power2.out',
+    })
+  }
 
   return (
     <section
       id="what-we-are"
-      ref={sectionRef}
-      className="w-full min-h-screen px-6 md:px-12 pt-16 md:pt-24 pb-12 font-youth-bold"
+      className="w-full min-h-screen px-6 md:px-12 pt-16 md:pt-24 pb-12 font-youth-bold flex flex-col items-center"
     >
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-center text-4xl md:text-7xl font-bold mb-4">
-          Our Vision
-        </h2>
-        <p className="text-center text-xl md:text-3xl text-neutral-500 uppercase tracking-[0.2em] mb-10">
-          For The Students, By The Students
-        </p>
+      <div className="max-w-6xl mx-auto mb-10 text-center">
+        <h2 className="text-4xl md:text-7xl font-bold mb-4">Our <span className='text-[#EF4444]'>Vision..</span></h2>
       </div>
 
-      <motion.video
-        style={{ scale, opacity }}
-        className="w-full aspect-[16/9] object-cover rounded-3xl shadow-2xl"
-        autoPlay
-        muted
-        loop
-        playsInline
-        src="/assets/test.mp4"
-      />
+
+      <div
+        className="relative max-w-6xl w-full aspect-[16/9] flex items-center justify-center rounded-3xl overflow-hidden cursor-pointer"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+
+        <p
+          ref={el => (textRef.current = el)} 
+          className="text-3xl md:text-9xl text-center uppercase tracking-tighter  z-10 pointer-events-none"
+        >
+          FOR THE STUDENTS,
+          <br />
+          BY THE STUDENTS
+        </p>
+
+        <video
+          ref={el => (videoRef.current = el)} 
+          className="absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl"
+          autoPlay
+          muted
+          loop
+          playsInline
+          src="/assets/test.mp4"
+        />
+      </div>
     </section>
   )
 }
-
-export default Vision

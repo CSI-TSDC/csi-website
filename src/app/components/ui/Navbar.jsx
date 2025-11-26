@@ -26,11 +26,11 @@ const Navbar = () => {
   }
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
+    { href: '/', label: 'Home' },
     { href: '#what-we-are', label: 'About Us' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#events', label: 'Events' },
-    { href: '#gallery', label: 'Gallery' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/events', label: 'Events' },
+    { href: '/gallery', label: 'Gallery' },
     { href: '#team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ]
