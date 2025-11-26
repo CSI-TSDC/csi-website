@@ -1,43 +1,44 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 const Vision = () => {
-  const sectionRef = useRef(null)
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'start 0.2'],
-  })
-
-  const scale = useTransform(scrollYProgress, [0, 0.45, 1], [0.7, 0.7, 1])
-  const opacity = useTransform(scrollYProgress, [0, 0.45, 1], [0.6, 0.6, 1])
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <section
       id="what-we-are"
-      ref={sectionRef}
       className="w-full min-h-screen px-6 md:px-12 pt-16 md:pt-24 pb-12 font-youth-bold"
     >
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-center text-4xl md:text-7xl font-bold mb-4">
-          Our Vision
-        </h2>
-        <p className="text-center text-xl md:text-3xl text-neutral-500 uppercase tracking-[0.2em] mb-10">
-          For The Students, By The Students
-        </p>
-      </div>
+      <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+        <motion.video
+          animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          src="/assets/test.mp4"
+        />
 
-      <motion.video
-        style={{ scale, opacity }}
-        className="w-full aspect-[16/9] object-cover rounded-3xl shadow-2xl"
-        autoPlay
-        muted
-        loop
-        playsInline
-        src="/assets/test.mp4"
-      />
+        <div
+          className="relative z-10 flex h-full w-full items-center justify-center text-center px-6"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="space-y-4 text-black drop-shadow-2xl">
+            <h2 className="text-lg md:text-2xl uppercase tracking-[0.4em]">
+              Our Vision
+            </h2>
+            <h3 className="text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tight leading-tight">
+              <span className="block">BY THE STUDENTS</span>
+              <span className="block">FOR THE STUDENTS</span>
+            </h3>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

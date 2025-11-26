@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import GlassSurface from '@/components/GlassSurface'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,12 +25,12 @@ const Navbar = () => {
   }
 
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#what-we-are', label: 'About Us' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#events', label: 'Events' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#team', label: 'Team' },
+    { href: '/#home', label: 'Home' },
+    { href: '/#what-we-are', label: 'About Us' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/events', label: 'Events' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ]
 
@@ -48,29 +47,9 @@ const Navbar = () => {
       <nav 
         id='nav' 
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-          isScrolled ? '' : 'bg-transparent'
+          isScrolled ? 'bg-black/90' : 'bg-transparent'
         }`}
       >
-        {isScrolled && (
-          <GlassSurface
-            width="100%"
-            height={80}
-            borderRadius={0}
-            opacity={0.9}
-            blur={15}
-            backgroundOpacity={0.6}
-            className="absolute inset-0 pointer-events-none"
-            style={{ 
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '100%',
-              zIndex: 0,
-              backgroundColor: 'rgba(30, 30, 30, 0.7)'
-            }}
-          />
-        )}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
