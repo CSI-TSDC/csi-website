@@ -31,6 +31,12 @@ const Navbar = () => {
     { href: '/events', label: 'Events' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/team', label: 'Team' },
+    { href: '/#home', label: 'Home' },
+    { href: '/#what-we-are', label: 'About Us' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/events', label: 'Events' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ]
 
@@ -47,6 +53,9 @@ const Navbar = () => {
       <nav 
         id='nav' 
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+          isScrolled ? 'bg-black/90' : 'bg-transparent'
+        }`}
+      >
           isScrolled ? 'bg-black/90' : 'bg-transparent'
         }`}
       >

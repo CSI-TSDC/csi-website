@@ -1,87 +1,98 @@
-import React from "react";
+"use client";
 
 const projects = [
   {
-    title: "Futuredraw",
+    id: 1,
+    image:
+      "https://static.vecteezy.com/system/resources/thumbnails/012/981/791/small/old-parchment-paper-sheet-vintage-aged-or-texture-background-png.png",
     tag: "Speculative design",
-    desc: "A knowledge navigator interface that allows users to seamlessly navigate information – in this case, in a pottery studio.",
+    title: "Futuredraw",
+    description:
+      "A knowledge navigator interface that allows users to seamlessly navigate information.",
     skills: "Gesture tracking, Prototyping, Speculative",
-    img: "/images/futuredraw.png",
   },
   {
-    title: "Refund Rumble",
-    tag: "Dark Patterns",
-    desc: "Simulation of an intentionally bad UX as a parody for designers to foster empathy towards edge cases accessibility struggles.",
-    skills: "User testing, Game design",
-    img: "/images/refund.png",
+    id: 2,
+    image:
+      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1000&auto=format&fit=crop",
+    tag: "Product design",
+    title: "Campus Companion",
+    description:
+      "A lightweight app to help students discover events, resources, and opportunities around campus without the clutter.",
+    skills: "UX Research, UI Design, Systems Thinking",
   },
   {
-    title: "Diawave",
-    tag: "Healthcare",
-    desc: "Diabetes care for type-1 diabetics with wearable sensors and a mobile application for real-time health insights.",
-    skills: "System design, Rapid Prototyping",
-    img: "/images/diawave.png",
-  },
-  {
-    title: "Home Security Ecosystem",
-    tag: "Home Security",
-    tag2: "Coming Soon",
-    desc: "Safer living through enhanced package management, tailgating alerts, and emergency response features.",
-    skills: "Research, System design, User experience",
-    img: "/images/home-security.png",
-    wide: true,
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1000&auto=format&fit=crop",
+    tag: "Interaction design",
+    title: "Code Studio",
+    description:
+      "An interactive dashboard that makes collaborating on workshops and hackathons intuitive for new members.",
+    skills: "Interaction, Prototyping, Motion",
   },
 ];
 
-const ProjectGrid = () => {
+function ProjectCard({ project }) {
   return (
-    <div className="w-full min-h-screen bg-[#faf9f6] p-8 md:p-16">
-      <div className="grid md:grid-cols-3 gap-10">
-        {projects.slice(0, 3).map((p, i) => (
-          <div
-            key={i}
-            className="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition"
-          >
-            <img
-              src={p.img}
-              alt={p.title}
-              className="rounded-lg w-full h-56 object-cover mb-4"
-            />
-            <span className="text-xs bg-gray-200 px-3 py-1 rounded-full">
-              {p.tag}
-            </span>
-            <h2 className="text-xl font-semibold mt-3">{p.title}</h2>
-            <p className="text-gray-600 mt-2">{p.desc}</p>
-            <p className="text-gray-900 font-medium mt-3">{p.skills}</p>
-          </div>
-        ))}
+    <article className="relative rounded-3xl overflow-visible pb-10">
 
-        {/* Wide card */}
-        <div className="md:col-span-3">
-          <div className="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition">
-            <img
-              src={projects[3].img}
-              alt={projects[3].title}
-              className="rounded-lg w-full h-72 object-cover mb-4"
-            />
-
-            <div className="flex gap-3 mb-2">
-              <span className="text-xs bg-gray-200 px-3 py-1 rounded-full">
-                {projects[3].tag}
-              </span>
-              <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full">
-                {projects[3].tag2}
-              </span>
-            </div>
-
-            <h2 className="text-xl font-semibold">{projects[3].title}</h2>
-            <p className="text-gray-600 mt-2">{projects[3].desc}</p>
-            <p className="text-gray-900 font-medium mt-3">{projects[3].skills}</p>
-          </div>
-        </div>
+     
+      <div className="relative w-full flex justify-center">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-[90%] rounded-md relative z-20 -mb-12 mt-6 border border-neutral-200"
+        />
       </div>
-    </div>
-  );
-};
 
-export default ProjectGrid;
+      
+      <div className="bg-[#FAFAFA] rounded-md border border-neutral-200 px-8 pt-14 pb-6 relative z-10 mx-0">
+
+       
+        <span className="inline-flex items-center px-3 py-1 rounded-full bg-neutral-200 text-neutral-700 text-xs mb-3">
+          {project.tag}
+        </span>
+
+      
+        <h3 className="text-lg md:text-xl font-semibold text-neutral-900 mb-2">
+          {project.title}
+        </h3>
+
+        
+        <p className="text-[14px] text-neutral-600 leading-relaxed mb-3">
+          {project.description}
+        </p>
+
+     
+        <p className="text-sm font-medium text-neutral-800">
+          {project.skills}
+        </p>
+      </div>
+    </article>
+  );
+}
+
+export default function page() {
+  return (
+    <main className="min-h-screen bg-[#FAF9F6] py-10 md:pt-10">
+      <section className="max-w-6xl mx-auto px-6 space-y-8">
+
+       
+        <header className="space-y-2 justify-center flex flex-col text-center mb-12">
+          <h1 className="text-3xl md:text-4xl font-semibold text-neutral-900">
+            Projects done by us..
+          </h1>
+        </header>
+
+       
+        <div className="grid gap-8 md:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+
+      </section>
+    </main>
+  );
+}

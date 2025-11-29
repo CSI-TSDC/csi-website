@@ -1,46 +1,91 @@
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
 
-const Vision = () => {
-  const [isHovered, setIsHovered] = useState(false)
+export default function Vision() {
+  const textRef = useRef(null)
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    if (!textRef.current || !videoRef.current) return
+
+    // initial states
+    gsap.set(textRef.current, { opacity: 1, scale: 1 })
+    gsap.set(videoRef.current, { opacity: 0, scale: 0.95 })
+  }, [])
+
+  const handleMouseEnter = () => {
+    if (!textRef.current || !videoRef.current) return
+
+    gsap.to(textRef.current, {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.3,
+      ease: 'power2.out',
+    })
+
+    gsap.to(videoRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.35,
+      ease: 'power2.out',
+    })
+  }
+
+  const handleMouseLeave = () => {
+    if (!textRef.current || !videoRef.current) return
+
+    gsap.to(videoRef.current, {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.3,
+      ease: 'power2.out',
+    })
+
+    gsap.to(textRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.35,
+      ease: 'power2.out',
+    })
+  }
 
   return (
     <section
       id="what-we-are"
-      className="w-full min-h-screen px-6 md:px-12 pt-16 md:pt-24 pb-12 font-youth-bold"
+      className="w-full min-h-screen px-6 md:px-12 pt-16 md:pt-24 pb-12 font-youth-bold flex flex-col items-center"
     >
-      <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
-        <motion.video
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="absolute inset-0 w-full h-full object-cover"
+      <div className="max-w-6xl mx-auto mb-10 text-center">
+        <h2 className="text-4xl md:text-7xl font-bold mb-4">Our <span className='text-[#EF4444]'>Vision..</span></h2>
+      </div>
+
+
+      <div
+        className="relative max-w-6xl w-full aspect-[16/9] flex items-center justify-center rounded-3xl overflow-hidden cursor-pointer"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+
+        <p
+          ref={el => (textRef.current = el)} 
+          className="text-3xl md:text-9xl text-center uppercase tracking-tighter  z-10 pointer-events-none"
+        >
+          FOR THE STUDENTS,
+          <br />
+          BY THE STUDENTS
+        </p>
+
+        <video
+          ref={el => (videoRef.current = el)} 
+          className="absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl"
           autoPlay
           muted
           loop
           playsInline
           src="/assets/test.mp4"
         />
-
-        <div
-          className="relative z-10 flex h-full w-full items-center justify-center text-center px-6"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <div className="space-y-4 text-black drop-shadow-2xl">
-            <h2 className="text-lg md:text-2xl uppercase tracking-[0.4em]">
-              Our Vision
-            </h2>
-            <h3 className="text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tight leading-tight">
-              <span className="block">BY THE STUDENTS</span>
-              <span className="block">FOR THE STUDENTS</span>
-            </h3>
-          </div>
-        </div>
       </div>
     </section>
   )
 }
-
-export default Vision
