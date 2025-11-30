@@ -12,6 +12,10 @@ module.exports = {
   			'youth-bold': [
   				'Youth',
   				'sans-serif'
+  			],
+			'satoshi': [
+  				'Satoshi',
+  				'sans-serif'
   			]
   		},
   		borderRadius: {
