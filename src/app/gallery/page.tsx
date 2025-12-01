@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import DotGrid from "@/components/DotGrid";
 
 function SpotlightImage({ spotlight }) {
   const imgRef = useRef(null);
@@ -118,36 +119,46 @@ export default function CSIGallery() {
       : photos.filter((p) => p.tag === activeFilter);
 
   return (
-    <main className="min-h-screen bg-black/90 text-white">
-     
+    <main className="min-h-screen bg-white text-black relative">
+      <div className="fixed inset-0 z-0">
+        <DotGrid 
+          baseColor="#E5E7EB"
+          activeColor="#EF4444"
+          dotSize={4}
+          gap={24}
+          className="h-full w-full"
+          style={{}}
+        />
+      </div>
+      <div className="relative z-10">
       <section className="max-w-6xl mx-auto px-6 pt-16 pb-10 md:pt-24 md:pb-16 grid md:grid-cols-[1.2fr,1fr] gap-10 items-center">
         <div>
-          <p className="uppercase text-xs tracking-[0.3em] text-neutral-400 mb-3">
+          <p className="uppercase text-xs tracking-[0.3em] text-gray-600 mb-3">
             CSIxTTT · Gallery
           </p>
 
           <h1 className="text-4xl md:text-6xl font-semibold leading-tight mb-4">
             Moments we{" "}
             <span className="text-red-500">
-              broke <span className="text-white">&amp; fixed</span>
+              broke <span className="text-black">&amp; fixed</span>
             </span>{" "}
             the web.
           </h1>
 
-          <p className="text-neutral-400 max-w-xl text-sm md:text-base mb-6">
+          <p className="text-gray-600 max-w-xl text-sm md:text-base mb-6">
             Hackathons, sleepless nights, chai breaks, debugging therapy
             sessions – a visual archive of what it feels like to build with
             CSIxTTT.
           </p>
 
-          <div className="flex flex-wrap gap-3 text-xs md:text-sm text-neutral-300">
-            <span className="border border-neutral-700 rounded-full px-3 py-1">
+          <div className="flex flex-wrap gap-3 text-xs md:text-sm text-gray-700">
+            <span className="border border-gray-300 rounded-full px-3 py-1">
               #Hackathons
             </span>
-            <span className="border border-neutral-700 rounded-full px-3 py-1">
+            <span className="border border-gray-300 rounded-full px-3 py-1">
               #Workshops
             </span>
-            <span className="border border-neutral-700 rounded-full px-3 py-1">
+            <span className="border border-gray-300 rounded-full px-3 py-1">
               #Memories
             </span>
           </div>
@@ -166,8 +177,8 @@ export default function CSIGallery() {
               onClick={() => setActiveFilter(f)}
               className={`px-4 py-1.5 rounded-full text-xs md:text-sm whitespace-nowrap border transition-all ${
                 activeFilter === f
-                  ? "bg-white text-black border-white"
-                  : "border-neutral-700 text-neutral-300 hover:border-neutral-400"
+                  ? "bg-black text-white border-black"
+                  : "border-gray-300 text-gray-700 hover:border-gray-400 bg-white/50"
               }`}
             >
               {f}
@@ -198,11 +209,11 @@ export default function CSIGallery() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-xs uppercase tracking-[0.2em] text-neutral-300 mb-1">
+                <p className="text-xs uppercase tracking-[0.2em] text-white mb-1">
                   {photo.tag}
                 </p>
-                <p className="text-sm md:text-base font-medium">{photo.event}</p>
-                <p className="text-[11px] text-neutral-400">{photo.year}</p>
+                <p className="text-sm md:text-base font-medium text-white">{photo.event}</p>
+                <p className="text-[11px] text-white/80">{photo.year}</p>
               </div>
             </button>
           ))}
@@ -210,31 +221,32 @@ export default function CSIGallery() {
 
         
         <div className="space-y-6 hidden md:block">
-          <h3 className="text-sm uppercase tracking-[0.25em] text-neutral-500">
+          <h3 className="text-sm uppercase tracking-[0.25em] text-gray-500">
             curated moments
           </h3>
-          <ul className="space-y-4 text-sm text-neutral-300">
+          <ul className="space-y-4 text-sm text-gray-700">
             {photos.slice(0, 5).map((p) => (
               <li
                 key={p.id}
-                className="flex items-start gap-3 p-3 rounded-2xl border border-transparent hover:border-neutral-700 cursor-pointer transition"
+                className="flex items-start gap-3 p-3 rounded-2xl border border-transparent hover:border-gray-300 cursor-pointer transition bg-white/50"
                 onMouseEnter={() => setSpotlight(p)}
               >
-                <div className="w-14 h-14 rounded-xl overflow-hidden bg-neutral-800">
+                <div className="w-14 h-14 rounded-xl overflow-hidden bg-gray-200">
                   <img src={p.src} className="w-full h-full object-cover" />
                 </div>
 
                 <div>
-                  <p className="text-xs text-neutral-400">
+                  <p className="text-xs text-gray-500">
                     {p.year} · {p.tag}
                   </p>
-                  <p className="text-sm font-medium">{p.event}</p>
+                  <p className="text-sm font-medium text-gray-900">{p.event}</p>
                 </div>
               </li>
             ))}
           </ul>
         </div>
       </section>
+      </div>
     </main>
   );
 }

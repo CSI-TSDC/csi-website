@@ -169,22 +169,6 @@ const Footer = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-col">
-            <div className="mb-4">
-              <span>Get involved</span>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <div className="text-base mb-2">
-                <span>Become a Collaborator or Sponsor</span>
-              </div>
-              <button
-                onClick={handleSendMail}
-                className="w-max px-4 py-2 text-sm bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
-              >
-                Send a Mail
-              </button>
-            </div>
-          </div>
         </div>
       </footer>
       <div className="w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between">

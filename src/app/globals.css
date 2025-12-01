@@ -177,7 +177,24 @@ body {
   float: left;
 }
 
+.vision-bg {
+  min-width: 0px;
+  background-image: linear-gradient(rgba(249, 250, 252, 0.7), rgba(249, 250, 252, 0.7)), url(https://icons.hackclub.com/api/icons/0x8492a6/glyph:rep.svg);
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  position: relative;
+}
 
+.vision-hv {
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  position: absolute;
+  z-index: 2;
+  inset: 0px;
+  background-color: var(--theme-ui-colors-snow);
+  pointer-events: none;
+}
 
 @layer base {
   * {

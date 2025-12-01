@@ -62,7 +62,7 @@ export default function ProjectCard({ project }) {
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-        <div className="mb-3">
+        <div className="mb-5 border-y py-2">
           <h3 className="text-2xl font-semibold tracking-wide mb-1">
             {title}
           </h3>
@@ -71,27 +71,26 @@ export default function ProjectCard({ project }) {
           </p>
         </div>
 
-        <p className="text-gray-600 text-sm mb-4 flex-1">
+        <p className="text-gray-600 text-sm mb-5 flex-1">
           {description}
         </p>
 
-        <div className="flex flex-wrap items-center gap-2 mb-4">
-          {tags.map((tag, i) => (
-            <span
-              key={i}
-              className="text-xs bg-gray-100 rounded-full px-3 py-1 font-medium text-gray-700"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex justify-end">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 flex-1 min-w-0">
+            {tags.map((tag, i) => (
+              <span
+                key={i}
+                className="text-xs bg-gray-100 rounded-full px-3 py-2.5 font-medium text-gray-700 whitespace-nowrap"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-fit px-4 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200 text-sm font-medium"
+            className="inline-flex items-center justify-center gap-2 flex-shrink-0 px-4 py-2.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200 text-sm font-medium"
           >
           <svg
             className="w-4 h-4"

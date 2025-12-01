@@ -1,10 +1,14 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
+  
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +32,6 @@ const Navbar = () => {
     { href: '/#home', label: 'Home' },
     { href: '/#what-we-are', label: 'About Us' },
     { href: '/projects', label: 'Projects' },
-    { href: '/events', label: 'Events' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/team', label: 'Team' },
     { href: '#contact', label: 'Contact' },
@@ -46,8 +49,8 @@ const Navbar = () => {
 
       <nav 
         id='nav' 
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-          isScrolled ? 'bg-black/90' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300  ${
+          (isHomePage && !isScrolled) ? 'bg-transparent' : 'bg-white/90 border-b border-black'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -57,7 +60,9 @@ const Navbar = () => {
               <span>
                 <img src="/assets/images/csi_logo.png" alt="Logo" className="h-14" />
               </span>
-              <h1 className="text-white text-xl md:text-2xl font-bold font-youth-bold cursor-pointer transition-transform hover:scale-105">
+              <h1 className={`text-xl md:text-2xl font-bold font-youth-bold cursor-pointer transition-all duration-300 hover:scale-105 ${
+                (isHomePage && !isScrolled) ? 'text-white' : 'text-black'
+              }`}>
                 CSI x TSDC 
               </h1>
             </div>
@@ -69,7 +74,11 @@ const Navbar = () => {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-white text-sm md:text-base font-medium hover:text-blue-400 transition-colors duration-200 cursor-pointer py-2 px-3 rounded-md hover:bg-white/5"
+                      className={`text-sm md:text-base font-medium transition-colors duration-200 cursor-pointer py-2 px-3 rounded-md ${
+                        (isHomePage && !isScrolled)
+                          ? 'text-white hover:text-blue-400 hover:bg-white/5' 
+                          : 'text-black hover:text-blue-600 hover:bg-black/5'
+                      }`}
                     >
                       {link.label}
                     </a>
@@ -82,7 +91,9 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={toggleMenu}
-                className="text-white hover:text-blue-400 transition-colors p-2 relative z-50"
+                className={`transition-colors p-2 relative z-50 ${
+                  (isHomePage && !isScrolled) ? 'text-white hover:text-blue-400' : 'text-black hover:text-blue-600'
+                }`}
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
@@ -100,7 +111,11 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           <div
-            className={`md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-b border-white/10 transition-all duration-300 ease-in-out ${
+            className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-lg border-b transition-all duration-300 ease-in-out ${
+              (isHomePage && !isScrolled)
+                ? 'bg-black/95 border-white/10' 
+                : 'bg-white/95 border-black/10'
+            } ${
               isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
             }`}
           >
@@ -110,7 +125,11 @@ const Navbar = () => {
                   <a
                     href={link.href}
                     onClick={closeMenu}
-                    className="block text-white text-base font-medium hover:text-blue-400 transition-colors duration-200 cursor-pointer py-3 px-4 rounded-md hover:bg-white/10"
+                    className={`block text-base font-medium transition-colors duration-200 cursor-pointer py-3 px-4 rounded-md ${
+                      (isHomePage && !isScrolled)
+                        ? 'text-white hover:text-blue-400 hover:bg-white/10'
+                        : 'text-black hover:text-blue-600 hover:bg-black/10'
+                    }`}
                   >
                     {link.label}
                   </a>
