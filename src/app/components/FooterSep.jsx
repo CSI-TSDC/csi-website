@@ -21,7 +21,7 @@ export default function FooterSep() {
                 <div className="flex flex-col space-y-2">
                     <h2 className="text-7xl font-medium">Get Involved</h2>
                     <p className="text-2xl">
-                        <span className="block float-left">We&apos;ve got a lot going on</span>
+                        <span className="block float-left">We've got a lot going on</span>
                         <span className="block float-left clear-both">Want to Become a Collaborator / Sponsor ?</span>
                     </p>
                 </div>

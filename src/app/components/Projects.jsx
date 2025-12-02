@@ -35,10 +35,21 @@ export default function CaseStudies() {
           <span className="text-red-500">See What We Build..</span>
         </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
         {caseStudies.map((study, idx) => (
           <ProjectCard key={idx} project={study} />
         ))}
+      </div>
+
+      <div className="flex justify-center">
+        <button className="inline-flex items-center gap-4 px-6 py-4 bg-blue-900 text-white rounded-full font-semibold shadow-lg hover:bg-blue-800 transition-colors duration-200 text-lg">
+          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+            <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+          <span>View More</span>
+        </button>
       </div>
     </section>
   );

@@ -22,7 +22,6 @@ const Hero = () => {
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    // Check if already in view on mount (for Hero section at top of page)
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
@@ -48,117 +47,65 @@ const Hero = () => {
           "url('/assets/images/bg1.jpg')",
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
       
-      {/* Hero Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center space-y-20 text-white/80 stroke-white pt-20 md:pt-24 px-6 font-youth-bold flex-1">
-        <div className="w-full flex flex-row items-center justify-center text-[18vw]/[14vw]" id="hero-text">
-          <div className="">
-              <span>
-                <AnimatedLetter delay={0} isInView={isInView}>C</AnimatedLetter>
-              </span>
-              <span>
-                <AnimatedLetter delay={0.1} isInView={isInView}>S</AnimatedLetter>
-              </span>
-              <span>
-                <AnimatedLetter delay={0.2} isInView={isInView}>I</AnimatedLetter>
-              </span>
-            </div>
-            <div>
-              <span>
-                <AnimatedLetter delay={0.3} isInView={isInView}>x</AnimatedLetter>
-              </span>
-            </div>
-            <div>
-              <span>
-                <AnimatedLetter delay={0.4} isInView={isInView}>T</AnimatedLetter>
-              </span>
-              <span>
-                <AnimatedLetter delay={0.5} isInView={isInView}>S</AnimatedLetter>
-              </span>
-              <span>
-                <AnimatedLetter delay={0.6} isInView={isInView}>D</AnimatedLetter>
-              </span>
-              <span>
-                <AnimatedLetter delay={0.7} isInView={isInView}>C</AnimatedLetter>
-              </span>
-            </div>
+      <div className="relative z-10 flex flex-col justify-center px-12 md:px-20 lg:px-28 xl:px-32 h-full max-w-7xl mx-auto w-full">
+        <div className="flex flex-col gap-8 md:gap-10">
+          <div className="text-left">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6"
+            >
+              WELCOME TO CSI X TSDC
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl"
+            >
+              At the CSI Committee of TSDC, we believe growth happens when students learn together. We host events, share knowledge, and create hands-on opportunities that help students discover what they&apos;re capable of.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group backdrop-blur-sm bg-white/5"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:scale-105 transition-transform">
+                Build
+              </h3>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="md:row-span-2 border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group flex items-center justify-center min-h-[150px] md:min-h-[240px] backdrop-blur-sm bg-white/5"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:scale-105 transition-transform">
+                Learn
+              </h3>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group backdrop-blur-sm bg-white/5"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:scale-105 transition-transform">
+                Organize
+              </h3>
+            </motion.div>
+          </div>
         </div>
-        <h2 id="hero-line" className="text-5xl md:text-4xl font-bold leading-snug text-white">
-          <span className="space-x-2">
-            <span>
-              <AnimatedLetter delay={0.8} isInView={isInView}>Together</AnimatedLetter>
-            </span>
-            {" "}
-            <span>
-              <AnimatedLetter delay={0.85} isInView={isInView}>We</AnimatedLetter>
-            </span>
-            {" "}
-            <span className="relative inline-block">
-              <motion.span
-                className="absolute inset-0 bg-red-500 rounded-xl shadow-lg -rotate-3"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ 
-                  duration: 0.4, 
-                  ease: 'easeOut',
-                  delay: 0.7 + 1.3
-                }}
-                style={{ zIndex: 0 }}
-              />
-              <span className="relative px-3 py-1 text-white" style={{ zIndex: 1 }}>
-                <AnimatedLetter delay={0.9} isInView={isInView}>Code,</AnimatedLetter>
-              </span>
-            </span>
-            {" "}
-            <span className="relative inline-block">
-              <motion.span
-                className="absolute inset-0 bg-blue-500 rounded-xl shadow-lg -rotate-3"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ 
-                  duration: 0.4, 
-                  ease: 'easeOut',
-                  delay: 0.8 + 1.3 
-                }}
-                style={{ zIndex: 0 }}
-              />
-              <span className="relative px-3 py-1 text-white" style={{ zIndex: 1 }}>
-                <AnimatedLetter delay={1.0} isInView={isInView}>Create,</AnimatedLetter>
-              </span>
-            </span>
-            {" "}
-            <span>
-              <AnimatedLetter delay={1.1} isInView={isInView}>and</AnimatedLetter>
-            </span>
-            {" "}
-            <span className="relative inline-block">
-              <motion.span
-                className="absolute inset-0 bg-orange-500 rounded-xl shadow-lg -rotate-3"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ 
-                  duration: 0.4, 
-                  ease: 'easeOut',
-                  delay: 0.9 + 1.3 
-                }}
-                style={{ zIndex: 0 }}
-              />
-              <span className="relative px-3 py-1 text-white" style={{ zIndex: 1 }}>
-                <AnimatedLetter delay={1.15} isInView={isInView}>Conquer</AnimatedLetter>
-              </span>
-            </span>
-          </span>
-        </h2>
-        <button
-          className="px-8 py-4 mt-6 relative rounded-2xl text-white font-medium backdrop-blur-xl border border-white/10 transition-all duration-300 text-base md:text-lg hover:bg-white/20"
-          style={{
-            background: "rgba(255,255,255,0.08)",
-          }}
-        >
-          Let&apos;s Explore
-        </button>
       </div>
     </section>
   );

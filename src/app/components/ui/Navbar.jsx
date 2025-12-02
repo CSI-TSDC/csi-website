@@ -8,11 +8,10 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
   
-  const isHomePage = pathname === '/'
+  const isHomePage = pathname === '/' || pathname === '/teams'
 
   useEffect(() => {
     const handleScroll = () => {
-      // Add blur effect after scrolling 50px
       setIsScrolled(window.scrollY > 50)
     }
 
@@ -29,11 +28,11 @@ const Navbar = () => {
   }
 
   const navLinks = [
-    { href: '/#home', label: 'Home' },
+    { href: '/', label: 'Home' },
     { href: '/#what-we-are', label: 'About Us' },
     { href: '/projects', label: 'Projects' },
     { href: '/gallery', label: 'Gallery' },
-    { href: '/team', label: 'Team' },
+    { href: '/teams', label: 'Team' },
     { href: '#contact', label: 'Contact' },
   ]
 
@@ -49,8 +48,8 @@ const Navbar = () => {
 
       <nav 
         id='nav' 
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300  ${
-          (isHomePage && !isScrolled) ? 'bg-transparent' : 'bg-white/90 border-b border-black'
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b border-black  ${
+          (isHomePage && !isScrolled) ? 'bg-transparent' : 'bg-white/90 '
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
