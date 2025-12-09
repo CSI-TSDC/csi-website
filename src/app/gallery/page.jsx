@@ -107,7 +107,7 @@ export default function Gallery() {
               The gallery
             </h1>
             <p className="text-lg md:text-xl text-gray-600 mb-2">
-              The internet's source for visuals.
+              The internet&apos;s source for visuals.
             </p>
             <p className="text-sm text-gray-500 mb-8 flex items-center gap-2">
               Powered by creators everywhere.
@@ -137,7 +137,7 @@ export default function Gallery() {
                 <div className="absolute bottom-4 right-4 w-16 h-16 border-2 border-white/30 rounded-full"></div>
               </div>
               <h3 className="text-2xl font-bold mb-2 text-center">Gallery Awards 2025</h3>
-              <p className="text-sm text-white/80 text-center">The results are in. Celebrate this year's finalists 🎉</p>
+              <p className="text-sm text-white/80 text-center">The results are in. Celebrate this year&apos;s finalists 🎉</p>
             </div>
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 p-6 flex flex-col justify-between">
               <div>
