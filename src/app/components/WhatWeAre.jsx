@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import SpotlightCard from "@/components/SpotlightCard";
 
 const STATISTICS = [
@@ -22,17 +22,70 @@ const StatBox = ({ label, value }) => (
 );
 
 const WhatWeAre = () => {
+  const imageContainerRef = useRef(null);
+  const sectionRef = useRef(null);
+  const [scale, setScale] = useState(1.5);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || !imageContainerRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Start zooming when section enters viewport (top reaches viewport)
+      // Complete zooming when section has scrolled 50% of viewport height
+      const startPoint = windowHeight; // When section top reaches viewport top
+      const scrollDistance = windowHeight * 0.5; // Scroll 50% of viewport to complete
+      const endPoint = startPoint - scrollDistance;
+      
+      const sectionTop = rect.top;
+      
+      // Calculate progress: 0 when at startPoint, 1 when at endPoint
+      let progress = 0;
+      if (sectionTop <= startPoint && sectionTop >= endPoint) {
+        progress = (startPoint - sectionTop) / scrollDistance;
+      } else if (sectionTop < endPoint) {
+        progress = 1; // Fully zoomed out
+      }
+      
+      // Clamp progress between 0 and 1
+      progress = Math.max(0, Math.min(1, progress));
+      
+      // Map progress to scale: 1.5 (start) to 1 (end)
+      const newScale = 1.5 - (progress * 0.5);
+      
+      // Clamp scale between 1 and 1.5
+      const clampedScale = Math.max(1, Math.min(1.5, newScale));
+      
+      setScale(clampedScale);
+    };
+
+    // Initial calculation
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
   return (
-    <section id="what-we-are" className="w-full h-max py-24 md:py-32 ">
+    <section ref={sectionRef} id="what-we-are" className="w-full h-max py-24 md:py-32 ">
       <div className="w-full h-max flex flex-row justify-center font-satoshi items-stretch mx-auto max-w-4xl">
         <div className="flex flex-col w-1/2 px-8 justify-between space-y-6">
-          <div className="w-full h-[400px]">
+          <div ref={imageContainerRef} className="w-full h-[400px] overflow-hidden rounded-2xl">
             <img 
               src="/assets/images/def.jpg" 
-              className="w-full h-full object-cover rounded-2xl" 
+              className="w-full h-full object-cover rounded-2xl transition-transform duration-100 ease-out" 
               alt="Deserted Land"
-              loading="lazy"
-              decoding="async"
+              style={{
+                transform: `scale(${scale})`,
+                transformOrigin: 'center center'
+              }}
             />
           </div>
           <div className="space-y-6">

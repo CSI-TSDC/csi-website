@@ -27,9 +27,10 @@ const Folder = ({ project }) => {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    // Close both folder and file on hover out
-    setIsOpen(false);
-    setIsFileOpen(false);
+    // Don't close the folder if file is clicked open
+    if (!isFileOpen) {
+      setIsOpen(false);
+    }
   };
 
   // Show file on hover or when folder is clicked open

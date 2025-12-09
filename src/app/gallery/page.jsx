@@ -109,26 +109,12 @@ export default function Gallery() {
             <p className="text-lg md:text-xl text-gray-600 mb-2">
               The internet&apos;s source for visuals.
             </p>
-            <p className="text-sm text-gray-500 mb-8 flex items-center gap-2">
-              Powered by creators everywhere.
+            <p className="text-base md:text-lg text-gray-500 mb-4">
+              Explore our collection of memories from events, workshops, hackathons, and community gatherings.
             </p>
-            <div className="relative mb-8">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10">
-                <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                placeholder="Search photos and illustrations"
-                className="w-full pl-12 pr-14 py-4 rounded-lg border border-gray-300 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-black focus:bg-white text-base transition-colors"
-              />
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer">
-                <div className="w-6 h-6 border-2 border-gray-400 rounded flex items-center justify-center hover:border-gray-600 transition-colors">
-                  <div className="w-2 h-2 bg-gray-400 rounded-sm"></div>
-                </div>
-              </div>
-            </div>
+            <p className="text-sm md:text-base text-gray-400">
+              From tech fests to coding competitions, every moment captured tells a story of innovation and collaboration.
+            </p>
           </div>
           <div className="hidden md:grid grid-cols-2 gap-4">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-6 flex flex-col justify-center items-center text-white">
@@ -160,19 +146,25 @@ export default function Gallery() {
 
       {/* Year Selector */}
       <section className="max-w-7xl mx-auto px-6 mb-8">
-        <div className="flex items-center gap-4">
-          <label className="text-sm font-medium text-gray-700">Year:</label>
-          <select
-            value={selectedYear}
-            onChange={(e) => setSelectedYear(e.target.value)}
-            className="px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-black text-sm font-medium cursor-pointer hover:border-gray-400 transition-colors"
-          >
-            {years.map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
+        <div className="flex justify-center items-center">
+          <div className="relative inline-block">
+            <select
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(e.target.value)}
+              className="appearance-none bg-white border-2 border-gray-300 rounded-2xl px-8 py-4 pr-12 text-lg font-semibold text-gray-800 cursor-pointer hover:border-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-200 focus:border-gray-500 transition-all duration-200 shadow-sm hover:shadow-md min-w-[200px]"
+            >
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+              <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -1,13 +1,13 @@
 .card-spotlight {
   position: relative;
   border-radius: 1.5rem;
-  border: 1px solid #222;
-  background-color: #111;
+  border: 1px solid #1F3C88;
+  background-color: #1F3C88;
   padding: 2rem;
   overflow: hidden;
   --mouse-x: 50%;
   --mouse-y: 50%;
-  --spotlight-color: rgba(255, 255, 255, 0.05);
+  --spotlight-color: rgba(141, 168, 232, 0.3);
 }
 
 .card-spotlight::before {
@@ -21,7 +21,6 @@
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
-  will-change: opacity, background;
 }
 
 .card-spotlight:hover::before,

@@ -2,8 +2,8 @@
 
 import { useState, useRef } from "react";
 
-export default function ProjectCard({ project }) {
-  const { number, title, tags, subtitle, description, image, githubUrl } = project;
+// Parallax Image Container Component
+function ParallaxImageContainer({ image, alt }) {
   const containerRef = useRef(null);
   const [transform, setTransform] = useState({ x: 0, y: 0 });
 
@@ -29,23 +29,31 @@ export default function ProjectCard({ project }) {
   };
 
   return (
-    <article 
+    <div
       ref={containerRef}
-      className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
+      className="w-full h-48 md:h-64 overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
+      <img
+        src={image}
+        alt={alt}
+        className="w-full h-full object-cover transition-transform duration-300 ease-out"
+        style={{
+          transform: `scale(1.1) translate(${transform.x}px, ${transform.y}px)`,
+        }}
+      />
+    </div>
+  );
+}
+
+export default function ProjectCard({ project }) {
+  const { number, title, tags, subtitle, description, image, githubUrl } = project;
+
+  return (
+    <article className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
       <div className="relative">
-        <div className="w-full h-48 md:h-64 overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-300 ease-out"
-            style={{
-              transform: `scale(1.1) translate(${transform.x}px, ${transform.y}px)`,
-            }}
-          />
-        </div>
+        <ParallaxImageContainer image={image} alt={title} />
         <div className="absolute top-4 left-4">
           <span className="text-4xl font-extralight text-white/80 select-none">
             {number}
@@ -67,7 +75,17 @@ export default function ProjectCard({ project }) {
           {description}
         </p>
 
-        <div className="flex justify-end">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 flex-1 min-w-0">
+            {tags.map((tag, i) => (
+              <span
+                key={i}
+                className="text-xs bg-gray-100 rounded-full px-3 py-2.5 font-medium text-gray-700 whitespace-nowrap"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <a
             href={githubUrl}
             target="_blank"
