@@ -4,7 +4,6 @@ import Projects from './components/Projects'
 import Vision from './components/Vision'
 import WhatWeAre from './components/WhatWeAre'
 import FooterSep from './components/FooterSep'
-import Footer from './components/ui/Footer'
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Projects />
       <Events />
       <FooterSep />
-      <Footer />
     </main>
   )
 }

@@ -11,8 +11,8 @@ export default function Vision() {
     if (!textRef.current || !videoRef.current) return
 
     // initial states
-    gsap.set(textRef.current, { opacity: 1, scale: 1, color: '#000000' })
-    gsap.set(videoRef.current, { opacity: 0, scale: 1 })
+    // gsap.set(textRef.current, { opacity: 1, scale: 1, color: '#000000' })
+    // gsap.set(videoRef.current, { opacity: 0, scale: 1 })
   }, [])
 
   const handleMouseEnter = () => {
@@ -56,22 +56,22 @@ export default function Vision() {
   return (
     <section
       id="what-we-are"
-      className="w-full min-h-screen px-6 md:px-12 pt-16 md:pt-24 pb-12 font-youth-bold flex flex-col items-center vision-bg"
+      className="w-full min-h-screen px-6 md:px-12 py-12 font-youth-bold flex flex-col items-center vision-bg"
     >
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-4xl md:text-7xl font-bold">Our <span className='text-[#EF4444]'>Vision..</span></h2>
       </div>
 
 
       <div
-        className="relative max-w-6xl w-full aspect-[16/9] flex items-center justify-center rounded-3xl overflow-hidden cursor-pointer"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        className="relative max-w-7xl w-full aspect-[16/9] flex items-center justify-center rounded-3xl overflow-hidden cursor-pointer"
+        // onMouseEnter={handleMouseEnter}
+        // onMouseLeave={handleMouseLeave}
       >
 
         <p
           ref={el => (textRef.current = el)} 
-          className="text-3xl md:text-9xl text-center uppercase tracking-tighter z-20 pointer-events-none relative text-black"
+          className="text-3xl md:text-9xl text-center uppercase tracking-tighter z-20 pointer-events-none relative text-white"
         >
           FOR THE STUDENTS,
           <br />

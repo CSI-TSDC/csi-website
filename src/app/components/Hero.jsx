@@ -47,7 +47,7 @@ const Hero = () => {
           "url('/assets/images/bg1.jpg')",
       }}
     >
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/25"></div>
       
       <div className="relative z-10 flex flex-col justify-center px-12 md:px-20 lg:px-28 xl:px-32 h-full max-w-7xl mx-auto w-full">
         <div className="flex flex-col gap-8 md:gap-10">

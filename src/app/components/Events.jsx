@@ -2,7 +2,7 @@
 
 const Events = () => {
   return (
-    <section className="w-full py-12 md:py-16 px-8 md:px-16 lg:px-24 xl:px-32 bg-white">
+    <section className="w-full py-12 md:py-16 px-16 bg-white">
       <h2 className="text-4xl md:text-6xl font-bold text-center mb-12">
         Events,{" "}
         <span className="text-red-500">Where Innovation Meets Community..</span>
@@ -10,7 +10,7 @@ const Events = () => {
 
       <div className="flex flex-col items-center gap-8">
         {/* Event Card 1 - Envision */}
-        <article className="relative w-[80%] rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[100px] md:min-h-[300px]">
+        <article className="relative w-[70%] rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[100px] max-h-[300px]">
           {/* Background image */}
           <div className="absolute inset-0 rounded-3xl overflow-hidden">
             <img 
@@ -30,9 +30,9 @@ const Events = () => {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 p-8 md:p-12 flex flex-row items-center justify-center gap-8 min-h-[300px]">
+          <div className="relative z-10 p-4 md:p-6 flex flex-row items-center justify-center gap-8 h-full">
             <img 
-              className="w-64 md:w-80 flex-shrink-0" 
+              className="w-32 md:w-64 flex-shrink-0" 
               src="/assets/images/envision_logo.png" 
               alt="Envision Logo" 
             />
@@ -46,19 +46,19 @@ const Events = () => {
             <img 
               src="/assets/images/among3.png" 
               alt="Among3 decoration" 
-              className="w-20 md:w-32 lg:w-40 h-auto scale-x-[-1]"
+              className="w-16 md:w-28 lg:w-36 h-auto scale-x-[-1]"
             />
           </div>
         </article>
 
         {/* Event Card 2 - Moonshot */}
-        <article className="relative w-[80%] rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[100px] md:min-h-[300px]">
+        <article className="relative w-[70%] rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[100px] max-h-[400px]">
           {/* Background image */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 rounded-3xl overflow-hidden">
             <img 
               className="w-full h-full object-cover" 
               src="/assets/images/hackvisionbg.png" 
-              alt="HackVision Background" 
+              alt="HackVision Background"
             />
           </div>
 
@@ -71,8 +71,17 @@ const Events = () => {
             <div className="absolute bottom-20 right-32 w-2 h-2 bg-white rounded-full"></div>
           </div>
 
+          {/* Computer decoration on left */}
+          <div className="absolute left-0 bottom-6 -translate-x-1/4 z-20 pointer-events-none">
+            <img 
+              src="/assets/images/computer.png" 
+              alt="Computer decoration" 
+              className="w-32 md:w-48 lg:w-56 h-auto animate-float"
+            />
+          </div>
+
           {/* Content */}
-          <div className="relative z-10 p-8 md:p-12 flex flex-col items-center justify-center min-h-[300px]">
+          <div className="relative z-10 p-6 md:p-10 flex flex-col items-center justify-center">
             {/* HackVision Logo - Centered and Big */}
             <div className="mb-8 flex justify-center">
               <img 
@@ -81,7 +90,7 @@ const Events = () => {
                 alt="HackVision Logo" 
               />
             </div>
-
+            
             <div className="text-center">
               {/* Calendar and Location in one line */}
               <div className="flex items-center justify-center gap-4 mb-4 flex-wrap">

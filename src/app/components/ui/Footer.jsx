@@ -7,7 +7,7 @@ const Footer = () => {
   }
   return (
     <>
-      <footer id="Contact" className="w-full h-max py-4 md:py-8 px-8 md:px-16 min-h-[40vh] flex flex-wrap justify-between bg-white text-black font-satoshi font-normal border-b">
+      <footer id="footer" className="w-full border-t h-max py-4 md:py-8 px-8 md:px-16 min-h-[40vh] flex flex-wrap justify-between bg-black text-white font-satoshi font-normal border-b">
         <div className="flex flex-col space-y-4">
           <div className="relative font-medium text-3xl w-max">
             <span className="block float-left">Find us at</span>
@@ -171,7 +171,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between">
+      <div className="bg-black text-white w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between">
         <div>
           <span>Handcrafted by Tech Team</span>
         </div>

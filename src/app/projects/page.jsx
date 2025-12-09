@@ -1,97 +1,97 @@
 "use client";
 
+import ProjectCard from "../components/ui/ProjectCard";
+
 const projects = [
   {
-    id: 1,
-    image:
-      "https://static.vecteezy.com/system/resources/thumbnails/012/981/791/small/old-parchment-paper-sheet-vintage-aged-or-texture-background-png.png",
-    tag: "Speculative design",
+    number: "01",
     title: "Futuredraw",
+    tags: ["Speculative Design", "Gesture Tracking", "Prototyping"],
+    subtitle: "Knowledge Navigator",
     description:
-      "A knowledge navigator interface that allows users to seamlessly navigate information.",
-    skills: "Gesture tracking, Prototyping, Speculative",
-  },
-  {
-    id: 2,
-    image:
-      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1000&auto=format&fit=crop",
-    tag: "Product design",
-    title: "Campus Companion",
-    description:
-      "A lightweight app to help students discover events, resources, and opportunities around campus without the clutter.",
-    skills: "UX Research, UI Design, Systems Thinking",
-  },
-  {
-    id: 3,
+      "A knowledge navigator interface that allows users to seamlessly navigate information through intuitive gesture-based interactions. Built with speculative design principles and advanced prototyping techniques.",
     image:
       "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1000&auto=format&fit=crop",
-    tag: "Interaction design",
-    title: "Code Studio",
+    githubUrl: "https://github.com",
+  },
+  {
+    number: "02",
+    title: "Campus Companion",
+    tags: ["Product Design", "UX Research", "UI Design"],
+    subtitle: "Student Discovery Platform",
     description:
-      "An interactive dashboard that makes collaborating on workshops and hackathons intuitive for new members.",
-    skills: "Interaction, Prototyping, Motion",
+      "A lightweight app to help students discover events, resources, and opportunities around campus without the clutter. Designed with systems thinking and user-centered research methodologies.",
+    image:
+      "https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1000&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+  },
+  {
+    number: "03",
+    title: "Code Studio",
+    tags: ["Interaction Design", "Prototyping", "Motion"],
+    subtitle: "Collaboration Dashboard",
+    description:
+      "An interactive dashboard that makes collaborating on workshops and hackathons intuitive for new members. Features smooth motion design and thoughtful interaction patterns.",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1000&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+  },
+  {
+    number: "04",
+    title: "EventHub",
+    tags: ["Full Stack", "React", "Node.js"],
+    subtitle: "Event Management System",
+    description:
+      "A comprehensive event management platform for organizing and tracking tech events, workshops, and hackathons. Built with modern web technologies and scalable architecture.",
+    image:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+  },
+  {
+    number: "05",
+    title: "Design System Pro",
+    tags: ["Design Systems", "React", "Documentation"],
+    subtitle: "Component Library",
+    description:
+      "A comprehensive design system and component library for building consistent user interfaces. Includes detailed documentation, design tokens, and reusable React components.",
+    image:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000&auto=format&fit=crop",
+    githubUrl: "https://github.com",
+  },
+  {
+    number: "06",
+    title: "AI Assistant",
+    tags: ["AI/ML", "Natural Language", "Chatbot"],
+    subtitle: "Intelligent Helper",
+    description:
+      "An AI-powered assistant that helps users navigate complex information and perform tasks efficiently. Built with advanced natural language processing and machine learning capabilities.",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
+    githubUrl: "https://github.com",
   },
 ];
 
-function ProjectCard({ project }) {
+export default function ProjectsPage() {
   return (
-    <article className="relative rounded-3xl overflow-visible pb-10">
-
-     
-      <div className="relative w-full flex justify-center">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-[90%] rounded-md relative z-20 -mb-12 mt-6 border border-neutral-200"
-        />
-      </div>
-
-      
-      <div className="bg-[#FAFAFA] rounded-md border border-neutral-200 px-8 pt-14 pb-6 relative z-10 mx-0">
-
-       
-        <span className="inline-flex items-center px-3 py-1 rounded-full bg-neutral-200 text-neutral-700 text-xs mb-3">
-          {project.tag}
-        </span>
-
-      
-        <h3 className="text-lg md:text-xl font-semibold text-neutral-900 mb-2">
-          {project.title}
-        </h3>
-
-        
-        <p className="text-[14px] text-neutral-600 leading-relaxed mb-3">
-          {project.description}
-        </p>
-
-     
-        <p className="text-sm font-medium text-neutral-800">
-          {project.skills}
-        </p>
-      </div>
-    </article>
-  );
-}
-
-export default function page() {
-  return (
-    <main className="min-h-screen bg-[#FAF9F6] py-10 md:pt-10">
-      <section className="max-w-6xl mx-auto px-6 space-y-8">
-
-       
-        <header className="space-y-2 justify-center flex flex-col text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-semibold text-neutral-900">
-            Projects done by us..
+    <main className="min-h-screen bg-white pt-20 md:pt-24 pb-12 md:pb-16">
+      <section className="max-w-7xl mx-auto px-6 md:px-16">
+        {/* Header */}
+        <header className="text-center mb-12 md:mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            Projects,{" "}
+            <span className="text-red-500">See What We Build..</span>
           </h1>
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            Explore our collection of innovative projects, from design systems to AI-powered applications.
+          </p>
         </header>
 
-       
-        <div className="grid gap-8 md:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {projects.map((project, idx) => (
+            <ProjectCard key={idx} project={project} />
           ))}
         </div>
-
       </section>
     </main>
   );
