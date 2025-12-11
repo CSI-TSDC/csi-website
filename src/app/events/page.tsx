@@ -50,7 +50,7 @@ function SpotlightImage({ spotlight }) {
   return (
     <div
       ref={containerRef}
-      className="relative aspect-[4/5] md:aspect-[3/4] rounded-3xl overflow-hidden bg-neutral-900"
+      className="relative aspect-[4/5] md:aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-900"
     >
       <img
         ref={imgRef}
@@ -62,7 +62,7 @@ function SpotlightImage({ spotlight }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
      
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs md:text-sm z-20">
+      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] md:text-xs z-20">
         <div>
           <p className="font-medium">{spotlight?.event}</p>
           <p className="text-neutral-300">
@@ -106,16 +106,48 @@ const photos = [
   },
 ];
 
-const filters = ["All", "Hackathon", "Workshop", "Game Dev", "Mad Memories", "Blooper"];  
+const filters = ["Hackathon", "Workshop", "Game Dev", "Mad Memories", "Blooper"];
 
+const eventDetails = {
+  "Hackathon": {
+    logo: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=200&auto=format&fit=crop",
+    date: "March 15-17, 2025",
+    description: "Join us for an intense 48-hour coding marathon where innovation meets collaboration. Build groundbreaking projects, network with industry experts, and compete for exciting prizes. Whether you're a beginner or a seasoned developer, HackVision offers workshops, mentorship, and an unforgettable experience.",
+    background: "#e6e6e6"
+  },
+  "Workshop": {
+    logo: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=200&auto=format&fit=crop",
+    date: "Every Saturday, 10 AM - 2 PM",
+    description: "Hands-on learning sessions covering the latest technologies and frameworks. Our workshops are designed for all skill levels, featuring expert instructors, real-world projects, and collaborative learning. Topics range from web development and mobile apps to AI/ML and cloud computing.",
+    background: "#e6e6e6"
+  },
+  "Game Dev": {
+    logo: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=200&auto=format&fit=crop",
+    date: "April 5-6, 2025",
+    description: "Dive into game development with Unity, Unreal Engine, and modern web technologies. Learn game design principles, create your own playable prototypes, and showcase your creations. Perfect for both aspiring game developers and experienced programmers looking to expand their skills.",
+    background: "#e6e6e6"
+  },
+  "Mad Memories": {
+    logo: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=200&auto=format&fit=crop",
+    date: "Ongoing",
+    description: "A collection of unforgettable moments from our events - from epic fails to breakthrough moments, late-night debugging sessions to celebration victories. These are the stories that make our community special.",
+    background: "#e6e6e6"
+  },
+  "Blooper": {
+    logo: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200&auto=format&fit=crop",
+    date: "Ongoing",
+    description: "The funniest, most memorable bloopers from our events. Because sometimes the best moments happen when things don't go as planned. Laugh along with us as we celebrate the human side of coding.",
+    background: "#e6e6e6"
+  }
+};
 
 export default function CSIGallery() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState(null);
   const [spotlight, setSpotlight] = useState(photos[0]);
 
   const filteredPhotos =
-    activeFilter === "All"
-      ? photos
+    activeFilter === null
+      ? []
       : photos.filter((p) => p.tag === activeFilter);
 
   return (
@@ -131,41 +163,40 @@ export default function CSIGallery() {
         />
       </div>
       <div className="relative z-10">
-      <section className="max-w-6xl mx-auto px-6 pt-16 pb-10 md:pt-24 md:pb-16 grid md:grid-cols-[1.2fr,1fr] gap-10 items-center">
-        <div>
-          <p className="uppercase text-xs tracking-[0.3em] text-gray-600 mb-3">
-            CSIxTTT · Gallery
+      <section className="max-w-6xl mx-auto px-6 pb-20 pt-32 md:pb-28 md:pt-40 grid md:grid-cols-[1.1fr,0.9fr] gap-8 items-center">
+        <div className="space-y-4">
+          <p className="uppercase text-[11px] tracking-[0.26em] text-gray-600">
+            CSI x TSDC Events
           </p>
 
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight mb-4">
-            Moments we{" "}
+          <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
+            Everything we host.
             <span className="text-red-500">
-              broke <span className="text-black">&amp; fixed</span>
-            </span>{" "}
-            the web.
+              Everything we hustle for.
+            </span>
           </h1>
 
-          <p className="text-gray-600 max-w-xl text-sm md:text-base mb-6">
-            Hackathons, sleepless nights, chai breaks, debugging therapy
-            sessions – a visual archive of what it feels like to build with
-            CSIxTTT.
+          <p className="text-gray-600 max-w-xl text-sm md:text-base">
+          A mix of learning, chaos, collaboration, and chai-powered breakthroughs.
           </p>
 
-          <div className="flex flex-wrap gap-3 text-xs md:text-sm text-gray-700">
-            <span className="border border-gray-300 rounded-full px-3 py-1">
-              #Hackathons
+          <div className="flex flex-wrap gap-2.5 text-[11px] md:text-xs text-gray-700">
+            <span className="border border-gray-300 rounded-full px-3 py-1.5">
+              #TechFests
             </span>
-            <span className="border border-gray-300 rounded-full px-3 py-1">
+            <span className="border border-gray-300 rounded-full px-3 py-1.5">
+              #GameDev
+            </span>
+            <span className="border border-gray-300 rounded-full px-3 py-1.5">
               #Workshops
-            </span>
-            <span className="border border-gray-300 rounded-full px-3 py-1">
-              #Memories
             </span>
           </div>
         </div>
 
         
-        <SpotlightImage spotlight={spotlight} />
+        <div className="justify-self-center w-full max-w-sm sm:max-w-md md:max-w-[360px] lg:max-w-[420px]">
+          <SpotlightImage spotlight={spotlight} />
+        </div>
       </section>
 
      
@@ -187,65 +218,37 @@ export default function CSIGallery() {
         </div>
       </section>
 
-    =
-      <section className="max-w-6xl mx-auto px-6 pb-16 grid md:grid-cols-[1.4fr,1fr] gap-10">
-     
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
-          {filteredPhotos.map((photo) => (
-            <button
-              key={photo.id}
-              onMouseEnter={() => setSpotlight(photo)}
-              className={`relative group overflow-hidden rounded-2xl bg-neutral-900 ${
-                photo.size === "tall" ? "row-span-2 aspect-[3/4]" : ""
-              } ${photo.size === "wide" ? "col-span-2 aspect-[16/9]" : ""} ${
-                !photo.size || photo.size === "square" ? "aspect-square" : ""
-              }`}
-            >
-              <img
-                src={photo.src}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      {activeFilter && eventDetails[activeFilter] && (
+        <section 
+          className="max-w-6xl mx-auto px-6 pb-16 pt-8"
+          style={{ backgroundColor: eventDetails[activeFilter].background }}
+        >
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Event Logo */}
+            <div className="flex justify-center">
+              <img 
+                src={eventDetails[activeFilter].logo} 
+                alt={`${activeFilter} logo`}
+                className="h-24 w-24 md:h-32 md:w-32 object-contain rounded-2xl"
               />
+            </div>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* Event Date */}
+            <div className="text-center">
+              <p className="text-lg md:text-xl font-semibold text-gray-800">
+                {eventDetails[activeFilter].date}
+              </p>
+            </div>
 
-              <div className="absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-xs uppercase tracking-[0.2em] text-white mb-1">
-                  {photo.tag}
-                </p>
-                <p className="text-sm md:text-base font-medium text-white">{photo.event}</p>
-                <p className="text-[11px] text-white/80">{photo.year}</p>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        
-        <div className="space-y-6 hidden md:block">
-          <h3 className="text-sm uppercase tracking-[0.25em] text-gray-500">
-            curated moments
-          </h3>
-          <ul className="space-y-4 text-sm text-gray-700">
-            {photos.slice(0, 5).map((p) => (
-              <li
-                key={p.id}
-                className="flex items-start gap-3 p-3 rounded-2xl border border-transparent hover:border-gray-300 cursor-pointer transition bg-white/50"
-                onMouseEnter={() => setSpotlight(p)}
-              >
-                <div className="w-14 h-14 rounded-xl overflow-hidden bg-gray-200">
-                  <img src={p.src} className="w-full h-full object-cover" />
-                </div>
-
-                <div>
-                  <p className="text-xs text-gray-500">
-                    {p.year} · {p.tag}
-                  </p>
-                  <p className="text-sm font-medium text-gray-900">{p.event}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+            {/* Event Description */}
+            <div className="text-center max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                {eventDetails[activeFilter].description}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
       </div>
     </main>
   );

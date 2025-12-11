@@ -56,7 +56,7 @@ export default function Vision() {
   return (
     <section
       id="what-we-are"
-      className="w-full min-h-screen px-6 md:px-12 py-12 font-youth-bold flex flex-col items-center vision-bg"
+      className="w-full min-h-screen px-6 md:px-12 py-12 font-youth-bold flex flex-col items-center"
     >
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-4xl md:text-7xl font-bold">Our <span className='text-[#EF4444]'>Vision..</span></h2>

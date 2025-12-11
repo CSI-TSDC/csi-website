@@ -2,243 +2,177 @@
 
 import Image from "next/image";
 
-const TeamMemberImage = ({
-  src,
-  alt,
-  width,
-  height,
-  name,
-  designation,
-  className = "",
-}) => {
+const directors = [
+  {
+    name: "Mike Jordan",
+    designation: "Managing Director",
+    src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Ian Lowe",
+    designation: "Technical Director",
+    src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Matt Ross",
+    designation: "Commercial Director",
+    src: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Nigel Baker",
+    designation: "Operations Director",
+    src: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Laura Green",
+    designation: "Finance Director",
+    src: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Priya Kapoor",
+    designation: "Strategy Director",
+    src: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+const heads = [
+  {
+    name: "Ava Hart",
+    designation: "Head of Product",
+    src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Liam Chen",
+    designation: "Head of Engineering",
+    src: "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Sofia Reyes",
+    designation: "Head of Operations",
+    src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    name: "Ethan Wright",
+    designation: "Head of Marketing",
+    src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+const TeamCard = ({ name, designation, src }) => {
   return (
-    <div
-      className={`relative group overflow-hidden rounded-2xl ${className}`}
+    <article
+      className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-slate-200 transition transform-gpu duration-300 ease-out hover:-translate-y-3 hover:-rotate-2 hover:scale-[1.03] hover:bg-sky-100 hover:shadow-2xl hover:ring-2 hover:ring-sky-300"
     >
-      {/* Image */}
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-        unoptimized
-      />
-
-      {/* Dark overlay */}
-      <div
-        className="absolute inset-0 bg-black/50 transition-opacity duration-500 ease-out group-hover:opacity-0"
-      />
-
-      {/* Text content */}
-      <div
-        className="absolute bottom-4 left-4 right-4 z-10 transition-all duration-500 ease-out
-                   group-hover:translate-y-2 group-hover:opacity-0"
-      >
-        <p className="text-white font-semibold text-sm md:text-base">
+      <div className="relative h-[22rem] w-full bg-slate-100">
+        <Image
+          src={src}
+          alt={name}
+          fill
+          className="object-cover"
+          sizes="(min-width: 1280px) 320px, (min-width: 768px) 45vw, 100vw"
+          unoptimized
+        />
+      </div>
+      <div className="px-6 py-5 text-left">
+        <p className="text-lg font-semibold text-slate-900 group-hover:text-slate-900">
           {name}
         </p>
-        <p className="text-white/80 text-xs md:text-sm">
+        <p className="text-sm font-medium text-slate-600 group-hover:text-slate-700">
           {designation}
         </p>
       </div>
-    </div>
+    </article>
   );
 };
 
 const Team = () => {
-  // Marquee images data - all same size
-  const marqueeImages = [
-    {
-      src: "https://media.istockphoto.com/id/1399565382/photo/young-happy-mixed-race-businessman-standing-with-his-arms-crossed-working-alone-in-an-office.jpg?s=612x612&w=0&k=20&c=buXwOYjA_tjt2O3-kcSKqkTp2lxKWJJ_Ttx2PhYe3VM=",
-      alt: "Team member",
-      width: 300,
-      height: 300,
-      className: "h-[28vh] w-[28vh] shrink-0",
-      style: { clipPath: "polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)" },
-      name: "John Doe",
-      designation: "CEO",
-    },
-    {
-      src: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
-      alt: "Team member",
-      width: 300,
-      height: 300,
-      className: "h-[28vh] w-[28vh] shrink-0 rounded-full overflow-hidden",
-      name: "Jane Doe",
-      designation: "CTO",
-    },
-    {
-      src: "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?semt=ais_hybrid&w=740&q=80",
-      alt: "Team member",
-      width: 300,
-      height: 300,
-      className: "h-[28vh] w-[28vh] shrink-0 rounded-md overflow-hidden",
-      name: "John Doe",
-      designation: "CEO",
-    },
-    {
-      src: "https://media.istockphoto.com/id/1399565382/photo/young-happy-mixed-race-businessman-standing-with-his-arms-crossed-working-alone-in-an-office.jpg?s=612x612&w=0&k=20&c=buXwOYjA_tjt2O3-kcSKqkTp2lxKWJJ_Ttx2PhYe3VM=",
-      alt: "Team member",
-      width: 300,
-      height: 300,
-      className: "h-[28vh] w-[28vh] shrink-0",
-      style: { clipPath: "polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)" },
-      name: "John Doe",
-      designation: "CEO",
-    },
-    {
-      src: "https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
-      alt: "Team member",
-      width: 300,
-      height: 300,
-      className: "h-[28vh] w-[28vh] shrink-0 rounded-full overflow-hidden",
-      name: "John Doe",
-      designation: "CEO",
-    },
-    {
-      src: "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?semt=ais_hybrid&w=740&q=80",
-      alt: "Team member",
-      width: 300,
-      height: 300,
-      className: "h-[28vh] w-[28vh] shrink-0 rounded-md overflow-hidden",
-      name: "John Doe",
-      designation: "CEO",
-    }
-  ];
-
-  // Grid images data
-  const gridImageSrc = "https://img.freepik.com/free-photo/young-bearded-man-with-denim-shirt_273609-7230.jpg?semt=ais_hybrid&w=740&q=80";
   return (
-    <div className="min-h-screen w-full overflow-hidden">
-      <div className="items-center justify-center flex w-full border-b-[8px] md:border-b-[12px] border-black bg-[#00BFFF] h-[60vh] pt-16 md:pt-20 overflow-hidden relative">
-        {/* Marquee container */}
-        <div className="absolute inset-0 flex items-center overflow-hidden">
-          <div className="flex animate-marquee whitespace-nowrap">
-            {/* 1st set of images */}
-            <div className="flex items-center gap-8 md:gap-12 shrink-0">
-              {marqueeImages.map((img, i) => (
-                <TeamMemberImage key={`marquee1-${i}`} {...img} />
+    <main className="min-h-screen bg-[#e6e6e6]">
+      <section className="relative isolate overflow-hidden px-6 pb-20 pt-32 md:pb-28 md:pt-40 teams-h-bg">
+        <div className="absolute inset-0 -z-10 grid-bg" />
+        <div className="mx-auto flex max-w-5xl flex-col gap-6 text-left text-white">
+          <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+            Meet The Team
+          </h1>
+          <div className="space-y-4 text-base md:text-lg">
+            <p>
+              Summit Systems partners closely with our customers and suppliers,
+              ensuring exceptional outcomes through unwavering commitment,
+              dedication, and trust. We deliver cutting-edge technical solutions
+              that delight project leaders and exceed expectations in Plastics
+              Automation, Process Cooling, Material Handling, and Recycling
+              Materials.
+            </p>
+            <p>
+              With over 35 years of industry experience, we have assembled a
+              top-tier team ready to support your business and help it thrive.
+            </p>
+            <p>Meet the team below!</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-16 md:py-24">
+        <div className="mx-auto flex max-w-6xl flex-col text-left">
+          <h2 className="text-center pb-16 md:pb-24 text-3xl font-bold uppercase tracking-wide text-slate-900 md:text-5xl">
+            The Directors
+          </h2>
+          <div className="flex flex-col gap-12">
+            <div className="flex flex-wrap justify-center gap-8">
+              {directors.slice(0, 2).map((person) => (
+                <div key={person.name} className="w-full max-w-sm sm:w-[320px]">
+                  <TeamCard {...person} />
+                </div>
               ))}
             </div>
 
-            {/* 2nd set of images (duplicate for seamless scroll) */}
-            <div className="flex items-center gap-8 md:gap-12 shrink-0">
-              {marqueeImages.map((img, i) => (
-                <TeamMemberImage key={`marquee2-${i}`} {...img} />
+            <div className="flex flex-row w-full h-max">
+              <div className="grid grid-rows-2 md:grid-cols-2 gap-8 justify-between w-full h-max">
+                <div className="grid gap-8 w-full grid-cols-2">
+                  {directors.slice(2, 4).map((person) => (
+                    <div key={person.name} className="w-full col-span-1">
+                      <TeamCard {...person} />
+                    </div>
+                  ))}
+                </div>
+                <div className="grid gap-8 w-full grid-cols-2">
+                  {directors.slice(4, 6).map((person) => (
+                    <div key={person.name} className="w-full col-span-1">
+                      <TeamCard {...person} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 md:pb-24">
+        <div className="mx-auto flex max-w-6xl flex-col text-left">
+          <h2 className="text-center pb-16 md:pb-24 text-3xl font-bold uppercase tracking-wide text-slate-900 md:text-5xl">
+            The Heads
+          </h2>
+
+          <div className="flex gap-8 justify-between w-full">
+            <div className="flex flex-col gap-8 w-full max-w-[520px]">
+              {heads.slice(0, 2).map((person) => (
+                <div key={person.name} className="w-full">
+                  <TeamCard {...person} />
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-col gap-8 w-full max-w-[520px]">
+              {heads.slice(2, 4).map((person) => (
+                <div key={person.name} className="w-full">
+                  <TeamCard {...person} />
+                </div>
               ))}
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="w-full px-8 md:px-12 lg:px-16 xl:px-20 py-12 md:py-16 font-satoshi font-bold">
-        <div className="flex flex-col md:flex-row justify-center items-center tracking-tight text-[14vw] leading-[13vw] md:text-[10vw] md:leading-[8vw]">
-
-          <div className="flex md:mr-8">
-            {["M", "E", "E", "T"].map((char, i) => (
-              <span key={i} className="float-left">{char}</span>
-            ))}
-          </div>
-
-          <div className="flex flex-row mt-4 md:mt-0">
-            <div className="flex mr-8">
-              {["T", "H", "E"].map((char, i) => (
-                <span key={i} className="float-left">{char}</span>
-              ))}
-            </div>
-
-            <div className="flex">
-              {["T", "E", "A", "M"].map((char, i) => (
-                <span key={i} className="float-left">{char}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Pyramid grid of team cards */}
-      <div className="mx-auto mt-8 mb-16 flex flex-col items-center gap-4 md:gap-6 w-full max-w-7xl">
-        {/* Row 1 - 2 cards */}
-        <div className="grid grid-cols-2 gap-4 md:gap-6 w-full justify-items-center">
-          {[
-    { name: "Jane Doe", designation: "Product Designer" },
-    { name: "John Smith", designation: "Frontend Developer" }].map((i, idx) => (
-            <TeamMemberImage
-              key={`row1-${idx}`}
-              src={gridImageSrc}
-              alt="Team member"
-              width={200}
-              height={267}
-              className="w-[180px] md:w-[200px] aspect-[3/4] rounded-2xl overflow-hidden bg-gray-200"
-              { ...i }
-            />
-          ))}
-        </div>
-
-        {/* Row 2 - 4 cards */}
-        <div className="grid grid-cols-4 gap-4 md:gap-6 w-full justify-items-center">
-          {[
-      { name: "Jane Doe", designation: "Product Designer" },
-    { name: "John Smith", designation: "Frontend Developer" },
-    { name: "Alex Brown", designation: "UI Engineer" },
-    { name: "Sarah Lee", designation: "Project Manager" },
-  ].map((i, idx) => (
-            <TeamMemberImage
-              key={`row2-${idx}`}
-              src={gridImageSrc}
-              alt="Team member"
-              width={200}
-              height={267}
-              className="w-[180px] md:w-[200px] aspect-[3/4] rounded-2xl overflow-hidden bg-gray-200"
-              { ...i }
-            />
-          ))}
-        </div>
-
-        {/* Row 3 - 5 cards */}
-        <div className="grid grid-cols-5 gap-4 md:gap-6 w-full justify-items-center">
-          {[
-    { name: "Jane Doe", designation: "Product Designer" },
-    { name: "John Smith", designation: "Frontend Developer" },
-    { name: "Alex Brown", designation: "UI Engineer" },
-    { name: "Sarah Lee", designation: "Project Manager" },
-    { name: "Sarah Lee", designation: "Project Manager" },
-  ].map((i, idx) => (
-            <TeamMemberImage
-              key={`row3-${idx}`}
-              src={gridImageSrc}
-              alt="Team member"
-              width={200}
-              height={267}
-              className="w-[180px] md:w-[200px] aspect-[3/4] rounded-2xl overflow-hidden bg-gray-200"
-              { ...i }
-            />
-          ))}
-        </div>
-
-        {/* Row 4 - 5 cards */}
-        <div className="grid grid-cols-5 gap-4 md:gap-6 w-full justify-items-center">
-          {[
-    { name: "Jane Doe", designation: "Product Designer" },
-    { name: "John Smith", designation: "Frontend Developer" },
-    { name: "Alex Brown", designation: "UI Engineer" },
-    { name: "Sarah Lee", designation: "Project Manager" },
-    { name: "Sarah Lee", designation: "Project Manager" },
-  ].map((i, idx) => (
-            <TeamMemberImage
-              key={`row4-${idx}`}
-              src={gridImageSrc}
-              alt="Team member"
-              width={200}
-              height={267}
-              className="w-[180px] md:w-[200px] aspect-[3/4] rounded-2xl overflow-hidden bg-gray-200"
-              { ...i }
-            />
-          ))}
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

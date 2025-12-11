@@ -75,7 +75,7 @@ const WhatWeAre = () => {
 
   return (
     <section ref={sectionRef} id="what-we-are" className="w-full h-max py-24 md:py-32 ">
-      <div className="w-full h-max flex flex-row justify-center font-satoshi items-stretch mx-auto max-w-4xl">
+      <div className="w-full h-max flex flex-row justify-center font-satoshi items-stretch mx-auto max-w-5xl">
         <div className="flex flex-col w-1/2 px-8 justify-between space-y-6">
           <div ref={imageContainerRef} className="w-full h-[400px] overflow-hidden rounded-2xl">
             <img 

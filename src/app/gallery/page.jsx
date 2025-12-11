@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const photos = [
   {
@@ -91,61 +91,97 @@ const photos = [
 
 export default function Gallery() {
   const [selectedYear, setSelectedYear] = useState("All");
-  const years = ["All", "2024", "2025", "2026"];
+  const highlightImages = photos.slice(0, 6);
+  const [highlightIndex, setHighlightIndex] = useState(0);
+  const [previewImage, setPreviewImage] = useState(null);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setHighlightIndex((i) => (i + 1) % highlightImages.length);
+    }, 3200);
+    return () => clearInterval(id);
+  }, [highlightImages.length]);
+
+  const years = ["Year", "2024", "2025", "2026"];
 
   const filteredPhotos = photos.filter((p) => {
     return selectedYear === "All" || p.year === selectedYear;
   });
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#E6E6E6]">
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 pt-16 pb-10 md:pt-24 md:pb-16">
-        <div className="grid md:grid-cols-[1.2fr,1fr] gap-12 items-center">
-          <div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 text-black">
-              The gallery
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-2">
-              The internet&apos;s source for visuals.
-            </p>
-            <p className="text-base md:text-lg text-gray-500 mb-4">
-              Explore our collection of memories from events, workshops, hackathons, and community gatherings.
-            </p>
-            <p className="text-sm md:text-base text-gray-400">
-              From tech fests to coding competitions, every moment captured tells a story of innovation and collaboration.
-            </p>
-          </div>
-          <div className="hidden md:grid grid-cols-2 gap-4">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 p-6 flex flex-col justify-center items-center text-white">
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-4 left-4 w-16 h-16 border-2 border-white/30 rounded-full"></div>
-                <div className="absolute bottom-4 right-4 w-16 h-16 border-2 border-white/30 rounded-full"></div>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">Gallery Awards 2025</h3>
-              <p className="text-sm text-white/80 text-center">The results are in. Celebrate this year&apos;s finalists 🎉</p>
-            </div>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-gray-100 p-6 flex flex-col justify-between">
-              <div>
-                <div className="w-10 h-10 bg-black rounded-lg mb-4 flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+      <section className="px-6 pb-20 pt-32 md:pb-28 md:pt-40 w-full gallery-bg">
+        <div id="showcase-bg"></div>
+        <div className="grid mx-auto max-w-6xl md:grid-cols-[1.15fr,1fr] gap-10 items-center">
+        <div className="space-y-3">
+          <h1 className="text-4xl md:text-6xl font-bold text-white">
+            The CSI Showcase
+          </h1>
+
+          <p className="text-lg md:text-xl text-white/80">
+            A look back at the energy, creativity, and people behind CSI x TSDC.
+          </p>
+
+          <p className="text-base md:text-lg text-white/70">
+            Explore our collection of memories from events, workshops, hackathon, and other activities held every year.
+          </p>
+
+          <p className="text-sm md:text-base text-white/60">
+            From tech fests to coding competitions, every moment captured tells a story of innovation and collaboration.
+          </p>
+        </div>
+          <div className="hidden md:block">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-neutral-900 shadow-xl">
+              <img
+                key={highlightImages[highlightIndex].id}
+                src={highlightImages[highlightIndex].src}
+                alt={highlightImages[highlightIndex].event}
+                className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+              />
+              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                <div className="space-y-1 text-white">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/80">
+                    Recent Highlights
+                  </p>
+                  <p className="text-lg md:text-xl font-semibold">
+                    {highlightImages[highlightIndex].event}
+                  </p>
+                  <p className="text-xs md:text-sm text-white/70">
+                    {highlightImages[highlightIndex].year} · {highlightImages[highlightIndex].tag}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Unlock everything</h3>
-                <p className="text-sm text-gray-600 mb-1">Gallery+ has to offer.</p>
-                <p className="text-xs text-gray-500">Cancel anytime.</p>
+                <div className="flex items-center gap-2">
+                  {highlightImages.map((item, i) => (
+                    <span
+                      key={item.id}
+                      className={`h-2.5 w-2.5 rounded-full transition-all ${
+                        i === highlightIndex ? "bg-white" : "bg-white/40"
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
-              <button className="w-full py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors text-sm">
-                Upgrade to Gallery+
-              </button>
             </div>
           </div>
         </div>
+        {previewImage && (
+          <div 
+            onClick={() => setPreviewImage(null)}
+            className="fixed inset-0 bg-white z-[9999] animate-fadeIn"
+          >
+            <img 
+              src={previewImage} 
+              className="absolute top-[50px] left-[50px] max-w-[90vw] max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
       </section>
 
       {/* Year Selector */}
-      <section className="max-w-7xl mx-auto px-6 mb-8">
+      <section className="max-w-7xl mx-auto my-14">
         <div className="flex justify-center items-center">
           <div className="relative inline-block">
             <select
@@ -169,12 +205,13 @@ export default function Gallery() {
       </section>
 
       {/* Masonry Gallery */}
-      <section className="max-w-7xl mx-auto px-6 pb-16">
+      <section className="max-w-7xl mx-auto px-6 pb-20 md:pb-28">
         <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
           {filteredPhotos.map((photo) => (
             <div
               key={photo.id}
               className="break-inside-avoid mb-4 group cursor-pointer"
+              onClick={() => setPreviewImage(photo.src)}
             >
               <div className="relative overflow-hidden rounded-2xl bg-neutral-900">
                 <img
