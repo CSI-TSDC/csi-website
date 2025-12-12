@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import DotGrid from "../components/ui/DotGrid";
+import DotGrid from "../../components/ui/DotGrid";
 
 function SpotlightImage({ spotlight }) {
   const imgRef = useRef(null);

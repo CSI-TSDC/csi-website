@@ -1,9 +1,9 @@
-import Events from './components/Events'
-import Hero from './components/Hero'
-import Projects from './components/Projects'
-import Vision from './components/Vision'
-import WhatWeAre from './components/WhatWeAre'
-import FooterSep from './components/FooterSep'
+import Events from '../components/Events'
+import Hero from '../components/Hero'
+import Projects from '../components/Projects'
+import Vision from '../components/Vision'
+import WhatWeAre from '../components/WhatWeAre'
+import FooterSep from '../components/FooterSep'
 
 export default function Home() {
   return (

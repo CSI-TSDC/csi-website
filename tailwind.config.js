@@ -16,6 +16,10 @@ module.exports = {
 			'satoshi': [
   				'Satoshi',
   				'sans-serif'
+  			],
+			'khand': [
+  				'Khand',
+  				'sans-serif'
   			]
   		},
   		borderRadius: {
