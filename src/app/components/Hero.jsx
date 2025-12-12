@@ -76,7 +76,7 @@ const Hero = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group backdrop-blur-sm bg-white/5"
+              className="border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group backdrop-blur-sm bg-[#0096c7]"
             >
               <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:scale-105 transition-transform">
                 Build
@@ -87,7 +87,7 @@ const Hero = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="md:row-span-2 border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group flex items-center justify-center min-h-[150px] md:min-h-[240px] backdrop-blur-sm bg-white/5"
+              className="md:row-span-2 border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group flex items-center justify-center min-h-[150px] md:min-h-[240px] backdrop-blur-sm bg-[#48cae4]"
             >
               <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:scale-105 transition-transform">
                 Learn
@@ -98,7 +98,7 @@ const Hero = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group backdrop-blur-sm bg-white/5"
+              className="border-2 border-white rounded-lg p-4 md:p-5 hover:bg-white/10 transition-colors cursor-pointer group backdrop-blur-sm bg-[#00b4d8]"
             >
               <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:scale-105 transition-transform">
                 Organize

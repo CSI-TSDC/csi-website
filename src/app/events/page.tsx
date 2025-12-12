@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import DotGrid from "@/components/DotGrid";
+import DotGrid from "../components/ui/DotGrid";
 
 function SpotlightImage({ spotlight }) {
   const imgRef = useRef(null);
@@ -106,7 +106,7 @@ const photos = [
   },
 ];
 
-const filters = ["Hackathon", "Workshop", "Game Dev", "Mad Memories", "Blooper"];
+const filters = ["Hackathon", "Gaming Expo", "Tea Tech Talks",  "S.I.H.", "Blooper"];
 
 const eventDetails = {
   "Hackathon": {
@@ -115,19 +115,19 @@ const eventDetails = {
     description: "Join us for an intense 48-hour coding marathon where innovation meets collaboration. Build groundbreaking projects, network with industry experts, and compete for exciting prizes. Whether you're a beginner or a seasoned developer, HackVision offers workshops, mentorship, and an unforgettable experience.",
     background: "#e6e6e6"
   },
-  "Workshop": {
+  "Gaming Expo": {
     logo: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=200&auto=format&fit=crop",
     date: "Every Saturday, 10 AM - 2 PM",
     description: "Hands-on learning sessions covering the latest technologies and frameworks. Our workshops are designed for all skill levels, featuring expert instructors, real-world projects, and collaborative learning. Topics range from web development and mobile apps to AI/ML and cloud computing.",
     background: "#e6e6e6"
   },
-  "Game Dev": {
+  "Tea Tech Talks": {
     logo: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=200&auto=format&fit=crop",
     date: "April 5-6, 2025",
     description: "Dive into game development with Unity, Unreal Engine, and modern web technologies. Learn game design principles, create your own playable prototypes, and showcase your creations. Perfect for both aspiring game developers and experienced programmers looking to expand their skills.",
     background: "#e6e6e6"
   },
-  "Mad Memories": {
+  "S.I.H.": {
     logo: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=200&auto=format&fit=crop",
     date: "Ongoing",
     description: "A collection of unforgettable moments from our events - from epic fails to breakthrough moments, late-night debugging sessions to celebration victories. These are the stories that make our community special.",
@@ -169,28 +169,28 @@ export default function CSIGallery() {
             CSI x TSDC Events
           </p>
 
-          <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
-            Everything we host.
+          <h1 className="text-2xl md:text-4xl font-semibold leading-tight">
+            Everything we host. <br />
             <span className="text-red-500">
               Everything we hustle for.
             </span>
           </h1>
-
-          <p className="text-gray-600 max-w-xl text-sm md:text-base">
-          A mix of learning, chaos, collaboration, and chai-powered breakthroughs.
-          </p>
-
-          <div className="flex flex-wrap gap-2.5 text-[11px] md:text-xs text-gray-700">
-            <span className="border border-gray-300 rounded-full px-3 py-1.5">
+          <div className="flex flex-wrap gap-2.5 text-base text-white">
+            <span className="border border-gray-300 rounded-sm bg-yellow-300 text-black px-3 py-1.5">
               #TechFests
             </span>
-            <span className="border border-gray-300 rounded-full px-3 py-1.5">
+            <span className="border border-gray-300 rounded-sm bg-blue-500 px-3 py-1.5">
               #GameDev
             </span>
-            <span className="border border-gray-300 rounded-full px-3 py-1.5">
+            <span className="border border-gray-300 rounded-sm bg-orange-500 px-3 py-1.5">
               #Workshops
             </span>
           </div>
+
+          <p className="text-gray-600 max-w-xl text-base">
+            A mix of learning, chaos, collaboration, and chai-powered breakthroughs. <br />
+            Select the event you want to know more about below.
+          </p>
         </div>
 
         

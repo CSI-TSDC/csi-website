@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useRef, useEffect, useState } from "react";
-import SpotlightCard from "@/components/SpotlightCard";
+import SpotlightCard from "../components/ui/SpotlightCard";
 
 const STATISTICS = [
   { label: 'Members', value: 50 },
