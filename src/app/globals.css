@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f8f8;
+  --background: #ffffff;
   --foreground: #171717;
 }
 
@@ -109,6 +109,13 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/assets/Fonts/Satoshi/Fonts/Satoshi-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+
 html {
   line-height: 1;
   overscroll-behavior: none;
@@ -207,4 +214,19 @@ body {
 .animate-windmill {
   animation: windmill-spin 4s linear infinite;
   transform-origin: center;
+}
+
+.grid-bg {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0px;
+  inset: 0px;
+  min-width: 0px;
+  height: 100%;
+  background-size: 48px 48px;
+  background-image: linear-gradient(to right, #7e7e7e 1px, transparent 1px), linear-gradient(#7e7e7e 1px, transparent 1px);
+  background-position: center top;
+  mask-image: linear-gradient(transparent 0%, rgba(255, 255, 255, 0.5) 20%, white 100%);
+  opacity: 0.18;
+  z-index: 0;
 }

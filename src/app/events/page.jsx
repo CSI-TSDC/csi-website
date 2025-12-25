@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-
+import TechWeek from "@/components/ui/TechWeek";
 
 const photos = [
   {
@@ -58,7 +58,7 @@ const eventDetails = {
     description: "A collection of unforgettable moments from our events - from epic fails to breakthrough moments, late-night debugging sessions to celebration victories. These are the stories that make our community special.",
     background: "#e6e6e6"
   },
-  "Blooper": {
+  "Aavishkar": {
     logo: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=200&auto=format&fit=crop",
     date: "Ongoing",
     description: "The funniest, most memorable bloopers from our events. Because sometimes the best moments happen when things don't go as planned. Laugh along with us as we celebrate the human side of coding.",
@@ -76,9 +76,9 @@ export default function CSIGallery() {
       : photos.filter((p) => p.tag === activeFilter);
 
   return (
-    <main className="min-h-screen bg-white text-black relative">
+    <main className="min-h-screen bg-white text-black relative px-[5vw]">
       <div className="relative z-10">
-      <section className="max-w-8xl mx-auto px-[5vw] pb-20 pt-32 md:pb-28 md:pt-40 grid md:grid-cols-[1fr_1fr] gap-8 items-start">
+      <section className="max-w-8xl mx-auto pb-20 pt-32 md:pb-28 md:pt-40 grid md:grid-cols-[1fr_1fr] gap-8 items-start">
         <div className="space-y-4">
           <p className="uppercase text-[11px] tracking-[0.26em] font-poppins text-gray-600 w-max overflow-hidden">
             <span>
@@ -121,6 +121,19 @@ export default function CSIGallery() {
             hover:shadow-2xl hover:shadow-gray-300/50
           ">
             <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => setActiveFilter("Tech Week")}
+              className="relative p-[2px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:scale-105 transition-transform"
+            >
+              <span className="
+                block px-5 py-2.5 rounded-full
+                bg-white text-gray-800 text-xs md:text-sm
+                font-satoshi font-medium
+                hover:bg-gray-50
+              ">
+                TECH WEEK
+              </span>
+            </button>
               {filters.map((f) => (
                 <button
                   key={f}
@@ -160,9 +173,7 @@ export default function CSIGallery() {
         </div>
       </section>
      
-      <section className="max-w-6xl mx-auto px-6 mb-6">
-        
-      </section>
+      <TechWeek></TechWeek>
 
       {activeFilter && eventDetails[activeFilter] && (
         <section 

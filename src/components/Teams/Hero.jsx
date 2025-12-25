@@ -1,6 +1,7 @@
+
 export default function Hero() {
   return (
-    <section className="px-[5vw] pt-24 md:pt-32 min-h-screen bg-[#f8f8f8] text-black w-full font-satoshi font-bold">
+    <section className="pt-24 md:pt-32 min-h-screen bg-[#f8f8f8] text-black w-full font-satoshi font-bold">
       <div className="text-[6vw] text-[#4F77FF] flex justify-center mb-20">
         <span>meet the team</span>
       </div>
@@ -102,54 +103,7 @@ export default function Hero() {
           <img src="/assets/Teams/img6.jpg" alt="Team member" className="w-full h-full object-cover" />
         </div>
       </div>
-      <div className="relative text-[7vw] uppercase w-full">
-        <div className="w-full relative py-6 flex justify-center items-center overflow-hidden">
-          <span>
-            <span>THE CORE</span>
-          </span>
-          <div className="w-full h-px absolute bottom-0">
-            <span className="w-full h-full relative bg-white/30 block"></span>
-          </div>
-          <div className="w-full h-px absolute bottom-0 team-prog">
-            <span className="w-full h-full bg-white block -translate-x-20"></span>
-          </div>
-        </div>
-        <div className="w-full h-max relative">
-
-        </div>
-      </div>
-      <div className="relative overflow-hidden text-[7vw] uppercase w-full">
-        <div className="w-full relative py-6 flex justify-center items-center overflow-hidden">
-          <span>
-            <span>Heads</span>
-          </span>
-          <div className="w-full h-px absolute bottom-0">
-            <span className="w-full h-full relative bg-white/30 block"></span>
-          </div>
-          <div className="w-full h-px absolute bottom-0 team-prog">
-            <span className="w-full h-full bg-white block -translate-x-20"></span>
-          </div>
-        </div>
-        <div className="w-full h-max relative">
-
-        </div>
-      </div>
-      <div className="relative overflow-hidden text-[7vw] uppercase w-full">
-        <div className="w-full relative py-6 flex justify-center items-center overflow-hidden">
-          <span>
-            <span>Members</span>
-          </span>
-          <div className="w-full h-px absolute bottom-0">
-            <span className="w-full h-full relative bg-white/30 block"></span>
-          </div>
-          <div className="w-full h-px absolute bottom-0 team-prog">
-            <span className="w-full h-full bg-white block -translate-x-20"></span>
-          </div>
-        </div>
-        <div className="w-full h-max relative">
-          
-        </div>
-      </div>
+      
     </section>
   )
 }
