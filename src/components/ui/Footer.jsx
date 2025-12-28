@@ -9,7 +9,7 @@ const Footer = () => {
   }
   return (
     <>
-      <footer id="footer" className="relative w-full border-t h-max py-12 md:py-16 px-8 md:px-16 min-h-[40vh] flex flex-wrap justify-between bg-black text-white font-satoshi font-normal border-b z-99">
+      <footer id="footer" className="relative w-full border-t h-max py-12 md:py-16 px-8 md:px-16 min-h-[40vh] flex flex-wrap justify-between bg-black text-white font-satoshi font-normal border-b border-gray-400 z-99">
         <div className="flex flex-col space-y-6 md:space-y-8">
           <div className="relative font-medium font-poppins text-3xl w-max">
             <span className="block float-left">Find us at</span>
@@ -175,10 +175,10 @@ const Footer = () => {
       </footer>
       <div className="relative bg-black text-white w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between z-99 font-satoshi">
         <div>
-          <span>Handcrafted by Tech Team</span>
+          <span>Handcrafted by the Tech Team</span>
         </div>
         <div>
-          <span>©️2025 TSDC. All Rights Reserved.</span>
+          <span>©️ 2025 CSI</span>
         </div>
       </div>
     </>
