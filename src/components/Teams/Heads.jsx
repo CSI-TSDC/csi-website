@@ -1,46 +1,55 @@
+"use client";
+
+import { useState, useEffect } from 'react';
 import TeamSection from './TeamSection';
 import TeamCard from '@/components/ui/TeamCard';
+import { loadAllTeamData, getHeads, getPhotoPath } from '@/utils/teamData';
 
-const headsMembers = [
-  {
-    name: "Shreya Pandey",
-    designation: "Event Team - Head",
-    image: "/assets/Teams/img2.jpg",
-    hasSignature: false,
-  },
-  {
-    name: "Hardik Gandhi",
-    designation: "Tech Team - Head",
-    image: "/assets/Teams/img3.jpg",
-    hasSignature: false,
-  },
-  {
-    name: "Soham Sharma",
-    designation: "Tech Team - Asst. Head",
-    image: "/assets/Teams/img2.jpg",
-    hasSignature: false,
-  },
-  {
-    name: "Angad Dabholkar",
-    designation: "Design Team - Head",
-    image: "/assets/Teams/img3.jpg",
-    hasSignature: false,
-  },
-  {
-    name: "Pragati Vishwakarma",
-    designation: "Event Team - Head",
-    image: "/assets/Teams/img2.jpg",
-    hasSignature: false,
-  },
-  {
-    name: "Jaydeep Borgaonkar",
-    designation: "P.R. Team - Head",
-    image: "/assets/Teams/img3.jpg",
-    hasSignature: false,
+export default function Heads() {
+  const [headsMembers, setHeadsMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      console.log('[Heads] Starting to fetch data...');
+      const allData = await loadAllTeamData();
+      console.log('[Heads] All data loaded:', allData);
+      const heads = getHeads(allData);
+      
+      // Format for display: include team name in designation
+      const formattedHeads = heads.map(member => {
+        const imagePath = getPhotoPath(member);
+        const formatted = {
+          name: member.name,
+          designation: `${member.team} Team - ${member.designation}`,
+          image: imagePath,
+          hasSignature: !!member.signature,
+          team: member.team,
+        };
+        console.log('[Heads] Formatted member:', formatted);
+        return formatted;
+      });
+      
+      console.log('[Heads] Final formatted heads:', formattedHeads);
+      setHeadsMembers(formattedHeads);
+      setLoading(false);
+    }
+    
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <TeamSection title="Heads">
+        <div className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
+          <div className="flex justify-center">
+            <p className="text-gray-500">Loading...</p>
+          </div>
+        </div>
+      </TeamSection>
+    );
   }
-];
 
-export default function Members() {
   const rows = [];
   for (let i = 0; i < headsMembers.length; i += 4) {
     rows.push(headsMembers.slice(i, i + 4));
@@ -56,11 +65,10 @@ export default function Members() {
           >
             {row.map((member, index) => (
               <TeamCard
-                key={index}
+                key={`${member.name}-${index}`}
                 name={member.name}
                 title={member.designation}
                 hasSignature={member.hasSignature}
-                isEmpty={member.isEmpty}
                 image={member.image}
               />
             ))}

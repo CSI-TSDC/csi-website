@@ -1,0 +1,66 @@
+[
+    {
+      "name": "Hardik Gandhi",
+      "photo": "Hardik_Gandhi.jpg",
+      "signature": "Hardik_Gandhi_S.jpg",
+      "designation": "Head",
+      "team": "Tech"
+    },
+    {
+      "name": "Soham Sharma",
+      "photo": "Soham_Sharma.jpg",
+      "signature": "Soham_Sharma_S.jpg",
+      "designation": "Asst. Head",
+      "team": "Tech"
+    },
+    {
+      "name": "Sahil Chavan",
+      "photo": "Sahil_Chavan.jpg",
+      "signature": "Sahil_Chavan_S.jpg",
+      "designation": "Member",
+      "team": "Tech"
+    },
+    {
+      "name": "Vedhas Shinde",
+      "photo": "Vedhas_Shinde.jpg",
+      "signature": "Vedhas_Shinde_S.jpg",
+      "designation": "Member",
+      "team": "Tech"
+    },
+    {
+      "name": "Aaditya Thakur",
+      "photo": "Aaditya_Thakur.jpg",
+      "signature": "Aaditya_Thakur_S.jpg",
+      "designation": "Member",
+      "team": "Tech"
+    },
+    {
+      "name": "Krishna Desai",
+      "photo": "Krishna_Desai.jpg",
+      "signature": "Krishna_Desai_S.jpg",
+      "designation": "Member",
+      "team": "Tech"
+    },
+    {
+      "name": "Keya Purkait",
+      "photo": "Keya_Purkait.jpg",
+      "signature": "Keya_Purkait_S.jpg",
+      "designation": "Member",
+      "team": "Tech"
+    },
+    {
+      "name": "Vidit Jain",
+      "photo": "Vidit_Jain.jpg",
+      "signature": "Vidit_Jain_S.jpg",
+      "designation": "Member",
+      "team": "Tech"
+    },
+    {
+      "name": "Yash Vishwakarma",
+      "photo": "Yash_Vishwakarma.jpg",
+      "signature": "Yash_Vishwakarma_S.jpg",
+      "designation": "Member",
+      "team": "Tech"
+    }
+  ]
+  

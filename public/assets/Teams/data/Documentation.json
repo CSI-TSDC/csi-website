@@ -1,0 +1,24 @@
+[
+    {
+      "name": "Jagruti Morvekar",
+      "photo": "Jagruti_Morvekar.webp",
+      "signature": "Jagruti_Morvekar_S.webp",
+      "designation": "Head",
+      "team": "Documentation"
+    },
+    {
+      "name": "Siddhi More",
+      "photo": "Siddhi_More.webp",
+      "signature": "Siddhi_More_S.webp",
+      "designation": "Head",
+      "team": "Documentation"
+    },
+    {
+      "name": "Aarzoo Jaiswar",
+      "photo": "Aarzoo_Jaiswar.webp",
+      "signature": "Aarzoo_Jaiswar_S.webp",
+      "designation": "Member",
+      "team": "Documentation"
+    }
+]
+  

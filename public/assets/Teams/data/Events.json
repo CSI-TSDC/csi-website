@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Shreya Pandey",
+      "photo": "Shreya_Pandey.webp",
+      "signature": "Shreya_Pandey_S.webp",
+      "designation": "Head",
+      "team": "Event"
+    },
+    {
+      "name": "Shivam Jha",
+      "photo": "Shivam_Jha.webp",
+      "signature": "Shivam_Jha_S.webp",
+      "designation": "Head",
+      "team": "Event"
+    },
+    {
+      "name": "Harsh Bhalekar",
+      "photo": "Harsh_Bhalekar.webp",
+      "signature": "Harsh_Bhalekar_S.webp",
+      "designation": "Asst. Head",
+      "team": "Event"
+    },
+    {
+      "name": "Ashfil Shaikh",
+      "photo": "Ashfil_Shaikh.webp",
+      "signature": "Ashfil_Shaikh_S.webp",
+      "designation": "Member",
+      "team": "Event"
+    },
+    {
+      "name": "Shourya Singh",
+      "photo": "Shourya_Singh.webp",
+      "signature": "Shourya_Singh_S.webp",
+      "designation": "Member",
+      "team": "Event"
+    }
+]
+  

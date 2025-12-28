@@ -1,17 +1,57 @@
+"use client";
+
+import { useState, useRef } from "react";
 import Image from "next/image";
 
 export default function TeamCard({ name, title, hasSignature = false, image }) {
+  const [imgSrc, setImgSrc] = useState(image || '/assets/Teams/img2.jpg');
+  const attemptRef = useRef(0);
+  const fallbackImage = '/assets/Teams/img2.jpg';
+
+  console.log(`[TeamCard] ${name} - Image path:`, imgSrc);
+
+  const handleImageError = () => {
+    console.warn(`[TeamCard] Image failed to load for ${name}:`, imgSrc);
+    
+    if (imgSrc === fallbackImage) {
+      // Already on fallback, stop trying
+      return;
+    }
+    
+    // Try different file extensions
+    if (image && image !== fallbackImage) {
+      const pathParts = image.split('/');
+      const filename = pathParts[pathParts.length - 1];
+      const basePath = pathParts.slice(0, -1).join('/');
+      const baseName = filename.replace(/\.(webp|jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
+      
+      // Common extensions to try (in order of likelihood)
+      const extensions = ['.JPG', '.PNG', '.jpg', '.png', '.jpeg', '.JPEG', '.webp'];
+      
+      if (attemptRef.current < extensions.length) {
+        const newPath = `${basePath}/${baseName}${extensions[attemptRef.current]}`;
+        console.log(`[TeamCard] ${name} - Trying extension ${extensions[attemptRef.current]}:`, newPath);
+        attemptRef.current += 1;
+        setImgSrc(newPath);
+      } else {
+        console.warn(`[TeamCard] ${name} - All extensions exhausted, using fallback`);
+        setImgSrc(fallbackImage);
+      }
+    } else {
+      setImgSrc(fallbackImage);
+    }
+  };
+
   return (
     <div className="relative flex flex-col w-[200px] md:w-[250px] h-[350px] md:h-[425px]">
       <div className="relative rounded-[32px_8px] bg-white w-full h-full overflow-hidden">
-        {image && (
-          <Image 
-            src={image} 
-            alt={name || "Team member"} 
-            fill
-            className="object-cover"
-          />
-        )}
+        <Image 
+          src={imgSrc} 
+          alt={name || "Team member"} 
+          fill
+          className="object-cover"
+          onError={handleImageError}
+        />
         {hasSignature && (
           <div className="absolute bottom-4 right-4 w-12 h-8 opacity-30 z-10">
             <svg viewBox="0 0 100 60" className="w-full h-full">

@@ -1,0 +1,66 @@
+[
+    {
+      "name": "Bhavesh Poojary",
+      "photo": "Bhavesh_Poojary.webp",
+      "signature": "Bhavesh_Poojary_S.webp",
+      "designation": "Head",
+      "team": "PR"
+    },
+    {
+      "name": "Jaydeep Borgaonkar",
+      "photo": "Jaydeep_Borgaonkar.webp",
+      "signature": "Jaydeep_Borgaonkar_S.webp",
+      "designation": "Head",
+      "team": "PR"
+    },
+    {
+      "name": "Aayush Singh",
+      "photo": "Aayush_Singh.webp",
+      "signature": "Aayush_Singh_S.webp",
+      "designation": "Asst. Head",
+      "team": "PR"
+    },
+    {
+      "name": "Prasanna Pednekar",
+      "photo": "Prasanna_Pednekar.webp",
+      "signature": "Prasanna_Pednekar_S.webp",
+      "designation": "Asst. Head",
+      "team": "PR"
+    },
+    {
+      "name": "Yashvi Patel",
+      "photo": "Yashvi_Patel.webp",
+      "signature": "Yashvi_Patel_S.webp",
+      "designation": "Member",
+      "team": "PR"
+    },
+    {
+      "name": "Hardik Agrawal",
+      "photo": "Hardik_Agrawal.webp",
+      "signature": "Hardik_Agrawal_S.webp",
+      "designation": "Member",
+      "team": "PR"
+    },
+    {
+      "name": "Anjali Shukla",
+      "photo": "Anjali_Shukla.webp",
+      "signature": "Anjali_Shukla_S.webp",
+      "designation": "Member",
+      "team": "PR"
+    },
+    {
+      "name": "Roshan Singh",
+      "photo": "Roshan_Singh.webp",
+      "signature": "Roshan_Singh_S.webp",
+      "designation": "Member",
+      "team": "PR"
+    },
+    {
+      "name": "Aryan Tiwari",
+      "photo": "Aryan_Tiwari.webp",
+      "signature": "Aryan_Tiwari_S.webp",
+      "designation": "Member",
+      "team": "PR"
+    }
+  ]
+  
