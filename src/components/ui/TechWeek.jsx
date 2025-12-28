@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 export default function TechWeek() {
     const containerRef = useRef(null);
@@ -11,7 +12,7 @@ export default function TechWeek() {
             if (!containerRef.current) return;
             
             // Get container width minus padding (px-7 = 1.75rem = 28px on each side)
-            const containerWidth = containerRef.current.offsetWidth - 56; // 28px * 2 for padding
+            const containerWidth = containerRef.current.offsetWidth - 96; // 28px * 2 for padding
             
             // Calculate how many dots can fit in the container
             const dotsThatFit = Math.floor(containerWidth / (dotSize + gap)) + 1;
@@ -29,18 +30,27 @@ export default function TechWeek() {
     }, []);
 
     return (
-        <div className="w-full relative min-h-[800px] bg-[#ffe1bf] rounded-[32px_8px] mb-20 md:mb-28 overflow-hidden">
+        <div className="w-full relative min-h-[800px] bg-[#CBD5E1] text-black rounded-[32px_8px] mb-20 md:mb-28 overflow-hidden">
             <div className="absolute inset-0 -z-10 grid-bg" />
+            <div className='absolute top-0 left-0 w-[250px] -rotate-12 mt-16 ml-12'>
+                <Image
+                    src="/assets/Events/sticker1.png"
+                    className='w-full h-full object-contain'
+                    width={200}
+                    height={200}
+                    alt=''
+                />
+            </div>
             <div 
                 ref={containerRef}
-                className="relative px-7 pt-6 flex justify-center gap-7"
+                className="relative px-12 pt-6 flex justify-between"
             >
                 {dots.map((_, index) => (
                     <span key={index} className="block w-[40px] h-[40px] flex-shrink-0">
                         <img 
                             className="w-full h-full" 
                             src="/assets/Events/calender_dot.png" 
-                            alt="" 
+                            alt=""
                         />
                     </span>
                 ))}
@@ -61,9 +71,26 @@ export default function TechWeek() {
                     <div className='bg-[#fff] border-3 aspect-square w-[300px] rounded-[32px]'>
                     </div>
                 </div>
-                <div className='w-full flex justify-between'>
-                    <div className='bg-[#fdfe52] border-3 aspect-square w-[300px] rounded-[32px]'>
+                <div className="w-full flex justify-between h-[300px]">
+                    <div className="bg-gradient-to-b from-black to-[#4b5dd3] border-3 h-full w-[600px] rounded-[32px]">
+                        <div>
+                        <Image
+                            src="/assets/Events/semicircle.png"
+                            alt=""
+                            width={65}
+                            height={65}
+                        />
+                        </div>
+                    </div>
 
+                    <div className="flex-1 h-full">
+                        <Image
+                            src="/assets/Events/geekgirl.png"
+                            alt=""
+                            width={600}
+                            height={300}
+                            className="w-full h-full object-contain"
+                        />
                     </div>
                 </div>
             </div>

@@ -109,13 +109,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/assets/Fonts/Satoshi/Fonts/Satoshi-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-display: swap;
-}
-
 html {
   line-height: 1;
   overscroll-behavior: none;
@@ -131,7 +124,7 @@ body {
 
 #homebg {
   position: relative;
-  background: url("/assets/Home/bg1.jpg") no-repeat center center fixed; 
+  background: url("/assets/Home/homebg.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -223,10 +216,18 @@ body {
   inset: 0px;
   min-width: 0px;
   height: 100%;
-  background-size: 48px 48px;
-  background-image: linear-gradient(to right, #7e7e7e 1px, transparent 1px), linear-gradient(#7e7e7e 1px, transparent 1px);
+  background-size: 65px 65px;
+  background-image: linear-gradient(to right, #dedede 1px, transparent 1px), linear-gradient(#dedede 1px, transparent 1px);
   background-position: center top;
   mask-image: linear-gradient(transparent 0%, rgba(255, 255, 255, 0.5) 20%, white 100%);
   opacity: 0.18;
   z-index: 0;
+}
+.label {
+  @apply text-xs tracking-widest text-neutral-400;
+}
+
+.input {
+  @apply w-full border-b border-neutral-300 py-3 text-neutral-700
+         focus:outline-none focus:border-neutral-900 bg-transparent;
 }

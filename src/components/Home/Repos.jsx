@@ -5,6 +5,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Draggable } from "gsap/Draggable"
 import { InertiaPlugin } from "gsap/InertiaPlugin"
+import Image from "next/image"
 
 gsap.registerPlugin(ScrollTrigger, Draggable, InertiaPlugin)
 
@@ -12,40 +13,40 @@ export default function Projects() {
   const sectionRef = useRef(null)
   const trackRef = useRef(null)
 
-  const projects = [
-    {
-      title: "Usbek & Rica",
-      desc: "Understanding cyberattacks through real-world analysis.",
-      img: "/assets/Home/mock/project-1.jpg",
-    },
-    {
-      title: "TEDx",
-      desc: "Managing the human factor in unpredictable environments.",
-      img: "/assets/Home/mock/project-2.jpg",
-    },
-    {
-      title: "Les Lueurs",
-      desc: "Conversations where ideas become powerful tools.",
-      img: "/assets/Home/mock/project-3.jpg",
-    },
-    {
-      title: "In Cognita",
-      desc: "Exploring technology, design, and human behavior.",
-      img: "/Home/mock/project-4.jpg",
-    },
-  ]
+  // const projects = [
+  //   {
+  //     title: "Usbek & Rica",
+  //     desc: "Understanding cyberattacks through real-world analysis.",
+  //     img: "/assets/Home/mock/project-1.jpg",
+  //   },
+  //   {
+  //     title: "TEDx",
+  //     desc: "Managing the human factor in unpredictable environments.",
+  //     img: "/assets/Home/mock/project-2.jpg",
+  //   },
+  //   {
+  //     title: "Les Lueurs",
+  //     desc: "Conversations where ideas become powerful tools.",
+  //     img: "/assets/Home/mock/project-3.jpg",
+  //   },
+  //   {
+  //     title: "In Cognita",
+  //     desc: "Exploring technology, design, and human behavior.",
+  //     img: "/Home/mock/project-4.jpg",
+  //   },
+  // ]
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Draggable
-      Draggable.create(trackRef.current, {
-        type: "x",
-        inertia: true,
-        bounds: {
-          minX: -(trackRef.current.scrollWidth - window.innerWidth),
-          maxX: 0,
-        },
-      })
+      // Draggable.create(trackRef.current, {
+      //   type: "x",
+      //   inertia: true,
+      //   bounds: {
+      //     minX: -(trackRef.current.scrollWidth - window.innerWidth),
+      //     maxX: 0,
+      //   },
+      // })
 
       gsap.utils.toArray(".reveal-y").forEach((el) => {
         gsap.fromTo(
@@ -95,7 +96,6 @@ export default function Projects() {
         }
       )
 
-      // WORD opacity reveal INSIDE span > span
       gsap.utils.toArray(".word-opacity").forEach((el) => {
         const words = el.textContent.split(" ")
         el.textContent = ""
@@ -114,28 +114,28 @@ export default function Projects() {
           ease: "none",
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
-            end: "bottom 65%",
+            start: "top 80%",
+            end: "bottom 60%",
             scrub: true,
           },
         })
       })
 
-      // Project cards opacity
-      gsap.fromTo(
-        ".project-card",
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: ".project-card",
-            start: "top 85%",
-          },
-        }
-      )
+      // // Project cards opacity
+      // gsap.fromTo(
+      //   ".project-card",
+      //   { opacity: 0 },
+      //   {
+      //     opacity: 1,
+      //     duration: 0.5,
+      //     ease: "power4.out",
+      //     stagger: 0.15,
+      //     scrollTrigger: {
+      //       trigger: ".project-card",
+      //       start: "top 90%",
+      //     },
+      //   }
+      // )
     }, sectionRef)
 
     return () => ctx.revert()
@@ -144,10 +144,10 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#161616] text-[#fff] min-h-[50vh] py-10 md:py-25 px-[5vw] font-satoshi font-bold"
+      className="relative bg-[#f8f8f8] text-[#161616] h-screen flex flex-col justify-center items-center px-[5vw] font-satoshi font-bold"
     >
       {/* GitHub */}
-      <div className="w-full px-15 flex justify-center text-[5vw] items-center border-t md:pt-25">
+      <div className="w-full px-15 flex justify-center text-[5vw] items-center md:pt-25">
         <span className="block mr-5 overflow-hidden">
           <span className="block reveal-y">We are also on</span>
         </span>
@@ -209,7 +209,7 @@ export default function Projects() {
       </div>
 
       {/* Recent Projects */}
-      <div className="relative mt-25 flex flex-col">
+      {/* <div className="relative mt-25 flex flex-col">
         <div className="relative text-[3vh] font-poppins-regular w-max pb-1.5 tracking-tighter mb-16">
           <span className="block overflow-hidden">
             <span className="block reveal-y">RECENT PROJECTS</span>
@@ -229,11 +229,12 @@ export default function Projects() {
                 key={i}
                 className="project-card w-[280px] sm:w-[340px] md:w-[380px] lg:w-[420px] flex-shrink-0"
               >
-                <div className="w-full aspect-4/3 overflow-hidden bg-neutral-200 mb-6">
-                  <img
+                <div className="w-full aspect-4/3 overflow-hidden bg-neutral-200 mb-6 relative">
+                  <Image
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
 
@@ -243,7 +244,7 @@ export default function Projects() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }

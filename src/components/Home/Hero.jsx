@@ -45,44 +45,29 @@ export default function Hero() {
   return (
     <section id="homebg" className="relative w-full h-screen" ref={heroRef}>
       <div id="bg-overlay"></div>
-      <div className="absolute left-[5vw] bottom-[8vw]">
-        <div className="flex flex-col w-max">
-            <div className="relative mb-2">
+      <div className="absolute left-[5vw] sm:left-[5vw] bottom-[8vw] sm:bottom-[8vw] md:bottom-[6vw] px-4 sm:px-0">
+        <div className="flex flex-col w-full sm:w-max max-w-[90vw] sm:max-w-none">
+            <div className="relative mb-2 sm:mb-2">
                 <span className="block overflow-hidden">
-                    <span className="reveal-inner block text-[3vh] lg:text-[2vw] font-poppins-bold text-white">
+                    <span className="reveal-inner block text-[2.5vh] sm:text-[3vh] md:text-[2.5vw] lg:text-[2vw] font-poppins-bold text-white">
                         WELCOME TO CSI X TSDC
                     </span>
                 </span>
             </div>
             <div className="relative mb-1.5 pb-2.5 flex flex-col">
-                <span className="block overflow-hidden float-left">
-                    <span className="reveal-inner block text-[3.3vw]/[3.4w] font-poppins-bold text-white/90 max-w-4xl">
+                <span className="block overflow-hidden">
+                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] font-poppins-bold text-white/90 max-w-4xl">
                         At the CSI Committee of TSDC, 
                     </span>
                 </span>
-                <span className="block overflow-hidden float-left">
-                    <span className="reveal-inner block text-[3.3vw]/[4vw] font-poppins-bold text-white/90 max-w-4xl">
+                <span className="block overflow-hidden mt-1 sm:mt-0">
+                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] font-poppins-bold text-white/90 max-w-4xl">
                         we believe students grow best
                     </span>
                 </span>
-                <span className="block overflow-hidden float-left">
-                    <span className="reveal-inner block text-[3.3vw]/[4vw] font-poppins-bold text-white/90 max-w-4xl">
+                <span className="block overflow-hidden mt-1 sm:mt-0">
+                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] font-poppins-bold text-white/90 max-w-4xl">
                         by learning together.
-                    </span>
-                </span>
-                <div className="absolute h-px w-full bottom-0 overflow-hidden">
-                    <span className="line block absolute left-0 top-0 h-full w-full bg-white" />
-                </div>
-            </div>
-            <div className="relative">
-                <span className="block overflow-hidden mt-2">
-                    <span className="reveal-inner block font-satoshi-regular text-[2.5vh] text-white/90 leading-tight">
-                        We host events, share knowledge, and create hands-on
-                    </span>
-                </span>
-                <span className="block overflow-hidden mt-2">
-                    <span className="reveal-inner block font-satoshi-regular text-[2.5vh] text-white/90 leading-tight">
-                        opportunities that help students discover what they&apos;re capable of.
                     </span>
                 </span>
             </div>

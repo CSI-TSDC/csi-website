@@ -5,7 +5,7 @@ import Members from '@/components/Teams/Members';
 
 export default function Teams() {
     return (
-        <main className="px-[5vw]">
+        <main className="px-4 sm:px-6 md:px-[5vw]">
             <Hero></Hero>
             <Core />
             <Heads />

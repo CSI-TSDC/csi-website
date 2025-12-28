@@ -1,18 +1,23 @@
 
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section className="pt-24 md:pt-32 min-h-screen bg-[#f8f8f8] text-black w-full font-satoshi font-bold">
-      <div className="text-[6vw] text-[#4F77FF] flex justify-center mb-20">
+    <section className="pt-20 sm:pt-24 md:pt-32 min-h-screen bg-[#f8f8f8] text-black w-full font-satoshi font-bold">
+      <div className="text-[8vw] sm:text-[7vw] md:text-[6vw] text-[#4F77FF] flex justify-center mb-12 sm:mb-16 md:mb-20 px-4">
         <span>meet the team</span>
       </div>
 
       <div
+        id="teamsgrid"
         className="
           grid
           grid-cols-2
           md:grid-cols-9
-          grid-rows-[repeat(5,minmax(120px,1fr))]
-          gap-[12px]
+          grid-rows-[repeat(5,minmax(80px,1fr))]
+          sm:grid-rows-[repeat(5,minmax(100px,1fr))]
+          md:grid-rows-[repeat(5,minmax(120px,1fr))]
+          gap-2 sm:gap-[8px] md:gap-[12px]
           relative
         "
       >
@@ -45,7 +50,6 @@ export default function Hero() {
             md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-5
           "
         >
-          {/* <img /> */}
         </div>
 
         {/* 2 */}
@@ -56,7 +60,7 @@ export default function Hero() {
             md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-3
           "
         >
-          <img src="/assets/Teams/img2.jpg" alt="Team member" className="w-full h-full object-cover" />
+          <Image src="/assets/Teams/img2.jpg" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 3 */}
@@ -67,7 +71,7 @@ export default function Hero() {
             md:col-start-2 md:col-end-6 md:row-start-3 md:row-end-5
           "
         >
-          <img src="/assets/Teams/img3.jpg" alt="Team member" className="w-full h-full object-cover" />
+          <Image src="/assets/Teams/img3.jpg" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 4 */}
@@ -78,7 +82,7 @@ export default function Hero() {
             md:col-start-5 md:col-end-8 md:row-start-1 md:row-end-3
           "
         >
-          <img src="/assets/Teams/img4.avif" alt="Team member" className="w-full h-full object-cover" />
+          <Image src="/assets/Teams/img4.avif" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 5 */}
@@ -89,7 +93,7 @@ export default function Hero() {
             md:col-start-6 md:col-end-9 md:row-start-3 md:row-end-5
           "
         >
-          <img src="/assets/Teams/img5.jpg" alt="Team member" className="w-full h-full object-cover" />
+          <Image src="/assets/Teams/img5.jpg" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 6 */}
@@ -100,10 +104,17 @@ export default function Hero() {
             md:col-start-8 md:col-end-10 md:row-start-1 md:row-end-3
           "
         >
-          <img src="/assets/Teams/img6.jpg" alt="Team member" className="w-full h-full object-cover" />
+          <Image src="/assets/Teams/img6.jpg" alt="Team member" fill className="object-cover" />
         </div>
-      </div>
-      
+        <div
+          className="
+            relative overflow-hidden bg-[#1b1b1b] rounded-[32px_8px]
+            col-start-9 col-end-10 row-start-1 row-end-3
+            md:col-start-9 md:col-end-10 md:row-start-3 md:row-end-5
+          "
+        >
+        </div>
+      </div>  
     </section>
   )
 }

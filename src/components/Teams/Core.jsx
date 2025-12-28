@@ -2,7 +2,6 @@ import TeamSection from './TeamSection';
 import TeamCard from '@/components/ui/TeamCard';
 
 const coreMembers = [
-  // Top Row - 2 members
   {
     name: "Aryan",
     designation: "Chairperson",
@@ -48,9 +47,9 @@ export default function Core() {
 
   return (
     <TeamSection title="THE CORE" hasOverflow={false}>
-      <div className="mt-8 space-y-6 pt-10 pb-20">
+      <div className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
         {/* Top Row - 2 cards on all screens */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 pb-10">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 pb-6 sm:pb-8 md:pb-10">
           {topRowMembers.map((member, index) => (
             <TeamCard
               key={index}
@@ -63,7 +62,7 @@ export default function Core() {
         </div>
         
         {/* Bottom Row - 2 cards on mobile, 4 cards on desktop */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
           {bottomRowMembers.map((member, index) => (
             <TeamCard
               key={index}

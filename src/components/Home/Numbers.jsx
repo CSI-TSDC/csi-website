@@ -90,20 +90,20 @@ export default function Numbers() {
         <div className="relative w-full flex flex-col">
 
           {/* Heading */}
-          <div className="relative text-[3vh] font-poppins-regular overflow-hidden w-max pb-1.5 tracking-tighter mb-10">
+          <div className="relative text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-poppins-regular overflow-hidden w-max pb-1.5 tracking-tighter mb-12 sm:mb-16 md:mb-20">
             <span className="block overflow-hidden">
               <span className="block reveal-num">IN NUMBERS</span>
             </span>
             <span className="absolute block h-px w-full bottom-0 overflow-hidden">
-              <span className="reveal-x block absolute left-0 top-0 h-full w-full bg-black" />
+              <span className="reveal-x block absolute left-0 top-0 h-full w-full bg-black -translate-x-1/3" />
             </span>
           </div>
 
-          <ul className="flex justify-between w-full gap-10 md:px-15">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 w-full md:px-15">
             {stats.map((item, i) => (
-              <li key={i} className="flex flex-col">
+              <li key={i} className="flex flex-col items-center md:items-start">
 
-                <div className="text-[8vw] md:text-[7vw] font-poppins leading-none mb-4">
+                <div className="text-[10vw] sm:text-[8vw] md:text-[7vw] lg:text-[6vw] font-poppins leading-none mb-3 sm:mb-4">
                   <span className="block overflow-hidden">
                     <span
                       className="block count"
@@ -115,7 +115,7 @@ export default function Numbers() {
                   </span>
                 </div>
 
-                <div className="text-[2.22vh] font-satoshi font-medium leading-tight flex justify-center">
+                <div className="text-[1.8vh] sm:text-[2vh] md:text-[2.22vh] font-satoshi font-medium leading-tight flex justify-center md:justify-start">
                   {item.lines.map((line, j) => (
                     <span key={j} className="block overflow-hidden">
                       <span className="block reveal-num">{line}</span>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,9 +32,8 @@ const Navbar = () => {
     { href: '/', label: 'Home' },
     { href: '/events', label: 'Events' },
     { href: '/gallery', label: 'Gallery' },
-    { href: '/projects', label: 'Projects' },
     { href: '/teams', label: 'Team' },
-    { href: '#footer', label: 'Contact' },
+    { href: '/contact', label: 'Contact' },
   ]
 
   return (
@@ -55,11 +55,11 @@ const Navbar = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center justify-between h-14 md:h-24">
+          <div className="flex items-center justify-between h-14 md:h-22">
             {/* Logo */}
             <div className="flex flex-row justify-center items-center gap-6 w-max">
               <span>
-                <img src="/assets/Logos/csi_logo.png" alt="Logo" className="h-10 md:h-14" />
+                <Image src="/assets/Logos/csi_logo.png" alt="Logo" width={56} height={56} className="h-10 md:h-14 w-auto" />
               </span>
               <h1 className={`text-xl md:text-2xl font-bold font-poppins cursor-pointer transition-all duration-300 hover:scale-105 ${
                 (isHomePage && !isScrolled) ? 'text-white' : 'text-black'

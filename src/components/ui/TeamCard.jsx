@@ -1,12 +1,15 @@
+import Image from "next/image";
+
 export default function TeamCard({ name, title, hasSignature = false, image }) {
   return (
-    <div className="relative flex flex-col w-[200px] md:w-[280px] h-[350px] md:h-[450px]">
-      <div className="relative rounded-[32px_8px] border-2 border-black bg-white w-full h-full overflow-hidden">
+    <div className="relative flex flex-col w-[200px] md:w-[250px] h-[350px] md:h-[425px]">
+      <div className="relative rounded-[32px_8px] bg-white w-full h-full overflow-hidden">
         {image && (
-          <img 
+          <Image 
             src={image} 
             alt={name || "Team member"} 
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
         )}
         {hasSignature && (

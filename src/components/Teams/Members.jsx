@@ -40,11 +40,11 @@ export default function Members() {
 
   return (
     <TeamSection title="Members">
-      <div className="mt-8 space-y-6 pt-10 pb-20">
+      <div className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
         {rows.map((row, rowIndex) => (
           <div
             key={rowIndex}
-            className="flex w-full justify-center gap-4 md:gap-6 pb-10"
+            className="flex w-full flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 pb-6 sm:pb-8 md:pb-10"
           >
             {row.map((member, index) => (
               <TeamCard

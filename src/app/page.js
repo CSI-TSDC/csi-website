@@ -9,7 +9,6 @@ export default function Home() {
     <main className="bg-[#f8f8f8]">
       <Hero></Hero>
       <Existence></Existence>
-      <Numbers></Numbers>
       <Vision></Vision>
       <Events></Events>
       <Repos></Repos>

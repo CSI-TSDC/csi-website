@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 const Footer = () => {
   const handleSendMail = () => {
     const mailtoLink = `mailto:csi@tsdcmumbai.in?subject=Become a Collaborator or Sponsor`
@@ -7,8 +9,8 @@ const Footer = () => {
   }
   return (
     <>
-      <footer id="footer" className="relative w-full border-t h-max py-4 md:py-8 px-8 md:px-16 min-h-[40vh] flex flex-wrap justify-between bg-black text-white font-satoshi font-normal border-b z-99">
-        <div className="flex flex-col space-y-4">
+      <footer id="footer" className="relative w-full border-t h-max py-12 md:py-16 px-8 md:px-16 min-h-[40vh] flex flex-wrap justify-between bg-black text-white font-satoshi font-normal border-b z-99">
+        <div className="flex flex-col space-y-6 md:space-y-8">
           <div className="relative font-medium font-poppins text-3xl w-max">
             <span className="block float-left">Find us at</span>
           </div>
@@ -17,21 +19,21 @@ const Footer = () => {
             <span className="float-left clear-both">90ft Road, Thakur Complex,</span>
             <span className="float-left clear-both">Kandivali (E), Mumbai - 400067</span>
           </div>
-          <div className="relative flex">
-            <span className="block h-[50px] w-auto mr-3">
-              <img className="w-full h-full" src="/assets/images/csi_logo.png" alt="CSI Logo" />
+          <div className="relative flex mt-2">
+            <span className="block h-[50px] w-auto mr-4">
+              <Image className="w-full h-full" src="/assets/Logos/csi_logo.png" alt="CSI Logo" width={50} height={50} />
             </span>
             <span className="block h-[50px] w-auto">
-              <img className="w-full h-full" src="/assets/images/tsdc_logo.png" alt="TSDC Logo" />
+              <Image className="w-full h-full" src="/assets/Logos/tsdc_logo.png" alt="TSDC Logo" width={50} height={50} />
             </span>
           </div>
         </div>
-        <div className="flex flex-row flex-wrap text-xl font-light font-satoshi space-x-14">
+        <div className="flex flex-row flex-wrap text-xl font-light font-satoshi space-x-16 md:space-x-20 gap-y-8">
           <div className="flex flex-col">
-            <div className="mb-4 font-poppins">
+            <div className="mb-6 md:mb-8 font-poppins">
               Quick Links
             </div>
-            <div className="flex flex-col space-y-1 text-base font-satoshi">
+            <div className="flex flex-col space-y-2 md:space-y-3 text-base font-satoshi">
             <a href="#">
                 <span>C.S.I</span>
               </a>
@@ -53,10 +55,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="mb-4 font-poppins">
+            <div className="mb-6 md:mb-8 font-poppins">
               <span>About</span>
             </div>
-            <div className="flex flex-col space-y-1 text-base font-satoshi">
+            <div className="flex flex-col space-y-2 md:space-y-3 text-base font-satoshi">
               <a href="#">
                 <span>About CSI</span>
               </a>
@@ -75,15 +77,15 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="mb-4 font-poppins">
+            <div className="mb-6 md:mb-8 font-poppins">
               <span>Stay Connected</span>
             </div>
-            <div className="flex flex-col text-base font-satoshi mb-4">
+            <div className="flex flex-col text-base font-satoshi mb-6 md:mb-8 space-y-1">
               <span className="block">Get updates on events, projects,</span>
               <span className="block clear-both">and everything conducted by our</span>
               <span className="block clear-both">committee.</span>
             </div>
-            <div className="flex flex-row space-x-3">
+            <div className="flex flex-row space-x-4">
               <span className="block w-[25px]">
               <svg
                 width="64px"
