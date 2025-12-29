@@ -52,7 +52,7 @@ export default function TeamSection({ title, hasOverflow = true, children }) {
     >
       <div 
         ref={titleRef}
-        className="w-full relative py-4 sm:py-4 md:py-5 flex justify-center items-center overflow-hidden bg-white z-10"
+        className="w-full relative py-4 sm:py-4 md:py-5 flex justify-center items-center overflow-hidden bg-[#f8f8f8] z-10"
       >
         <span>
           <span>{title}</span>

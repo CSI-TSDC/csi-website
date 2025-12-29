@@ -12,13 +12,18 @@ export default function Members() {
   useEffect(() => {
     async function fetchData() {
       console.log('[Members] Starting to fetch data...');
+      
+      // Load team images map from Cloudinary
+      const { loadTeamImageMap } = await import('@/utils/teamData');
+      const imageMap = await loadTeamImageMap();
+      
       const allData = await loadAllTeamData();
       console.log('[Members] All data loaded:', allData);
       const members = getMembers(allData);
       
       // Format for display: include team name in designation
       const formattedMembers = members.map(member => {
-        const imagePath = getPhotoPath(member);
+        const imagePath = getPhotoPath(member, imageMap);
         const formatted = {
           name: member.name,
           designation: `${member.team} Team`,

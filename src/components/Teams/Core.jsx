@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import TeamSection from './TeamSection';
 import TeamCard from '@/components/ui/TeamCard';
-import { loadAllTeamData, getCore, getPhotoPath } from '@/utils/teamData';
+import { loadAllTeamData, getCore, getPhotoPath, getSignaturePath } from '@/utils/teamData';
 
 export default function Core() {
   const [coreMembers, setCoreMembers] = useState([]);
@@ -12,6 +12,11 @@ export default function Core() {
   useEffect(() => {
     async function fetchData() {
       console.log('[Core] Starting to fetch data...');
+      
+      // Load team images map from Cloudinary
+      const { loadTeamImageMap } = await import('@/utils/teamData');
+      const imageMap = await loadTeamImageMap();
+      
       const allData = await loadAllTeamData();
       console.log('[Core] All data loaded:', allData);
       const core = getCore(allData);
@@ -29,12 +34,14 @@ export default function Core() {
       
       // Format for display
       const formattedCore = sortedCore.map(member => {
-        const imagePath = getPhotoPath(member);
+        const imagePath = getPhotoPath(member, imageMap);
+        const signaturePath = getSignaturePath(member);
         const formatted = {
           name: member.name,
           designation: member.designation,
           image: imagePath,
           hasSignature: !!member.signature,
+          signature: signaturePath,
         };
         console.log('[Core] Formatted member:', formatted);
         return formatted;
@@ -75,6 +82,7 @@ export default function Core() {
               title={member.designation}
               hasSignature={member.hasSignature}
               image={member.image}
+              signature={member.signature}
             />
           ))}
         </div>
@@ -88,6 +96,7 @@ export default function Core() {
               title={member.designation}
               hasSignature={member.hasSignature}
               image={member.image}
+              signature={member.signature}
             />
           ))}
         </div>

@@ -41,12 +41,7 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-7xl font-bold text-slate-900 mb-6">Contact Us</h1>
-          <div className="flex justify-center mb-6">
-            <svg width="120" height="24" viewBox="0 0 120 24">
-              <path d="M0 12 Q 30 2, 60 12 T 120 12" stroke="#0ea5e9" fill="none" strokeWidth="2.5"/>
-            </svg>
-          </div>
+          <h1 className="text-7xl font-bold text-slate-900 mb-12">Contact Us</h1>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             For any query, fill out the form below and our team will get back to you as soon as possible.
           </p>

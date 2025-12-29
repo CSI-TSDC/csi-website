@@ -48,30 +48,33 @@ export async function GET(request) {
       });
       resources = result.resources || [];
     } else {
-      // Get all resources
-      const result = await cloudinary.api.resources({
-        type: 'upload',
-        max_results: 500,
-        context: true
-      });
-      resources = result.resources || [];
-    }
-    
-    // Also try search API as fallback if Admin API doesn't work
-    if (resources.length === 0) {
-      let expression;
-      if (folder) {
-        expression = `folder:${folder}/*`;
-      } else {
-        expression = '*';
+      // Get all resources - use search API for better results when no folder specified
+      try {
+        const searchResult = await cloudinary.search
+          .expression('*')
+          .max_results(500)
+          .execute();
+        resources = searchResult.resources || [];
+        
+        // If search API doesn't return enough, also try Admin API
+        if (resources.length === 0) {
+          const result = await cloudinary.api.resources({
+            type: 'upload',
+            max_results: 500,
+            context: true
+          });
+          resources = result.resources || [];
+        }
+      } catch (error) {
+        console.warn('[Cloudinary API] Search API failed, trying Admin API:', error);
+        // Fallback to Admin API
+        const result = await cloudinary.api.resources({
+          type: 'upload',
+          max_results: 500,
+          context: true
+        });
+        resources = result.resources || [];
       }
-      
-      console.log('[Cloudinary API] Trying search API with expression:', expression);
-      const searchResult = await cloudinary.search
-        .expression(expression)
-        .max_results(500)
-        .execute();
-      resources = searchResult.resources || [];
     }
     
     const result = { resources, total_count: resources.length };

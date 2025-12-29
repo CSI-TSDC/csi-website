@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 
-export default function TeamCard({ name, title, hasSignature = false, image }) {
+export default function TeamCard({ name, title, hasSignature = false, image, signature }) {
   const [imgSrc, setImgSrc] = useState(image || '/assets/Teams/img2.jpg');
   const attemptRef = useRef(0);
   const fallbackImage = '/assets/Teams/img2.jpg';
@@ -52,26 +52,6 @@ export default function TeamCard({ name, title, hasSignature = false, image }) {
           className="object-cover"
           onError={handleImageError}
         />
-        {hasSignature && (
-          <div className="absolute bottom-4 right-4 w-12 h-8 opacity-30 z-10">
-            <svg viewBox="0 0 100 60" className="w-full h-full">
-              <path
-                d="M10 50 Q30 20, 50 40 T90 30"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                className="text-black"
-              />
-              <path
-                d="M15 45 Q35 15, 55 35 T95 25"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                fill="none"
-                className="text-black"
-              />
-            </svg>
-          </div>
-        )}
       </div>
       {name && (
         <div className="mt-3 w-full text-center">

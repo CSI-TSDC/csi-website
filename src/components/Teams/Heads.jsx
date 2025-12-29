@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import TeamSection from './TeamSection';
 import TeamCard from '@/components/ui/TeamCard';
-import { loadAllTeamData, getHeads, getPhotoPath } from '@/utils/teamData';
+import { loadAllTeamData, getHeads, getPhotoPath, getSignaturePath } from '@/utils/teamData';
 
 export default function Heads() {
   const [headsMembers, setHeadsMembers] = useState([]);
@@ -12,18 +12,25 @@ export default function Heads() {
   useEffect(() => {
     async function fetchData() {
       console.log('[Heads] Starting to fetch data...');
+      
+      // Load team images map from Cloudinary
+      const { loadTeamImageMap } = await import('@/utils/teamData');
+      const imageMap = await loadTeamImageMap();
+      
       const allData = await loadAllTeamData();
       console.log('[Heads] All data loaded:', allData);
       const heads = getHeads(allData);
       
       // Format for display: include team name in designation
       const formattedHeads = heads.map(member => {
-        const imagePath = getPhotoPath(member);
+        const imagePath = getPhotoPath(member, imageMap);
+        const signaturePath = getSignaturePath(member);
         const formatted = {
           name: member.name,
           designation: `${member.team} Team - ${member.designation}`,
           image: imagePath,
           hasSignature: !!member.signature,
+          signature: signaturePath,
           team: member.team,
         };
         console.log('[Heads] Formatted member:', formatted);
@@ -70,6 +77,7 @@ export default function Heads() {
                 title={member.designation}
                 hasSignature={member.hasSignature}
                 image={member.image}
+                signature={member.signature}
               />
             ))}
           </div>
