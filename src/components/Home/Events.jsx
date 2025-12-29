@@ -83,16 +83,6 @@ export default function Events() {
     >
       <div className="relative w-full">
         <div className="relative w-max flex flex-col">
-                <div className="relative text-[2.5vh] sm:text-[3vh] font-poppins-regular w-max pb-1.5 tracking-tighter mb-12 sm:mb-16 md:mb-24 lg:mb-32">
-                    <span className="block overflow-hidden">
-                      <span className="block reveal-y">UPCOMING EVENTS</span>
-                    </span>
-
-                    <span className="absolute block h-px w-full bottom-0 overflow-hidden">
-                      <span className="block h-full w-full bg-white reveal-x -translate-x-1/3" />
-                    </span>
-                </div>
-
                 <div className="text-[5vw] sm:text-[5.5vw] md:text-[5vw] font-satoshi-semibold md:mx-15 flex md:flex-row flex-col md:justify-between justify-center w-full h-max gap-2 sm:gap-3">
                     <div className="relative">
                     <span className="block overflow-hidden">

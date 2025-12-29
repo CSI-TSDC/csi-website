@@ -43,7 +43,7 @@ export default function TeamCard({ name, title, hasSignature = false, image }) {
   };
 
   return (
-    <div className="relative flex flex-col w-[200px] md:w-[250px] h-[350px] md:h-[425px]">
+    <div className="relative flex flex-col w-[220px] md:w-[280px] h-[380px] md:h-[460px]">
       <div className="relative rounded-[32px_8px] bg-white w-full h-full overflow-hidden">
         <Image 
           src={imgSrc} 

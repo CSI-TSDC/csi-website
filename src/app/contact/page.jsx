@@ -23,10 +23,10 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen bg-white pt-24">
+    <section className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 py-24 relative overflow-hidden">
-        <div className="absolute top-10 left-20 opacity-15">
+      <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 pt-24 md:py-32 lg:pt-40 relative overflow-hidden">
+        <div className="absolute top-26 left-20 opacity-15">
           <div className="flex gap-2">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="w-8 h-8 border-2 border-sky-400 rotate-45"></div>
@@ -40,11 +40,6 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10">
-          <svg width="300" height="60" viewBox="0 0 300 60">
-            <path d="M0 30 Q 75 5, 150 30 T 300 30" stroke="#0ea5e9" fill="none" strokeWidth="2"/>
-          </svg>
-        </div>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-7xl font-bold text-slate-900 mb-6">Contact Us</h1>
           <div className="flex justify-center mb-6">
@@ -53,7 +48,7 @@ export default function ContactPage() {
             </svg>
           </div>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut et tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            For any query, fill out the form below and our team will get back to you as soon as possible.
           </p>
         </div>
       </div>
@@ -106,26 +101,42 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Newsletter */}
+            {/* Event & Sponsorship Enquiries */}
             <div className="lg:col-span-1">
               <div className="bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-2xl p-8 text-white shadow-xl h-full">
-                <h3 className="text-2xl font-bold mb-4">Our Newsletters</h3>
+                <h3 className="text-2xl font-bold mb-4">Event & Sponsorship Enquiries</h3>
                 <p className="text-slate-300 text-sm mb-8 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut et tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                  We conduct events, hackathons, workshops.
                 </p>
                 <div className="space-y-4">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full px-4 py-3 bg-white/95 text-slate-800 rounded-xl placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-400 transition"
-                    value={formData.newsletter}
-                    onChange={(e) => setFormData({...formData, newsletter: e.target.value})}
-                  />
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-slate-300 text-xs mb-1">Event Enquiries</p>
+                      <a 
+                        href="mailto:events@csi-tsdc.com" 
+                        className="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors"
+                      >
+                        events@csi-tsdc.com
+                      </a>
+                    </div>
+                    <div>
+                      <p className="text-slate-300 text-xs mb-1">Sponsorship</p>
+                      <a 
+                        href="mailto:sponsorship@csi-tsdc.com" 
+                        className="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors"
+                      >
+                        sponsorship@csi-tsdc.com
+                      </a>
+                    </div>
+                  </div>
                   <button
-                    onClick={handleNewsletterSubmit}
+                    onClick={() => {
+                      // Handle download sponsorship slab
+                      console.log('Download Sponsorship Slab');
+                    }}
                     className="w-full py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >
-                    Submit Button
+                    Download Sponsorship Slab
                   </button>
                 </div>
               </div>
@@ -174,13 +185,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="bg-gradient-to-br from-slate-200 to-slate-300 rounded-3xl overflow-hidden shadow-xl" style={{height: '450px'}}>
             <div className="w-full h-full flex items-center justify-center text-slate-600 bg-gradient-to-br from-slate-100 to-slate-200">
-              <div className="text-center">
-                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <MapPin size={40} className="text-sky-600" />
-                </div>
-                <p className="text-lg font-semibold text-slate-800 mb-1">Interactive Map Would Be Here</p>
-                <p className="text-sm text-slate-600">London Eye, London</p>
-              </div>
+            <iframe className="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.577703117732!2d72.8623017756852!3d19.213638547636258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b731d4f3be13%3A0x6ac73cbebb4dc1de!2sThakur%20Shyamnarayan%20Degree%20College!5e0!3m2!1sen!2sin!4v1767002328085!5m2!1sen!2sin"></iframe>
             </div>
           </div>
         </div>

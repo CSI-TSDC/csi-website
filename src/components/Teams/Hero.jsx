@@ -60,7 +60,7 @@ export default function Hero() {
             md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-3
           "
         >
-          <Image src="/assets/Teams/img2.jpg" alt="Team member" fill className="object-cover" />
+          <Image src="/assets/Teams/Hero/Team1.webp" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 3 */}
@@ -71,7 +71,7 @@ export default function Hero() {
             md:col-start-2 md:col-end-6 md:row-start-3 md:row-end-5
           "
         >
-          <Image src="/assets/Teams/img3.jpg" alt="Team member" fill className="object-cover" />
+          <Image src="/assets/Teams/Hero/Team2.webp" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 4 */}
@@ -82,7 +82,7 @@ export default function Hero() {
             md:col-start-5 md:col-end-8 md:row-start-1 md:row-end-3
           "
         >
-          <Image src="/assets/Teams/img4.avif" alt="Team member" fill className="object-cover" />
+          <Image src="/assets/Teams/Hero/Team3.webp" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 5 */}
@@ -93,7 +93,7 @@ export default function Hero() {
             md:col-start-6 md:col-end-9 md:row-start-3 md:row-end-5
           "
         >
-          <Image src="/assets/Teams/img5.jpg" alt="Team member" fill className="object-cover" />
+          <Image src="/assets/Teams/Hero/Team4.webp" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 6 */}

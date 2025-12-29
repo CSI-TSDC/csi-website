@@ -73,6 +73,8 @@ export default function CSIGallery() {
   // Refs for each article component
   const envisionRef = useRef(null);
   const hackvisionRef = useRef(null);
+  const teaTechTalksRef = useRef(null);
+  const sihRef = useRef(null);
   const techWeekRef = useRef(null);
   
   // Map filter names to article refs
@@ -80,8 +82,8 @@ export default function CSIGallery() {
     "Tech Week": techWeekRef,
     "Hackathon": hackvisionRef,
     "Gaming Expo": envisionRef,
-    "Tea Tech Talks": envisionRef,
-    "S.I.H.": envisionRef,
+    "Tea Tech Talks": teaTechTalksRef,
+    "S.I.H.": sihRef,
     "Blooper": envisionRef,
   };
 
@@ -158,6 +160,7 @@ export default function CSIGallery() {
               <button
                 onClick={() => handleFilterClick("Tech Week")}
                 className="relative p-[2px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:scale-105 active:scale-95 transition-transform cursor-pointer"
+                style={{ cursor: 'pointer' }}
               >
                 <span className="
                   block px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
@@ -185,29 +188,24 @@ export default function CSIGallery() {
           </div>
         </div>
         <div className="relative hidden md:flex flex-row w-full items-stretch gap-2 sm:gap-3 md:gap-[14px]">
-          <div className="absolute w-full h-full">
-            <div className="w-20 sm:w-24 md:w-28 top-[35%] left-[55%] absolute">
-              <img src="/assets/Events/XO.png" className="w-full h-full object-cover -rotate-6" alt="" />
-            </div>
-          </div>
           <div className="flex flex-col w-max items-end gap-2 sm:gap-3 md:gap-[14px]">
             <div className="relative w-[200px] sm:w-[250px] md:w-[300px] h-[180px] sm:h-[200px] md:h-[250px]">
               <img src="/assets/Events/Robot1.png" className="w-20 sm:w-24 md:w-28 h-auto top-3 sm:top-4 md:top-5 -left-10 sm:-left-12 md:-left-14 absolute" alt="" />
-              <img src="/assets/Teams/img3.jpg" className="w-full h-full object-cover rounded-lg" alt="" />
+              <img src="/assets/Events/Events3.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
             <div className="relative w-[300px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[300px] md:h-[350px]">
             <img src="/assets/Events/space_invader.png" className="w-20 sm:w-24 md:w-28 bottom-0 left-0 absolute" alt="" />
-              <img src="/assets/Teams/img5.jpg" className="w-full h-full object-cover rounded-lg" alt="" />
+              <img src="/assets/Events/Events2.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
           </div>
           <div className="flex flex-col w-max justify-start gap-2 sm:gap-3 md:gap-[14px]">
             <div className="w-[200px] sm:w-[250px] md:w-[300px] h-[120px] sm:h-[130px] md:h-[150px]">
-              <img src="/assets/Teams/img6.jpg" className="w-full h-full object-cover rounded-lg" alt="" />
+              <img src="/assets/Events/Events4.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
             <div className="w-[200px] sm:w-[250px] md:w-[300px] h-[320px] sm:h-[380px] md:h-[450px] relative">
-              <img src="/assets/Events/XO.png" className="w-20 sm:w-24 md:w-28 top-[35%] left-[55%] absolute -rotate-6" alt="" />
+              <img src="/assets/Events/XO.png" className="w-20 sm:w-24 md:w-28 top-0 -left-14 absolute -rotate-6" alt="" />
               <img src="/assets/Events/geekcat.png" className="w-20 sm:w-24 md:w-28 h-auto bottom-3 sm:bottom-4 md:bottom-5 right-0 absolute rotate-6" alt="" />
-              <img src="/assets/Teams/img2.jpg" className="w-full h-full object-cover rounded-lg" alt="" />
+              <img src="/assets/Events/Events1.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
           </div>
         </div>
@@ -215,8 +213,9 @@ export default function CSIGallery() {
      
       <div className="relative px-4 sm:px-8 md:px-15 mt-8 sm:mt-12 md:mt-15 pb-20 sm:pb-24 md:pb-32">
             <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+                
                 {/* Event Card 1 - Envision */}
-                <article className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[200px] sm:min-h-[150px] md:min-h-[100px] max-h-[400px] sm:max-h-[350px] md:max-h-[300px]">
+                <article ref={envisionRef} className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
                 {/* Background image */}
                 <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
                     <img 
@@ -236,7 +235,7 @@ export default function CSIGallery() {
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 p-4 sm:p-5 md:p-6 lg:p-8 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-12 h-full">
+                <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-12 h-full">
                     <img 
                     className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 flex-shrink-0 object-contain" 
                     src="/assets/Logos/envision_logo.png" 
@@ -258,7 +257,7 @@ export default function CSIGallery() {
                 </article>
 
                 {/* Event Card 2 - HackVision */}
-                <article className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[300px] sm:min-h-[250px] md:min-h-[200px] max-h-[500px] sm:max-h-[450px] md:max-h-[400px]">
+                <article ref={hackvisionRef} className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
                 {/* Background image */}
                 <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
                     <img 
@@ -327,7 +326,7 @@ export default function CSIGallery() {
                 </article>
 
                 {/* Event Card 3 - Tea Tech Talks */}
-                <article className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300">
+                <article ref={teaTechTalksRef} className="relative w-full flex justify-center items-center sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
                   
                   {/* Background image */}
                   <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
@@ -348,7 +347,7 @@ export default function CSIGallery() {
                   </div>
 
                   {/* Content — same layout as card 1 */}
-                  <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-10">
+                  <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 w-full h-full">
 
                     {/* Logo */}
                     <img
@@ -358,7 +357,7 @@ export default function CSIGallery() {
                     />
 
                     {/* Text */}
-                    <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl font-poppins-regular text-left leading-relaxed">
+                    <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl font-poppins-regular text-center sm:text-left leading-relaxed">
                       A student-led coding session held every working Saturday where students teach students. It&apos;s a casual,
                       interactive, and fun space to learn, build, and explore tech together — no faculty, no pressure,
                       just hands-on learning.
@@ -377,7 +376,7 @@ export default function CSIGallery() {
                 </article>
 
                 {/* Event Card 4 - SIH */}
-                <article className="relative text-black w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300">
+                <article ref={sihRef} className="relative text-black w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
                   
                   {/* Background image */}
                   <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
@@ -398,9 +397,9 @@ export default function CSIGallery() {
                   </div>
 
                   {/* Content — same layout as card 1 */}
-                  <div className="relative z-10 p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-10">
+                  <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-10">
 
-                    <div className="flex flex-col w-2/3">
+                    <div className="flex flex-col w-full sm:w-2/3 relative sm:relative z-10">
                       <div className="">
                         <div className="flex items-center">
                           <img src="/assets/Home/events/SIH_logo.png" alt="SIH logo" className="w-16 h-auto mr-4 mb-4 object-contain" />
@@ -419,7 +418,7 @@ export default function CSIGallery() {
                         </p>
                       </div>
                     </div>
-                    <div className="absolute top-0 right-0 h-full w-1/3">
+                    <div className="hidden sm:block absolute top-0 right-0 h-full w-1/3">
                       <img src="/assets/Home/events/SIHoverlay.png" alt="SIH Picture" className="w-full h-full object-cover" />
                     </div>
                   </div>
