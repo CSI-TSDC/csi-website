@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`antialiased`}
+        className={`antialiased bg-[#f8f8f8]!`}
       >
         <Navbar></Navbar>
         {children}
