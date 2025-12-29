@@ -41,8 +41,10 @@ export async function loadAllTeamData() {
   }
 }
 
-// Get photo path with fallback
-// Photos are in /assets/Teams/photos/{designation}/ folder
+// Get photo path with fallback - now using Cloudinary
+// Photos are in Teams/{designation}/ folder on Cloudinary
+import { getTeamPhotoUrl } from './cloudinary';
+
 export function getPhotoPath(member) {
   if (!member.photo) {
     console.log(`[getPhotoPath] No photo for ${member.name}, using fallback`);
@@ -51,7 +53,7 @@ export function getPhotoPath(member) {
   
   // Map designation to folder name
   // Designations: "Head", "Asst. Head", "Member", "Student Chairperson", etc.
-  let designationFolder = 'Member'; // default
+  let designationFolder = 'Members'; // default
   
   if (member.designation === 'Head' || member.designation === 'Asst. Head') {
     designationFolder = 'Heads';
@@ -62,15 +64,11 @@ export function getPhotoPath(member) {
     designationFolder = 'Core';
   }
   
-  // Get base filename without extension
-  const baseName = member.photo.replace(/\.(webp|jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
+  // Get Cloudinary URL
+  const cloudinaryUrl = getTeamPhotoUrl(designationFolder, member.photo);
   
-  // Try different extensions (actual files might be .JPG, .PNG, .jpg, .png, etc.)
-  // We'll use the original extension first, but the component will handle fallback
-  const photoPath = `/assets/Teams/photos/${designationFolder}/${member.photo}`;
-  
-  console.log(`[getPhotoPath] ${member.name} (${member.designation}/${member.team}):`, photoPath, '| Base:', baseName);
-  return photoPath;
+  console.log(`[getPhotoPath] ${member.name} (${member.designation}/${member.team}):`, cloudinaryUrl);
+  return cloudinaryUrl;
 }
 
 // Check if image exists (will be handled by onError in component)

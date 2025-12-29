@@ -3,19 +3,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import GallerySkeleton from "@/components/ui/GallerySkeleton";
-
-async function loadGalleryPhotos() {
-  try {
-    const response = await fetch('/assets/Gallery/manifest.json');
-    if (response.ok) {
-      const manifest = await response.json();
-      return manifest.photos || [];
-    }
-  } catch (error) {
-    console.warn('Failed to load gallery manifest, using empty array:', error);
-  }
-  return [];
-}
+import { loadGalleryPhotos } from "@/utils/galleryData";
 
 export default function Gallery() {
   const [selectedYear, setSelectedYear] = useState("All");

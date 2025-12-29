@@ -1,56 +1,152 @@
-// Utility to load gallery photos from folder structure
-// Structure: /assets/Gallery/{year}/{event}/{photo}
+// Utility to load gallery photos from Cloudinary
+// Structure: Gallery/{year}/{event}/{photo}
 // Photo naming: {event}_{number}.{ext} (e.g., SIH_1.jpg, SIH_2.jpg)
 
-// This function will be called to get all gallery photos
-// Since we can't directly read the file system in the browser,
-// we'll need to create a JSON manifest or use a server-side approach
-// For now, I'll create a structure that can be populated
+import { fetchCloudinaryImages, getCloudinaryUrl } from './cloudinary';
+import { extractYear, extractEventName, extractTag, extractPhotoNumber } from './cloudinary';
 
 export async function loadGalleryPhotos() {
-  // In a real implementation, this would:
-  // 1. Scan the /assets/Gallery folder structure
-  // 2. Extract year from grandparent folder (2024-25, 2025-26)
-  // 3. Extract event from parent folder (SIH, Envision, Tea Tech Talks)
-  // 4. Extract tag from filename (SIH_1.jpg -> tag: "SIH" or just use event name)
-  // 5. Return array of photo objects
-  
-  // For now, return empty array - will be populated by scanning
-  return [];
-}
-
-// Helper to extract year from folder name
-export function extractYear(folderName) {
-  // "2024-25" -> "2024" or keep "2024-25"
-  // "2025-26" -> "2025" or keep "2025-26"
-  if (folderName.includes('-')) {
-    return folderName.split('-')[0]; // Extract first part
+  try {
+    // Fetch all images from Gallery folder in Cloudinary
+    const resources = await fetchCloudinaryImages('Gallery');
+    
+    if (!resources || resources.length === 0) {
+      console.warn('[Gallery] No images found in Cloudinary Gallery folder');
+      // Fallback to manifest if Cloudinary fails
+      try {
+        const response = await fetch('/assets/Gallery/manifest.json');
+        if (response.ok) {
+          const manifest = await response.json();
+          return manifest.photos || [];
+        }
+      } catch (error) {
+        console.warn('[Gallery] Failed to load manifest fallback:', error);
+      }
+      return [];
+    }
+    
+    // Process Cloudinary resources into photo objects
+    const photos = resources.map(resource => {
+      // Cloudinary provides asset_folder which contains the full folder path
+      // Format: "Gallery/2025-26/SIH" or "Gallery/2024-25/Envision"
+      const assetFolder = resource.asset_folder || resource.folder || '';
+      const publicId = resource.public_id || '';
+      
+      // Construct full path: asset_folder/public_id
+      // Example: "Gallery/2025-26/SIH/SIH_23_exkxrk"
+      let fullPath = '';
+      
+      if (assetFolder && publicId) {
+        fullPath = `${assetFolder}/${publicId}`;
+      } else if (publicId.includes('/')) {
+        // If public_id already has the path
+        fullPath = publicId;
+      } else {
+        // Fallback: try to extract from secure_url
+        if (resource.secure_url) {
+          const urlMatch = resource.secure_url.match(/\/image\/upload\/[^/]*\/(.+)$/);
+          if (urlMatch) {
+            fullPath = urlMatch[1];
+          }
+        }
+      }
+      
+      // If still no path, skip this resource
+      if (!fullPath) {
+        console.warn('[Gallery] Cannot determine path for resource:', {
+          public_id: publicId,
+          asset_folder: assetFolder,
+          folder: resource.folder
+        });
+        return null;
+      }
+      
+      // Extract path components: Gallery/2024-25/Envision/Envision_1
+      const pathParts = fullPath.split('/');
+      
+      let year, event, filename;
+      
+      if (pathParts.length >= 4 && pathParts[0] === 'Gallery') {
+        // Full path: Gallery/2024-25/Envision/Envision_1_vvco42
+        year = pathParts[1]; // 2024-25 (keep full year format)
+        event = pathParts[2]; // Envision
+        filename = pathParts[3]; // Envision_1_vvco42
+      } else if (pathParts.length === 3 && pathParts[0] === 'Gallery') {
+        // Path: Gallery/2024-25/Envision_1 (no event subfolder)
+        year = pathParts[1]; // 2024-25
+        filename = pathParts[2]; // Envision_1
+        // Try to extract event from filename
+        const eventMatch = filename.match(/^([A-Za-z\s]+)_/);
+        event = eventMatch ? eventMatch[1].trim() : 'Gallery';
+      } else {
+        console.warn('[Gallery] Unexpected path structure:', {
+          fullPath: fullPath,
+          pathParts: pathParts,
+          asset_folder: assetFolder,
+          public_id: publicId
+        });
+        return null;
+      }
+      
+      // Clean up filename - remove extension if present (but keep Cloudinary suffix like _njo8fq)
+      filename = filename.split('.')[0];
+      
+      if (!year || !event || !filename) {
+        console.warn('[Gallery] Missing path components:', {
+          year,
+          event,
+          filename,
+          fullPath: fullPath
+        });
+        return null;
+      }
+      
+      const yearExtracted = extractYear(year); // Extract "2024" from "2024-25"
+      const eventName = extractEventName(event);
+      const tag = extractTag(filename, eventName);
+      const photoNumber = extractPhotoNumber(filename);
+      
+      // Use secure_url directly from Cloudinary - it's guaranteed to work
+      // This avoids any path reconstruction issues
+      let imageUrl;
+      if (resource.secure_url) {
+        imageUrl = resource.secure_url;
+      } else {
+        // Fallback: construct URL from full path
+        const cloudinaryPath = fullPath;
+        imageUrl = getCloudinaryUrl(cloudinaryPath, {
+          quality: 'auto',
+          fetchFormat: 'auto'
+        });
+      }
+      
+      return {
+        id: `${year}-${event}-${photoNumber || filename}`,
+        src: imageUrl,
+        event: eventName,
+        tag: tag,
+        year: yearExtracted, // Use extracted year "2024" for filtering
+        fullYear: year, // Keep full year "2024-25"
+        photoNumber: photoNumber,
+      };
+    }).filter(photo => photo !== null);
+    
+    console.log(`[Gallery] Loaded ${photos.length} photos from Cloudinary`);
+    return photos;
+  } catch (error) {
+    console.error('[Gallery] Error loading photos from Cloudinary:', error);
+    // Fallback to manifest
+    try {
+      const response = await fetch('/assets/Gallery/manifest.json');
+      if (response.ok) {
+        const manifest = await response.json();
+        return manifest.photos || [];
+      }
+    } catch (fallbackError) {
+      console.warn('[Gallery] Failed to load manifest fallback:', fallbackError);
+    }
+    return [];
   }
-  return folderName;
-}
-
-// Helper to extract event name from folder
-export function extractEventName(folderName) {
-  // Clean up folder name if needed
-  return folderName;
-}
-
-// Helper to extract tag from filename
-export function extractTag(filename, eventName) {
-  // If filename is like "SIH_1.jpg", extract "SIH"
-  // Otherwise, use event name as tag
-  if (filename.includes('_')) {
-    const parts = filename.split('_');
-    return parts[0];
-  }
-  return eventName;
-}
-
-// Helper to extract number from filename
-export function extractPhotoNumber(filename) {
-  // "SIH_1.jpg" -> 1
-  const match = filename.match(/_(\d+)\./);
-  return match ? parseInt(match[1], 10) : null;
 }
 
 // Structure for a gallery photo
