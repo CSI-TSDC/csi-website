@@ -84,7 +84,7 @@ export default function Numbers() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#f8f8f8] text-[#222] pt-10 md:pt-20 px-[5vw] font-satoshi font-bold"
+      className="relative bg-csi-white text-csi-black pt-10 md:pt-20 px-[5vw] font-satoshi font-bold"
     >
       <div className="relative w-full pt-20">
         <div className="relative w-full flex flex-col">

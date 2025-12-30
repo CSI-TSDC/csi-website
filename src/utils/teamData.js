@@ -51,6 +51,17 @@ let teamImageMapPromise = null;
 
 // Load team images map from Cloudinary
 export async function loadTeamImageMap() {
+  // Check if we're on localhost - return empty map (will use local paths)
+  // This check works synchronously on client-side
+  if (typeof window !== 'undefined' && 
+      (window.location.hostname === 'localhost' || 
+       window.location.hostname === '127.0.0.1' ||
+       window.location.hostname.startsWith('192.168.') ||
+       window.location.hostname.startsWith('10.0.'))) {
+    console.log('[teamData] Running on localhost, skipping Cloudinary image map');
+    return {};
+  }
+  
   if (teamImageMapCache) {
     return teamImageMapCache;
   }
@@ -73,6 +84,29 @@ export function getPhotoPath(member, imageMap = null) {
   if (!member.photo) {
     console.log(`[getPhotoPath] No photo for ${member.name}, using fallback`);
     return '/assets/Teams/img2.jpg';
+  }
+  
+  // Check if we're on localhost - use local paths instead of Cloudinary
+  // This check works synchronously on client-side
+  if (typeof window !== 'undefined' && 
+      (window.location.hostname === 'localhost' || 
+       window.location.hostname === '127.0.0.1' ||
+       window.location.hostname.startsWith('192.168.') ||
+       window.location.hostname.startsWith('10.0.'))) {
+    // Construct localhost path based on member's designation/team
+    const designation = member.designation || member.team || 'Members';
+    let folder = 'Members';
+    
+    // Map designations to folders
+    if (designation === 'Head' || designation === 'Asst. Head') {
+      folder = 'Heads';
+    } else if (member.team === 'Core' || ['Student Chairperson', 'Student Vice-Chairperson', 'Secretary', 'Treasurer'].includes(designation)) {
+      folder = 'Core';
+    }
+    
+    // Try common extensions
+    const baseName = member.photo.replace(/\.(webp|jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
+    return `/assets/Teams/photos/${folder}/${baseName}.webp`;
   }
   
   // Remove extension to get base name for lookup
@@ -110,8 +144,8 @@ export function getPhotoPath(member, imageMap = null) {
           return imageMap[key];
         }
       }
-    }
-    
+  }
+  
     // Strategy 4: Try name variations
     const nameVariations = [
       baseName.replace(/_/g, ' '),

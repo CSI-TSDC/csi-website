@@ -2,6 +2,22 @@
 
 const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dgeeamxpx';
 
+/**
+ * Check if we're running on localhost
+ * @returns {boolean} True if on localhost
+ */
+export function isLocalhost() {
+  if (typeof window === 'undefined') {
+    // Server-side: check environment variable or default to false
+    return process.env.NODE_ENV === 'development';
+  }
+  // Client-side: check hostname
+  return window.location.hostname === 'localhost' || 
+         window.location.hostname === '127.0.0.1' ||
+         window.location.hostname.startsWith('192.168.') ||
+         window.location.hostname.startsWith('10.0.');
+}
+
 // Helper functions from galleryData
 export function extractYear(folderName) {
   if (folderName.includes('-')) {

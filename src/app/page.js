@@ -6,7 +6,7 @@ import Events from "@/components/Home/Events";
 import Repos from "@/components/Home/Repos";
 export default function Home() {
   return (
-    <main className="bg-[#f8f8f8]">
+    <main className="bg-csi-white">
       <Hero></Hero>
       <Existence></Existence>
       <Vision></Vision>

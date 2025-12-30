@@ -30,7 +30,7 @@ const photos = [
   },
 ];
 
-const filters = ["Hackathon", "Gaming Expo", "Tea Tech Talks",  "S.I.H.", "Blooper"];
+const filters = ["Hackathon", "Gaming Expo", "Tea Tech Talks", "S.I.H.", "Blooper"];
 
 const eventDetails = {
   "Hackathon": {
@@ -74,11 +74,9 @@ export default function CSIGallery() {
   const hackvisionRef = useRef(null);
   const teaTechTalksRef = useRef(null);
   const sihRef = useRef(null);
-  const techWeekRef = useRef(null);
   
   // Map filter names to article refs
   const filterToRefMap = {
-    "Tech Week": techWeekRef,
     "Hackathon": hackvisionRef,
     "Gaming Expo": envisionRef,
     "Tea Tech Talks": teaTechTalksRef,
@@ -110,7 +108,7 @@ export default function CSIGallery() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-black relative px-4 sm:px-6 md:px-[5vw]">
+    <main className="min-h-screen bg-csi-white text-csi-black relative px-4 sm:px-6 md:px-[5vw]">
       <div className="relative z-10">
       <section className="max-w-8xl mx-auto pb-12 sm:pb-16 md:pb-20 lg:pb-28 pt-20 sm:pt-24 md:pt-32 lg:pt-40 grid md:grid-cols-[1fr_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
         <div className="space-y-3 sm:space-y-4 md:space-y-5">
@@ -122,17 +120,17 @@ export default function CSIGallery() {
 
           <h1 className="text-[6vw] sm:text-[5.5vw] md:text-[5vw] font-semibold font-poppins leading-tight w-max">
             <span className="block w-full overflow-hidden">
-              <span><span className="text-blue-500">Meet,</span> Build</span>
+              <span><span className="text-csi-blue">Meet,</span> Build</span>
             </span>
             <span className="block w-full overflow-hidden">
               <span>and Compete</span>
             </span>
           </h1>
           <div className="flex flex-wrap gap-2 sm:gap-2.5 text-sm sm:text-base text-white">
-            <span className="border border-gray-300 rounded-sm bg-yellow-300 text-black px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
+            <span className="border border-gray-300 rounded-sm bg-yellow-300 text-csi-black px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
               #TechFests
             </span>
-            <span className="border border-gray-300 rounded-sm bg-blue-500 px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
+            <span className="border border-gray-300 rounded-sm bg-csi-blue px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
               #GameDev
             </span>
             <span className="border border-gray-300 rounded-sm bg-orange-500 px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
@@ -156,28 +154,14 @@ export default function CSIGallery() {
             sticky top-14 md:top-22 z-40
           ">
             <div className="flex flex-wrap gap-2 sm:gap-3">
-              <button
-                onClick={() => handleFilterClick("Tech Week")}
-                className="relative p-[2px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:scale-105 active:scale-95 transition-transform cursor-pointer"
-                style={{ cursor: 'pointer' }}
-              >
-                <span className="
-                  block px-4 sm:px-5 py-2 sm:py-2.5 rounded-full
-                  bg-white text-gray-800 text-[10px] sm:text-xs md:text-sm
-                  font-satoshi font-medium
-                  hover:bg-gray-50
-                ">
-                  TECH WEEK
-                </span>
-              </button>
               {filters.map((f) => (
                 <button
                   key={f}
                     onClick={() => handleFilterClick(f)}
                     className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm whitespace-nowrap font-satoshi font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${
                     activeFilter === f
-                        ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/30 border-2 border-blue-600"
-                        : "bg-white text-gray-700 hover:text-gray-900 border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-sm"
+                        ? "bg-gradient-to-r from-csi-blue-600 to-csi-blue-700 text-white shadow-lg shadow-csi-blue/30 border-2 border-csi-blue"
+                        : "bg-csi-white text-gray-700 hover:text-gray-900 border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-sm"
                   }`}
                 >
                   {f}
@@ -215,7 +199,6 @@ export default function CSIGallery() {
         hackvisionRef={hackvisionRef}
         teaTechTalksRef={teaTechTalksRef}
         sihRef={sihRef}
-        techWeekRef={techWeekRef}
       />
       </div>
     </main>

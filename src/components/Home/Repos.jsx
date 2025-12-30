@@ -144,7 +144,7 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#f8f8f8] text-[#161616] h-screen flex flex-col justify-center items-center px-[5vw] font-satoshi font-bold"
+      className="relative bg-csi-white text-csi-black h-screen flex flex-col justify-center items-center px-[5vw] font-satoshi font-bold"
     >
       {/* GitHub */}
       <div className="w-full px-15 flex justify-center text-[5vw] items-center md:pt-25">
@@ -152,7 +152,12 @@ export default function Projects() {
           <span className="block reveal-y">We are also on</span>
         </span>
 
-        <div className="relative bg-[#010408] flex justify-center -rotate-1 items-center text-white w-max px-7 py-5 gap-4 rounded-full reveal-opacity">
+        <a 
+          href="https://github.com/CSI-TSDC" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="relative bg-[#010408] flex justify-center -rotate-1 items-center text-white w-max px-7 py-5 gap-4 rounded-full reveal-opacity hover:scale-105 transition-transform cursor-pointer"
+        >
             <span className="block relative w-[100px] h-auto">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -186,7 +191,7 @@ export default function Projects() {
             <span className="">
                 <span>Github</span>
             </span>
-        </div>
+        </a>
       </div>
 
       {/* Paragraph (SPAN-SPAN KEPT) */}

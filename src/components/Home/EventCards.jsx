@@ -4,8 +4,7 @@ export default function EventCards({
   envisionRef = null, 
   hackvisionRef = null, 
   teaTechTalksRef = null, 
-  sihRef = null, 
-  techWeekRef = null 
+  sihRef = null
 }) {
 
   return (
@@ -35,7 +34,7 @@ export default function EventCards({
           {/* Content */}
           <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-12 h-full">
             <img 
-              className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 flex-shrink-0 object-contain" 
+              className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 shrink-0 object-contain" 
               src="/assets/Logos/envision_logo.png" 
               alt="Envision Logo" 
             />
@@ -124,7 +123,7 @@ export default function EventCards({
         </article>
 
         {/* Event Card 3 - Tea Tech Talks */}
-        <article ref={teaTechTalksRef || null} className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
+        <article ref={teaTechTalksRef || null} className="relative w-full flex justify-center items-center sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
           
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
@@ -149,7 +148,7 @@ export default function EventCards({
 
             {/* Logo */}
             <img
-              className="w-24 sm:w-32 md:w-44 lg:w-52 flex-shrink-0 object-contain"
+              className="w-24 sm:w-32 md:w-44 lg:w-52 shrink-0 object-contain"
               src="/assets/Logos/teatechtalk_logo.svg"
               alt="Tea Tech Talks Logo"
             />
@@ -174,7 +173,7 @@ export default function EventCards({
         </article>
 
         {/* Event Card 4 - SIH */}
-        <article ref={sihRef || null} className="relative text-black w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
+        <article ref={sihRef || null} className="relative text-csi-black w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
           
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">

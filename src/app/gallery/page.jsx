@@ -128,6 +128,28 @@ export default function Gallery() {
     };
   }, []);
 
+  // Prevent body scroll when preview is open
+  useEffect(() => {
+    if (previewImage) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      // Disable scroll
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        // Re-enable scroll and restore position
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [previewImage]);
+
   // Handle image load
   const handleImageLoad = useCallback((photoId) => {
     setImagesLoaded(prev => {
@@ -150,19 +172,19 @@ export default function Gallery() {
         <div id="showcase-bg"></div>
         <div className="grid mx-auto max-w-6xl md:grid-cols-[1.15fr_1fr] gap-8 md:gap-16 items-center">
         <div className="space-y-3 md:space-y-6">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-black leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-csi-black leading-tight">
             The CSI Showcase
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-black/80 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-csi-black/80 leading-relaxed">
             A look back at the energy, creativity, and people behind CSI x TSDC.
           </p>
 
-          <p className="text-sm sm:text-base md:text-lg text-black/70 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-csi-black/70 leading-relaxed">
             Explore our collection of memories from events, workshops, hackathon, and other activities held every year.
           </p>
 
-          <p className="text-xs sm:text-sm md:text-base text-black/60 leading-relaxed hidden sm:block">
+          <p className="text-xs sm:text-sm md:text-base text-csi-black/60 leading-relaxed hidden sm:block">
             From tech fests to coding competitions, every moment captured tells a story of innovation and collaboration.
           </p>
         </div>
@@ -301,7 +323,7 @@ export default function Gallery() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16">
         <div className="flex flex-col items-center gap-4 md:gap-6">
           <div className="text-center mb-1 md:mb-2">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-black mb-1 md:mb-2">Filter by Year</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-csi-black mb-1 md:mb-2">Filter by Year</h2>
             <p className="text-xs sm:text-sm md:text-base text-gray-600 px-4">Select a year to view photos from that time</p>
           </div>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 w-full px-4">
@@ -365,13 +387,13 @@ export default function Gallery() {
                 >
                   <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-300 active:scale-[0.98]">
                     <div className="relative w-full">
-                      <Image
-                        src={photo.src}
-                        width={1000}
-                        height={1000}
+                    <Image
+                      src={photo.src}
+                      width={1000}
+                      height={1000}
                         className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-110 ${!imagesLoaded[photo.id] && !imagesFailed[photo.id] ? 'opacity-0' : 'opacity-100'}`}
-                        alt={photo.event}
-                        unoptimized
+                      alt={photo.event}
+                      unoptimized
                         loading="lazy"
                         onLoad={() => {
                           handleImageLoad(photo.id);
@@ -379,10 +401,10 @@ export default function Gallery() {
                         onError={() => {
                           handleImageError(photo.id);
                         }}
-                      />
+                    />
                       {!imagesLoaded[photo.id] && !imagesFailed[photo.id] && (
                         <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 animate-pulse rounded-xl sm:rounded-2xl z-10" />
-                      )}
+                    )}
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">

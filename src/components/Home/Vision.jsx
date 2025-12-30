@@ -66,7 +66,7 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#161616] text-white min-h-screen mt-10 md:mt-20 font-satoshi font-bold overflow-hidden"
+      className="relative bg-csi-black text-white min-h-screen mt-10 md:mt-20 font-satoshi font-bold overflow-hidden"
     >
       {/* TEXT */}
       <div

@@ -78,7 +78,7 @@ export default function Events() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#161616] text-[#fff] min-h-[50vh] pt-12 sm:pt-16 md:pt-48 px-4 sm:px-6 md:px-[5vw] pb-16 sm:pb-20 md:pb-32 font-satoshi font-bold"
+      className="relative bg-[#161616] text-white min-h-[50vh] pt-12 sm:pt-16 md:pt-48 px-4 sm:px-6 md:px-[5vw] pb-16 sm:pb-20 md:pb-32 font-satoshi font-bold"
     >
       <div className="relative w-full">
         <div className="relative w-max flex flex-col">
@@ -87,16 +87,21 @@ export default function Events() {
                     <span className="block overflow-hidden">
                         <span className="block reveal-y">Thoughtfully curated events</span>
                     </span>
-                    <span className="block text-blue-500 overflow-hidden">
+                    <span className="block text-csi-blue overflow-hidden">
                         <span className="block reveal-y">where students learn,</span>
                     </span>
-                    <span className="block text-blue-500 overflow-hidden">
+                    <span className="block text-csi-blue overflow-hidden">
                         <span className="block reveal-y">build, and connect.</span>
                     </span>
                     </div>
                 </div>
         </div>
-        <EventCards />
+        <EventCards 
+          envisionRef={null}
+          hackvisionRef={null}
+          teaTechTalksRef={null}
+          sihRef={null}
+        />
       </div>
     </section>
     )

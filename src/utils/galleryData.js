@@ -7,6 +7,27 @@ import { extractYear, extractEventName, extractTag, extractPhotoNumber } from '.
 
 export async function loadGalleryPhotos() {
   try {
+    // Check if we're on localhost - use manifest.json instead of Cloudinary
+    // This check works synchronously on client-side
+    if (typeof window !== 'undefined' && 
+        (window.location.hostname === 'localhost' || 
+         window.location.hostname === '127.0.0.1' ||
+         window.location.hostname.startsWith('192.168.') ||
+         window.location.hostname.startsWith('10.0.'))) {
+      console.log('[Gallery] Running on localhost, using manifest.json');
+      try {
+        const response = await fetch('/assets/Gallery/manifest.json');
+        if (response.ok) {
+          const manifest = await response.json();
+          console.log(`[Gallery] Loaded ${manifest.photos?.length || 0} photos from manifest`);
+          return manifest.photos || [];
+        }
+      } catch (error) {
+        console.warn('[Gallery] Failed to load manifest:', error);
+      }
+      return [];
+    }
+    
     // Fetch all images from Gallery folder in Cloudinary
     const resources = await fetchCloudinaryImages('Gallery');
     
@@ -22,9 +43,9 @@ export async function loadGalleryPhotos() {
       } catch (error) {
         console.warn('[Gallery] Failed to load manifest fallback:', error);
       }
-      return [];
-    }
-    
+  return [];
+}
+
     // Process Cloudinary resources into photo objects
     const photos = resources.map(resource => {
       // Cloudinary provides asset_folder which contains the full folder path
@@ -59,8 +80,8 @@ export async function loadGalleryPhotos() {
           folder: resource.folder
         });
         return null;
-      }
-      
+}
+
       // Extract path components: Gallery/2024-25/Envision/Envision_1
       const pathParts = fullPath.split('/');
       
@@ -109,7 +130,20 @@ export async function loadGalleryPhotos() {
       // Use secure_url directly from Cloudinary - it's guaranteed to work
       // This avoids any path reconstruction issues
       let imageUrl;
-      if (resource.secure_url) {
+      
+      // Check if we're on localhost - use local paths instead of Cloudinary
+      // This check works synchronously on client-side
+      if (typeof window !== 'undefined' && 
+          (window.location.hostname === 'localhost' || 
+           window.location.hostname === '127.0.0.1' ||
+           window.location.hostname.startsWith('192.168.') ||
+           window.location.hostname.startsWith('10.0.'))) {
+        // Construct localhost path: /assets/Gallery/{year}/{event}/{filename}
+        // Try common extensions
+        const extensions = ['.webp', '.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG'];
+        // Use the first extension as default (will fallback if not found)
+        imageUrl = `/assets/Gallery/${year}/${event}/${filename}${extensions[0]}`;
+      } else if (resource.secure_url) {
         imageUrl = resource.secure_url;
       } else {
         // Fallback: construct URL from full path
@@ -118,7 +152,7 @@ export async function loadGalleryPhotos() {
           quality: 'auto',
           fetchFormat: 'auto'
         });
-      }
+  }
       
       return {
         id: `${year}-${event}-${photoNumber || filename}`,

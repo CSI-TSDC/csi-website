@@ -1,9 +1,16 @@
+"use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import gsap from "gsap";
+import { Flip } from "gsap/Flip";
 
-export default function Hero() {
+gsap.registerPlugin(Flip);
+
+export default function TeamsGrid() {
+
   return (
-    <section className="pt-20 sm:pt-24 md:pt-32 min-h-screen bg-[#f8f8f8] text-black w-full font-satoshi font-bold">
+    <section className="pt-20 sm:pt-24 md:pt-32 min-h-screen bg-csi-white text-csi-black w-full font-satoshi font-bold">
       <div className="text-[8vw] sm:text-[7vw] md:text-[6vw] text-[#4F77FF] flex justify-center mb-12 sm:mb-16 md:mb-20 px-4">
         <span>meet the team</span>
       </div>

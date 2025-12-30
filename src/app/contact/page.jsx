@@ -14,7 +14,23 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    // Create mailto link with form data
+    const recipient = 'support@tsdcmumbai.in';
+    const subject = encodeURIComponent(formData.name ? `Contact from ${formData.name}` : 'Contact Form Submission');
+    
+    // Build email body with form data
+    let body = '';
+    if (formData.name) body += `Name: ${formData.name}\n`;
+    if (formData.email) body += `Email: ${formData.email}\n`;
+    if (formData.phone) body += `Phone: ${formData.phone}\n`;
+    if (formData.message) body += `\nMessage:\n${formData.message}`;
+    
+    const bodyEncoded = encodeURIComponent(body);
+    const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${bodyEncoded}`;
+    
+    // Open mail client
+    window.location.href = mailtoLink;
   };
 
   const handleNewsletterSubmit = (e) => {
@@ -23,7 +39,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen bg-white">
+    <section className="min-h-screen bg-csi-white">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 pt-24 md:py-32 lg:pt-40 relative overflow-hidden">
         <div className="absolute top-26 left-20 opacity-15">
@@ -54,8 +70,8 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="space-y-5">
+              <div className="bg-csi-white rounded-2xl shadow-lg p-8">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <input
                       type="email"
@@ -87,12 +103,12 @@ export default function ContactPage() {
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   ></textarea>
                   <button
-                    onClick={handleSubmit}
-                    className="px-10 py-4 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-full font-semibold shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                    type="submit"
+                    className="px-10 py-4 bg-gradient-to-r from-csi-blue-400 to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-full font-semibold shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >
-                    Submit Button
+                    Submit
                   </button>
-                </div>
+                </form>
               </div>
             </div>
 
@@ -129,7 +145,7 @@ export default function ContactPage() {
                       // Handle download sponsorship slab
                       console.log('Download Sponsorship Slab');
                     }}
-                    className="w-full py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                    className="w-full py-3 bg-gradient-to-r from-csi-blue to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >
                     Download Sponsorship Slab
                   </button>
@@ -141,34 +157,42 @@ export default function ContactPage() {
       </div>
 
       {/* Contact Info Cards */}
-      <div className="py-20 bg-white">
+      <div className="py-20 bg-csi-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
+              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
                 <Phone className="text-sky-600" size={28} />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">(+976) 786 665</h4>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">
+                <a href="tel:+911234567890" className="hover:text-sky-600 transition-colors">
+                  +91 1234567890
+                </a>
+              </h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut et tellus, luctus nec.
+                Call us for any queries or support.
               </p>
             </div>
             <div className="bg-gradient-to-br from-slate-100 via-slate-50 to-gray-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
+              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
                 <Mail className="text-slate-700" size={28} />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">mail@influenca.id</h4>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">
+                <a href="mailto:support@tsdcmumbai.in" className="hover:text-slate-700 transition-colors">
+                  support@tsdcmumbai.in
+                </a>
+              </h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut et tellus, luctus nec.
+                Send us an email and we'll get back to you soon.
               </p>
             </div>
             <div className="bg-gradient-to-br from-indigo-50 via-blue-50 to-sky-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="bg-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
+              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
                 <MapPin className="text-indigo-600" size={28} />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">London Eye London</h4>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">Address</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut et tellus, luctus nec.
+                Thakur Shyamnarayan Degree College, 90 Feet Rd, Kandivali, Thakur Complex, Kandivali East, Mumbai, Maharashtra 400101
               </p>
             </div>
           </div>

@@ -77,8 +77,8 @@ const Navbar = () => {
                       href={link.href}
                       className={`text-sm md:text-base font-medium font-satoshi transition-colors duration-200 cursor-pointer py-2 px-3 rounded-md ${
                         (isHomePage && !isScrolled)
-                          ? 'text-white hover:text-blue-400 hover:bg-white/5' 
-                          : 'text-black hover:text-blue-600 hover:bg-black/5'
+                          ? 'text-white hover:text-csi-blue-300 hover:bg-white/5' 
+                          : 'text-csi-black hover:text-csi-blue hover:bg-csi-black/5'
                       }`}
                     >
                       {link.label}
@@ -93,7 +93,7 @@ const Navbar = () => {
               <button
                 onClick={toggleMenu}
                 className={`transition-colors p-2 relative z-50 ${
-                  (isHomePage && !isScrolled) ? 'text-white hover:text-blue-400' : 'text-black hover:text-blue-600'
+                  (isHomePage && !isScrolled) ? 'text-white hover:text-csi-blue-300' : 'text-csi-black hover:text-csi-blue'
                 }`}
                 aria-label="Toggle menu"
               >
@@ -128,8 +128,8 @@ const Navbar = () => {
                     onClick={closeMenu}
                     className={`block text-base font-medium font-satoshi transition-colors duration-200 cursor-pointer py-3 px-4 rounded-md ${
                       (isHomePage && !isScrolled)
-                        ? 'text-white hover:text-blue-400 hover:bg-white/10'
-                        : 'text-black hover:text-blue-600 hover:bg-black/10'
+                        ? 'text-white hover:text-csi-blue-300 hover:bg-white/10'
+                        : 'text-csi-black hover:text-csi-blue hover:bg-csi-black/10'
                     }`}
                   >
                     {link.label}

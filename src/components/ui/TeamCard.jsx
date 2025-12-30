@@ -44,7 +44,7 @@ export default function TeamCard({ name, title, hasSignature = false, image, sig
 
   return (
     <div className="relative flex flex-col w-[220px] md:w-[280px] h-[380px] md:h-[460px]">
-      <div className="relative rounded-[32px_8px] bg-white w-full h-full overflow-hidden">
+      <div className="relative rounded-[32px_8px] bg-csi-white w-full h-full overflow-hidden">
         <Image 
           src={imgSrc} 
           alt={name || "Team member"} 
