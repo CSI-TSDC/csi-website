@@ -49,24 +49,24 @@ export default function Hero() {
         <div className="flex flex-col w-full sm:w-max max-w-[90vw] sm:max-w-none">
             <div className="relative mb-2 sm:mb-2">
                 <span className="block overflow-hidden">
-                    <span className="reveal-inner block text-[2.5vh] sm:text-[3vh] md:text-[2.5vw] lg:text-[2vw] font-poppins-bold text-gray-200/90">
+                    <span className="reveal-inner block text-[2.5vh] sm:text-[3vh] md:text-[2.5vw] lg:text-[2vw] font-kollektif-bold text-gray-200/90">
                         WELCOME TO CSI X TSDC
                     </span>
                 </span>
             </div>
-            <div className="relative mb-1.5 pb-2.5 flex flex-col">
+            <div className="relative mb-1.5 pb-2.5 flex flex-col font-dm-sans-semibold">
                 <span className="block overflow-hidden">
-                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] font-poppins-bold text-white/90 max-w-4xl">
+                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] text-white/90 max-w-4xl">
                         At the CSI Committee of TSDC, 
                     </span>
                 </span>
                 <span className="block overflow-hidden mt-1 sm:mt-0">
-                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] font-poppins-bold text-white/90 max-w-4xl">
+                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] text-white/90 max-w-4xl">
                         we believe students grow best
                     </span>
                 </span>
                 <span className="block overflow-hidden mt-1 sm:mt-0">
-                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] font-poppins-bold text-white/90 max-w-4xl">
+                    <span className="reveal-inner block text-[4vw] sm:text-[3.5vw] md:text-[3.3vw] leading-[1.1] sm:leading-[1.2] text-white/90 max-w-4xl">
                         by learning together.
                     </span>
                 </span>

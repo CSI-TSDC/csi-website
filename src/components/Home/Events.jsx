@@ -81,7 +81,7 @@ export default function Events() {
     >
       <div className="relative w-full">
         <div className="relative w-max flex flex-col">
-                <div className="text-[5vw] sm:text-[5.5vw] md:text-[5vw] font-satoshi-semibold md:mx-15 flex md:flex-row flex-col md:justify-between justify-center w-full h-max gap-2 sm:gap-3">
+                <div className="text-[5vw] sm:text-[5.5vw] md:text-[5vw] leading-snug font-space-grotesk-semibold md:mx-15 flex md:flex-row flex-col md:justify-between justify-center w-full h-max gap-2 sm:gap-3">
                     <div className="relative">
                     <span className="block overflow-hidden">
                         <span className="block reveal-y">Thoughtfully curated events</span>

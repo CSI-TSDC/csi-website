@@ -55,9 +55,9 @@ export default function TeamCard({ name, title, hasSignature = false, image, sig
       </div>
       {name && (
         <div className="mt-3 w-full text-center">
-          <h3 className="text-lg md:text-xl font-bold font-satoshi">{name}</h3>
+          <h3 className="text-lg md:text-xl font-dm-sans-semibold">{name}</h3>
           {title && (
-            <p className="text-sm md:text-base text-gray-600 font-satoshi">{title}</p>
+            <p className="text-sm md:text-base text-gray-600 font-dm-sans-medium">{title}</p>
           )}
         </div>
       )}

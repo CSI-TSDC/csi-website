@@ -376,8 +376,7 @@ export default function Gallery() {
                 return null;
               }
               
-              // Use src path as part of key to ensure uniqueness (handles duplicate IDs in manifest)
-              const uniqueKey = `${photo.id}-${photo.src}-${index}`;
+              const uniqueKey = `${photo.id}-${photo.src}`;
               
               return (
                 <div

@@ -75,12 +75,12 @@ export default function Vision() {
       >
         <div className="grid-bg -z-1"></div>
 
-        <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-poppins-regular mb-4 sm:mb-5">
+        <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-kollektif-bold mb-4 sm:mb-5">
           <span className="reveal-line block">Our Vision</span>
         </span>
 
-        <div className="flex flex-col items-center font-poppins-bold">
-          <span className="block overflow-hidden text-[8vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw]">
+        <div className="flex flex-col items-center font-kollektif-bold ippercase">
+          <span className="block overflow-hidden text-[8vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw] mb-4">
             <span className="reveal-line block">For the students,</span>
           </span>
           <span className="block overflow-hidden text-[8vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw]">

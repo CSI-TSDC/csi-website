@@ -9,7 +9,7 @@ export default function EventCards({
 
   return (
     <div className="relative px-4 sm:px-8 md:px-15 mt-8 sm:mt-12 md:mt-15 pb-20 sm:pb-24 md:pb-32">
-      <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+      <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 font-dm-sans-medium">
         
         {/* Event Card 1 - Envision */}
         <article ref={envisionRef || null} className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
@@ -38,7 +38,7 @@ export default function EventCards({
               src="/assets/Logos/envision_logo.png" 
               alt="Envision Logo" 
             />
-            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl font-poppins-medium text-center sm:text-left leading-relaxed">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl text-center sm:text-left leading-relaxed">
               Envision is our Tech Fest held once a year that brings together innovators, creators, and visionaries from across the tech community. Join us for an unforgettable experience filled with inspiring talks, and networking opportunities.
             </p>
           </div>
@@ -154,7 +154,7 @@ export default function EventCards({
             />
 
             {/* Text */}
-            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl font-poppins-regular text-center sm:text-left leading-relaxed">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl text-center sm:text-left leading-relaxed">
               A student-led coding session held every working Saturday where students teach students. It&apos;s a casual,
               interactive, and fun space to learn, build, and explore tech together — no faculty, no pressure,
               just hands-on learning.
@@ -215,7 +215,7 @@ export default function EventCards({
               </div>
               <div className="flex-1">
                 {/* Text */}
-                <p className="text-sm sm:text-base md:text-lg lg:text-xl font-poppins-regular text-left leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-left leading-relaxed">
                   Smart India Hackathon is a nationwide innovation challenge where students team up to solve real-world problems using technology and creativity. It&apos;s a high-energy platform that sparks out-of-the-box thinking, teamwork, and practical problem-solving.
                 </p>
               </div>

@@ -1,7 +1,52 @@
 {
-  "generated": "2025-12-29T17:52:59.991Z",
-  "total": 71,
+  "generated": "2025-12-30T19:28:01.288Z",
+  "total": 100,
   "photos": [
+    {
+      "id": "2024-25-CL Meet-1",
+      "src": "/assets/Gallery/2024-25/CL Meet/CL Meet_1.webp",
+      "event": "CL Meet",
+      "tag": "CL Meet",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 1
+    },
+    {
+      "id": "2024-25-CL Meet-2",
+      "src": "/assets/Gallery/2024-25/CL Meet/CL Meet_2.webp",
+      "event": "CL Meet",
+      "tag": "CL Meet",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 2
+    },
+    {
+      "id": "2024-25-CL Meet-3",
+      "src": "/assets/Gallery/2024-25/CL Meet/CL Meet_3.webp",
+      "event": "CL Meet",
+      "tag": "CL Meet",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 3
+    },
+    {
+      "id": "2024-25-CL Meet-4",
+      "src": "/assets/Gallery/2024-25/CL Meet/CL Meet_4.webp",
+      "event": "CL Meet",
+      "tag": "CL Meet",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 4
+    },
+    {
+      "id": "2024-25-CL Meet-5",
+      "src": "/assets/Gallery/2024-25/CL Meet/CL Meet_5.webp",
+      "event": "CL Meet",
+      "tag": "CL Meet",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 5
+    },
     {
       "id": "2024-25-Envision-1",
       "src": "/assets/Gallery/2024-25/Envision/Envision_1.webp",
@@ -156,13 +201,229 @@
       "photoNumber": 17
     },
     {
+      "id": "2024-25-Envision-18",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_18.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 18
+    },
+    {
+      "id": "2024-25-Envision-19",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_19.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 19
+    },
+    {
+      "id": "2024-25-Envision-20",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_20.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 20
+    },
+    {
+      "id": "2024-25-Envision-21",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_21.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 21
+    },
+    {
+      "id": "2024-25-Envision-22",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_22.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 22
+    },
+    {
+      "id": "2024-25-Envision-23",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_23.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 23
+    },
+    {
+      "id": "2024-25-Envision-24",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_24.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 24
+    },
+    {
+      "id": "2024-25-Envision-25",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_25.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 25
+    },
+    {
+      "id": "2024-25-Envision-26",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_26.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 26
+    },
+    {
+      "id": "2024-25-Envision-27",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_27.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 27
+    },
+    {
+      "id": "2024-25-Envision-28",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_28.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 28
+    },
+    {
+      "id": "2024-25-Envision-29",
+      "src": "/assets/Gallery/2024-25/Envision/Envision_29.webp",
+      "event": "Envision",
+      "tag": "Envision",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 29
+    },
+    {
+      "id": "2024-25-Flashmob-1",
+      "src": "/assets/Gallery/2024-25/Flashmob/Flashmob_1.webp",
+      "event": "Flashmob",
+      "tag": "Flashmob",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 1
+    },
+    {
+      "id": "2024-25-Flashmob-2",
+      "src": "/assets/Gallery/2024-25/Flashmob/Flashmob_2.webp",
+      "event": "Flashmob",
+      "tag": "Flashmob",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 2
+    },
+    {
+      "id": "2024-25-Flashmob-3",
+      "src": "/assets/Gallery/2024-25/Flashmob/Flashmob_3.webp",
+      "event": "Flashmob",
+      "tag": "Flashmob",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 3
+    },
+    {
+      "id": "2024-25-Flashmob-4",
+      "src": "/assets/Gallery/2024-25/Flashmob/Flashmob_4.webp",
+      "event": "Flashmob",
+      "tag": "Flashmob",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 4
+    },
+    {
+      "id": "2024-25-Flashmob-5",
+      "src": "/assets/Gallery/2024-25/Flashmob/Flashmob_5.webp",
+      "event": "Flashmob",
+      "tag": "Flashmob",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 5
+    },
+    {
+      "id": "2024-25-Flashmob-6",
+      "src": "/assets/Gallery/2024-25/Flashmob/Flashmob_6.webp",
+      "event": "Flashmob",
+      "tag": "Flashmob",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 6
+    },
+    {
       "id": "2024-25-SIH-1",
-      "src": "/assets/Gallery/2024-25/SIH/SIH_1.HEIC",
+      "src": "/assets/Gallery/2024-25/SIH/SIH_1.webp",
       "event": "SIH",
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
       "photoNumber": 1
+    },
+    {
+      "id": "2024-25-SIH-2",
+      "src": "/assets/Gallery/2024-25/SIH/SIH_2.webp",
+      "event": "SIH",
+      "tag": "SIH",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 2
+    },
+    {
+      "id": "2024-25-SIH-3",
+      "src": "/assets/Gallery/2024-25/SIH/SIH_3.webp",
+      "event": "SIH",
+      "tag": "SIH",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 3
+    },
+    {
+      "id": "2024-25-SIH-4",
+      "src": "/assets/Gallery/2024-25/SIH/SIH_4.webp",
+      "event": "SIH",
+      "tag": "SIH",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 4
+    },
+    {
+      "id": "2024-25-SIH-5",
+      "src": "/assets/Gallery/2024-25/SIH/SIH_5.webp",
+      "event": "SIH",
+      "tag": "SIH",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 5
+    },
+    {
+      "id": "2024-25-SIH-6",
+      "src": "/assets/Gallery/2024-25/SIH/SIH_6.webp",
+      "event": "SIH",
+      "tag": "SIH",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 6
+    },
+    {
+      "id": "2024-25-SIH-7",
+      "src": "/assets/Gallery/2024-25/SIH/SIH_7.HEIC",
+      "event": "SIH",
+      "tag": "SIH",
+      "year": "2024",
+      "fullYear": "2024-25",
+      "photoNumber": 7
     },
     {
       "id": "2025-26-SIH-1",
@@ -381,15 +642,6 @@
       "photoNumber": 1
     },
     {
-      "id": "2025-26-Tea Tech Talks-2",
-      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_2.webp",
-      "event": "Tea Tech Talks",
-      "tag": "Tea Tech Talks",
-      "year": "2025",
-      "fullYear": "2025-26",
-      "photoNumber": 2
-    },
-    {
       "id": "2025-26-Tea Tech Talks-3",
       "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_3.webp",
       "event": "Tea Tech Talks",
@@ -406,6 +658,24 @@
       "year": "2025",
       "fullYear": "2025-26",
       "photoNumber": 4
+    },
+    {
+      "id": "2025-26-Tea Tech Talks-5",
+      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_5.webp",
+      "event": "Tea Tech Talks",
+      "tag": "Tea Tech Talks",
+      "year": "2025",
+      "fullYear": "2025-26",
+      "photoNumber": 5
+    },
+    {
+      "id": "2025-26-Tea Tech Talks-6",
+      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_6.webp",
+      "event": "Tea Tech Talks",
+      "tag": "Tea Tech Talks",
+      "year": "2025",
+      "fullYear": "2025-26",
+      "photoNumber": 6
     },
     {
       "id": "2025-26-Tea Tech Talks-7",
@@ -445,6 +715,15 @@
     },
     {
       "id": "2025-26-Tea Tech Talks-11",
+      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_11.HEIC",
+      "event": "Tea Tech Talks",
+      "tag": "Tea Tech Talks",
+      "year": "2025",
+      "fullYear": "2025-26",
+      "photoNumber": 11
+    },
+    {
+      "id": "2025-26-Tea Tech Talks-11",
       "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_11.webp",
       "event": "Tea Tech Talks",
       "tag": "Tea Tech Talks",
@@ -472,7 +751,7 @@
     },
     {
       "id": "2025-26-Tea Tech Talks-14",
-      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_14.webp",
+      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_14.HEIC",
       "event": "Tea Tech Talks",
       "tag": "Tea Tech Talks",
       "year": "2025",
@@ -517,30 +796,12 @@
     },
     {
       "id": "2025-26-Tea Tech Talks-19",
-      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_19.HEIC",
-      "event": "Tea Tech Talks",
-      "tag": "Tea Tech Talks",
-      "year": "2025",
-      "fullYear": "2025-26",
-      "photoNumber": 19
-    },
-    {
-      "id": "2025-26-Tea Tech Talks-19",
       "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_19.webp",
       "event": "Tea Tech Talks",
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
       "photoNumber": 19
-    },
-    {
-      "id": "2025-26-Tea Tech Talks-20",
-      "src": "/assets/Gallery/2025-26/Tea Tech Talks/Tea Tech Talks_20.HEIC",
-      "event": "Tea Tech Talks",
-      "tag": "Tea Tech Talks",
-      "year": "2025",
-      "fullYear": "2025-26",
-      "photoNumber": 20
     },
     {
       "id": "2025-26-Tea Tech Talks-20",

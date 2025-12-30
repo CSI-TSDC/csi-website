@@ -10,9 +10,9 @@ gsap.registerPlugin(Flip);
 export default function TeamsGrid() {
 
   return (
-    <section className="pt-20 sm:pt-24 md:pt-32 min-h-screen bg-csi-white text-csi-black w-full font-satoshi font-bold">
+    <section className="pt-20 sm:pt-24 md:pt-32 min-h-screen bg-csi-white text-csi-black w-full font-kollektif-bold uppercase">
       <div className="text-[8vw] sm:text-[7vw] md:text-[6vw] text-[#4F77FF] flex justify-center mb-12 sm:mb-16 md:mb-20 px-4">
-        <span>meet the team</span>
+        <span><span className="text-csi-black">meet the </span>team</span>
       </div>
 
       <div
@@ -67,7 +67,7 @@ export default function TeamsGrid() {
             md:col-start-2 md:col-end-5 md:row-start-1 md:row-end-3
           "
         >
-          <Image src="/assets/Teams/Hero/Team1.webp" alt="Team member" fill className="object-cover" />
+          <Image src="/assets/Teams/Hero/Team5.webp" alt="Team member" fill className="object-cover" />
         </div>
 
         {/* 3 */}
@@ -111,7 +111,7 @@ export default function TeamsGrid() {
             md:col-start-8 md:col-end-10 md:row-start-1 md:row-end-3
           "
         >
-          <Image src="/assets/Teams/img6.jpg" alt="Team member" fill className="object-cover" />
+          <Image src="/assets/Teams/Hero/Team1.webp" alt="Team member" fill className="object-cover" />
         </div>
         <div
           className="

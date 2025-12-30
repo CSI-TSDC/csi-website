@@ -144,7 +144,7 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-white text-csi-black h-screen flex flex-col justify-center items-center px-[5vw] font-satoshi font-bold"
+      className="relative bg-csi-white text-csi-black h-screen flex flex-col justify-center items-center px-[5vw] font-space-grotesk-semibold font-bold"
     >
       {/* GitHub */}
       <div className="w-full px-15 flex justify-center text-[5vw] items-center md:pt-25">
@@ -195,7 +195,7 @@ export default function Projects() {
       </div>
 
       {/* Paragraph (SPAN-SPAN KEPT) */}
-      <div className="relative flex flex-col px-15 justify-center items-center leading-snug text-[3vh] mt-10 text-center">
+      <div className="relative flex flex-col font-dm-sans-semibold px-15 justify-center items-center leading-snug text-[3.4vh] mt-10 text-center">
         <span className="block overflow-hidden">
           <span className="block word-opacity">
             A space where our Tech Team publishes

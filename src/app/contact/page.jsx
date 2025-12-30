@@ -39,7 +39,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen bg-csi-white">
+    <section className="min-h-screen bg-csi-white  font-dm-sans-medium">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 pt-24 md:py-32 lg:pt-40 relative overflow-hidden">
         <div className="absolute top-26 left-20 opacity-15">
@@ -56,9 +56,9 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 text-center font-space-grotesk-semibold">
           <h1 className="text-7xl font-bold text-slate-900 mb-12">Contact Us</h1>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <p className="text-csi-black text-lg max-w-2xl mx-auto font-dm-sans-medium">
             For any query, fill out the form below and our team will get back to you as soon as possible.
           </p>
         </div>

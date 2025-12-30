@@ -109,16 +109,16 @@ export default function CSIGallery() {
 
   return (
     <main className="min-h-screen bg-csi-white text-csi-black relative px-4 sm:px-6 md:px-[5vw]">
-      <div className="relative z-10">
+      <div className="relative z-10 font-dm-sans-medium ">
       <section className="max-w-8xl mx-auto pb-12 sm:pb-16 md:pb-20 lg:pb-28 pt-20 sm:pt-24 md:pt-32 lg:pt-40 grid md:grid-cols-[1fr_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
         <div className="space-y-3 sm:space-y-4 md:space-y-5">
-          <p className="uppercase text-[10px] sm:text-[11px] tracking-[0.26em] font-poppins text-gray-600 w-max overflow-hidden">
+          <p className="uppercase text-[10px] sm:text-[11px] tracking-[0.26em] text-gray-600 w-max overflow-hidden">
             <span>
             CSI x TSDC Events
             </span>
           </p>
 
-          <h1 className="text-[6vw] sm:text-[5.5vw] md:text-[5vw] font-semibold font-poppins leading-tight w-max">
+          <h1 className="text-[6vw] sm:text-[5.5vw] md:text-[5vw] font-semibold font-space-grotesk-semibold leading-tight w-max">
             <span className="block w-full overflow-hidden">
               <span><span className="text-csi-blue">Meet,</span> Build</span>
             </span>
@@ -127,18 +127,18 @@ export default function CSIGallery() {
             </span>
           </h1>
           <div className="flex flex-wrap gap-2 sm:gap-2.5 text-sm sm:text-base text-white">
-            <span className="border border-gray-300 rounded-sm bg-yellow-300 text-csi-black px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
+            <span className="border border-gray-300 rounded-sm bg-yellow-300 text-csi-black px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm">
               #TechFests
             </span>
-            <span className="border border-gray-300 rounded-sm bg-csi-blue px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
+            <span className="border border-gray-300 rounded-sm bg-csi-blue px-2.5 sm:px-3 py-1 sm:py-1.5  text-xs sm:text-sm">
               #GameDev
             </span>
-            <span className="border border-gray-300 rounded-sm bg-orange-500 px-2.5 sm:px-3 py-1 sm:py-1.5 font-satoshi text-xs sm:text-sm">
+            <span className="border border-gray-300 rounded-sm bg-orange-500 px-2.5 sm:px-3 py-1 sm:py-1.5  text-xs sm:text-sm">
               #Workshops
             </span>
           </div>
 
-          <p className="text-gray-600 max-w-xl text-sm sm:text-base font-satoshi leading-relaxed">
+          <p className="text-gray-600 max-w-xl text-sm sm:text-base  leading-relaxed">
             A mix of learning, chaos, collaboration, and chai-powered breakthroughs. <br className="hidden sm:block" />
             Select the event you want to know more about below.
           </p>
@@ -158,7 +158,7 @@ export default function CSIGallery() {
                 <button
                   key={f}
                     onClick={() => handleFilterClick(f)}
-                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm whitespace-nowrap font-satoshi font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${
+                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm whitespace-nowrap  font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${
                     activeFilter === f
                         ? "bg-gradient-to-r from-csi-blue-600 to-csi-blue-700 text-white shadow-lg shadow-csi-blue/30 border-2 border-csi-blue"
                         : "bg-csi-white text-gray-700 hover:text-gray-900 border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-sm"

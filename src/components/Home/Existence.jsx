@@ -89,7 +89,7 @@ const WhatWeAre = () => {
       id="what-we-are"
       className="w-full h-max py-12 sm:py-20 md:py-32 px-[5vw]"
     >
-      <div className="w-full h-max flex flex-col md:flex-row justify-center font-satoshi items-stretch mx-auto max-w-5xl gap-8 md:gap-0">
+      <div className="w-full h-max flex flex-col md:flex-row justify-center font-dm-sans-medium items-stretch mx-auto max-w-5xl gap-8 md:gap-0">
         {/* LEFT */}
         <div className="flex flex-col w-full md:w-1/2 px-4 sm:px-8 justify-between space-y-6">
           <div
@@ -104,7 +104,7 @@ const WhatWeAre = () => {
           </div>
 
           <div className="space-y-2">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2563EB] overflow-hidden">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-kollektif-bold text-[#2563EB] overflow-hidden">
               <span className="reveal-y block">What we do</span>
             </div>
 
@@ -133,7 +133,7 @@ const WhatWeAre = () => {
         {/* RIGHT */}
         <div className="flex flex-col w-full md:w-1/2 px-4 sm:px-8 justify-between space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold overflow-hidden">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-kollektif-bold overflow-hidden">
               <span className="reveal-y block">Who we are</span>
             </h2>
 

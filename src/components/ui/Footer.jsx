@@ -9,12 +9,12 @@ const Footer = () => {
   }
   return (
     <>
-      <footer id="footer" className="relative w-full border-t h-max py-12 md:py-16 px-8 md:px-16 mt-24 min-h-[75vh] flex flex-wrap justify-between text-csi-white font-satoshi font-normal z-99 rounded-t-[5rem] bg-csi-blue">
+      <footer id="footer" className="relative w-full border-t h-max font-dm-sans-medium py-12 md:py-16 px-8 md:px-16 mt-24 min-h-[75vh] flex flex-wrap justify-between text-csi-white font-satoshi font-normal z-99 rounded-t-[5rem] bg-csi-blue">
         <div className="flex flex-col space-y-6 md:space-y-8">
-          <div className="relative font-medium font-poppins text-3xl w-max">
+          <div className="relative font-medium font-space-grotesk-medium text-3xl w-max">
             <span className="block float-left">Find us at</span>
           </div>
-          <div className="relative font-light font-satoshi text-base opacity-70">
+          <div className="relative opacity-70">
             <span className="float-left">Thakur Shyamnarayan Degree College,</span>
             <span className="float-left clear-both">90ft Road, Thakur Complex,</span>
             <span className="float-left clear-both">Kandivali (E), Mumbai - 400067</span>
@@ -30,10 +30,10 @@ const Footer = () => {
         </div>
         <div className="flex flex-row flex-wrap text-xl font-light font-satoshi space-x-16 md:space-x-20 gap-y-8">
           <div className="flex flex-col">
-            <div className="mb-6 md:mb-8 font-poppins">
+            <div className="mb-6 md:mb-8 text-lg leading-snug font-dm-sans-medium">
               Quick Links
             </div>
-            <div className="flex flex-col space-y-2 md:space-y-3 text-base font-satoshi">
+            <div className="flex flex-col space-y-2 md:space-y-3 text-lg leading-snug font-dm-sans-medium">
             <a href="#">
                 <span>C.S.I</span>
               </a>
@@ -55,10 +55,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="mb-6 md:mb-8 font-poppins">
+            <div className="mb-6 md:mb-8 text-lg leading-snug font-dm-sans-medium">
               <span>About</span>
             </div>
-            <div className="flex flex-col space-y-2 md:space-y-3 text-base font-satoshi">
+            <div className="flex flex-col space-y-2 md:space-y-3 text-lg leading-snug font-dm-sans-medium">
               <a href="#">
                 <span>About CSI</span>
               </a>
@@ -77,10 +77,10 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="mb-6 md:mb-8 font-poppins">
+            <div className="mb-6 md:mb-8 text-lg leading-snug font-dm-sans-medium">
               <span>Stay Connected</span>
             </div>
-            <div className="flex flex-col text-base font-satoshi mb-6 md:mb-8 space-y-1">
+            <div className="flex flex-col text-lg leading-snug font-dm-sans-medium mb-6 md:mb-8 space-y-1">
               <span className="block">Get updates on events, projects,</span>
               <span className="block clear-both">and everything conducted by our</span>
               <span className="block clear-both">committee.</span>
