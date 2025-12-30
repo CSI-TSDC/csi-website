@@ -104,7 +104,7 @@ const WhatWeAre = () => {
           </div>
 
           <div className="space-y-2">
-            <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-kollektif-bold text-[#2563EB] overflow-hidden">
+            <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-bespoke-sans-bold text-[#2563EB] overflow-hidden">
               <span className="reveal-y block">What we do</span>
             </div>
 
@@ -133,7 +133,7 @@ const WhatWeAre = () => {
         {/* RIGHT */}
         <div className="flex flex-col w-full md:w-1/2 px-4 sm:px-8 justify-between space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-kollektif-bold overflow-hidden">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-bespoke-sans-bold overflow-hidden">
               <span className="reveal-y block">Who we are</span>
             </h2>
 

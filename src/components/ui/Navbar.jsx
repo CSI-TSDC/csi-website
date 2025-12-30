@@ -61,7 +61,7 @@ const Navbar = () => {
               <span>
                 <Image src="/assets/Logos/csi_logo.png" alt="Logo" width={56} height={56} className="h-10 md:h-14 w-auto" />
               </span>
-              <h1 className={`text-xl md:text-2xl font-bold font-poppins cursor-pointer transition-all duration-300 hover:scale-105 ${
+              <h1 className={`text-xl md:text-2xl font-bold font-dm-sans cursor-pointer transition-all duration-300 hover:scale-105 ${
                 (isHomePage && !isScrolled) ? 'text-csi-white' : 'text-csi-black'
               }`}>
                 CSI x TSDC 
@@ -75,7 +75,7 @@ const Navbar = () => {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className={`text-sm md:text-base font-medium font-satoshi transition-colors duration-200 cursor-pointer py-2 px-3 rounded-md ${
+                      className={`text-sm md:text-base font-medium font-bespoke-sans transition-colors duration-200 cursor-pointer py-2 px-3 rounded-md ${
                         (isHomePage && !isScrolled)
                           ? 'text-csi-white hover:text-csi-blue-300 hover:bg-csi-white/5' 
                           : 'text-csi-black hover:text-csi-blue hover:bg-csi-black/5'
@@ -126,7 +126,7 @@ const Navbar = () => {
                     <a
                     href={link.href}
                     onClick={closeMenu}
-                    className={`block text-base font-medium font-satoshi transition-colors duration-200 cursor-pointer py-3 px-4 rounded-md ${
+                    className={`block text-base font-medium font-bespoke-sans transition-colors duration-200 cursor-pointer py-3 px-4 rounded-md ${
                       (isHomePage && !isScrolled)
                         ? 'text-csi-white hover:text-csi-blue-300 hover:bg-csi-white/10'
                         : 'text-csi-black hover:text-csi-blue hover:bg-csi-black/10'

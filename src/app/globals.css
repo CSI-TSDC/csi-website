@@ -135,6 +135,14 @@
 }
 
 @font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/Fonts/Bespoke_Sans/BespokeSans-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Kollektif';
   src: url('/assets/Fonts/kollektif/Kollektif-Bold.ttf') format('truetype');
   font-weight: 700;
@@ -311,6 +319,25 @@ body {
   font-weight: 400;
 }
 
+.font-bespoke-sans-regular {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 400;
+}
+
+.font-bespoke-sans-medium {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 500;
+}
+
+.font-bespoke-sans-semibold {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 600;
+}
+
+.font-bespoke-sans-bold {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 700;
+}
 @keyframes windmill-spin {
   from { transform: translate(-100%, -100%) rotate(0deg); }
   to { transform: translate(-100%, -100%) rotate(360deg); }

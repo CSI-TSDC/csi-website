@@ -7,32 +7,10 @@ import { extractYear, extractEventName, extractTag, extractPhotoNumber } from '.
 
 export async function loadGalleryPhotos() {
   try {
-    // Check if we're on localhost - use manifest.json instead of Cloudinary
-    // This check works synchronously on client-side
-    if (typeof window !== 'undefined' && 
-        (window.location.hostname === 'localhost' || 
-         window.location.hostname === '127.0.0.1' ||
-         window.location.hostname.startsWith('192.168.') ||
-         window.location.hostname.startsWith('10.0.'))) {
-      console.log('[Gallery] Running on localhost, using manifest.json');
-      try {
-        const response = await fetch('/assets/Gallery/manifest.json');
-        if (response.ok) {
-          const manifest = await response.json();
-          console.log(`[Gallery] Loaded ${manifest.photos?.length || 0} photos from manifest`);
-          return manifest.photos || [];
-        }
-      } catch (error) {
-        console.warn('[Gallery] Failed to load manifest:', error);
-      }
-      return [];
-    }
-    
-    // Fetch all images from Gallery folder in Cloudinary
+    // Always fetch all images from Gallery folder in Cloudinary
     const resources = await fetchCloudinaryImages('Gallery');
     
     if (!resources || resources.length === 0) {
-      console.warn('[Gallery] No images found in Cloudinary Gallery folder');
       // Fallback to manifest if Cloudinary fails
       try {
         const response = await fetch('/assets/Gallery/manifest.json');
@@ -41,7 +19,7 @@ export async function loadGalleryPhotos() {
           return manifest.photos || [];
         }
       } catch (error) {
-        console.warn('[Gallery] Failed to load manifest fallback:', error);
+        // Failed to load manifest
       }
   return [];
 }
@@ -74,11 +52,6 @@ export async function loadGalleryPhotos() {
       
       // If still no path, skip this resource
       if (!fullPath) {
-        console.warn('[Gallery] Cannot determine path for resource:', {
-          public_id: publicId,
-          asset_folder: assetFolder,
-          folder: resource.folder
-        });
         return null;
 }
 
@@ -100,12 +73,6 @@ export async function loadGalleryPhotos() {
         const eventMatch = filename.match(/^([A-Za-z\s]+)_/);
         event = eventMatch ? eventMatch[1].trim() : 'Gallery';
       } else {
-        console.warn('[Gallery] Unexpected path structure:', {
-          fullPath: fullPath,
-          pathParts: pathParts,
-          asset_folder: assetFolder,
-          public_id: publicId
-        });
         return null;
       }
       
@@ -113,12 +80,6 @@ export async function loadGalleryPhotos() {
       filename = filename.split('.')[0];
       
       if (!year || !event || !filename) {
-        console.warn('[Gallery] Missing path components:', {
-          year,
-          event,
-          filename,
-          fullPath: fullPath
-        });
         return null;
       }
       
@@ -131,19 +92,7 @@ export async function loadGalleryPhotos() {
       // This avoids any path reconstruction issues
       let imageUrl;
       
-      // Check if we're on localhost - use local paths instead of Cloudinary
-      // This check works synchronously on client-side
-      if (typeof window !== 'undefined' && 
-          (window.location.hostname === 'localhost' || 
-           window.location.hostname === '127.0.0.1' ||
-           window.location.hostname.startsWith('192.168.') ||
-           window.location.hostname.startsWith('10.0.'))) {
-        // Construct localhost path: /assets/Gallery/{year}/{event}/{filename}
-        // Try common extensions
-        const extensions = ['.webp', '.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG'];
-        // Use the first extension as default (will fallback if not found)
-        imageUrl = `/assets/Gallery/${year}/${event}/${filename}${extensions[0]}`;
-      } else if (resource.secure_url) {
+      if (resource.secure_url) {
         imageUrl = resource.secure_url;
       } else {
         // Fallback: construct URL from full path
@@ -152,7 +101,7 @@ export async function loadGalleryPhotos() {
           quality: 'auto',
           fetchFormat: 'auto'
         });
-  }
+      }
       
       return {
         id: `${year}-${event}-${photoNumber || filename}`,
@@ -165,10 +114,8 @@ export async function loadGalleryPhotos() {
       };
     }).filter(photo => photo !== null);
     
-    console.log(`[Gallery] Loaded ${photos.length} photos from Cloudinary`);
     return photos;
   } catch (error) {
-    console.error('[Gallery] Error loading photos from Cloudinary:', error);
     // Fallback to manifest
     try {
       const response = await fetch('/assets/Gallery/manifest.json');
@@ -177,7 +124,7 @@ export async function loadGalleryPhotos() {
         return manifest.photos || [];
       }
     } catch (fallbackError) {
-      console.warn('[Gallery] Failed to load manifest fallback:', fallbackError);
+      // Failed to load manifest
     }
     return [];
   }

@@ -11,14 +11,11 @@ export default function Heads() {
 
   useEffect(() => {
     async function fetchData() {
-      console.log('[Heads] Starting to fetch data...');
-      
       // Load team images map from Cloudinary
       const { loadTeamImageMap } = await import('@/utils/teamData');
       const imageMap = await loadTeamImageMap();
       
       const allData = await loadAllTeamData();
-      console.log('[Heads] All data loaded:', allData);
       const heads = getHeads(allData);
       
       // Format for display: include team name in designation
@@ -33,11 +30,8 @@ export default function Heads() {
           signature: signaturePath,
           team: member.team,
         };
-        console.log('[Heads] Formatted member:', formatted);
         return formatted;
       });
-      
-      console.log('[Heads] Final formatted heads:', formattedHeads);
       setHeadsMembers(formattedHeads);
       setLoading(false);
     }

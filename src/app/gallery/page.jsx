@@ -28,7 +28,6 @@ export default function Gallery() {
       const loadedPhotos = await loadGalleryPhotos();
       setPhotos(loadedPhotos);
       setIsLoadingPhotos(false);
-      console.log(`[Gallery] Loaded ${loadedPhotos.length} photos`);
     }
     fetchPhotos();
   }, []);
@@ -160,7 +159,6 @@ export default function Gallery() {
 
   // Handle image error - try alternative extensions or mark as failed
   const handleImageError = useCallback((photoId) => {
-    console.warn(`[Gallery] Image failed to load: ${photoId}`);
     setImagesFailed(prev => ({ ...prev, [photoId]: true }));
     setImagesLoaded(prev => ({ ...prev, [photoId]: true })); // Mark as "loaded" to hide skeleton
   }, []);
@@ -171,9 +169,9 @@ export default function Gallery() {
       <section className="px-4 sm:px-6 pb-12 pt-24 md:pb-8 md:pt-34 w-full gallery-bg">
         <div id="showcase-bg"></div>
         <div className="grid mx-auto max-w-6xl md:grid-cols-[1.15fr_1fr] gap-8 md:gap-16 items-center">
-        <div className="space-y-3 md:space-y-6">
+        <div className="space-y-3 md:space-y-6 order-1 md:order-1 text-center md:text-left">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-csi-black leading-tight">
-            The CSI Showcase
+            The <span className="text-csi-blue-400">CSI</span> Showcase
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-csi-black/80 leading-relaxed">
@@ -188,8 +186,8 @@ export default function Gallery() {
             From tech fests to coding competitions, every moment captured tells a story of innovation and collaboration.
           </p>
         </div>
-        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[540px] overflow-hidden hidden md:block">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 space-y-4 md:space-y-6">
+        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[540px] overflow-hidden md:block order-2 md:order-1 flex justify-center md:justify-end">
+          <div className="absolute md:right-0 top-1/2 -translate-y-1/2 space-y-4 md:space-y-6">
 
             {/* Row 1 */}
             <div className="flex gap-2 md:gap-4">
@@ -243,7 +241,7 @@ export default function Gallery() {
                 preload
               />
               <Image
-                src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c"
+                src="/assets/Gallery_Hero/Gallery_Last.webp"
                 width={150}
                 height={145}
                 className="w-[90px] h-[90px] md:w-[150px] md:h-[145px] object-cover rounded-xl md:rounded-2xl"

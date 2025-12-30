@@ -66,7 +66,7 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-black text-white min-h-screen mt-10 md:mt-20 font-satoshi font-bold overflow-hidden"
+      className="relative bg-csi-black text-white min-h-screen mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
     >
       {/* TEXT */}
       <div
@@ -75,11 +75,11 @@ export default function Vision() {
       >
         <div className="grid-bg -z-1"></div>
 
-        <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-kollektif-bold mb-4 sm:mb-5">
+        <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-bespoke-sans-bold mb-4 sm:mb-5">
           <span className="reveal-line block">Our Vision</span>
         </span>
 
-        <div className="flex flex-col items-center font-kollektif-bold ippercase">
+        <div className="flex flex-col items-center font-bespoke-sans-bold ippercase">
           <span className="block overflow-hidden text-[8vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw] mb-4">
             <span className="reveal-line block">For the students,</span>
           </span>

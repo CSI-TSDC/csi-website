@@ -19,24 +19,18 @@ export async function loadAllTeamData() {
     for (const file of teamJsonFiles) {
       try {
         const url = `/assets/Teams/data/${file}`;
-        console.log(`[teamData] Fetching: ${url}`);
         const response = await fetch(url);
         if (response.ok) {
           const data = await response.json();
-          console.log(`[teamData] Loaded ${file}:`, data.length, 'members');
           allData.push(...data);
-        } else {
-          console.warn(`[teamData] Failed to load ${file}:`, response.status, response.statusText);
         }
       } catch (error) {
-        console.warn(`[teamData] Error loading ${file}:`, error);
+        // Error loading file
       }
     }
     
-    console.log(`[teamData] Total members loaded:`, allData.length);
     return allData;
   } catch (error) {
-    console.error('[teamData] Error loading team data:', error);
     return [];
   }
 }
@@ -51,17 +45,7 @@ let teamImageMapPromise = null;
 
 // Load team images map from Cloudinary
 export async function loadTeamImageMap() {
-  // Check if we're on localhost - return empty map (will use local paths)
-  // This check works synchronously on client-side
-  if (typeof window !== 'undefined' && 
-      (window.location.hostname === 'localhost' || 
-       window.location.hostname === '127.0.0.1' ||
-       window.location.hostname.startsWith('192.168.') ||
-       window.location.hostname.startsWith('10.0.'))) {
-    console.log('[teamData] Running on localhost, skipping Cloudinary image map');
-    return {};
-  }
-  
+  // Always use Cloudinary
   if (teamImageMapCache) {
     return teamImageMapCache;
   }
@@ -82,41 +66,16 @@ export async function loadTeamImageMap() {
 
 export function getPhotoPath(member, imageMap = null) {
   if (!member.photo) {
-    console.log(`[getPhotoPath] No photo for ${member.name}, using fallback`);
     return '/assets/Teams/img2.jpg';
   }
   
-  // Check if we're on localhost - use local paths instead of Cloudinary
-  // This check works synchronously on client-side
-  if (typeof window !== 'undefined' && 
-      (window.location.hostname === 'localhost' || 
-       window.location.hostname === '127.0.0.1' ||
-       window.location.hostname.startsWith('192.168.') ||
-       window.location.hostname.startsWith('10.0.'))) {
-    // Construct localhost path based on member's designation/team
-    const designation = member.designation || member.team || 'Members';
-    let folder = 'Members';
-    
-    // Map designations to folders
-    if (designation === 'Head' || designation === 'Asst. Head') {
-      folder = 'Heads';
-    } else if (member.team === 'Core' || ['Student Chairperson', 'Student Vice-Chairperson', 'Secretary', 'Treasurer'].includes(designation)) {
-      folder = 'Core';
-    }
-    
-    // Try common extensions
-    const baseName = member.photo.replace(/\.(webp|jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
-    return `/assets/Teams/photos/${folder}/${baseName}.webp`;
-  }
-  
-  // Remove extension to get base name for lookup
+  // Always use Cloudinary - remove extension to get base name for lookup
   const baseName = member.photo.replace(/\.(webp|jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
   
   // Try to get from image map first (if provided)
   if (imageMap) {
     // Strategy 1: Exact match
     if (imageMap[baseName]) {
-      console.log(`[getPhotoPath] Found exact match: ${member.name} (${baseName})`);
       return imageMap[baseName];
     }
     
@@ -124,7 +83,6 @@ export function getPhotoPath(member, imageMap = null) {
     const lowerBaseName = baseName.toLowerCase();
     for (const key in imageMap) {
       if (key.toLowerCase() === lowerBaseName) {
-        console.log(`[getPhotoPath] Found case-insensitive match: ${member.name} (${key})`);
         return imageMap[key];
       }
     }
@@ -140,7 +98,6 @@ export function getPhotoPath(member, imageMap = null) {
         // Also check if they're similar (same name, different suffix)
         const keyBase = keyLower.split('_').slice(0, -1).join('_'); // Remove last part (suffix)
         if (keyBase === baseLower || baseLower.startsWith(keyBase) || keyBase.startsWith(baseLower)) {
-          console.log(`[getPhotoPath] Found partial match: ${member.name} (${baseName} -> ${key})`);
           return imageMap[key];
         }
       }
@@ -156,17 +113,12 @@ export function getPhotoPath(member, imageMap = null) {
     
     for (const variation of nameVariations) {
       if (imageMap[variation]) {
-        console.log(`[getPhotoPath] Found name variation: ${member.name} (${variation})`);
         return imageMap[variation];
       }
     }
-    
-    console.warn(`[getPhotoPath] ${member.name} - Not found in image map. Photo: ${member.photo}, Base: ${baseName}`);
-    console.warn(`[getPhotoPath] Available keys (first 20):`, Object.keys(imageMap).slice(0, 20));
   }
   
   // Fallback: try to construct path (but this should rarely be needed if map is working)
-  console.warn(`[getPhotoPath] ${member.name} - Using fallback URL construction`);
   return '/assets/Teams/img2.jpg';
 }
 
@@ -203,7 +155,6 @@ export function filterByDesignation(data, designations) {
 // Get heads (Head and Asst. Head)
 export function getHeads(data) {
   const heads = filterByDesignation(data, ['Head', 'Asst. Head']);
-  console.log('[getHeads] Found', heads.length, 'heads:', heads.map(h => `${h.name} (${h.designation})`));
   return heads;
 }
 
@@ -213,14 +164,12 @@ export function getCore(data) {
     member.team === 'Core' || 
     ['Student Chairperson', 'Student Vice-Chairperson', 'Secretary', 'Treasurer'].includes(member.designation)
   );
-  console.log('[getCore] Found', core.length, 'core members:', core.map(c => `${c.name} (${c.designation})`));
   return core;
 }
 
 // Get members (designation === "Member")
 export function getMembers(data) {
   const members = filterByDesignation(data, ['Member']);
-  console.log('[getMembers] Found', members.length, 'members:', members.map(m => `${m.name} (${m.team})`));
   return members;
 }
 

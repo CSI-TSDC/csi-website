@@ -30,7 +30,7 @@ const photos = [
   },
 ];
 
-const filters = ["Hackathon", "Gaming Expo", "Tea Tech Talks", "S.I.H.", "Blooper"];
+const filters = ["Envision", "HackVision", "Tea Tech Talks", "Smart India Hackathon"];
 
 const eventDetails = {
   "Hackathon": {
@@ -75,13 +75,12 @@ export default function CSIGallery() {
   const teaTechTalksRef = useRef(null);
   const sihRef = useRef(null);
   
-  // Map filter names to article refs
+  // Map filter names to article refs (in order: Envision, HackVision, Tea Tech Talks, Smart India Hackathon)
   const filterToRefMap = {
-    "Hackathon": hackvisionRef,
-    "Gaming Expo": envisionRef,
+    "Envision": envisionRef,
+    "HackVision": hackvisionRef,
     "Tea Tech Talks": teaTechTalksRef,
-    "S.I.H.": sihRef,
-    "Blooper": envisionRef,
+    "Smart India Hackathon": sihRef,
   };
 
   const filteredPhotos =
@@ -111,14 +110,14 @@ export default function CSIGallery() {
     <main className="min-h-screen bg-csi-white text-csi-black relative px-4 sm:px-6 md:px-[5vw]">
       <div className="relative z-10 font-dm-sans-medium ">
       <section className="max-w-8xl mx-auto pb-12 sm:pb-16 md:pb-20 lg:pb-28 pt-20 sm:pt-24 md:pt-32 lg:pt-40 grid md:grid-cols-[1fr_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
-        <div className="space-y-3 sm:space-y-4 md:space-y-5">
-          <p className="uppercase text-[10px] sm:text-[11px] tracking-[0.26em] text-gray-600 w-max overflow-hidden">
+        <div className="space-y-3 sm:space-y-4 md:space-y-5 text-center md:text-left">
+          <p className="uppercase text-[10px] sm:text-[11px] tracking-[0.26em] text-gray-600 w-max overflow-hidden mx-auto md:mx-0">
             <span>
             CSI x TSDC Events
             </span>
           </p>
 
-          <h1 className="text-[6vw] sm:text-[5.5vw] md:text-[5vw] font-semibold font-space-grotesk-semibold leading-tight w-max">
+          <h1 className="text-[6vw] sm:text-[5.5vw] md:text-[5vw] font-semibold font-bespoke-sans-semibold leading-tight w-max mx-auto md:mx-0">
             <span className="block w-full overflow-hidden">
               <span><span className="text-csi-blue">Meet,</span> Build</span>
             </span>
@@ -126,7 +125,7 @@ export default function CSIGallery() {
               <span>and Compete</span>
             </span>
           </h1>
-          <div className="flex flex-wrap gap-2 sm:gap-2.5 text-sm sm:text-base text-white">
+          <div className="flex flex-wrap gap-2 sm:gap-2.5 text-sm sm:text-base text-white justify-center md:justify-start">
             <span className="border border-gray-300 rounded-sm bg-yellow-300 text-csi-black px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm">
               #TechFests
             </span>
@@ -138,7 +137,7 @@ export default function CSIGallery() {
             </span>
           </div>
 
-          <p className="text-gray-600 max-w-xl text-sm sm:text-base  leading-relaxed">
+          <p className="text-gray-600 max-w-xl text-sm sm:text-base leading-relaxed mx-auto md:mx-0">
             A mix of learning, chaos, collaboration, and chai-powered breakthroughs. <br className="hidden sm:block" />
             Select the event you want to know more about below.
           </p>
@@ -152,6 +151,7 @@ export default function CSIGallery() {
             transition-all duration-300
             hover:shadow-2xl hover:shadow-gray-300/50
             sticky top-14 md:top-22 z-40
+            mx-auto md:mx-0
           ">
             <div className="flex flex-wrap gap-2 sm:gap-3">
               {filters.map((f) => (
@@ -170,24 +170,24 @@ export default function CSIGallery() {
             </div>
           </div>
         </div>
-        <div className="relative hidden md:flex flex-row w-full items-stretch gap-2 sm:gap-3 md:gap-[14px]">
+        <div className="relative flex flex-row w-full items-stretch gap-2 sm:gap-3 md:gap-[14px] mt-6 md:mt-0 justify-center md:justify-start">
           <div className="flex flex-col w-max items-end gap-2 sm:gap-3 md:gap-[14px]">
-            <div className="relative w-[200px] sm:w-[250px] md:w-[300px] h-[180px] sm:h-[200px] md:h-[250px]">
-              <img src="/assets/Events/Robot1.png" className="w-20 sm:w-24 md:w-28 h-auto top-3 sm:top-4 md:top-5 -left-10 sm:-left-12 md:-left-14 absolute" alt="" />
+            <div className="relative w-[120px] sm:w-[150px] md:w-[200px] lg:w-[250px] h-[100px] sm:h-[130px] md:h-[180px] lg:h-[220px]">
+              <img src="/assets/Events/Robot1.png" className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto top-2 sm:top-3 md:top-4 lg:top-5 -left-6 sm:-left-8 md:-left-10 lg:-left-12 absolute" alt="" />
               <img src="/assets/Events/Events3.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
-            <div className="relative w-[300px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[300px] md:h-[350px]">
-            <img src="/assets/Events/space_invader.png" className="w-20 sm:w-24 md:w-28 bottom-0 left-0 absolute" alt="" />
+            <div className="relative w-[180px] flex-1 sm:w-[220px] md:w-[280px] lg:w-[350px] h-[140px] sm:h-[180px] md:h-[220px] lg:h-[280px]">
+            <img src="/assets/Events/space_invader.png" className="w-12 sm:w-16 md:w-20 lg:w-24 bottom-0 left-0 absolute" alt="" />
               <img src="/assets/Events/Events2.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
           </div>
           <div className="flex flex-col w-max justify-start gap-2 sm:gap-3 md:gap-[14px]">
-            <div className="w-[200px] sm:w-[250px] md:w-[300px] h-[120px] sm:h-[130px] md:h-[150px]">
+            <div className="w-[120px] sm:w-[150px] md:w-[200px] lg:w-[250px] h-[90px] sm:h-[110px] md:h-[130px] lg:h-[150px]">
               <img src="/assets/Events/Events4.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
-            <div className="w-[200px] sm:w-[250px] md:w-[300px] h-[320px] sm:h-[380px] md:h-[450px] relative">
-              <img src="/assets/Events/XO.png" className="w-20 sm:w-24 md:w-28 top-0 -left-14 absolute -rotate-6" alt="" />
-              <img src="/assets/Events/geekcat.png" className="w-20 sm:w-24 md:w-28 h-auto bottom-3 sm:bottom-4 md:bottom-5 right-0 absolute rotate-6" alt="" />
+            <div className="w-[120px] sm:w-[150px] md:w-[200px] lg:w-[250px] h-[240px] sm:h-[280px] md:h-[320px] lg:h-[380px] relative">
+              <img src="/assets/Events/XO.png" className="w-12 sm:w-16 md:w-20 lg:w-24 top-0 -left-10 sm:-left-12 md:-left-14 absolute -rotate-6" alt="" />
+              <img src="/assets/Events/geekcat.png" className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-5 right-0 absolute rotate-6" alt="" />
               <img src="/assets/Events/Events1.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
           </div>
@@ -199,6 +199,7 @@ export default function CSIGallery() {
         hackvisionRef={hackvisionRef}
         teaTechTalksRef={teaTechTalksRef}
         sihRef={sihRef}
+        cardClassName="w-full sm:w-[98%] md:w-[92%] lg:w-[88%] xl:w-[85%]"
       />
       </div>
     </main>

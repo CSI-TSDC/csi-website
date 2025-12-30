@@ -11,14 +11,11 @@ export default function Core() {
 
   useEffect(() => {
     async function fetchData() {
-      console.log('[Core] Starting to fetch data...');
-      
       // Load team images map from Cloudinary
       const { loadTeamImageMap } = await import('@/utils/teamData');
       const imageMap = await loadTeamImageMap();
       
       const allData = await loadAllTeamData();
-      console.log('[Core] All data loaded:', allData);
       const core = getCore(allData);
       
       // Sort: Chairperson first, then Vice-Chairperson, then others
@@ -43,11 +40,8 @@ export default function Core() {
           hasSignature: !!member.signature,
           signature: signaturePath,
         };
-        console.log('[Core] Formatted member:', formatted);
         return formatted;
       });
-      
-      console.log('[Core] Final formatted core:', formattedCore);
       setCoreMembers(formattedCore);
       setLoading(false);
     }

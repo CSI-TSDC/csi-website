@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="flex flex-col w-full sm:w-max max-w-[90vw] sm:max-w-none">
             <div className="relative mb-2 sm:mb-2">
                 <span className="block overflow-hidden">
-                    <span className="reveal-inner block text-[2.5vh] sm:text-[3vh] md:text-[2.5vw] lg:text-[2vw] font-kollektif-bold text-gray-200/90">
+                    <span className="reveal-inner block text-[2.5vh] sm:text-[3vh] md:text-[2.5vw] lg:text-[2vw] font-bespoke-sans-bold text-gray-200/90">
                         WELCOME TO CSI X TSDC
                     </span>
                 </span>

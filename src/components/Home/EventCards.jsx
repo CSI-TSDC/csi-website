@@ -4,7 +4,8 @@ export default function EventCards({
   envisionRef = null, 
   hackvisionRef = null, 
   teaTechTalksRef = null, 
-  sihRef = null
+  sihRef = null,
+  cardClassName = ""
 }) {
 
   return (
@@ -12,7 +13,7 @@ export default function EventCards({
       <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 font-dm-sans-medium">
         
         {/* Event Card 1 - Envision */}
-        <article ref={envisionRef || null} className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
+        <article ref={envisionRef || null} className={`relative ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
             <img 
@@ -54,7 +55,7 @@ export default function EventCards({
         </article>
 
         {/* Event Card 2 - HackVision */}
-        <article ref={hackvisionRef || null} className="relative w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
+        <article ref={hackvisionRef || null} className={`relative ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
             <img 
@@ -100,7 +101,7 @@ export default function EventCards({
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="text-white/90 font-medium font-satoshi uppercase text-xs sm:text-sm md:text-base">Coming Soon</span>
+                  <span className="text-white/90 font-medium font-bespoke-sans uppercase text-xs sm:text-sm md:text-base">Coming Soon</span>
                 </div>
 
                 {/* Dot separator */}
@@ -111,11 +112,11 @@ export default function EventCards({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span className="text-white/90 font-medium font-satoshi uppercase text-xs sm:text-sm md:text-base">At TSDC</span>
+                  <span className="text-white/90 font-medium font-bespoke-sans uppercase text-xs sm:text-sm md:text-base">At TSDC</span>
                 </div>
               </div>
 
-              <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-satoshi uppercase leading-relaxed px-2">
+              <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bespoke-sans uppercase leading-relaxed px-2">
                 24 hours of coding, creativity, and chaos.
               </p>
             </div>
@@ -123,7 +124,7 @@ export default function EventCards({
         </article>
 
         {/* Event Card 3 - Tea Tech Talks */}
-        <article ref={teaTechTalksRef || null} className="relative w-full flex justify-center items-center sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
+        <article ref={teaTechTalksRef || null} className={`relative flex justify-center items-center ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
           
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
@@ -173,7 +174,7 @@ export default function EventCards({
         </article>
 
         {/* Event Card 4 - SIH */}
-        <article ref={sihRef || null} className="relative text-csi-black w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
+        <article ref={sihRef || null} className={`relative text-csi-black ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
           
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">

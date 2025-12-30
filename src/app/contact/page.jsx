@@ -35,7 +35,6 @@ export default function ContactPage() {
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
-    console.log('Newsletter submitted:', formData.newsletter);
   };
 
   return (
@@ -56,7 +55,7 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 text-center font-space-grotesk-semibold">
+        <div className="max-w-7xl mx-auto px-4 text-center font-bespoke-sans-semibold">
           <h1 className="text-7xl font-bold text-slate-900 mb-12">Contact Us</h1>
           <p className="text-csi-black text-lg max-w-2xl mx-auto font-dm-sans-medium">
             For any query, fill out the form below and our team will get back to you as soon as possible.
@@ -143,7 +142,6 @@ export default function ContactPage() {
                   <button
                     onClick={() => {
                       // Handle download sponsorship slab
-                      console.log('Download Sponsorship Slab');
                     }}
                     className="w-full py-3 bg-gradient-to-r from-csi-blue to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >

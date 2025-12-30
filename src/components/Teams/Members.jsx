@@ -11,14 +11,11 @@ export default function Members() {
 
   useEffect(() => {
     async function fetchData() {
-      console.log('[Members] Starting to fetch data...');
-      
       // Load team images map from Cloudinary
       const { loadTeamImageMap } = await import('@/utils/teamData');
       const imageMap = await loadTeamImageMap();
       
       const allData = await loadAllTeamData();
-      console.log('[Members] All data loaded:', allData);
       const members = getMembers(allData);
       
       // Format for display: include team name in designation
@@ -31,11 +28,8 @@ export default function Members() {
           hasSignature: !!member.signature,
           team: member.team,
         };
-        console.log('[Members] Formatted member:', formatted);
         return formatted;
       });
-      
-      console.log('[Members] Final formatted members:', formattedMembers);
       setMembersData(formattedMembers);
       setLoading(false);
     }

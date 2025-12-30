@@ -56,7 +56,7 @@ export default function TechWeek() {
                 ))}
             </div>
             <div className='relative z-2'>
-                <div className='font-satoshi font-medium text-[5vw] flex justify-center pt-15'>
+                <div className='font-bespoke-sans font-medium text-[5vw] flex justify-center pt-15'>
                     <span>
                         Tech Week
                     </span>

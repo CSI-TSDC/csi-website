@@ -8,11 +8,7 @@ export default function TeamCard({ name, title, hasSignature = false, image, sig
   const attemptRef = useRef(0);
   const fallbackImage = '/assets/Teams/img2.jpg';
 
-  console.log(`[TeamCard] ${name} - Image path:`, imgSrc);
-
   const handleImageError = () => {
-    console.warn(`[TeamCard] Image failed to load for ${name}:`, imgSrc);
-    
     if (imgSrc === fallbackImage) {
       // Already on fallback, stop trying
       return;
@@ -30,11 +26,9 @@ export default function TeamCard({ name, title, hasSignature = false, image, sig
       
       if (attemptRef.current < extensions.length) {
         const newPath = `${basePath}/${baseName}${extensions[attemptRef.current]}`;
-        console.log(`[TeamCard] ${name} - Trying extension ${extensions[attemptRef.current]}:`, newPath);
         attemptRef.current += 1;
         setImgSrc(newPath);
       } else {
-        console.warn(`[TeamCard] ${name} - All extensions exhausted, using fallback`);
         setImgSrc(fallbackImage);
       }
     } else {

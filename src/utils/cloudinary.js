@@ -87,26 +87,20 @@ export function getCloudinaryUrl(folderPath, options = {}) {
  */
 export async function fetchCloudinaryImages(folderPath) {
   try {
-    console.log(`[Cloudinary] Fetching images from folder: ${folderPath}`);
     const response = await fetch(`/api/cloudinary/list?folder=${folderPath}`);
     
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error(`[Cloudinary] API error (${response.status}):`, errorData);
       return [];
     }
     
     const data = await response.json();
-    console.log(`[Cloudinary] Received ${data.resources?.length || 0} resources from ${folderPath}`);
     
     if (!data.success) {
-      console.error(`[Cloudinary] API returned error:`, data.error);
       return [];
     }
     
     return data.resources || [];
   } catch (error) {
-    console.error(`[Cloudinary] Error fetching images from ${folderPath}:`, error);
     return [];
   }
 }
@@ -143,18 +137,13 @@ export async function fetchTeamImagesMap() {
   try {
     // Fetch ALL resources and filter for team images
     // This way we don't need to know the exact folder structure
-    console.log('[Cloudinary] Fetching all resources to discover team images...');
-    
     const response = await fetch('/api/cloudinary/list?folder=');
     if (!response.ok) {
-      console.error('[Cloudinary] Failed to fetch resources:', response.status);
       return {};
     }
     
     const data = await response.json();
     const allResources = data.resources || [];
-    
-    console.log(`[Cloudinary] Total resources fetched: ${allResources.length}`);
     
     // Filter resources that are team-related
     // Look for resources in folders containing: Teams, Team, Core, Heads, Members
@@ -174,10 +163,7 @@ export async function fetchTeamImagesMap() {
       return isTeam;
     });
     
-    console.log(`[Cloudinary] Found ${teamResources.length} team-related resources`);
-    
     if (teamResources.length === 0) {
-      console.warn('[Cloudinary] No team images found!');
       return {};
     }
     
@@ -219,14 +205,8 @@ export async function fetchTeamImagesMap() {
       }
     });
     
-    console.log(`[Cloudinary] Created team image map with ${Object.keys(imageMap).length} unique entries`);
-    if (Object.keys(imageMap).length > 0) {
-      console.log(`[Cloudinary] Sample team image keys:`, Object.keys(imageMap).slice(0, 10));
-    }
-    
     return imageMap;
   } catch (error) {
-    console.error('[Cloudinary] Error creating team image map:', error);
     return {};
   }
 }

@@ -144,7 +144,7 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-white text-csi-black h-screen flex flex-col justify-center items-center px-[5vw] font-space-grotesk-semibold font-bold"
+      className="relative bg-csi-white text-csi-black h-screen flex flex-col justify-center items-center px-[5vw] font-bespoke-sans-semibold font-bold"
     >
       {/* GitHub */}
       <div className="w-full px-15 flex justify-center text-[5vw] items-center md:pt-25">
@@ -215,7 +215,7 @@ export default function Projects() {
 
       {/* Recent Projects */}
       {/* <div className="relative mt-25 flex flex-col">
-        <div className="relative text-[3vh] font-poppins-regular w-max pb-1.5 tracking-tighter mb-16">
+        <div className="relative text-[3vh] font-dm-sans-regular w-max pb-1.5 tracking-tighter mb-16">
           <span className="block overflow-hidden">
             <span className="block reveal-y">RECENT PROJECTS</span>
           </span>
@@ -243,7 +243,7 @@ export default function Projects() {
                   />
                 </div>
 
-                <h3 className="text-2xl font-poppins mb-2">{item.title}</h3>
+                <h3 className="text-2xl font-dm-sans mb-2">{item.title}</h3>
                 <p className="text-sm font-medium max-w-[30ch]">{item.desc}</p>
               </div>
             ))}
