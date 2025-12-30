@@ -45,12 +45,11 @@ export default function Events() {
           )
         })
       
-        // Flicker / opacity settle — per article
         gsap.utils.toArray("article").forEach((card) => {
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: card,
-              start: "top 85%",
+              start: "top 90%",
             },
           })
       
@@ -66,7 +65,7 @@ export default function Events() {
             }
           ).to(card, {
             opacity: 1,
-            duration: 0.3,
+            duration: 0.2,
           })
         })
       

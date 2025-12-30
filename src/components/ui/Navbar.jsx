@@ -41,7 +41,7 @@ const Navbar = () => {
       {/* Backdrop overlay - dims background when menu is open */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden"
+          className="fixed inset-0 bg-csi-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden"
           onClick={closeMenu}
         />
       )}
@@ -51,7 +51,7 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           (isHomePage && !isScrolled) 
             ? 'bg-transparent' 
-            : 'bg-white/75 backdrop-saturate-180 backdrop-blur-[20px] border-b border-slate-200 shadow-sm'
+            : 'bg-csi-white/75 backdrop-saturate-180 backdrop-blur-[20px] border-b border-csi-black/10 shadow-sm'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -62,7 +62,7 @@ const Navbar = () => {
                 <Image src="/assets/Logos/csi_logo.png" alt="Logo" width={56} height={56} className="h-10 md:h-14 w-auto" />
               </span>
               <h1 className={`text-xl md:text-2xl font-bold font-poppins cursor-pointer transition-all duration-300 hover:scale-105 ${
-                (isHomePage && !isScrolled) ? 'text-white' : 'text-black'
+                (isHomePage && !isScrolled) ? 'text-csi-white' : 'text-csi-black'
               }`}>
                 CSI x TSDC 
               </h1>
@@ -77,7 +77,7 @@ const Navbar = () => {
                       href={link.href}
                       className={`text-sm md:text-base font-medium font-satoshi transition-colors duration-200 cursor-pointer py-2 px-3 rounded-md ${
                         (isHomePage && !isScrolled)
-                          ? 'text-white hover:text-csi-blue-300 hover:bg-white/5' 
+                          ? 'text-csi-white hover:text-csi-blue-300 hover:bg-csi-white/5' 
                           : 'text-csi-black hover:text-csi-blue hover:bg-csi-black/5'
                       }`}
                     >
@@ -93,7 +93,7 @@ const Navbar = () => {
               <button
                 onClick={toggleMenu}
                 className={`transition-colors p-2 relative z-50 ${
-                  (isHomePage && !isScrolled) ? 'text-white hover:text-csi-blue-300' : 'text-csi-black hover:text-csi-blue'
+                  (isHomePage && !isScrolled) ? 'text-csi-white hover:text-csi-blue-300' : 'text-csi-black hover:text-csi-blue'
                 }`}
                 aria-label="Toggle menu"
               >
@@ -114,8 +114,8 @@ const Navbar = () => {
           <div
             className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-lg border-b transition-all duration-300 ease-in-out ${
               (isHomePage && !isScrolled)
-                ? 'bg-black/95 border-white/10' 
-                : 'bg-white/95 border-black/10'
+                ? 'bg-csi-black/95 border-csi-white/10' 
+                : 'bg-csi-white/95 border-csi-black/10'
             } ${
               isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
             }`}
@@ -128,7 +128,7 @@ const Navbar = () => {
                     onClick={closeMenu}
                     className={`block text-base font-medium font-satoshi transition-colors duration-200 cursor-pointer py-3 px-4 rounded-md ${
                       (isHomePage && !isScrolled)
-                        ? 'text-white hover:text-csi-blue-300 hover:bg-white/10'
+                        ? 'text-csi-white hover:text-csi-blue-300 hover:bg-csi-white/10'
                         : 'text-csi-black hover:text-csi-blue hover:bg-csi-black/10'
                     }`}
                   >

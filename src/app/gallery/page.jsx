@@ -292,12 +292,12 @@ export default function Gallery() {
         {previewImage && (
           <div 
             onClick={() => setPreviewImage(null)}
-            className="fixed inset-0 bg-black/95 z-[9999] animate-fadeIn flex items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 bg-csi-black/95 z-[9999] animate-fadeIn flex items-center justify-center p-4 md:p-8"
           >
             {/* Close button */}
             <button
               onClick={() => setPreviewImage(null)}
-              className="absolute top-4 right-4 md:top-8 md:right-8 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-2 md:p-3"
+              className="absolute top-4 right-4 md:top-8 md:right-8 text-csi-white hover:text-csi-white/70 transition-colors z-10 bg-csi-black/50 rounded-full p-2 md:p-3"
               aria-label="Close preview"
             >
               <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,8 +331,8 @@ export default function Gallery() {
               onClick={() => handleYearChange("All")}
               className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 cursor-pointer ${
                 selectedYear === "All"
-                  ? "bg-black text-white shadow-lg scale-105"
-                  : "bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300 hover:shadow-md active:scale-95"
+                  ? "bg-csi-black text-csi-white shadow-lg scale-105"
+                  : "bg-csi-white text-csi-black/80 border-2 border-csi-black/10 hover:border-csi-black/20 hover:shadow-md active:scale-95"
               }`}
             >
               All Years
@@ -363,7 +363,7 @@ export default function Gallery() {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-500 font-medium">No photos found for the selected year.</p>
             <button
               onClick={() => handleYearChange("All")}
-              className="mt-4 px-5 py-2 sm:px-6 sm:py-2.5 bg-black text-white rounded-full hover:bg-gray-800 active:bg-gray-900 transition-colors cursor-pointer text-sm sm:text-base"
+              className="mt-4 px-5 py-2 sm:px-6 sm:py-2.5 bg-csi-black text-csi-white rounded-full hover:bg-csi-black/90 active:bg-csi-black transition-colors cursor-pointer text-sm sm:text-base"
             >
               View All Photos
             </button>
@@ -403,10 +403,10 @@ export default function Gallery() {
                         }}
                     />
                       {!imagesLoaded[photo.id] && !imagesFailed[photo.id] && (
-                        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 animate-pulse rounded-xl sm:rounded-2xl z-10" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-csi-black/10 via-csi-white/50 to-csi-black/10 animate-pulse rounded-xl sm:rounded-2xl z-10" />
                     )}
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-csi-black/90 via-csi-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                       <p className="text-xs sm:text-sm md:text-base font-semibold text-white mb-0.5 sm:mb-1">{photo.event}</p>
                       <p className="text-[10px] sm:text-xs text-white/70">{photo.year}</p>

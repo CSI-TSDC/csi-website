@@ -95,7 +95,7 @@ export default function Numbers() {
               <span className="block reveal-num">IN NUMBERS</span>
             </span>
             <span className="absolute block h-px w-full bottom-0 overflow-hidden">
-              <span className="reveal-x block absolute left-0 top-0 h-full w-full bg-black -translate-x-1/3" />
+              <span className="reveal-x block absolute left-0 top-0 h-full w-full bg-csi-black -translate-x-1/3" />
             </span>
           </div>
 

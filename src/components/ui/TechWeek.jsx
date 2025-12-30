@@ -30,7 +30,7 @@ export default function TechWeek() {
     }, []);
 
     return (
-        <div className="w-full relative min-h-[800px] bg-[#CBD5E1] text-black rounded-[32px_8px] mb-20 md:mb-28 overflow-hidden">
+        <div className="w-full relative min-h-[800px] bg-[#CBD5E1] text-csi-black rounded-[32px_8px] mb-20 md:mb-28 overflow-hidden">
             <div className="absolute inset-0 -z-10 grid-bg" />
             <div className='absolute top-0 left-0 w-[250px] -rotate-12 mt-16 ml-12'>
                 <Image
@@ -72,7 +72,7 @@ export default function TechWeek() {
                     </div>
                 </div>
                 <div className="w-full flex justify-between h-[300px]">
-                    <div className="bg-gradient-to-b from-black to-[#4b5dd3] border-3 h-full w-[600px] rounded-[32px]">
+                    <div className="bg-gradient-to-b from-csi-black to-csi-blue-600 border-3 h-full w-[600px] rounded-[32px]">
                         <div>
                         <Image
                             src="/assets/Events/semicircle.png"

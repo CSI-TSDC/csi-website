@@ -58,7 +58,7 @@ export default function TeamSection({ title, hasOverflow = true, children }) {
           <span>{title}</span>
         </span>
         <div className="w-full h-px absolute bottom-0">
-          <span className="w-full h-full relative bg-black/30 block"></span>
+          <span className="w-full h-full relative bg-csi-black/30 block"></span>
         </div>
       </div>
       <div ref={contentRef} className="w-full h-max relative">

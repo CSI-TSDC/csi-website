@@ -9,7 +9,7 @@ const Footer = () => {
   }
   return (
     <>
-      <footer id="footer" className="relative w-full border-t h-max py-12 md:py-16 px-8 md:px-16 mt-24 min-h-[75vh] flex flex-wrap justify-between text-white font-satoshi font-normal z-99 rounded-t-[5rem] bg-[#0351c1]">
+      <footer id="footer" className="relative w-full border-t h-max py-12 md:py-16 px-8 md:px-16 mt-24 min-h-[75vh] flex flex-wrap justify-between text-csi-white font-satoshi font-normal z-99 rounded-t-[5rem] bg-csi-blue">
         <div className="flex flex-col space-y-6 md:space-y-8">
           <div className="relative font-medium font-poppins text-3xl w-max">
             <span className="block float-left">Find us at</span>
@@ -173,7 +173,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="relative bg-[#0351c1] text-white w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between z-99 font-satoshi">
+      <div className="relative bg-csi-blue text-csi-white w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between z-99 font-satoshi">
         <div>
           <span>Handcrafted by the Tech Team</span>
         </div>
