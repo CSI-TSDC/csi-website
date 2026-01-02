@@ -144,97 +144,79 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-white text-csi-black h-screen flex flex-col justify-center items-center px-[5vw] font-bespoke-sans-semibold font-bold"
+      className="relative bg-csi-white text-csi-black min-h-screen flex flex-col justify-center items-center px-[5vw] py-12 md:py-16 font-bespoke-sans-semibold font-bold"
     >
       {/* GitHub */}
-      <div className="w-full px-15 flex justify-center text-[5vw] items-center md:pt-25">
-        <span className="block mr-5 overflow-hidden">
+      <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw]">
+        <span className="block overflow-hidden">
           <span className="block reveal-y">We are also on</span>
         </span>
 
-        <a 
-          href="https://github.com/CSI-TSDC" 
-          target="_blank" 
+        <a
+          href="https://github.com/CSI-TSDC"
+          target="_blank"
           rel="noopener noreferrer"
-          className="relative bg-[#010408] flex justify-center -rotate-1 items-center text-white w-max px-7 py-5 gap-4 rounded-full reveal-opacity hover:scale-105 transition-transform cursor-pointer"
+          className="relative bg-[#010408] flex justify-center items-center text-white w-max px-6 py-4 sm:px-8 sm:py-6 gap-4 rounded-full reveal-opacity hover:scale-105 transition-transform cursor-pointer -rotate-1"
         >
-            <span className="block relative w-[100px] h-auto">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="100"
-                    height="100"
-                    viewBox="0 0 256 256"
-                    className="w-full h-full"
-                    >
-                    <g
-                        fill="#ffffff"
-                        fillRule="nonzero"
-                        stroke="none"
-                        strokeWidth="1"
-                        strokeLinecap="butt"
-                        strokeLinejoin="miter"
-                        strokeMiterlimit="10"
-                        strokeDasharray=""
-                        strokeDashoffset="0"
-                        fontFamily="none"
-                        fontWeight="none"
-                        fontSize="none"
-                        textAnchor="none"
-                        style={{ mixBlendMode: "normal" }}
-                    >
-                        <g transform="scale(8.53333,8.53333)">
-                        <path d="M15,3c-6.627,0 -12,5.373 -12,12c0,5.623 3.872,10.328 9.092,11.63c-0.056,-0.162 -0.092,-0.35 -0.092,-0.583v-2.051c-0.487,0 -1.303,0 -1.508,0c-0.821,0 -1.551,-0.353 -1.905,-1.009c-0.393,-0.729 -0.461,-1.844 -1.435,-2.526c-0.289,-0.227 -0.069,-0.486 0.264,-0.451c0.615,0.174 1.125,0.596 1.605,1.222c0.478,0.627 0.703,0.769 1.596,0.769c0.433,0 1.081,-0.025 1.691,-0.121c0.328,-0.833 0.895,-1.6 1.588,-1.962c-3.996,-0.411 -5.903,-2.399 -5.903,-5.098c0,-1.162 0.495,-2.286 1.336,-3.233c-0.276,-0.94 -0.623,-2.857 0.106,-3.587c1.798,0 2.885,1.166 3.146,1.481c0.896,-0.307 1.88,-0.481 2.914,-0.481c1.036,0 2.024,0.174 2.922,0.483c0.258,-0.313 1.346,-1.483 3.148,-1.483c0.732,0.731 0.381,2.656 0.102,3.594c0.836,0.945 1.328,2.066 1.328,3.226c0,2.697 -1.904,4.684 -5.894,5.097c1.098,0.573 1.899,2.183 1.899,3.396v2.734c0,0.104 -0.023,0.179 -0.035,0.268c4.676,-1.639 8.035,-6.079 8.035,-11.315c0,-6.627 -5.373,-12 -12,-12z" />
-                        </g>
-                    </g>
-                </svg>
-            </span>
-            <span className="">
-                <span>Github</span>
-            </span>
+          <span className="block relative w-[60px] sm:w-[80px] md:w-[100px] h-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 256 256"
+              className="w-full h-full"
+            >
+              <g fill="#ffffff" fillRule="nonzero">
+                <g transform="scale(8.53333,8.53333)">
+                  <path d="M15,3c-6.627,0 -12,5.373 -12,12c0,5.623 3.872,10.328 9.092,11.63c-0.056,-0.162 -0.092,-0.35 -0.092,-0.583v-2.051c-0.487,0 -1.303,0 -1.508,0c-0.821,0 -1.551,-0.353 -1.905,-1.009c-0.393,-0.729 -0.461,-1.844 -1.435,-2.526c-0.289,-0.227 -0.069,-0.486 0.264,-0.451c0.615,0.174 1.125,0.596 1.605,1.222c0.478,0.627 0.703,0.769 1.596,0.769c0.433,0 1.081,-0.025 1.691,-0.121c0.328,-0.833 0.895,-1.6 1.588,-1.962c-3.996,-0.411 -5.903,-2.399 -5.903,-5.098c0,-1.162 0.495,-2.286 1.336,-3.233c-0.276,-0.94 -0.623,-2.857 0.106,-3.587c1.798,0 2.885,1.166 3.146,1.481c0.896,-0.307 1.88,-0.481 2.914,-0.481c1.036,0 2.024,0.174 2.922,0.483c0.258,-0.313 1.346,-1.483 3.148,-1.483c0.732,0.731 0.381,2.656 0.102,3.594c0.836,0.945 1.328,2.066 1.328,3.226c0,2.697 -1.904,4.684 -5.894,5.097c1.098,0.573 1.899,2.183 1.899,3.396v2.734c0,0.104 -0.023,0.179 -0.035,0.268c4.676,-1.639 8.035,-6.079 8.035,-11.315c0,-6.627 -5.373,-12 -12,-12z" />
+                </g>
+              </g>
+            </svg>
+          </span>
+          <span className="text-lg sm:text-2xl md:text-3xl">Github</span>
         </a>
       </div>
 
-      {/* Paragraph (SPAN-SPAN KEPT) */}
-      <div className="relative flex flex-col font-dm-sans-semibold px-15 justify-center items-center leading-snug text-[3.4vh] mt-10 text-center">
-        <span className="block overflow-hidden">
-          <span className="block word-opacity">
-            A space where our Tech Team publishes
+      {/* Paragraph */}
+      <div className="relative flex flex-col justify-center items-center text-center mt-12 md:mt-16 max-w-4xl">
+        <p className="font-dm-sans-semibold leading-snug text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl px-4 sm:px-8">
+          <span className="block overflow-hidden">
+            <span className="block word-opacity">
+              A space where our Tech Team publishes
+            </span>
           </span>
-        </span>
-        <span className="block overflow-hidden">
-          <span className="block word-opacity">
-            tutorials and showcases projects built by students.
+          <span className="block overflow-hidden">
+            <span className="block word-opacity">
+              tutorials and showcases projects built by students.
+            </span>
           </span>
-        </span>
-        <span className="block overflow-hidden">
-          <span className="block word-opacity">
-            Below is some of the recently uploaded content
-          </span>
-        </span>
+          {/* <span className="block overflow-hidden mt-2">
+            <span className="block word-opacity">
+              Below is some of the recently uploaded content
+            </span>
+          </span> */}
+        </p>
       </div>
 
-      {/* Recent Projects */}
-      {/* <div className="relative mt-25 flex flex-col">
-        <div className="relative text-[3vh] font-dm-sans-regular w-max pb-1.5 tracking-tighter mb-16">
+      {/* Recent Projects (uncomment when ready) */}
+      {/*
+      <div className="relative mt-20 md:mt-32 w-full max-w-7xl px-4">
+        <div className="relative text-2xl md:text-3xl font-dm-sans-regular w-max pb-2 tracking-tighter mb-12">
           <span className="block overflow-hidden">
             <span className="block reveal-y">RECENT PROJECTS</span>
           </span>
-          <span className="absolute block h-px w-full bottom-0 overflow-hidden">
-            <span className="block h-full w-full bg-white reveal-x" />
-          </span>
+          <span className="absolute block h-px w-full bottom-0 bg-csi-black" />
         </div>
 
         <div className="relative overflow-hidden">
           <div
             ref={trackRef}
-            className="flex gap-10 cursor-grab active:cursor-grabbing select-none"
+            className="flex gap-8 cursor-grab active:cursor-grabbing select-none"
           >
             {projects.map((item, i) => (
               <div
                 key={i}
-                className="project-card w-[280px] sm:w-[340px] md:w-[380px] lg:w-[420px] flex-shrink-0"
+                className="project-card w-[85vw] sm:w-[70vw] md:w-[400px] lg:w-[440px] flex-shrink-0"
               >
-                <div className="w-full aspect-4/3 overflow-hidden bg-neutral-200 mb-6 relative">
+                <div className="w-full aspect-video overflow-hidden bg-neutral-200 mb-6 relative rounded-lg">
                   <Image
                     src={item.img}
                     alt={item.title}
@@ -243,13 +225,16 @@ export default function Projects() {
                   />
                 </div>
 
-                <h3 className="text-2xl font-dm-sans mb-2">{item.title}</h3>
-                <p className="text-sm font-medium max-w-[30ch]">{item.desc}</p>
+                <h3 className="text-xl md:text-2xl font-dm-sans mb-2">{item.title}</h3>
+                <p className="text-sm md:text-base font-medium max-w-[40ch] text-gray-700">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
-      </div> */}
+      </div>
+      */}
     </section>
   )
 }

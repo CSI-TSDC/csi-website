@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Facebook, Twitter, Youtube } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Github } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,7 +16,7 @@ export default function ContactPage() {
     e.preventDefault();
     
     // Create mailto link with form data
-    const recipient = 'support@tsdcmumbai.in';
+    const recipient = 'csi@tsdcmumbai.in';
     const subject = encodeURIComponent(formData.name ? `Contact from ${formData.name}` : 'Contact Form Submission');
     
     // Build email body with form data
@@ -143,9 +143,9 @@ export default function ContactPage() {
                     onClick={() => {
                       // Handle download sponsorship slab
                     }}
-                    className="w-full py-3 bg-gradient-to-r from-csi-blue to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                    className="w-full py-3 bg-gradient-to-r from-csi-blue leading-snug  to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >
-                    Download Sponsorship Slab
+                    Sponsorship Slab will be available here soon
                   </button>
                 </div>
               </div>
@@ -157,18 +157,31 @@ export default function ContactPage() {
       {/* Contact Info Cards */}
       <div className="py-20 bg-csi-white">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
-                <Phone className="text-sky-600" size={28} />
+                <Instagram className="text-pink-600" size={28} />
               </div>
               <h4 className="text-xl font-bold text-slate-900 mb-3">
-                <a href="tel:+911234567890" className="hover:text-sky-600 transition-colors">
-                  +91 1234567890
+                <a href="https://www.instagram.com/csixtsdc/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors">
+                  @csixtsdc
                 </a>
               </h4>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Call us for any queries or support.
+                Follow us for updates, events, and announcements.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
+                <Github className="text-slate-900" size={28} />
+              </div>
+              <h4 className="text-xl font-bold text-slate-900 mb-3">
+                <a href="https://github.com/CSI-TSDC" target="_blank" rel="noopener noreferrer" className="hover:text-slate-700 transition-colors">
+                  CSI-TSDC
+                </a>
+              </h4>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Check out our projects and contributions on GitHub.
               </p>
             </div>
             <div className="bg-gradient-to-br from-slate-100 via-slate-50 to-gray-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
@@ -176,8 +189,8 @@ export default function ContactPage() {
                 <Mail className="text-slate-700" size={28} />
               </div>
               <h4 className="text-xl font-bold text-slate-900 mb-3">
-                <a href="mailto:support@tsdcmumbai.in" className="hover:text-slate-700 transition-colors">
-                  support@tsdcmumbai.in
+                <a href="mailto:csi@tsdcmumbai.in" className="hover:text-slate-700 transition-colors">
+                  csi@tsdcmumbai.in
                 </a>
               </h4>
               <p className="text-slate-600 text-sm leading-relaxed">
