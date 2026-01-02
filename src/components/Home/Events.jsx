@@ -81,7 +81,7 @@ export default function Events() {
     >
       <div className="relative w-full">
         <div className="relative w-max flex flex-col mb-28">
-                <div className="text-[5vw] sm:text-[5.5vw] md:text-[5vw] leading-snug font-bespoke-sans-semibold md:mx-15 flex md:flex-row flex-col md:justify-between justify-center w-full h-max gap-2 sm:gap-3">
+                <div className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-snug font-bespoke-sans-semibold md:mx-15 flex md:flex-row flex-col md:justify-between justify-center w-full h-max gap-2 sm:gap-3">
                     <div className="relative">
                     <span className="block overflow-hidden">
                         <span className="block reveal-y">Thoughtfully curated events</span>
@@ -100,7 +100,16 @@ export default function Events() {
           hackvisionRef={null}
           teaTechTalksRef={null}
           sihRef={null}
+          hideSIH={true}
         />
+        <div className="flex justify-center">
+          <a 
+            href="/events"
+            className="px-8 py-3 sm:px-10 sm:py-4 bg-csi-blue hover:bg-csi-blue-600 text-white rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            View More
+          </a>
+        </div>
       </div>
     </section>
     )

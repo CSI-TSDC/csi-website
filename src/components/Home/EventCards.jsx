@@ -5,11 +5,12 @@ export default function EventCards({
   hackvisionRef = null, 
   teaTechTalksRef = null, 
   sihRef = null,
-  cardClassName = ""
+  cardClassName = "",
+  hideSIH = false
 }) {
 
   return (
-    <div className="relative px-4 sm:px-8 md:px-15 mt-8 sm:mt-12 md:mt-15 pb-20 sm:pb-24 md:pb-32">
+    <div className="relative px-4 sm:px-8 md:px-15 mt-8 sm:mt-12 md:mt-15 pb-20 sm:pb-18 md:pb-26">
       <div className="flex flex-col items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 font-dm-sans-medium">
         
         {/* Event Card 1 - Envision */}
@@ -39,17 +40,17 @@ export default function EventCards({
               src="/assets/Logos/envision_logo.png" 
               alt="Envision Logo" 
             />
-            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl text-center sm:text-left leading-relaxed">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl text-left leading-relaxed">
               Envision is our Tech Fest held once a year that brings together innovators, creators, and visionaries from across the tech community. Join us for an unforgettable experience filled with inspiring talks, and networking opportunities.
             </p>
           </div>
 
           {/* Among3 overlay on left side */}
-          <div className="absolute -right-4 sm:-right-6 md:-right-8 lg:-right-12 bottom-0 z-20 pointer-events-none hidden sm:block">
+          <div className="absolute -right-4 sm:-right-6 md:-right-8 lg:-right-12 bottom-0 z-20 pointer-events-none">
             <img 
               src="/assets/Home/events/among.png" 
               alt="Among3 decoration" 
-              className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto scale-x-[-1]"
+              className="w-8 sm:w-12 md:w-16 lg:w-20 xl:w-24 h-auto scale-x-[-1]"
             />
           </div>
         </article>
@@ -75,16 +76,16 @@ export default function EventCards({
           </div>
 
           {/* Computer decoration on left */}
-          <div className="absolute left-0 bottom-4 sm:bottom-6 -translate-x-1/3 sm:-translate-x-1/4 z-20 pointer-events-none hidden sm:block">
+          <div className="absolute left-0 bottom-4 sm:bottom-6 -translate-x-1/3 sm:-translate-x-1/4 z-20 pointer-events-none">
             <img 
               src="/assets/Home/events/computer.png" 
               alt="Computer decoration" 
-              className="w-24 sm:w-32 md:w-40 lg:w-44 h-auto animate-float"
+              className="w-16 sm:w-24 md:w-32 lg:w-40 xl:w-44 h-auto animate-float"
             />
           </div>
 
           {/* Content */}
-          <div className="relative z-10 p-5 sm:p-6 md:p-8 lg:p-12 flex flex-col items-center justify-center">
+          <div className="relative z-10 p-5 sm:p-6 md:p-8 lg:p-12 flex flex-col items-center justify-center min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
             {/* HackVision Logo - Centered and Big */}
             <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 flex justify-center">
               <img 
@@ -155,7 +156,7 @@ export default function EventCards({
             />
 
             {/* Text */}
-            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl text-center sm:text-left leading-relaxed">
+            <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl text-left leading-relaxed">
               A student-led coding session held every working Saturday where students teach students. It&apos;s a casual,
               interactive, and fun space to learn, build, and explore tech together — no faculty, no pressure,
               just hands-on learning.
@@ -164,16 +165,17 @@ export default function EventCards({
           </div>
 
           {/* Sticker */}
-          <div className="absolute -right-8 md:-right-10 -translate-y-4 top-0 z-20 pointer-events-none hidden sm:block">
+          <div className="absolute -right-8 md:-right-10 -translate-y-4 top-0 z-20 pointer-events-none">
             <img
               src="/assets/Home/events/sticker1.png"
               alt="Decoration"
-              className="w-40 rotate-8"
+              className="w-24 sm:w-32 md:w-36 lg:w-40 rotate-8"
             />
           </div>
         </article>
 
         {/* Event Card 4 - SIH */}
+        {!hideSIH && (
         <article ref={sihRef || null} className={`relative text-csi-black ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
           
           {/* Background image */}
@@ -223,6 +225,7 @@ export default function EventCards({
             </div>
           </div>
         </article>
+        )}
       </div>
     </div>
   );

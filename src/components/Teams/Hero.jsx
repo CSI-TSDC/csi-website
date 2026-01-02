@@ -10,7 +10,7 @@ gsap.registerPlugin(Flip);
 export default function TeamsGrid() {
 
   return (
-    <section className="pt-20 sm:pt-24 md:pt-32 min-h-screen bg-csi-white text-csi-black w-full font-kollektif-bold uppercase">
+    <section className="pt-20 sm:pt-24 md:pt-32 bg-csi-white text-csi-black w-full font-kollektif-bold uppercase">
       <div className="text-[8vw] sm:text-[7vw] md:text-[6vw] text-[#4F77FF] flex justify-center mb-12 sm:mb-16 md:mb-20 px-4">
         <span>
           <span className="text-csi-black">meet the </span>team
@@ -23,7 +23,7 @@ export default function TeamsGrid() {
         className="
           grid
           grid-cols-2
-          auto-rows-[140px]
+          auto-rows-[100px]
           gap-2
           md:grid-cols-9
           md:grid-rows-[repeat(5,minmax(120px,1fr))]

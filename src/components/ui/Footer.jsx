@@ -9,9 +9,9 @@ const Footer = () => {
   }
   return (
     <>
-      <footer id="footer" className="relative w-full border-t h-max font-dm-sans-medium py-12 md:py-16 px-8 md:px-16 mt-24 min-h-[75vh] flex flex-wrap justify-between text-csi-white font-bespoke-sans font-normal z-99 rounded-t-[5rem] bg-csi-blue">
-        <div className="flex flex-col space-y-6 md:space-y-8">
-          <div className="relative font-medium font-bespoke-sans-semibold text-3xl w-max">
+      <footer id="footer" className="relative w-full border-t h-max font-dm-sans-medium py-12 md:py-16 px-8 md:px-16 mt-24 min-h-[75vh] flex flex-wrap justify-between text-csi-white font-satoshi font-normal z-99 rounded-t-3xl md:rounded-t-[5rem] bg-csi-blue">
+        <div className="flex flex-col space-y-6 md:space-y-8 mb-10">
+          <div className="relative font-medium font-space-grotesk-medium text-3xl w-max">
             <span className="block float-left">Find us at</span>
           </div>
           <div className="relative opacity-70">
@@ -28,7 +28,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className="flex flex-row flex-wrap text-xl font-light font-bespoke-sans space-x-16 md:space-x-20 gap-y-8">
+        <div className="flex flex-row flex-wrap text-xl font-light font-satoshi gap-8 sm:gap-16 md:gap-32 gap-y-8">
           <div className="flex flex-col">
             <div className="mb-6 md:mb-8 text-lg leading-snug font-dm-sans-medium">
               Quick Links
@@ -173,7 +173,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="relative bg-csi-blue text-csi-white w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between z-99 font-bespoke-sans">
+      <div className="relative bg-csi-blue text-csi-white w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between z-99 font-satoshi">
         <div>
           <span>Handcrafted by the Tech Team</span>
         </div>

@@ -54,7 +54,7 @@ const Navbar = () => {
             : 'bg-csi-white/75 backdrop-saturate-180 backdrop-blur-[20px] border-b border-csi-black/10 shadow-sm'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="px-6 md:px-[5vw] relative z-10">
           <div className="flex items-center justify-between h-14 md:h-22">
             {/* Logo */}
             <div className="flex flex-row justify-center items-center gap-6 w-max">

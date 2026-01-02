@@ -14,6 +14,7 @@ export default function Gallery() {
   const [isLoading, setIsLoading] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState({});
   const [imagesFailed, setImagesFailed] = useState({});
+  const [imageOrientations, setImageOrientations] = useState({});
   
   // Refs for cleanup and debouncing
   const timeoutRef = useRef(null);
@@ -150,7 +151,15 @@ export default function Gallery() {
   }, [previewImage]);
 
   // Handle image load
-  const handleImageLoad = useCallback((photoId) => {
+  const handleImageLoad = useCallback((photoId, event) => {
+    const img = event?.target;
+    if (img) {
+      const isHorizontal = img.naturalWidth > img.naturalHeight;
+      setImageOrientations(prev => ({
+        ...prev,
+        [photoId]: isHorizontal ? 'horizontal' : 'vertical'
+      }));
+    }
     setImagesLoaded(prev => {
       const newState = { ...prev, [photoId]: true };
       return newState;
@@ -375,11 +384,15 @@ export default function Gallery() {
               }
               
               const uniqueKey = `${photo.id}-${photo.src}`;
+              const orientation = imageOrientations[photo.id];
+              const isHorizontal = orientation === 'horizontal';
               
               return (
                 <div
                   key={uniqueKey}
-                  className="break-inside-avoid mb-3 sm:mb-4 md:mb-5 lg:mb-6 group cursor-pointer"
+                  className={`break-inside-avoid mb-3 sm:mb-4 md:mb-5 lg:mb-6 group cursor-pointer ${
+                    isHorizontal ? 'inline-block sm:max-w-[calc(50%-0.75rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(50%-1.25rem)]' : 'block'
+                  }`}
                   onClick={() => setPreviewImage(photo.src)}
                 >
                   <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-300 active:scale-[0.98]">
@@ -392,8 +405,8 @@ export default function Gallery() {
                       alt={photo.event}
                       unoptimized
                         loading="lazy"
-                        onLoad={() => {
-                          handleImageLoad(photo.id);
+                        onLoad={(e) => {
+                          handleImageLoad(photo.id, e);
                         }}
                         onError={() => {
                           handleImageError(photo.id);

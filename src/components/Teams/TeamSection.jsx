@@ -46,7 +46,7 @@ export default function TeamSection({ title, hasOverflow = true, children }) {
   return (
     <div 
       ref={sectionRef}
-      className={`relative ${hasOverflow ? 'overflow-hidden' : ''} text-[5vw] sm:text-[5.6vw] md:text-[6.6vw] uppercase w-full`}
+      className={`relative ${hasOverflow ? 'overflow-hidden' : ''} mt-10 text-[12vw] md:text-[6.6vw] uppercase w-full`}
     >
       <div 
         ref={titleRef}

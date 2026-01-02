@@ -96,7 +96,7 @@ export default function Projects() {
         }
       )
 
-      gsap.utils.toArray(".word-opacity").forEach((el) => {
+        gsap.utils.toArray(".word-opacity").forEach((el) => {
         const words = el.textContent.split(" ")
         el.textContent = ""
 
@@ -114,8 +114,8 @@ export default function Projects() {
           ease: "none",
           scrollTrigger: {
             trigger: el,
-            start: "top 80%",
-            end: "bottom 60%",
+            start: "top 85%",
+            end: "bottom 70%",
             scrub: true,
           },
         })
@@ -144,7 +144,7 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-white text-csi-black min-h-screen flex flex-col justify-center items-center px-[5vw] py-12 md:py-16 font-bespoke-sans-semibold font-bold"
+      className="relative bg-csi-white text-csi-black min-h-[60vh] sm:min-h-[70vh] md:min-h-screen flex flex-col justify-center items-center px-[5vw] py-12 md:py-16 font-bespoke-sans-semibold font-bold"
     >
       {/* GitHub */}
       <div className="w-full max-w-5xl flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 text-[8vw] sm:text-[6vw] md:text-[5vw] lg:text-[4vw]">
@@ -177,7 +177,7 @@ export default function Projects() {
 
       {/* Paragraph */}
       <div className="relative flex flex-col justify-center items-center text-center mt-12 md:mt-16 max-w-4xl">
-        <p className="font-dm-sans-semibold leading-snug text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl px-4 sm:px-8">
+        <p className="font-dm-sans-semibold leading-snug text-[4vw] md:text-[2.8vw] px-4 sm:px-8">
           <span className="block overflow-hidden">
             <span className="block word-opacity">
               A space where our Tech Team publishes

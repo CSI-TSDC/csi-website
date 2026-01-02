@@ -109,15 +109,15 @@ export default function CSIGallery() {
   return (
     <main className="min-h-screen bg-csi-white text-csi-black relative px-4 sm:px-6 md:px-[5vw]">
       <div className="relative z-10 font-dm-sans-medium ">
-      <section className="max-w-8xl mx-auto pb-12 sm:pb-16 md:pb-20 lg:pb-28 pt-20 sm:pt-24 md:pt-32 lg:pt-40 grid md:grid-cols-[1fr_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
-        <div className="space-y-3 sm:space-y-4 md:space-y-5 text-center md:text-left">
-          <p className="uppercase text-[10px] sm:text-[11px] tracking-[0.26em] text-gray-600 w-max overflow-hidden mx-auto md:mx-0">
+      <section className="max-w-8xl mx-auto pb-12 sm:pb-16 md:pb-20 lg:pb-28 pt-24 sm:pt-32 md:pt-40 lg:pt-48 xl:pt-56 grid md:grid-cols-[1fr_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
+        <div className="space-y-4 sm:space-y-5 md:space-y-4 lg:space-y-6 text-center md:text-left">
+          <p className="uppercase text-xs sm:text-sm md:text-base tracking-[0.26em] text-gray-600 w-max overflow-hidden mx-auto md:mx-0">
             <span>
             CSI x TSDC Events
             </span>
           </p>
 
-          <h1 className="text-[6vw] sm:text-[5.5vw] md:text-[5vw] font-semibold font-bespoke-sans-semibold leading-tight w-max mx-auto md:mx-0">
+          <h1 className="text-[32px] sm:text-[48px] md:text-[5vw] font-semibold font-bespoke-sans-semibold leading-tight w-max mx-auto md:mx-0">
             <span className="block w-full overflow-hidden">
               <span><span className="text-csi-blue">Meet,</span> Build</span>
             </span>
@@ -137,7 +137,7 @@ export default function CSIGallery() {
             </span>
           </div>
 
-          <p className="text-gray-600 max-w-xl text-sm sm:text-base leading-relaxed mx-auto md:mx-0">
+          <p className="text-gray-600 max-w-xl text-base sm:text-lg md:text-xl leading-relaxed mx-auto md:mx-0">
             A mix of learning, chaos, collaboration, and chai-powered breakthroughs. <br className="hidden sm:block" />
             Select the event you want to know more about below.
           </p>
