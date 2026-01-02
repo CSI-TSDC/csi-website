@@ -102,13 +102,18 @@ export default function Events() {
           sihRef={null}
           hideSIH={true}
         />
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-8 md:mb-12">
           <a 
             href="/events"
             className="px-8 py-3 sm:px-10 sm:py-4 bg-csi-blue hover:bg-csi-blue-600 text-white rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
           >
             View More
           </a>
+        </div>
+        <div className="text-center mt-12 md:mt-16">
+          <p className="text-white/80 text-lg sm:text-xl md:text-2xl font-bespoke-sans-semibold">
+            Events more to come!
+          </p>
         </div>
       </div>
     </section>

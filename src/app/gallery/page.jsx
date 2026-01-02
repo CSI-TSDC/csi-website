@@ -179,19 +179,19 @@ export default function Gallery() {
         <div id="showcase-bg"></div>
         <div className="grid mx-auto max-w-6xl md:grid-cols-[1.15fr_1fr] gap-8 md:gap-16 items-center">
         <div className="space-y-3 md:space-y-6 order-1 md:order-1 text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-csi-black leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-csi-black leading-tight">
             The <span className="text-csi-blue-400">CSI</span> Showcase
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-csi-black/80 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-left text-csi-black/80 leading-relaxed">
             A look back at the energy, creativity, and people behind CSI x TSDC.
           </p>
 
-          <p className="text-sm sm:text-base md:text-lg text-csi-black/70 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-left text-csi-black/70 leading-relaxed">
             Explore our collection of memories from events, workshops, hackathon, and other activities held every year.
           </p>
 
-          <p className="text-xs sm:text-sm md:text-base text-csi-black/60 leading-relaxed hidden sm:block">
+          <p className="text-xs sm:text-sm md:text-base text-left text-csi-black/60 leading-relaxed hidden sm:block">
             From tech fests to coding competitions, every moment captured tells a story of innovation and collaboration.
           </p>
         </div>

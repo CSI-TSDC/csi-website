@@ -55,21 +55,21 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 text-center font-bespoke-sans-semibold">
-          <h1 className="text-7xl font-bold text-slate-900 mb-12">Contact Us</h1>
-          <p className="text-csi-black text-lg max-w-2xl mx-auto font-dm-sans-medium">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center font-bespoke-sans-semibold">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-8 md:mb-12">Contact Us</h1>
+          <p className="text-csi-black text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-dm-sans-medium px-2">
             For any query, fill out the form below and our team will get back to you as soon as possible.
           </p>
         </div>
       </div>
 
       {/* Contact Form Section */}
-      <div className="py-20 bg-gradient-to-b from-white to-slate-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-csi-white rounded-2xl shadow-lg p-8">
+              <div className="bg-csi-white rounded-2xl shadow-lg p-6 sm:p-8">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <input
@@ -113,9 +113,9 @@ export default function ContactPage() {
 
             {/* Event & Sponsorship Enquiries */}
             <div className="lg:col-span-1">
-              <div className="bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-2xl p-8 text-white shadow-xl h-full">
-                <h3 className="text-2xl font-bold mb-4">Event & Sponsorship Enquiries</h3>
-                <p className="text-slate-300 text-sm mb-8 leading-relaxed">
+              <div className="bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl h-full">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Event & Sponsorship Enquiries</h3>
+                <p className="text-slate-300 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed">
                   We conduct events, hackathons, workshops.
                 </p>
                 <div className="space-y-4">
@@ -155,14 +155,14 @@ export default function ContactPage() {
       </div>
 
       {/* Contact Info Cards */}
-      <div className="py-20 bg-csi-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
-                <Instagram className="text-pink-600" size={28} />
+      <div className="py-12 sm:py-16 md:py-20 bg-csi-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="bg-gradient-to-br from-pink-50 via-rose-50 to-orange-50 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-csi-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-md">
+                <Instagram className="text-pink-600 w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">
+              <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">
                 <a href="https://www.instagram.com/csixtsdc/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-600 transition-colors">
                   @csixtsdc
                 </a>
@@ -171,11 +171,11 @@ export default function ContactPage() {
                 Follow us for updates, events, and announcements.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
-                <Github className="text-slate-900" size={28} />
+            <div className="bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-csi-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-md">
+                <Github className="text-slate-900 w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">
+              <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">
                 <a href="https://github.com/CSI-TSDC" target="_blank" rel="noopener noreferrer" className="hover:text-slate-700 transition-colors">
                   CSI-TSDC
                 </a>
@@ -184,11 +184,11 @@ export default function ContactPage() {
                 Check out our projects and contributions on GitHub.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-slate-100 via-slate-50 to-gray-100 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
-                <Mail className="text-slate-700" size={28} />
+            <div className="bg-gradient-to-br from-slate-100 via-slate-50 to-gray-100 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-csi-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-md">
+                <Mail className="text-slate-700 w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">
+              <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">
                 <a href="mailto:csi@tsdcmumbai.in" className="hover:text-slate-700 transition-colors">
                   csi@tsdcmumbai.in
                 </a>
@@ -197,11 +197,11 @@ export default function ContactPage() {
                 Send us an email and we'll get back to you soon.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-indigo-50 via-blue-50 to-sky-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="bg-csi-white w-14 h-14 rounded-full flex items-center justify-center mb-5 shadow-md">
-                <MapPin className="text-indigo-600" size={28} />
+            <div className="bg-gradient-to-br from-indigo-50 via-blue-50 to-sky-50 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="bg-csi-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-4 sm:mb-5 shadow-md">
+                <MapPin className="text-indigo-600 w-6 h-6 sm:w-7 sm:h-7" />
               </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Address</h4>
+              <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">Address</h4>
               <p className="text-slate-600 text-sm leading-relaxed">
                 Thakur Shyamnarayan Degree College, 90 Feet Rd, Kandivali, Thakur Complex, Kandivali East, Mumbai, Maharashtra 400101
               </p>
@@ -211,9 +211,9 @@ export default function ContactPage() {
       </div>
 
       {/* Map Section */}
-      <div className="py-16 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="bg-gradient-to-br from-slate-200 to-slate-300 rounded-3xl overflow-hidden shadow-xl" style={{height: '450px'}}>
+      <div className="py-12 sm:py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl" style={{height: '300px'}}>
             <div className="w-full h-full flex items-center justify-center text-slate-600 bg-gradient-to-br from-slate-100 to-slate-200">
             <iframe className="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.577703117732!2d72.8623017756852!3d19.213638547636258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b731d4f3be13%3A0x6ac73cbebb4dc1de!2sThakur%20Shyamnarayan%20Degree%20College!5e0!3m2!1sen!2sin!4v1767002328085!5m2!1sen!2sin"></iframe>
             </div>

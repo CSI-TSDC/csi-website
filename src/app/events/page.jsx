@@ -137,7 +137,7 @@ export default function CSIGallery() {
             </span>
           </div>
 
-          <p className="text-gray-600 max-w-xl text-base sm:text-lg md:text-xl leading-relaxed mx-auto md:mx-0">
+          <p className="text-gray-600 text-left max-w-xl text-base sm:text-lg md:text-xl leading-relaxed mx-auto md:mx-0">
             A mix of learning, chaos, collaboration, and chai-powered breakthroughs. <br className="hidden sm:block" />
             Select the event you want to know more about below.
           </p>
@@ -147,7 +147,7 @@ export default function CSIGallery() {
             border border-gray-200/80
             rounded-2xl sm:rounded-3xl shadow-xl shadow-gray-200/50
             p-4 sm:p-5 md:p-6
-            w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px]
+            w-full md:max-w-[360px] lg:max-w-[400px]
             transition-all duration-300
             hover:shadow-2xl hover:shadow-gray-300/50
             sticky top-14 md:top-22 z-40
