@@ -43,7 +43,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="homebg" className="relative w-full h-screen" ref={heroRef}>
+    <section id="homebg" className="relative w-full h-screen header-top" ref={heroRef}>
       <div id="bg-overlay"></div>
       <div className="absolute left-[5vw] sm:left-[5vw] top-[25vw] md:top-auto md:bottom-[6vw] px-4 sm:px-0">
         <div className="flex flex-col w-full sm:w-max max-w-[90vw] sm:max-w-none">
@@ -81,7 +81,7 @@ export default function Hero() {
                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }
                 }}
-                className="reveal-inner inline-block px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-csi-blue-500 to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                className="inline-block px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-csi-blue-500 to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-full font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
               >
                 Let's Explore!
               </a>

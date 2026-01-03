@@ -121,7 +121,7 @@ const WhatWeAre = () => {
                       {i + 1}
                     </span>
                   </div>
-                  <span className="reveal-y text-sm sm:text-base md:text-lg font-semibold text-gray-800 block">
+                  <span className="reveal-y text-sm sm:text-base md:text-lg leading-snug font-semibold text-gray-800 block">
                     {text}
                   </span>
                 </div>

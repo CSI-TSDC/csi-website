@@ -110,11 +110,7 @@ export default function Events() {
             View More
           </a>
         </div>
-        <div className="text-center mt-12 md:mt-16">
-          <p className="text-white/80 text-lg sm:text-xl md:text-2xl font-bespoke-sans-semibold">
-            Events more to come!
-          </p>
-        </div>
+        
       </div>
     </section>
     )

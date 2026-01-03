@@ -156,7 +156,7 @@ export default function Projects() {
           href="https://github.com/CSI-TSDC"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative bg-[#010408] flex justify-center items-center text-white w-max px-6 py-4 sm:px-8 sm:py-6 gap-4 rounded-full reveal-opacity hover:scale-105 transition-transform cursor-pointer -rotate-1"
+          className="relative bg-[#010408] flex justify-center items-center text-white w-max px-4 py-2 md:px-6 md:py-4 gap-4 rounded-full reveal-opacity hover:scale-105 transition-transform cursor-pointer -rotate-1"
         >
           <span className="block relative w-[60px] sm:w-[80px] md:w-[100px] h-auto">
             <svg
@@ -177,7 +177,7 @@ export default function Projects() {
 
       {/* Paragraph */}
       <div className="relative flex flex-col justify-center items-center text-center mt-12 md:mt-16 max-w-4xl">
-        <p className="font-dm-sans-semibold leading-snug text-[4vw] md:text-[2.8vw] px-4 sm:px-8">
+        <p className="font-dm-sans-semibold leading-snug text-[8vw] md:text-[2.8vw] px-4 sm:px-8">
           <span className="block overflow-hidden">
             <span className="block word-opacity">
               A space where our Tech Team publishes

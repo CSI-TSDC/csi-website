@@ -172,7 +172,7 @@ export default function CSIGallery() {
         </div>
         <div className="relative flex flex-row w-full items-stretch gap-2 sm:gap-3 md:gap-[14px] mt-6 md:mt-0 justify-center md:justify-start">
           <div className="flex flex-col w-max items-end gap-2 sm:gap-3 md:gap-[14px]">
-            <div className="relative w-[120px] sm:w-[150px] md:w-[200px] lg:w-[250px] h-[100px] sm:h-[130px] md:h-[180px] lg:h-[220px]">
+            <div className="relative w-full md:w-[200px] lg:w-[250px] h-[100px] sm:h-[130px] md:h-[180px] lg:h-[220px]">
               <img src="/assets/Events/Robot1.png" className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto top-2 sm:top-3 md:top-4 lg:top-5 -left-6 sm:-left-8 md:-left-10 lg:-left-12 absolute" alt="" />
               <img src="/assets/Events/Events3.webp" className="w-full h-full object-cover rounded-lg" alt="" />
             </div>
@@ -201,6 +201,11 @@ export default function CSIGallery() {
         sihRef={sihRef}
         cardClassName="w-full sm:w-[98%] md:w-[92%] lg:w-[88%] xl:w-[85%]"
       />
+      <div className="text-center mt-12 md:mt-16">
+          <p className="text-black/80 text-lg sm:text-xl md:text-2xl font-bespoke-sans-semibold">
+            More events to come!
+          </p>
+      </div>
       </div>
     </main>
   );

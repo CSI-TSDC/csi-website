@@ -40,22 +40,22 @@ export default function ContactPage() {
   return (
     <section className="min-h-screen bg-csi-white  font-dm-sans-medium">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 pt-24 md:py-32 lg:pt-40 relative overflow-hidden">
-        <div className="absolute top-26 left-20 opacity-15">
+      <div className="bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-50 pt-24 pb-10 md:py-32 lg:pt-40 relative overflow-hidden">
+        <div className="absolute top-26 hidden md:block left-20 opacity-15">
           <div className="flex gap-2">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="w-8 h-8 border-2 border-sky-400 rotate-45"></div>
             ))}
           </div>
         </div>
-        <div className="absolute bottom-10 right-20 opacity-15">
+        <div className="absolute hidden md:block bottom-10 right-20 opacity-15">
           <div className="flex gap-2">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="w-8 h-8 border-2 border-indigo-400 rotate-45"></div>
             ))}
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center font-bespoke-sans-semibold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-left font-bespoke-sans-semibold">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-8 md:mb-12">Contact Us</h1>
           <p className="text-csi-black text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-dm-sans-medium px-2">
             For any query, fill out the form below and our team will get back to you as soon as possible.
@@ -103,7 +103,7 @@ export default function ContactPage() {
                   ></textarea>
                   <button
                     type="submit"
-                    className="px-10 py-4 bg-gradient-to-r from-csi-blue-400 to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-full font-semibold shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                    className="px-10 py-4 bg-gradient-to-r w-full md:w-max from-csi-blue-400 to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-full font-semibold shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >
                     Submit
                   </button>

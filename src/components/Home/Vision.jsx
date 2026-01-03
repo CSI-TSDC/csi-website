@@ -92,7 +92,9 @@ export default function Vision() {
       {/* VIDEO */}
       <div
         ref={videoWrapRef}
-        className="relative z-20 w-full min-h-svh scale-80"
+        className="relative z-20 w-full
+                  h-[60svh] sm:h-[70svh] md:min-h-svh
+                  scale-90 sm:scale-100"
       >
         <video
           className="absolute inset-0 w-full h-full object-cover rounded-4xl"

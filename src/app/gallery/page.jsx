@@ -175,7 +175,7 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-[#f8f8f8]">
       {/* Hero Section */}
-      <section className="px-4 sm:px-6 pb-12 pt-24 md:pb-8 md:pt-34 w-full gallery-bg">
+      <section className="px-4 sm:px-6 pb-4 md:pb-8 pt-24 md:pt-34 w-full gallery-bg">
         <div id="showcase-bg"></div>
         <div className="grid mx-auto max-w-6xl md:grid-cols-[1.15fr_1fr] gap-8 md:gap-16 items-center">
         <div className="space-y-3 md:space-y-6 order-1 md:order-1 text-center md:text-left">
@@ -196,8 +196,8 @@ export default function Gallery() {
           </p>
         </div>
         <div className="relative w-full h-[300px] sm:h-[400px] md:h-[540px] overflow-hidden md:block order-2 md:order-1 flex justify-center md:justify-end">
-          <div className="absolute md:right-0 top-1/2 -translate-y-1/2 space-y-4 md:space-y-6">
-
+        <div className="absolute md:right-0 top-1/2 -translate-y-1/2 space-y-3 md:space-y-6
+                max-w-[92vw] sm:max-w-none scale-[0.9] sm:scale-100 origin-center">
             {/* Row 1 */}
             <div className="flex gap-2 md:gap-4">
               <Image
@@ -294,7 +294,6 @@ export default function Gallery() {
           </div>
         </div>
 
-
         </div>
         {previewImage && (
           <div 
@@ -376,8 +375,7 @@ export default function Gallery() {
             </button>
           </div>
         ) : (
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-            {filteredPhotos.map((photo, index) => {
+            <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-4 md:gap-5 lg:gap-6">            {filteredPhotos.map((photo, index) => {
               // Skip rendering if image failed to load
               if (imagesFailed[photo.id]) {
                 return null;
@@ -390,8 +388,10 @@ export default function Gallery() {
               return (
                 <div
                   key={uniqueKey}
-                  className={`break-inside-avoid mb-3 sm:mb-4 md:mb-5 lg:mb-6 group cursor-pointer ${
-                    isHorizontal ? 'inline-block sm:max-w-[calc(50%-0.75rem)] md:max-w-[calc(50%-1rem)] lg:max-w-[calc(50%-1.25rem)]' : 'block'
+                  className={`break-inside-avoid mb-2 sm:mb-4 md:mb-5 lg:mb-6 group cursor-pointer ${
+                    isHorizontal
+                        ? 'inline-block md:max-w-[calc(50%-1rem)] lg:max-w-[calc(50%-1.25rem)]'
+                        : 'block'
                   }`}
                   onClick={() => setPreviewImage(photo.src)}
                 >
