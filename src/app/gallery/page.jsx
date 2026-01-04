@@ -154,7 +154,7 @@ export default function Gallery() {
       });
       return newState;
     });
-    
+
     // Reset failed state for newly visible images
     setImagesFailed(prev => {
       const newState = {};
@@ -455,8 +455,14 @@ export default function Gallery() {
             </button>
           </div>
         ) : (
-          <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-4 md:gap-5 lg:gap-6">
-            {visiblePhotos.map((photo, index) => {
+          <div
+            className="grid gap-6"
+            style={{
+              gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+              alignItems: "start",
+            }}
+          >     
+            {visiblePhotos.map((photo) => {
               // Skip rendering if image failed to load
               if (imagesFailed[photo.id]) {
                 return null;
@@ -469,7 +475,7 @@ export default function Gallery() {
               return (
                 <div
                   key={uniqueKey}
-                  className="break-inside-avoid mb-2 sm:mb-4 md:mb-5 lg:mb-6 group cursor-pointer"
+                  className="group cursor-pointer"
                   onClick={() => setPreviewImage(photo.src)}
                 >
                   <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-300 active:scale-[0.98] w-full">
