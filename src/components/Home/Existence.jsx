@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import SpotlightCard from "@/components/ui/SpotlightCard";
+import ImageSlideshow from "@/components/ui/ImageSlideshow";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -100,12 +101,7 @@ const WhatWeAre = () => {
             ref={imageContainerRef}
             className="w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-2xl relative"
           >
-            <Image
-              src="/assets/Teams/img2.jpg"
-              className="w-full h-full object-cover rounded-2xl"
-              alt="Team"
-              fill
-            />
+            <ImageSlideshow className="rounded-2xl" />
           </div>
 
           <div className="space-y-2">
