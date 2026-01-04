@@ -51,7 +51,7 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           (isHomePage && !isScrolled) 
             ? 'bg-transparent' 
-            : 'bg-csi-white/75 backdrop-saturate-180 backdrop-blur-[20px] border-b border-csi-black/10 shadow-sm'
+            : 'bg-csi-white/75 backdrop-saturate-180 backdrop-blur-[20px] border-b border-csi-black/10 shadow-sm z-99'
         }`}
       >
         <div className="px-6 md:px-[5vw] relative z-10">
@@ -59,7 +59,7 @@ const Navbar = () => {
             {/* Logo */}
             <div className="flex flex-row justify-center items-center gap-6 w-max">
               <span>
-                <Image src="/assets/Logos/csi_logo.png" alt="Logo" width={56} height={56} className="h-10 md:h-14 w-auto" />
+                <Image src="/assets/Logos/csi_logo.webp" alt="Logo" width={56} height={56} className="h-10 md:h-14 w-auto" />
               </span>
               <h1 className={`text-xl md:text-2xl font-bold font-dm-sans cursor-pointer transition-all duration-300 hover:scale-105 ${
                 (isHomePage && !isScrolled) ? 'text-csi-white' : 'text-csi-black'

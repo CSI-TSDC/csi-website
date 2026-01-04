@@ -31,15 +31,19 @@ export default function Vision() {
       }
     );
 
-    gsap.to(textRef.current, {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=80%",
-        scrub: true,
-        pin: textRef.current,
-        pinSpacing: false,
+    ScrollTrigger.matchMedia({
+      "(min-width: 768px)": () => {
+        gsap.to(textRef.current, {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=80%",
+            scrub: true,
+            pin: textRef.current,
+            pinSpacing: false,
+          },
+        });
       },
     });
 
@@ -66,14 +70,19 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-black text-white min-h-screen mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
+      className="relative bg-csi-black text-white min-h-[60vh] md:min-h-screen justify-center items-center flex flex-col mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
     >
+      {/* <div className="grid-bg -z-1 md:hidden block"></div> */}
       {/* TEXT */}
       <div
         ref={textRef}
-        className="relative z-10 w-full min-h-[100svh] pt-20 sm:pt-24 md:pt-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-0"
+        className="relative z-10 w-full
+                  min-h-auto md:min-h-[100svh]
+                  pt-20 sm:pt-24 md:pt-20
+                  flex flex-col items-center justify-center
+                  text-center px-4 sm:px-6 md:px-0"
       >
-        <div className="grid-bg -z-1"></div>
+        <div className="grid-bg -z-1 md:block hidden"></div>
 
         <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-bespoke-sans-bold mb-4 sm:mb-5">
           <span className="reveal-line block">Our Vision</span>
@@ -93,8 +102,10 @@ export default function Vision() {
       <div
         ref={videoWrapRef}
         className="relative z-20 w-full
-                  h-[60svh] sm:h-[70svh] md:min-h-svh
-                  scale-90 sm:scale-100"
+                  mt-10
+                  aspect-video md:aspect-auto
+                  md:min-h-svh
+                  scale-100 md:scale-90"
       >
         <video
           className="absolute inset-0 w-full h-full object-cover rounded-4xl"

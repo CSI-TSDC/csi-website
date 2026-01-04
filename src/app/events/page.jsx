@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import EventCards from "@/components/Home/EventCards";
 
 const photos = [
@@ -173,22 +174,22 @@ export default function CSIGallery() {
         <div className="relative flex flex-row w-full items-stretch gap-2 sm:gap-3 md:gap-[14px] mt-6 md:mt-0 justify-center md:justify-start">
           <div className="flex flex-col w-max items-end gap-2 sm:gap-3 md:gap-[14px]">
             <div className="relative w-full md:w-[200px] lg:w-[250px] h-[100px] sm:h-[130px] md:h-[180px] lg:h-[220px]">
-              <img src="/assets/Events/Robot1.png" className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto top-2 sm:top-3 md:top-4 lg:top-5 -left-6 sm:-left-8 md:-left-10 lg:-left-12 absolute" alt="" />
-              <img src="/assets/Events/Events3.webp" className="w-full h-full object-cover rounded-lg" alt="" />
+              <Image src="/assets/Events/Robot1.webp" className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto top-2 sm:top-3 md:top-4 lg:top-5 -left-6 sm:-left-8 md:-left-10 lg:-left-12 absolute z-6" alt="" width={96} height={96} />
+              <Image src="/assets/Events/Events3.webp" className="w-full h-full object-cover rounded-lg" alt="" fill />
             </div>
             <div className="relative w-[180px] flex-1 sm:w-[220px] md:w-[280px] lg:w-[350px] h-[140px] sm:h-[180px] md:h-[220px] lg:h-[280px]">
-            <img src="/assets/Events/space_invader.png" className="w-12 sm:w-16 md:w-20 lg:w-24 bottom-0 left-0 absolute" alt="" />
-              <img src="/assets/Events/Events2.webp" className="w-full h-full object-cover rounded-lg" alt="" />
+            <Image src="/assets/Events/space_invader.webp" className="w-12 sm:w-16 md:w-20 lg:w-24 bottom-0 left-0 absolute z-6" alt="" width={96} height={96} />
+              <Image src="/assets/Events/Events2.webp" className="w-full h-full object-cover rounded-lg" alt="" fill />
             </div>
           </div>
           <div className="flex flex-col w-max justify-start gap-2 sm:gap-3 md:gap-[14px]">
-            <div className="w-[120px] sm:w-[150px] md:w-[200px] lg:w-[250px] h-[90px] sm:h-[110px] md:h-[130px] lg:h-[150px]">
-              <img src="/assets/Events/Events4.webp" className="w-full h-full object-cover rounded-lg" alt="" />
+            <div className="w-[120px] sm:w-[150px] md:w-[200px] lg:w-[250px] h-[90px] sm:h-[110px] md:h-[130px] lg:h-[150px] relative">
+              <Image src="/assets/Events/Events4.webp" className="w-full h-full object-cover rounded-lg" alt="" fill />
             </div>
             <div className="w-[120px] sm:w-[150px] md:w-[200px] lg:w-[250px] h-[240px] sm:h-[280px] md:h-[320px] lg:h-[380px] relative">
-              <img src="/assets/Events/XO.png" className="w-12 sm:w-16 md:w-20 lg:w-24 top-0 -left-10 sm:-left-12 md:-left-14 absolute -rotate-6" alt="" />
-              <img src="/assets/Events/geekcat.png" className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-5 right-0 absolute rotate-6" alt="" />
-              <img src="/assets/Events/Events1.webp" className="w-full h-full object-cover rounded-lg" alt="" />
+              <Image src="/assets/Events/XO.webp" className="w-12 sm:w-16 md:w-20 lg:w-24 top-0 -left-10 sm:-left-12 md:-left-14 absolute -rotate-6 z-6" alt="" width={96} height={96} />
+              <Image src="/assets/Events/geekcat.webp" className="w-12 sm:w-16 md:w-20 lg:w-24 h-auto bottom-2 sm:bottom-3 md:bottom-4 lg:bottom-5 right-0 absolute rotate-6 z-6" alt="" width={96} height={96} />
+              <Image src="/assets/Events/Events1.webp" className="w-full h-full object-cover rounded-lg" alt="" fill />
             </div>
           </div>
         </div>

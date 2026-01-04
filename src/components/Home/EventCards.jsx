@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function EventCards({ 
   envisionRef = null, 
   hackvisionRef = null, 
@@ -17,10 +19,11 @@ export default function EventCards({
         <article ref={envisionRef || null} className={`relative ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
-            <img 
+            <Image 
               className="w-full h-full object-cover" 
-              src="/assets/Home/events/envisionbg.png" 
-              alt="Envision Background" 
+              src="/assets/Home/events/envisionbg.webp" 
+              alt="Envision Background"
+              fill
             />
           </div>
 
@@ -35,10 +38,12 @@ export default function EventCards({
 
           {/* Content */}
           <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10 lg:gap-12 h-full">
-            <img 
+            <Image 
               className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 shrink-0 object-contain" 
-              src="/assets/Logos/envision_logo.png" 
-              alt="Envision Logo" 
+              src="/assets/Logos/envision_logo.webp" 
+              alt="Envision Logo"
+              width={256}
+              height={256}
             />
             <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl text-left leading-relaxed">
               Envision is our Tech Fest held once a year that brings together innovators, creators, and visionaries from across the tech community. Join us for an unforgettable experience filled with inspiring talks, and networking opportunities.
@@ -47,10 +52,12 @@ export default function EventCards({
 
           {/* Among3 overlay on left side */}
           <div className="absolute -right-4 sm:-right-6 md:-right-8 lg:-right-12 bottom-0 z-20 pointer-events-none">
-            <img 
-              src="/assets/Home/events/among.png" 
+            <Image 
+              src="/assets/Home/events/among.webp" 
               alt="Among3 decoration" 
               className="w-8 sm:w-12 md:w-16 lg:w-20 xl:w-24 h-auto scale-x-[-1]"
+              width={96}
+              height={96}
             />
           </div>
         </article>
@@ -59,10 +66,11 @@ export default function EventCards({
         <article ref={hackvisionRef || null} className={`relative ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
-            <img 
+            <Image 
               className="w-full h-full object-cover" 
-              src="/assets/Home/events/hackvisionbg.png" 
+              src="/assets/Home/events/hackvisionbg.webp" 
               alt="HackVision Background"
+              fill
             />
           </div>
 
@@ -77,10 +85,12 @@ export default function EventCards({
 
           {/* Computer decoration on left */}
           <div className="absolute left-0 bottom-4 sm:bottom-6 -translate-x-1/3 sm:-translate-x-1/4 z-20 pointer-events-none">
-            <img 
-              src="/assets/Home/events/computer.png" 
+            <Image 
+              src="/assets/Home/events/computer.webp" 
               alt="Computer decoration" 
               className="w-16 sm:w-24 md:w-32 lg:w-40 xl:w-44 h-auto animate-float"
+              width={176}
+              height={176}
             />
           </div>
 
@@ -88,10 +98,12 @@ export default function EventCards({
           <div className="relative z-10 p-5 sm:p-6 md:p-8 lg:p-12 flex flex-col items-center justify-center min-h-[280px] sm:min-h-[320px] md:min-h-[360px]">
             {/* HackVision Logo - Centered and Big */}
             <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 flex justify-center">
-              <img 
+              <Image 
                 className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[500px] lg:w-[65%] xl:w-[85%] h-auto" 
-                src="/assets/Logos/hackvision_logo.png" 
-                alt="HackVision Logo" 
+                src="/assets/Logos/hackvision_logo.webp" 
+                alt="HackVision Logo"
+                width={500}
+                height={200}
               />
             </div>
             
@@ -129,10 +141,11 @@ export default function EventCards({
           
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
-            <img
+            <Image
               className="w-full h-full object-cover"
-              src="/assets/Home/events/teatechtalkbg.png"
+              src="/assets/Home/events/teatechtalkbg.webp"
               alt="Tea Tech Talks Background"
+              fill
             />
           </div>
 
@@ -149,10 +162,12 @@ export default function EventCards({
           <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 h-full">
 
             {/* Logo */}
-            <img
+            <Image
               className="w-24 sm:w-32 md:w-44 lg:w-52 shrink-0 object-contain"
               src="/assets/Logos/teatechtalk_logo.svg"
               alt="Tea Tech Talks Logo"
+              width={208}
+              height={208}
             />
 
             {/* Text */}
@@ -166,10 +181,12 @@ export default function EventCards({
 
           {/* Sticker */}
           <div className="absolute -right-8 md:-right-10 -translate-y-4 top-0 z-20 pointer-events-none">
-            <img
-              src="/assets/Home/events/sticker1.png"
+            <Image
+              src="/assets/Home/events/sticker1.webp"
               alt="Decoration"
               className="w-24 sm:w-32 md:w-36 lg:w-40 rotate-8"
+              width={160}
+              height={160}
             />
           </div>
         </article>
@@ -180,10 +197,11 @@ export default function EventCards({
           
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
-            <img
+            <Image
               className="w-full h-full object-cover"
-              src="/assets/Home/events/SIHbg.png"
+              src="/assets/Home/events/SIHbg.webp"
               alt="Smart India Hackathon Background"
+              fill
             />
           </div>
 
@@ -198,7 +216,7 @@ export default function EventCards({
 
           {/* Right side image - positioned relative to article, not content div */}
           <div className="hidden sm:block absolute top-0 right-0 h-full w-1/3 z-20">
-            <img src="/assets/Home/events/SIHoverlay.png" alt="SIH Picture" className="w-full h-full object-cover" />
+            <Image src="/assets/Home/events/SIHoverlay.webp" alt="SIH Picture" className="w-full h-full object-cover" fill />
           </div>
 
           {/* Content — same layout as card 1 */}
@@ -207,7 +225,7 @@ export default function EventCards({
             <div className="flex flex-col w-full sm:w-2/3 relative sm:relative z-10">
               <div className="">
                 <div className="flex items-center">
-                  <img src="/assets/Home/events/SIH_logo.png" alt="SIH logo" className="w-16 h-auto mr-4 mb-4 object-contain" />
+                  <Image src="/assets/Home/events/SIH_logo.webp" alt="SIH logo" className="w-16 h-auto mr-4 mb-4 object-contain" width={64} height={64} />
                   <span className="block text-xl">
                     <span>SMART INDIA HACKATHON</span>
                   </span>

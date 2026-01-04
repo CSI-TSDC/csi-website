@@ -80,7 +80,7 @@ export default function Events() {
       className="relative bg-[#161616] text-white min-h-[50vh] pt-12 sm:pt-16 md:pt-48 px-4 sm:px-6 md:px-[5vw] pb-16 sm:pb-20 md:pb-32 font-bespoke-sans font-bold"
     >
       <div className="relative w-full">
-        <div className="relative w-max flex flex-col mb-28">
+        <div className="relative w-max flex flex-col md:mb-28 mb-10">
                 <div className="text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] leading-snug font-bespoke-sans-semibold md:mx-15 flex md:flex-row flex-col md:justify-between justify-center w-full h-max gap-2 sm:gap-3">
                     <div className="relative">
                     <span className="block overflow-hidden">

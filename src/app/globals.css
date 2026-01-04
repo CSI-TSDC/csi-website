@@ -31,12 +31,13 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 #homebg {
   position: relative;
-  background: url("/assets/Home/homebg.jpg") no-repeat center center fixed; 
+  background: url("/assets/Home/homebg.webp") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -49,107 +50,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("/assets/Home/bgoverlay2.png") no-repeat center center fixed; 
+  background: url("/assets/Home/bgoverlay2.webp") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-
-.font-poppins-regular {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-}
-
-.font-poppins-medium {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-}
-
-.font-poppins-semibold {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-}
-
-.font-poppins-bold {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-}
-
-.font-poppins-extrabold {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-}
-
-.font-poppins-black {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 900;
-}
-
-/* Custom Font Classes - Satoshi */
-.font-satoshi-light {
-  font-family: 'Satoshi', sans-serif;
-  font-weight: 300;
-}
-
-.font-satoshi-regular {
-  font-family: 'Satoshi', sans-serif;
-  font-weight: 400;
-}
-
-.font-satoshi-medium {
-  font-family: 'Satoshi', sans-serif;
-  font-weight: 500;
-}
-
-.font-satoshi-bold {
-  font-family: 'Satoshi', sans-serif;
-  font-weight: 700;
-}
-
-.font-satoshi-black {
-  font-family: 'Satoshi', sans-serif;
-  font-weight: 900;
-}
-
-.font-space-grotesk-regular {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 400;
-}
-
-.font-space-grotesk-medium {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 500;
-}
-
-.font-space-grotesk-semibold {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
-}
-
-.font-space-grotesk-bold {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-}
-
-.font-inter-regular {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-}
-
-.font-inter-medium {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-}
-
-.font-inter-semibold {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-}
-
-.font-inter-bold {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
 }
 
 .font-dm-sans-regular {
@@ -172,16 +77,6 @@ body {
   font-weight: 700;
 }
 
-.font-kollektif-bold {
-  font-family: 'Kollektif', sans-serif;
-  font-weight: 700;
-}
-
-.font-kollektif-regular {
-  font-family: 'Kollektif', sans-serif;
-  font-weight: 400;
-}
-
 .font-bespoke-sans-regular {
   font-family: 'Bespoke Sans', sans-serif;
   font-weight: 400;
@@ -201,6 +96,7 @@ body {
   font-family: 'Bespoke Sans', sans-serif;
   font-weight: 700;
 }
+
 @keyframes windmill-spin {
   from { transform: translate(-100%, -100%) rotate(0deg); }
   to { transform: translate(-100%, -100%) rotate(360deg); }

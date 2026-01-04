@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
+import Image from "next/image";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -67,20 +68,23 @@ const WhatWeAre = () => {
     );
 
     // Image zoom
-    gsap.fromTo(
-      imageContainerRef.current.querySelector("img"),
-      { scale: 1.5 },
-      {
-        scale: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: imageContainerRef.current,
-          start: "top bottom",
-          end: "bottom center",
-          scrub: true,
-        },
-      }
-    );
+    const imageElement = imageContainerRef.current?.querySelector("img") || imageContainerRef.current?.querySelector("div[style*='position']");
+    if (imageElement) {
+      gsap.fromTo(
+        imageElement,
+        { scale: 1.5 },
+        {
+          scale: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: imageContainerRef.current,
+            start: "top bottom",
+            end: "bottom center",
+            scrub: true,
+          },
+        }
+      );
+    }
   }, []);
 
   return (
@@ -94,12 +98,13 @@ const WhatWeAre = () => {
         <div className="flex flex-col w-full md:w-1/2 px-4 sm:px-8 justify-between space-y-6">
           <div
             ref={imageContainerRef}
-            className="w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-2xl"
+            className="w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-2xl relative"
           >
-            <img
+            <Image
               src="/assets/Teams/img2.jpg"
               className="w-full h-full object-cover rounded-2xl"
               alt="Team"
+              fill
             />
           </div>
 
