@@ -55,9 +55,9 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-left font-bespoke-sans-semibold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center font-bespoke-sans-semibold">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-6 sm:mb-8 md:mb-12">Contact Us</h1>
-          <p className="text-csi-black text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-dm-sans-medium px-2">
+          <p className="text-csi-black text-sm sm:text-base text-left md:text-lg max-w-2xl mx-auto font-dm-sans-medium px-2">
             For any query, fill out the form below and our team will get back to you as soon as possible.
           </p>
         </div>

@@ -70,7 +70,7 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-black text-white min-h-[60vh] md:min-h-screen justify-center items-center flex flex-col mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
+      className="relative bg-csi-black text-white min-h-[70vh] md:min-h-screen justify-center items-center flex flex-col mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
     >
       {/* <div className="grid-bg -z-1 md:hidden block"></div> */}
       {/* TEXT */}
