@@ -16,12 +16,17 @@ export default function Gallery() {
   const [imagesFailed, setImagesFailed] = useState({});
   const [imageOrientations, setImageOrientations] = useState({});
   const [imageDimensions, setImageDimensions] = useState({});
+  const [visiblePhotos, setVisiblePhotos] = useState([]); // Only render visible photos
+  const [loadedCount, setLoadedCount] = useState(0);
   
   // Refs for cleanup and debouncing
   const timeoutRef = useRef(null);
   const previousYearRef = useRef("All");
   const isChangingYearRef = useRef(false);
   const activeYearChangeRef = useRef(null);
+  const observerRef = useRef(null);
+  const loadMoreTriggerRef = useRef(null);
+  const batchSize = 20; // Load 20 images at a time
 
   // Load gallery photos on mount
   useEffect(() => {
@@ -51,6 +56,67 @@ export default function Gallery() {
   const filteredPhotos = photos.filter((p) => {
     return (selectedYear === "All" || p.year === selectedYear) && !imagesFailed[p.id];
   });
+
+  // Initialize visible photos when filtered photos change (year change or initial load)
+  useEffect(() => {
+    if (filteredPhotos.length > 0) {
+      // Reset and load initial batch - always append from the start
+      const initialBatch = filteredPhotos.slice(0, batchSize);
+      setVisiblePhotos(initialBatch);
+      setLoadedCount(initialBatch.length);
+    } else {
+      setVisiblePhotos([]);
+      setLoadedCount(0);
+    }
+  }, [selectedYear]); // Only depend on selectedYear - filteredPhotos is derived from it
+
+  // Intersection Observer for lazy loading more images
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    // Wait for trigger element to be rendered
+    const setupObserver = () => {
+      if (!loadMoreTriggerRef.current) {
+        // Retry after a short delay if trigger not ready
+        setTimeout(setupObserver, 100);
+        return;
+      }
+
+      // Cleanup previous observer
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+
+      // Create new observer
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && loadedCount < filteredPhotos.length) {
+              // Load next batch - append only, never re-sort
+              const nextBatch = filteredPhotos.slice(loadedCount, loadedCount + batchSize);
+              if (nextBatch.length > 0) {
+                setVisiblePhotos((prev) => [...prev, ...nextBatch]); // Append only
+                setLoadedCount((prev) => prev + nextBatch.length);
+              }
+            }
+          });
+        },
+        {
+          rootMargin: '200px', // Start loading 200px before reaching the trigger
+        }
+      );
+
+      observerRef.current.observe(loadMoreTriggerRef.current);
+    };
+
+    setupObserver();
+
+      return () => {
+        if (observerRef.current) {
+          observerRef.current.disconnect();
+        }
+      };
+    }, [loadedCount, filteredPhotos.length, batchSize]);
 
   // Handle year change with proper cleanup and debouncing
   const handleYearChange = useCallback((year) => {
@@ -390,7 +456,7 @@ export default function Gallery() {
           </div>
         ) : (
           <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-4 md:gap-5 lg:gap-6">
-            {filteredPhotos.map((photo, index) => {
+            {visiblePhotos.map((photo, index) => {
               // Skip rendering if image failed to load
               if (imagesFailed[photo.id]) {
                 return null;
@@ -448,6 +514,15 @@ export default function Gallery() {
                 </div>
               );
             })}
+            {/* Load more trigger - invisible element at the end */}
+            {loadedCount < filteredPhotos.length && (
+              <div
+                ref={loadMoreTriggerRef}
+                className="break-inside-avoid mb-2 sm:mb-4 md:mb-5 lg:mb-6"
+                style={{ height: '1px', visibility: 'hidden' }}
+                aria-hidden="true"
+              />
+            )}
           </div>
         )}
       </section>
