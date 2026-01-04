@@ -21,13 +21,6 @@
       "team": "Design"
     },
     {
-      "name": "Harshita Sharma",
-      "photo": "Harshita_Sharma.webp",
-      "signature": "Harshita_Sharma_S.webp",
-      "designation": "Member",
-      "team": "Design"
-    },
-    {
       "name": "Vivek Vishwakarma",
       "photo": "Vivek_Vishwakarma.webp",
       "signature": "Vivek_Vishwakarma_S.webp",
@@ -45,13 +38,6 @@
       "name": "Kaveri Panchal",
       "photo": "Kaveri_Panchal.webp",
       "signature": "Kaveri_Panchal_S.webp",
-      "designation": "Member",
-      "team": "Design"
-    },
-    {
-      "name": "Jainam Gedia",
-      "photo": "Jainam_Gedia.webp",
-      "signature": "Jainam_Gedia_S.webp",
       "designation": "Member",
       "team": "Design"
     }
