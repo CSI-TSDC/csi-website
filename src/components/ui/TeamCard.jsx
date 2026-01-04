@@ -44,6 +44,7 @@ export default function TeamCard({ name, title, hasSignature = false, image, sig
           alt={name || "Team member"} 
           fill
           className="object-cover"
+          loading={imgSrc.includes('cloudinary.com') ? "lazy" : "eager"}
           onError={handleImageError}
         />
       </div>

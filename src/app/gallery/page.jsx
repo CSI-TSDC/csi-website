@@ -15,6 +15,7 @@ export default function Gallery() {
   const [imagesLoaded, setImagesLoaded] = useState({});
   const [imagesFailed, setImagesFailed] = useState({});
   const [imageOrientations, setImageOrientations] = useState({});
+  const [imageDimensions, setImageDimensions] = useState({});
   
   // Refs for cleanup and debouncing
   const timeoutRef = useRef(null);
@@ -154,10 +155,23 @@ export default function Gallery() {
   const handleImageLoad = useCallback((photoId, event) => {
     const img = event?.target;
     if (img) {
-      const isHorizontal = img.naturalWidth > img.naturalHeight;
+      const naturalWidth = img.naturalWidth;
+      const naturalHeight = img.naturalHeight;
+      const isHorizontal = naturalWidth > naturalHeight;
+      
       setImageOrientations(prev => ({
         ...prev,
         [photoId]: isHorizontal ? 'horizontal' : 'vertical'
+      }));
+      
+      // Store dimensions to maintain aspect ratio
+      setImageDimensions(prev => ({
+        ...prev,
+        [photoId]: {
+          width: naturalWidth,
+          height: naturalHeight,
+          aspectRatio: naturalWidth / naturalHeight
+        }
       }));
     }
     setImagesLoaded(prev => {
@@ -375,35 +389,42 @@ export default function Gallery() {
             </button>
           </div>
         ) : (
-            <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-4 md:gap-5 lg:gap-6">            {filteredPhotos.map((photo, index) => {
+          <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 gap-2 sm:gap-4 md:gap-5 lg:gap-6">
+            {filteredPhotos.map((photo, index) => {
               // Skip rendering if image failed to load
               if (imagesFailed[photo.id]) {
                 return null;
               }
               
               const uniqueKey = `${photo.id}-${photo.src}`;
-              const orientation = imageOrientations[photo.id];
-              const isHorizontal = orientation === 'horizontal';
+              const dimensions = imageDimensions[photo.id];
+              const aspectRatio = dimensions?.aspectRatio || 0.75; // Default to 4:3 if unknown
               
               return (
                 <div
                   key={uniqueKey}
-                  className={`break-inside-avoid mb-2 sm:mb-4 md:mb-5 lg:mb-6 group cursor-pointer ${
-                    isHorizontal
-                        ? 'inline-block md:max-w-[calc(50%-1rem)] lg:max-w-[calc(50%-1.25rem)]'
-                        : 'block'
-                  }`}
+                  className="break-inside-avoid mb-2 sm:mb-4 md:mb-5 lg:mb-6 group cursor-pointer"
                   onClick={() => setPreviewImage(photo.src)}
                 >
-                  <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-300 active:scale-[0.98]">
-                    <div className="relative w-full">
-                    <Image
-                      src={photo.src}
-                      width={1000}
-                      height={1000}
-                        className={`w-full h-auto object-cover transition-all duration-300 group-hover:scale-110 ${!imagesLoaded[photo.id] && !imagesFailed[photo.id] ? 'opacity-0' : 'opacity-100'}`}
-                      alt={photo.event}
-                      unoptimized
+                  <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-300 active:scale-[0.98] w-full">
+                    {/* Container with aspect ratio to reserve space */}
+                    <div 
+                      className="relative w-full"
+                      style={{
+                        aspectRatio: aspectRatio,
+                        minHeight: '200px' // Fallback for browsers that don't support aspect-ratio
+                      }}
+                    >
+                      {/* Actual image */}
+                      <Image
+                        src={photo.src}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className={`object-cover transition-all duration-300 group-hover:scale-110 ${
+                          !imagesLoaded[photo.id] && !imagesFailed[photo.id] ? 'opacity-0' : 'opacity-100'
+                        }`}
+                        alt={photo.event}
+                        unoptimized
                         loading="lazy"
                         onLoad={(e) => {
                           handleImageLoad(photo.id, e);
@@ -411,13 +432,15 @@ export default function Gallery() {
                         onError={() => {
                           handleImageError(photo.id);
                         }}
-                    />
+                      />
+                      {/* Loading skeleton */}
                       {!imagesLoaded[photo.id] && !imagesFailed[photo.id] && (
                         <div className="absolute inset-0 bg-gradient-to-br from-csi-black/10 via-csi-white/50 to-csi-black/10 animate-pulse rounded-xl sm:rounded-2xl z-10" />
-                    )}
+                      )}
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-csi-black/90 via-csi-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-csi-black/90 via-csi-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
                       <p className="text-xs sm:text-sm md:text-base font-semibold text-white mb-0.5 sm:mb-1">{photo.event}</p>
                       <p className="text-[10px] sm:text-xs text-white/70">{photo.year}</p>
                     </div>
