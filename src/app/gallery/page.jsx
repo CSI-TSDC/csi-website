@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import GallerySkeleton from "@/components/ui/GallerySkeleton";
+import MasonryGallery from "@/components/gallery/MasonryGallery";
 import { loadGalleryPhotos } from "@/utils/galleryData";
 
 export default function Gallery() {
@@ -16,17 +17,12 @@ export default function Gallery() {
   const [imagesFailed, setImagesFailed] = useState({});
   const [imageOrientations, setImageOrientations] = useState({});
   const [imageDimensions, setImageDimensions] = useState({});
-  const [visiblePhotos, setVisiblePhotos] = useState([]); // Only render visible photos
-  const [loadedCount, setLoadedCount] = useState(0);
   
   // Refs for cleanup and debouncing
   const timeoutRef = useRef(null);
   const previousYearRef = useRef("All");
   const isChangingYearRef = useRef(false);
   const activeYearChangeRef = useRef(null);
-  const observerRef = useRef(null);
-  const loadMoreTriggerRef = useRef(null);
-  const batchSize = 20; // Load 20 images at a time
 
   // Load gallery photos on mount
   useEffect(() => {
@@ -53,70 +49,6 @@ export default function Gallery() {
     }
   }, [highlightImages.length]);
 
-  const filteredPhotos = photos.filter((p) => {
-    return (selectedYear === "All" || p.year === selectedYear) && !imagesFailed[p.id];
-  });
-
-  // Initialize visible photos when filtered photos change (year change or initial load)
-  useEffect(() => {
-    if (filteredPhotos.length > 0) {
-      // Reset and load initial batch - always append from the start
-      const initialBatch = filteredPhotos.slice(0, batchSize);
-      setVisiblePhotos(initialBatch);
-      setLoadedCount(initialBatch.length);
-    } else {
-      setVisiblePhotos([]);
-      setLoadedCount(0);
-    }
-  }, [selectedYear]); // Only depend on selectedYear - filteredPhotos is derived from it
-
-  // Intersection Observer for lazy loading more images
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    // Wait for trigger element to be rendered
-    const setupObserver = () => {
-      if (!loadMoreTriggerRef.current) {
-        // Retry after a short delay if trigger not ready
-        setTimeout(setupObserver, 100);
-        return;
-      }
-
-      // Cleanup previous observer
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-
-      // Create new observer
-      observerRef.current = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && loadedCount < filteredPhotos.length) {
-              // Load next batch - append only, never re-sort
-              const nextBatch = filteredPhotos.slice(loadedCount, loadedCount + batchSize);
-              if (nextBatch.length > 0) {
-                setVisiblePhotos((prev) => [...prev, ...nextBatch]); // Append only
-                setLoadedCount((prev) => prev + nextBatch.length);
-              }
-            }
-          });
-        },
-        {
-          rootMargin: '200px', // Start loading 200px before reaching the trigger
-        }
-      );
-
-      observerRef.current.observe(loadMoreTriggerRef.current);
-    };
-
-    setupObserver();
-
-      return () => {
-        if (observerRef.current) {
-          observerRef.current.disconnect();
-        }
-      };
-    }, [loadedCount, filteredPhotos.length, batchSize]);
 
   // Handle year change with proper cleanup and debouncing
   const handleYearChange = useCallback((year) => {
@@ -444,92 +376,17 @@ export default function Gallery() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-32">
         {isLoadingPhotos ? (
           <GallerySkeleton />
-        ) : filteredPhotos.length === 0 ? (
-          <div className="text-center py-16 md:py-32 px-4">
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-500 font-medium">No photos found for the selected year.</p>
-            <button
-              onClick={() => handleYearChange("All")}
-              className="mt-4 px-5 py-2 sm:px-6 sm:py-2.5 bg-csi-black text-csi-white rounded-full hover:bg-csi-black/90 active:bg-csi-black transition-colors cursor-pointer text-sm sm:text-base"
-            >
-              View All Photos
-            </button>
-          </div>
         ) : (
-          <div
-            className="grid gap-6"
-            style={{
-              gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-              alignItems: "start",
-            }}
-          >     
-            {visiblePhotos.map((photo) => {
-              // Skip rendering if image failed to load
-              if (imagesFailed[photo.id]) {
-                return null;
-              }
-              
-              const uniqueKey = `${photo.id}-${photo.src}`;
-              const dimensions = imageDimensions[photo.id];
-              const aspectRatio = dimensions?.aspectRatio || 0.75; // Default to 4:3 if unknown
-              
-              return (
-                <div
-                  key={uniqueKey}
-                  className="group cursor-pointer"
-                  onClick={() => setPreviewImage(photo.src)}
-                >
-                  <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-900 shadow-md hover:shadow-xl transition-all duration-300 active:scale-[0.98] w-full">
-                    {/* Container with aspect ratio to reserve space */}
-                    <div 
-                      className="relative w-full"
-                      style={{
-                        aspectRatio: aspectRatio,
-                        minHeight: '200px' // Fallback for browsers that don't support aspect-ratio
-                      }}
-                    >
-                      {/* Actual image */}
-                      <Image
-                        src={photo.src}
-                        fill
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                        className={`object-cover transition-all duration-300 group-hover:scale-110 ${
-                          !imagesLoaded[photo.id] && !imagesFailed[photo.id] ? 'opacity-0' : 'opacity-100'
-                        }`}
-                        alt={photo.event}
-                        unoptimized
-                        loading="lazy"
-                        onLoad={(e) => {
-                          handleImageLoad(photo.id, e);
-                        }}
-                        onError={() => {
-                          handleImageError(photo.id);
-                        }}
-                      />
-                      {/* Loading skeleton */}
-                      {!imagesLoaded[photo.id] && !imagesFailed[photo.id] && (
-                        <div className="absolute inset-0 bg-gradient-to-br from-csi-black/10 via-csi-white/50 to-csi-black/10 animate-pulse rounded-xl sm:rounded-2xl z-10" />
-                      )}
-                    </div>
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-csi-black/90 via-csi-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none">
-                      <p className="text-xs sm:text-sm md:text-base font-semibold text-white mb-0.5 sm:mb-1">{photo.event}</p>
-                      <p className="text-[10px] sm:text-xs text-white/70">{photo.year}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-            {/* Load more trigger - invisible element at the end */}
-            {loadedCount < filteredPhotos.length && (
-              <div
-                ref={loadMoreTriggerRef}
-                className="break-inside-avoid mb-2 sm:mb-4 md:mb-5 lg:mb-6"
-                style={{ height: '1px', visibility: 'hidden' }}
-                aria-hidden="true"
-              />
-            )}
-          </div>
+          <MasonryGallery
+            photos={photos}
+            selectedYear={selectedYear}
+            imagesLoaded={imagesLoaded}
+            imagesFailed={imagesFailed}
+            imageDimensions={imageDimensions}
+            onImageLoad={handleImageLoad}
+            onImageError={handleImageError}
+            onPreviewClick={setPreviewImage}
+          />
         )}
       </section>
     </div>
