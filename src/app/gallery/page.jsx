@@ -1,121 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
-import GallerySkeleton from "@/components/ui/GallerySkeleton";
 import MasonryGallery from "@/components/gallery/MasonryGallery";
-import { loadGalleryPhotos } from "@/utils/galleryData";
 
 export default function Gallery() {
-  const [selectedYear, setSelectedYear] = useState("All");
-  const [photos, setPhotos] = useState([]);
-  const [isLoadingPhotos, setIsLoadingPhotos] = useState(true);
-  const [highlightIndex, setHighlightIndex] = useState(0);
-  const [previewImage, setPreviewImage] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  
-  // Refs for cleanup and debouncing
-  const timeoutRef = useRef(null);
-  const previousYearRef = useRef("All");
-  const isChangingYearRef = useRef(false);
-  const activeYearChangeRef = useRef(null);
-
-  // Load gallery photos on mount
-  useEffect(() => {
-    async function fetchPhotos() {
-      setIsLoadingPhotos(true);
-      const loadedPhotos = await loadGalleryPhotos();
-      setPhotos(loadedPhotos);
-      setIsLoadingPhotos(false);
-    }
-    fetchPhotos();
-  }, []);
-
-  // Get unique years from photos
-  const years = ["All", ...Array.from(new Set(photos.map(p => p.year))).sort()];
-
-  const highlightImages = photos.slice(0, 6);
-  
-  useEffect(() => {
-    if (highlightImages.length > 0) {
-      const id = setInterval(() => {
-        setHighlightIndex((i) => (i + 1) % highlightImages.length);
-      }, 3200);
-      return () => clearInterval(id);
-    }
-  }, [highlightImages.length]);
-
-
-  // Handle year change with proper cleanup and debouncing
-  const handleYearChange = useCallback((year) => {
-    // Prevent rapid consecutive changes to the same year
-    if (year === previousYearRef.current) {
-      return;
-    }
-
-    // Clear any pending timeouts from previous changes
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-
-    // Track this specific year change
-    const changeId = Date.now();
-    activeYearChangeRef.current = changeId;
-    isChangingYearRef.current = true;
-    
-    setIsLoading(true);
-    setSelectedYear(year);
-    
-    // Auto-hide skeleton after a delay, but only if this is still the active change
-    timeoutRef.current = setTimeout(() => {
-      // Only update if this timeout is for the current change
-      if (activeYearChangeRef.current === changeId) {
-        setIsLoading(false);
-        isChangingYearRef.current = false;
-        timeoutRef.current = null;
-      }
-    }, 500);
-  }, []);
-
-  // Sync previousYearRef when selectedYear actually changes
-  useEffect(() => {
-    previousYearRef.current = selectedYear;
-  }, [selectedYear]);
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-      isChangingYearRef.current = false;
-    };
-  }, []);
-
-  // Prevent body scroll when preview is open
-  useEffect(() => {
-    if (previewImage) {
-      // Save current scroll position
-      const scrollY = window.scrollY;
-      // Disable scroll
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
-      
-      return () => {
-        // Re-enable scroll and restore position
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-        window.scrollTo(0, scrollY);
-      };
-    }
-  }, [previewImage]);
-
-
   return (
     <div className="min-h-screen bg-[#f8f8f8]">
       {/* Hero Section */}
@@ -239,75 +127,10 @@ export default function Gallery() {
         </div>
 
         </div>
-        {previewImage && (
-          <div 
-            onClick={() => setPreviewImage(null)}
-            className="fixed inset-0 bg-csi-black/95 z-[9999] animate-fadeIn flex items-center justify-center p-4 md:p-8"
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setPreviewImage(null)}
-              className="absolute top-4 right-4 md:top-8 md:right-8 text-csi-white hover:text-csi-white/70 transition-colors z-10 bg-csi-black/50 rounded-full p-2 md:p-3"
-              aria-label="Close preview"
-            >
-              <svg className="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            
-            <Image 
-              src={previewImage} 
-              width={1920}
-              height={1080}
-              className="max-w-full max-h-[90vh] md:max-h-[85vh] w-auto h-auto object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-              alt="Preview"
-              unoptimized
-              preload
-            />
-          </div>
-        )}
-      </section>
-
-      {/* Year Selector */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-16">
-        <div className="flex flex-col items-center gap-4 md:gap-6">
-          <div className="text-center mb-1 md:mb-2">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-csi-black mb-1 md:mb-2">Filter by Year</h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 px-4">Select a year to view photos from that time</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 w-full px-4">
-            <button
-              onClick={() => handleYearChange("All")}
-              className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 cursor-pointer ${
-                selectedYear === "All"
-                  ? "bg-csi-black text-csi-white shadow-lg scale-105"
-                  : "bg-csi-white text-csi-black/80 border-2 border-csi-black/10 hover:border-csi-black/20 hover:shadow-md active:scale-95"
-              }`}
-            >
-              All Years
-            </button>
-            {years.filter(year => year !== "All" && year !== "Year").map((year) => (
-              <button
-                key={year}
-                onClick={() => handleYearChange(year)}
-                className={`px-4 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm md:text-base font-medium transition-all duration-300 cursor-pointer ${
-                  selectedYear === year
-                    ? "bg-black text-white shadow-lg scale-105"
-                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-gray-300 hover:shadow-md active:scale-95"
-                }`}
-              >
-                {year}
-              </button>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Masonry Gallery */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-32">
-        <MasonryGallery />
-      </section>
+      <MasonryGallery />
     </div>
   );
 }
