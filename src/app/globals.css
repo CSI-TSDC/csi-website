@@ -262,6 +262,20 @@ body {
   }
 }
 
+#homebg {
+  position: relative;
+  overflow: hidden;
+}
+
+#homebg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
 /* CSS Columns Masonry */
 .masonry-container {
   column-count: auto;

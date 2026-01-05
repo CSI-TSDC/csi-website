@@ -45,6 +45,9 @@ export default function Hero() {
   return (
     <section id="homebg" className="relative w-full h-screen header-top" ref={heroRef}>
       <div id="bg-overlay"></div>
+      <div id="homebg">
+        <img src="/assets/Home/homebg.webp" alt="" />
+      </div>
       <div className="absolute left-[5vw] sm:left-[5vw] top-[25vw] md:top-auto md:bottom-[6vw] px-4 sm:px-0">
         <div className="flex flex-col w-full sm:w-max max-w-[90vw] sm:max-w-none">
             <div className="relative mb-2 sm:mb-2">
