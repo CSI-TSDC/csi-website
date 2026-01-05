@@ -43,12 +43,21 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="homebg" className="relative w-full h-screen header-top" ref={heroRef}>
-      <div id="bg-overlay"></div>
-      <div id="homebg">
-        <img src="/assets/Home/homebg.webp" alt="" />
+    <section className="relative w-full h-screen header-top" ref={heroRef}>
+      {/* Inline full-screen background images: base + overlay */}
+      <div className="w-full h-full absolute top-0 left-0 z-2">
+        <img
+          src="/assets/Home/homebg.webp"
+          alt="BG"
+          className="w-full h-full absolute z-1 object-cover"
+        />
+        <img
+          src="/assets/Home/bgoverlay2.webp"
+          alt="BG"
+          className="w-full h-full absolute z-2 object-cover"
+        />
       </div>
-      <div className="absolute left-[5vw] sm:left-[5vw] top-[25vw] md:top-auto md:bottom-[6vw] px-4 sm:px-0">
+      <div className="absolute left-[5vw] sm:left-[5vw] top-[25vw] md:top-auto md:bottom-[6vw] px-4 sm:px-0 z-3">
         <div className="flex flex-col w-full sm:w-max max-w-[90vw] sm:max-w-none">
             <div className="relative mb-2 sm:mb-2">
                 <span className="block overflow-hidden">

@@ -67,26 +67,38 @@ body {
   overflow-x: hidden;
 }
 
-#homebg {
-  position: relative;
-  background: url("/assets/Home/homebg.webp") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+/* Full-screen hero background images (base + overlay) using inline <img> */
+img.hero-bg,
+img.hero-bg-overlay {
+  /* Fill background */
+  min-height: 100%;
+  min-width: 1024px;
 
-#bg-overlay{ 
-  position: absolute;
+  /* Proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Fixed positioning for parallax-like effect */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("/assets/Home/bgoverlay2.webp") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+}
+
+/* Layering: base below, overlay above */
+img.hero-bg {
+  z-index: -2;
+}
+
+img.hero-bg-overlay {
+  z-index: -1;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image setup */
+  img.hero-bg,
+  img.hero-bg-overlay {
+    left: 50%;
+    margin-left: -512px; /* 50% of min-width to keep centered */
+  }
 }
 
 .font-dm-sans-regular {
@@ -260,20 +272,6 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-}
-
-#homebg {
-  position: relative;
-  overflow: hidden;
-}
-
-#homebg img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
 }
 
 /* CSS Columns Masonry */
