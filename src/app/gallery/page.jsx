@@ -13,10 +13,6 @@ export default function Gallery() {
   const [highlightIndex, setHighlightIndex] = useState(0);
   const [previewImage, setPreviewImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState({});
-  const [imagesFailed, setImagesFailed] = useState({});
-  const [imageOrientations, setImageOrientations] = useState({});
-  const [imageDimensions, setImageDimensions] = useState({});
   
   // Refs for cleanup and debouncing
   const timeoutRef = useRef(null);
@@ -71,36 +67,6 @@ export default function Gallery() {
     setIsLoading(true);
     setSelectedYear(year);
     
-    // Reset loaded state for images that will be newly visible
-    // Only preserve state for images that were already visible and will remain visible
-    setImagesLoaded(prev => {
-      const newState = {};
-      photos.forEach(photo => {
-        const willBeVisible = (year === "All" || photo.year === year);
-        const wasVisible = (previousYearRef.current === "All" || photo.year === previousYearRef.current);
-        // Only preserve if it was visible AND will remain visible AND was already loaded
-        if (willBeVisible && wasVisible && prev[photo.id]) {
-          newState[photo.id] = true;
-        }
-        // Otherwise, reset to unloaded state so skeleton shows
-      });
-      return newState;
-    });
-
-    // Reset failed state for newly visible images
-    setImagesFailed(prev => {
-      const newState = {};
-      photos.forEach(photo => {
-        const willBeVisible = (year === "All" || photo.year === year);
-        const wasVisible = (previousYearRef.current === "All" || photo.year === previousYearRef.current);
-        // Only preserve if it was visible AND will remain visible AND was already failed
-        if (willBeVisible && wasVisible && prev[photo.id]) {
-          newState[photo.id] = true;
-        }
-      });
-      return newState;
-    });
-    
     // Auto-hide skeleton after a delay, but only if this is still the active change
     timeoutRef.current = setTimeout(() => {
       // Only update if this timeout is for the current change
@@ -110,7 +76,7 @@ export default function Gallery() {
         timeoutRef.current = null;
       }
     }, 500);
-  }, [photos]);
+  }, []);
 
   // Sync previousYearRef when selectedYear actually changes
   useEffect(() => {
@@ -149,40 +115,6 @@ export default function Gallery() {
     }
   }, [previewImage]);
 
-  // Handle image load
-  const handleImageLoad = useCallback((photoId, event) => {
-    const img = event?.target;
-    if (img) {
-      const naturalWidth = img.naturalWidth;
-      const naturalHeight = img.naturalHeight;
-      const isHorizontal = naturalWidth > naturalHeight;
-      
-      setImageOrientations(prev => ({
-        ...prev,
-        [photoId]: isHorizontal ? 'horizontal' : 'vertical'
-      }));
-      
-      // Store dimensions to maintain aspect ratio
-      setImageDimensions(prev => ({
-        ...prev,
-        [photoId]: {
-          width: naturalWidth,
-          height: naturalHeight,
-          aspectRatio: naturalWidth / naturalHeight
-        }
-      }));
-    }
-    setImagesLoaded(prev => {
-      const newState = { ...prev, [photoId]: true };
-      return newState;
-    });
-  }, []);
-
-  // Handle image error - try alternative extensions or mark as failed
-  const handleImageError = useCallback((photoId) => {
-    setImagesFailed(prev => ({ ...prev, [photoId]: true }));
-    setImagesLoaded(prev => ({ ...prev, [photoId]: true })); // Mark as "loaded" to hide skeleton
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#f8f8f8]">
@@ -374,20 +306,7 @@ export default function Gallery() {
 
       {/* Masonry Gallery */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-32">
-        {isLoadingPhotos ? (
-          <GallerySkeleton />
-        ) : (
-          <MasonryGallery
-            photos={photos}
-            selectedYear={selectedYear}
-            imagesLoaded={imagesLoaded}
-            imagesFailed={imagesFailed}
-            imageDimensions={imageDimensions}
-            onImageLoad={handleImageLoad}
-            onImageError={handleImageError}
-            onPreviewClick={setPreviewImage}
-          />
-        )}
+        <MasonryGallery />
       </section>
     </div>
   );

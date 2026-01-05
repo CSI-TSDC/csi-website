@@ -48,6 +48,8 @@ export default function Vision() {
     });
 
     // Video scale (navbar-aware, correct)
+    ScrollTrigger.matchMedia({
+      "(min-width: 768px)": () => {
     gsap.fromTo(
       videoWrapRef.current,
       { scale: 0.8 },
@@ -62,7 +64,9 @@ export default function Vision() {
           invalidateOnRefresh: true,
         },
       }
-    );
+    )
+    },
+  });
 
     ScrollTrigger.refresh();
   }, []);
@@ -70,7 +74,7 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-csi-black text-white min-h-[70vh] md:min-h-screen justify-center items-center flex flex-col mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
+      className="relative bg-csi-black text-white min-h-screen justify-center items-center flex flex-col mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
     >
       {/* <div className="grid-bg -z-1 md:hidden block"></div> */}
       {/* TEXT */}
@@ -78,22 +82,22 @@ export default function Vision() {
         ref={textRef}
         className="relative z-10 w-full
                   min-h-auto md:min-h-[100svh]
-                  pt-20 sm:pt-24 md:pt-20
+                  md:pt-20
                   flex flex-col items-center justify-center
-                  text-center px-4 sm:px-6 md:px-0"
+                  text-center px-4 sm:px-6 md:px-0 mb-10"
       >
         <div className="grid-bg -z-1 md:block hidden"></div>
 
-        <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-bespoke-sans-bold mb-4 sm:mb-5">
+        <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-bespoke-sans-bold mb-4 sm:mb-8 md:mb-10">
           <span className="reveal-line block">Our Vision</span>
         </span>
 
-        <div className="flex flex-col items-center font-bespoke-sans-bold ippercase">
+        <div className="flex flex-col items-center font-bespoke-sans-bold ">
           <span className="block overflow-hidden text-[8vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw] mb-4">
-            <span className="reveal-line block">For the students,</span>
+            <span className="reveal-line block " >Driven By Passion,</span>
           </span>
           <span className="block overflow-hidden text-[8vw] sm:text-[7vw] md:text-[6vw] lg:text-[5vw]">
-            <span className="reveal-line block">by the students</span>
+            <span className="reveal-line block">Built By Students</span>
           </span>
         </div>
       </div>
@@ -101,9 +105,9 @@ export default function Vision() {
       {/* VIDEO */}
       <div
         ref={videoWrapRef}
-        className="relative z-20 w-full
-                  mt-10
+        className="relative z-20 w-[85vw] md:w-full
                   aspect-video md:aspect-auto
+                  min-h-[300px]
                   md:min-h-svh
                   scale-100 md:scale-90"
       >

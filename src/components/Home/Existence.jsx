@@ -20,18 +20,24 @@ const StatBox = ({ label, value }) => {
   const numberRef = useRef(null);
 
   useEffect(() => {
+    if (!numberRef.current) return;
+  
+    const counter = { val: 0 };
+  
     gsap.fromTo(
-      numberRef.current,
-      { innerText: 0 },
+      counter,
+      { val: 0 },
       {
-        innerText: value,
-        duration: 1.5,
+        val: value,
+        duration: 1.2,
         ease: "power2.out",
-        snap: { innerText: 1 },
         scrollTrigger: {
           trigger: numberRef.current,
           start: "top 85%",
           once: true,
+        },
+        onUpdate() {
+          numberRef.current.textContent = Math.round(counter.val);
         },
       }
     );
@@ -54,7 +60,7 @@ const WhatWeAre = () => {
   useEffect(() => {
     // Text + line reveal
     gsap.fromTo(
-      ".reveal-y",
+      ".reveal-y will-change-transform",
       { y: 110 },
       {
         y: 0,
@@ -73,7 +79,7 @@ const WhatWeAre = () => {
     if (imageElement) {
       gsap.fromTo(
         imageElement,
-        { scale: 1.5 },
+        { scale: 1.2 },
         {
           scale: 1,
           ease: "none",
@@ -106,7 +112,7 @@ const WhatWeAre = () => {
 
           <div className="space-y-2">
             <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-bespoke-sans-bold text-[#2563EB] overflow-hidden">
-              <span className="reveal-y block">What we do</span>
+              <span className="reveal-y will-change-transform block">What we do</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4 sm:mt-6">
@@ -122,7 +128,7 @@ const WhatWeAre = () => {
                       {i + 1}
                     </span>
                   </div>
-                  <span className="reveal-y text-sm sm:text-base md:text-lg leading-snug font-semibold text-gray-800 block">
+                  <span className="reveal-y will-change-transform text-sm sm:text-base md:text-lg leading-snug font-semibold text-gray-800 block">
                     {text}
                   </span>
                 </div>
@@ -135,7 +141,7 @@ const WhatWeAre = () => {
         <div className="flex flex-col w-full md:w-1/2 px-4 sm:px-8 justify-between space-y-6">
           <div className="space-y-2">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-bespoke-sans-bold overflow-hidden">
-              <span className="reveal-y block">Who we are</span>
+              <span className="reveal-y will-change-transform block">Who we are</span>
             </h2>
 
             <p className="text-base sm:text-lg md:text-xl font-normal opacity-80 space-y-1">
@@ -146,7 +152,7 @@ const WhatWeAre = () => {
                 "create a welcoming space where everyone can grow.",
               ].map((line, i) => (
                 <span key={i} className="block overflow-hidden">
-                  <span className="reveal-y block">{line}</span>
+                  <span className="reveal-y will-change-transform block">{line}</span>
                 </span>
               ))}
             </p>
