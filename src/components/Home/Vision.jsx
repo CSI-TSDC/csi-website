@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import GridDistortion from "@/components/ui/GridDistortion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,6 +11,7 @@ export default function Vision() {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const videoWrapRef = useRef(null);
+  const backgroundRef = useRef(null);
 
   useEffect(() => {
     const nav = document.getElementById("nav");
@@ -30,6 +32,22 @@ export default function Vision() {
         },
       }
     );
+
+    ScrollTrigger.matchMedia({
+      "(min-width: 768px)": () => {
+        gsap.to(backgroundRef.current, {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=80%",
+            scrub: true,
+            pin: backgroundRef.current,
+            pinSpacing: false,
+          },
+        });
+      },
+    });
 
     ScrollTrigger.matchMedia({
       "(min-width: 768px)": () => {
@@ -74,20 +92,33 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
+      id="vision"
       className="relative bg-csi-black text-white min-h-screen justify-center items-center flex flex-col mt-10 md:mt-20 font-bespoke-sans font-bold overflow-hidden"
     >
       {/* <div className="grid-bg -z-1 md:hidden block"></div> */}
       {/* TEXT */}
+      {/* BACKGROUND PRISM */}
+      <div ref={backgroundRef} className="absolute top-0 left-0 w-full h-screen opacity-80">
+        <GridDistortion
+          imageSrc="/assets/Home/visionbg.webp"
+          grid={10}
+          mouse={0.1}
+          strength={0.15}
+          relaxation={0.9}
+          className="w-full h-full"
+        />
+      </div>
+      
       <div
         ref={textRef}
         className="relative z-10 w-full
                   min-h-auto md:min-h-[100svh]
                   md:pt-20
                   flex flex-col items-center justify-center
-                  text-center px-4 sm:px-6 md:px-0 mb-10"
+                  text-center px-4 sm:px-6 md:px-0 mb-10 overflow-hidden pointer-events-none!"
       >
-        <div className="grid-bg -z-1 md:block hidden"></div>
-
+        {/* <div className="grid-bg -z-1 md:block hidden"></div> */}
+        
         <span className="block overflow-hidden uppercase text-[2.5vh] sm:text-[2.8vh] md:text-[3vh] font-bespoke-sans-bold mb-4 sm:mb-8 md:mb-10">
           <span className="reveal-line block">Our Vision</span>
         </span>

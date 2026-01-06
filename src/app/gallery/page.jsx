@@ -128,7 +128,6 @@ export default function Gallery() {
 
         </div>
       </section>
-
       {/* Masonry Gallery */}
       <MasonryGallery />
     </div>
