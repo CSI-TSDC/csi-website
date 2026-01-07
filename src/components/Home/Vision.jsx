@@ -12,6 +12,7 @@ export default function Vision() {
   const textRef = useRef(null);
   const videoWrapRef = useRef(null);
   const backgroundRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const nav = document.getElementById("nav");
@@ -68,25 +69,52 @@ export default function Vision() {
     // Video scale (navbar-aware, correct)
     ScrollTrigger.matchMedia({
       "(min-width: 768px)": () => {
-    gsap.fromTo(
-      videoWrapRef.current,
-      { scale: 0.8 },
-      {
-        scale: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: videoWrapRef.current,
-          start: "top 75%",
-          end: `top-=${navHeight} top`,
-          scrub: true,
-          invalidateOnRefresh: true,
-        },
-      }
-    )
-    },
-  });
+        gsap.fromTo(
+          videoWrapRef.current,
+          { scale: 0.8 },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: videoWrapRef.current,
+              start: "top 75%",
+              end: `top-=${navHeight} top`,
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          }
+        );
+      },
+    });
 
     ScrollTrigger.refresh();
+  }, []);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const handleIntersection = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          videoElement.play().catch(() => {
+            // Ignore play errors
+          });
+        } else {
+          videoElement.pause();
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.4,
+    });
+
+    observer.observe(videoElement);
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -144,12 +172,12 @@ export default function Vision() {
       >
         <video
           className="absolute inset-0 w-full h-full object-cover rounded-4xl"
-          autoPlay
           muted
           loop
           playsInline
+          ref={videoRef}
         >
-          <source src="/assets/Home/test.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dgeeamxpx/video/upload/v1767775152/test_nmxf1w.mp4" type="video/mp4" />
         </video>
       </div>
     </section>
