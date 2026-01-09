@@ -118,7 +118,7 @@ export default function CSIGallery() {
             </span>
           </p>
 
-          <h1 className="text-[32px] sm:text-[48px] md:text-[5vw] font-semibold font-bespoke-sans-semibold leading-tight w-max mx-auto md:mx-0">
+          <h1 className="text-[32px] sm:text-[48px] md:text-[5vw] font-bespoke-sans-bold leading-tight w-max mx-auto md:mx-0">
             <span className="block w-full overflow-hidden">
               <span><span className="text-csi-blue">Meet,</span> Build</span>
             </span>

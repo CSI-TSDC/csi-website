@@ -11,7 +11,7 @@ export default function Gallery() {
         <div id="showcase-bg"></div>
         <div className="grid mx-auto max-w-6xl md:grid-cols-[1.15fr_1fr] gap-8 md:gap-16 items-center">
         <div className="space-y-3 md:space-y-6 order-1 md:order-1 text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-csi-black leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bespoke-sans-bold font-bold mb-6 text-csi-black leading-tight">
             The <span className="text-csi-blue-400">CSI</span> Showcase
           </h1>
 
