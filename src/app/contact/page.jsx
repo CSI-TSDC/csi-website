@@ -113,40 +113,39 @@ export default function ContactPage() {
 
             {/* Event & Sponsorship Enquiries */}
             <div className="lg:col-span-1">
-              <div className="bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl h-full">
+              <div className="bg-gradient-to-br flex flex-col justify-around from-slate-700 via-slate-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl h-full">
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Event & Sponsorship Enquiries</h3>
-                <p className="text-slate-300 text-xs sm:text-sm mb-6 sm:mb-8 leading-relaxed">
+                
+                <div className="space-y-3">
+                <p className="text-slate-300 text-xs sm:text-sm mb-4 leading-relaxed">
                   We conduct events, hackathons, workshops.
                 </p>
-                <div className="space-y-4">
-                  <div className="space-y-3">
-                    <div>
-                      <p className="text-slate-300 text-xs mb-1">Event Enquiries</p>
-                      <a 
-                        href="mailto:events@csi-tsdc.com" 
-                        className="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors"
-                      >
-                        events@csi-tsdc.com
-                      </a>
-                    </div>
                     <div>
                       <p className="text-slate-300 text-xs mb-1">Sponsorship</p>
                       <a 
                         href="mailto:sponsorship@csi-tsdc.com" 
                         className="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors"
                       >
-                        sponsorship@csi-tsdc.com
+                        csi1019@tsdcmumbai.in
                       </a>
                     </div>
-                  </div>
+                </div>
+                <div className="space-y-4">
                   <button
                     onClick={() => {
-                      // Handle download sponsorship slab
+                      const slabUrl = "https://drive.google.com/uc?export=download&id=16voo7n19ED4_PVId9t7Pey0WQ8Dc5euo";
+                      const link = document.createElement("a");
+                      link.href = slabUrl;
+                      link.download = "Sponsorship_Slab.pdf"; // optional — forces filename
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
                     }}
-                    className="w-full py-3 bg-gradient-to-r from-csi-blue leading-snug  to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                    className="w-full py-3 bg-gradient-to-r from-csi-blue leading-snug to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                   >
-                    Sponsorship Slab will be available here soon
+                    Download Sponsorship Slab
                   </button>
+
                 </div>
               </div>
             </div>
@@ -189,8 +188,8 @@ export default function ContactPage() {
                 <Mail className="text-slate-700 w-6 h-6 sm:w-7 sm:h-7" />
               </div>
               <h4 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">
-                <a href="mailto:csi@tsdcmumbai.in" className="hover:text-slate-700 transition-colors">
-                  csi@tsdcmumbai.in
+                <a href="mailto:csi1019@tsdcmumbai.in" className="hover:text-slate-700 transition-colors wrap-break-word">
+                  csi1019@tsdcmumbai.in
                 </a>
               </h4>
               <p className="text-slate-600 text-sm leading-relaxed">

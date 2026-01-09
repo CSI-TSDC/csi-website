@@ -152,6 +152,7 @@ export function getCriticalImages() {
     '/assets/Home/homebg.webp',
     '/assets/Home/bgoverlay.webp',
     '/assets/Home/bgoverlay2.webp',
+    '/assets/Home/visionbg.webp',
     '/assets/Home/events/envisionbg.webp',
     '/assets/Home/events/hackvisionbg.webp',
     '/assets/Home/events/SIHbg.webp',

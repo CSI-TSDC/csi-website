@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { Linkedin, Instagram, Github } from 'lucide-react';
+import { Instagram, Github } from 'lucide-react';
 
 const Footer = () => {
   const handleSendMail = () => {
@@ -35,9 +35,6 @@ const Footer = () => {
               Quick Links
             </div>
             <div className="flex flex-col space-y-2 md:space-y-3 text-lg leading-snug font-dm-sans-medium">
-            <a href="#">
-                <span>C.S.I</span>
-              </a>
               <a href="#">
                 <span>T.S.D.C</span>
               </a>
@@ -66,14 +63,11 @@ const Footer = () => {
               <a href="#">
                 <span>About TSDC</span>
               </a>
-              <span>
-                <span>Join Us</span>
+              <span className='mt-4'>
+                <span>Contact Us:</span>
               </span>
-              <a href="#">
-                <span>csi@tsdcmumbai.in</span>
-              </a>
-              <a href="#">
-                <span>+91 12345 67890</span>
+              <a href="mailto:csi1019@tsdcmumbai.in">
+                <span>csi1019@tsdcmumbai.in</span>
               </a>
             </div>
           </div>
@@ -87,10 +81,23 @@ const Footer = () => {
               <span className="block clear-both">committee.</span>
             </div>
             <div className="flex flex-row space-x-4">
-              <Instagram className="text-white w-6 h-6 sm:w-7 sm:h-7" />
-              <Github className="text-white w-6 h-6 sm:w-7 sm:h-7" />
-              <Linkedin className="text-white w-6 h-6 sm:w-7 sm:h-7" />
+            <a
+              href="https://instagram.com/csixtsdc"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <Instagram className="text-white w-6 h-6 sm:w-7 sm:h-7 hover:opacity-80 transition" />
+            </a>
 
+            <a
+              href="https://github.com/orgs/CSI-TSDC"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <Github className="text-white w-6 h-6 sm:w-7 sm:h-7 hover:opacity-80 transition" />
+            </a>
             </div>
           </div>
         </div>
