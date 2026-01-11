@@ -10,10 +10,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const STATISTICS = [
-  { label: "Members", value: 48 },
+  { label: "Members", value: 60 },
   { label: "Teams", value: 7 },
   { label: "Events", value: 5 },
-  { label: "Volunteers", value: 40 },
+  { label: "Volunteers", value: 99 },
 ];
 
 const StatBox = ({ label, value }) => {

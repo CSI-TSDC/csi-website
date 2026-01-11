@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import TeamSection from './TeamSection';
 import TeamCard from '@/components/ui/TeamCard';
+import TeamCardSkeleton from '@/components/ui/TeamCardSkeleton';
 import { loadAllTeamData, getCore, getPhotoPath, getSignaturePath } from '@/utils/teamData';
 
 export default function Core() {
@@ -14,10 +15,10 @@ export default function Core() {
       // Load team images map from Cloudinary
       const { loadTeamImageMap } = await import('@/utils/teamData');
       const imageMap = await loadTeamImageMap();
-      
+
       const allData = await loadAllTeamData();
       const core = getCore(allData);
-      
+
       // Sort: Chairperson first, then Vice-Chairperson, then others
       const sortedCore = core.sort((a, b) => {
         const order = {
@@ -28,7 +29,7 @@ export default function Core() {
         };
         return (order[a.designation] || 99) - (order[b.designation] || 99);
       });
-      
+
       // Format for display
       const formattedCore = sortedCore.map(member => {
         const imagePath = getPhotoPath(member, imageMap);
@@ -45,7 +46,7 @@ export default function Core() {
       setCoreMembers(formattedCore);
       setLoading(false);
     }
-    
+
     fetchData();
   }, []);
 
@@ -53,9 +54,8 @@ export default function Core() {
     return (
       <TeamSection title="THE CORE" hasOverflow={false}>
         <div className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
-          <div className="flex justify-center">
-            <p className="text-gray-500">Loading...</p>
-          </div>
+          <TeamCardSkeleton count={2} />
+          <TeamCardSkeleton count={4} />
         </div>
       </TeamSection>
     );
@@ -80,7 +80,7 @@ export default function Core() {
             />
           ))}
         </div>
-        
+
         {/* Bottom Row - 2 cards on mobile, 4 cards on desktop */}
         <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
           {bottomRowMembers.map((member, index) => (

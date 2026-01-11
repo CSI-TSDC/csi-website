@@ -22,10 +22,10 @@ const Footer = () => {
           </div>
           <div className="relative flex mt-2">
             <span className="block h-[50px] w-auto mr-4">
-              <Image className="w-full h-full" src="/assets/Logos/csi_logo.webp" alt="CSI Logo" width={50} height={50} />
+              <Image className="h-full w-auto" src="/assets/Logos/csi_logo.webp" alt="CSI Logo" width={50} height={50} />
             </span>
             <span className="block h-[50px] w-auto">
-              <Image className="w-full h-full" src="/assets/Logos/tsdc_logo.webp" alt="TSDC Logo" width={50} height={50} />
+              <Image className="h-full w-auto" src="/assets/Logos/tsdc_logo.webp" alt="TSDC Logo" width={50} height={50} />
             </span>
           </div>
         </div>
@@ -81,23 +81,23 @@ const Footer = () => {
               <span className="block clear-both">committee.</span>
             </div>
             <div className="flex flex-row space-x-4">
-            <a
-              href="https://instagram.com/csixtsdc"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <Instagram className="text-white w-6 h-6 sm:w-7 sm:h-7 hover:opacity-80 transition" />
-            </a>
+              <a
+                href="https://instagram.com/csixtsdc"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <Instagram className="text-white w-6 h-6 sm:w-7 sm:h-7 hover:opacity-80 transition" />
+              </a>
 
-            <a
-              href="https://github.com/orgs/CSI-TSDC"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <Github className="text-white w-6 h-6 sm:w-7 sm:h-7 hover:opacity-80 transition" />
-            </a>
+              <a
+                href="https://github.com/orgs/CSI-TSDC"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <Github className="text-white w-6 h-6 sm:w-7 sm:h-7 hover:opacity-80 transition" />
+              </a>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ const Footer = () => {
         </div>
       </div>
     </>
-    
+
   );
 };
 
