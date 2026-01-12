@@ -21,9 +21,9 @@ const StatBox = ({ label, value }) => {
 
   useEffect(() => {
     if (!numberRef.current) return;
-  
+
     const counter = { val: 0 };
-  
+
     gsap.fromTo(
       counter,
       { val: 0 },
@@ -97,7 +97,7 @@ const WhatWeAre = () => {
   return (
     <section
       ref={sectionRef}
-      id="what-we-are"
+      id="about"
       className="w-full h-max py-12 sm:py-20 md:py-32 px-[5vw]"
     >
       <div className="w-full h-max flex flex-col md:flex-row justify-center font-dm-sans-medium items-stretch mx-auto max-w-5xl gap-8 md:gap-0">

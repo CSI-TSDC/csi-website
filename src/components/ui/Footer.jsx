@@ -35,19 +35,16 @@ const Footer = () => {
               Quick Links
             </div>
             <div className="flex flex-col space-y-2 md:space-y-3 text-lg leading-snug font-dm-sans-medium">
-              <a href="#">
-                <span>T.S.D.C</span>
+              <a href="https://tsdcmumbai.in" rel='noopener noreferrer' target="_blank">
+                <span>TSDC</span>
               </a>
-              <a href="#">
-                <span>Hackvision</span>
-              </a>
-              <a href="#">
+              <a href="/gallery">
                 <span>Gallery</span>
               </a>
-              <a href="#">
+              <a href="/events">
                 <span>Events</span>
               </a>
-              <a href="#">
+              <a href="/teams">
                 <span>Teams</span>
               </a>
             </div>
@@ -57,10 +54,10 @@ const Footer = () => {
               <span>About</span>
             </div>
             <div className="flex flex-col space-y-2 md:space-y-3 text-lg leading-snug font-dm-sans-medium">
-              <a href="#">
+              <a href="#about">
                 <span>About CSI</span>
               </a>
-              <a href="#">
+              <a href="https://tsdcmumbai.in/about.php" rel='noopener noreferrer' target="_blank">
                 <span>About TSDC</span>
               </a>
               <span className='mt-4'>
@@ -104,7 +101,7 @@ const Footer = () => {
       </footer>
       <div className="relative bg-csi-blue text-csi-white w-full h-max py-4 md:py-8 px-8 md:px-16 flex justify-between z-99 font-satoshi">
         <div>
-          <span>Handcrafted by the Tech Team</span>
+          <span>Handcrafted by Tech Team</span>
         </div>
         <div>
           <span>©️ 2025 CSIxTSDC. All Rights Reserved.</span>
