@@ -106,11 +106,11 @@ export default function Hero() {
                   element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-8 md:px-10 py-2.5 sm:py-3.5 md:py-4 bg-gradient-to-r from-amber-600/80 via-amber-500/80 to-yellow-500/80 hover:from-amber-600 hover:via-amber-500 hover:to-yellow-500 backdrop-blur-sm border border-amber-400/40 hover:border-amber-400/60 text-white rounded-full font-semibold text-xs sm:text-base md:text-lg shadow-lg hover:shadow-xl hover:shadow-amber-500/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-8 md:px-10 py-2.5 sm:py-3.5 md:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full font-semibold text-xs sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-amber-200"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-blue-500"></span>
               </span>
               <span>Upcoming Events</span>
             </a>
