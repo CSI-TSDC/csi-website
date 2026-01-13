@@ -120,7 +120,7 @@ const WhatWeAre = () => {
                 "Connect with other coders",
                 "Host Tech Fest & Coding Events",
                 "Participate in coding competitions",
-                "Make friends & chill",
+                "Build lasting connections",
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-2 sm:gap-3 overflow-hidden">
                   <div className="shrink-0 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#2563EB] flex items-center justify-center">

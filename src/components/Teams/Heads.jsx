@@ -43,7 +43,7 @@ export default function Heads() {
   if (loading) {
     return (
       <TeamSection title="Heads">
-        <div className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
+        <div id="heads" className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
           <TeamCardSkeleton count={4} />
           <TeamCardSkeleton count={4} />
         </div>
@@ -58,22 +58,29 @@ export default function Heads() {
 
   return (
     <TeamSection title="Heads">
-      <div className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
+      <div id="heads" className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-5 md:space-y-6 pt-6 sm:pt-8 md:pt-10 pb-12 sm:pb-16 md:pb-20">
         {rows.map((row, rowIndex) => (
           <div
             key={rowIndex}
             className="flex w-full flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 pb-6 sm:pb-8 md:pb-10"
           >
-            {row.map((member, index) => (
-              <TeamCard
-                key={`${member.name}-${index}`}
-                name={member.name}
-                title={member.designation}
-                hasSignature={member.hasSignature}
-                image={member.image}
-                signature={member.signature}
-              />
-            ))}
+            {row.map((member, index) => {
+              // Calculate absolute index across all rows
+              const absoluteIndex = rowIndex * 4 + index;
+              const isTechCard = absoluteIndex < 2; // First 2 cards are Tech team
+
+              return (
+                <TeamCard
+                  key={`${member.name}-${index}`}
+                  name={member.name}
+                  title={member.designation}
+                  hasSignature={member.hasSignature}
+                  image={member.image}
+                  signature={member.signature}
+                  dataTechCard={isTechCard}
+                />
+              );
+            })}
           </div>
         ))}
       </div>
