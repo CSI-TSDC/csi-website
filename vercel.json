@@ -1,9 +1,6 @@
 {
+    "$schema": "https://openapi.vercel.sh/vercel.json",
     "rewrites": [
-        {
-            "source": "/hackvision",
-            "destination": "https://hackvision.vercel.app/"
-        },
         {
             "source": "/hackvision/:path*",
             "destination": "https://hackvision.vercel.app/:path*"
