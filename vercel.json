@@ -6,7 +6,7 @@
         },
         {
             "source": "/hackvision/:path*",
-            "destination": "https://hackvision.vercel.app/hackvision/:path*"
+            "destination": "https://hackvision.vercel.app/:path*"
         }
     ]
 }
