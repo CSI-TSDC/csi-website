@@ -105,14 +105,12 @@ export default function EventCards({
                 24 hours of coding, creativity, and chaos.
               </p>
 
-              {/* Register Now Button */}
+              {/* View More Button */}
               <a
-                href="https://unstop.com/hackathons/hackvision-thakur-shyamnarayan-degree-college-mumbai-maharashtra-1620837"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/hackvision"
                 className="inline-flex items-center gap-2 bg-white/95 hover:bg-white text-gray-900 font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl hover:shadow-cyan-500/25 transform hover:scale-105 transition-all duration-300"
               >
-                <span>Register Now</span>
+                <span>View More</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>

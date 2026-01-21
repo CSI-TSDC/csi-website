@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+        {
+            "source": "/hackvision",
+            "destination": "https://hackvision.vercel.app"
+        },
+        {
+            "source": "/hackvision/(.*)",
+            "destination": "https://hackvision.vercel.app/$1"
+        }
+    ]
+}
