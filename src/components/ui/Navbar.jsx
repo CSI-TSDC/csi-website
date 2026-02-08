@@ -34,7 +34,6 @@ const Navbar = () => {
     { href: '/gallery', label: 'Gallery' },
     { href: '/teams', label: 'Team' },
     { href: '/contact', label: 'Contact' },
-    { href: '/hackvision', label: 'HackVision' },
   ]
 
   return (

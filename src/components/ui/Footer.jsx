@@ -104,7 +104,7 @@ const Footer = () => {
           <span>Handcrafted by Tech Team</span>
         </div>
         <div>
-          <span>©️ 2025 CSIxTSDC. All Rights Reserved.</span>
+          <span>©️ 2026 CSIxTSDC. All Rights Reserved.</span>
         </div>
       </div>
     </>

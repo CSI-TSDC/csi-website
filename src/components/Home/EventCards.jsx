@@ -17,20 +17,6 @@ export default function EventCards({
 
         {/* Event Card 1 - HackVision (UPCOMING) */}
         <article ref={hackvisionRef || null} className={`relative ${cardClassName || 'w-full sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%]'} rounded-2xl sm:rounded-3xl overflow-visible shadow-2xl hover:shadow-3xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] md:min-h-[360px]`}>
-          {/* UPCOMING EVENT Tag */}
-          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-30">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-md opacity-60 animate-pulse"></div>
-              <div className="relative bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold text-[10px] sm:text-xs px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg flex items-center gap-1.5 sm:gap-2">
-                <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-red-600"></span>
-                </span>
-                <span className="tracking-wider">UPCOMING EVENT</span>
-              </div>
-            </div>
-          </div>
-
           {/* Background image */}
           <div className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden">
             <Image
@@ -81,7 +67,7 @@ export default function EventCards({
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="text-white/90 font-medium font-bespoke-sans uppercase text-xs sm:text-sm md:text-base">22nd & 23rd Jan 2025</span>
+                  <span className="text-white/90 font-medium font-bespoke-sans uppercase text-xs sm:text-sm md:text-base">22nd & 23rd Jan 2026</span>
                 </div>
 
                 {/* Dot separator */}

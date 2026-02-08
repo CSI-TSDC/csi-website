@@ -97,23 +97,7 @@ export default function Hero() {
             >
               Let's Explore!
             </a>
-            <a
-              href="#events"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById('events');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-8 md:px-10 py-2.5 sm:py-3.5 md:py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 text-white rounded-full font-semibold text-xs sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
-            >
-              <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-blue-500"></span>
-              </span>
-              <span>Upcoming Events</span>
-            </a>
+
           </div>
         </div>
       </div>
