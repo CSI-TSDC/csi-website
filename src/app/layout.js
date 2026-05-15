@@ -48,10 +48,15 @@ export default function RootLayout({ children }) {
                 id="csi-load-bar"
                 className="h-full bg-csi-blue rounded-full"
                 style={{ width: "0%" }}
+                suppressHydrationWarning
               />
             </div>
             <div className="text-center mt-4">
-              <span id="csi-load-perc" className="text-sm text-csi-black/60">
+              <span
+                id="csi-load-perc"
+                className="text-sm text-csi-black/60"
+                suppressHydrationWarning
+              >
                 0
               </span>
             </div>

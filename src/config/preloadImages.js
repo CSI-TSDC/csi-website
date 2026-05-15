@@ -1,5 +1,5 @@
 /**
- * Critical images to preload on first paint (folio-style config list).
+ * Critical images to preload on first paint.
  * Keep in sync with above-the-fold / home route assets.
  */
 export const PRELOAD_IMAGES = [
@@ -21,16 +21,6 @@ export const PRELOAD_IMAGES = [
   "/assets/Home/events/sticker1.webp",
   "/assets/Home/events/computer.webp",
   "/assets/Home/events/among.webp",
-  "/assets/Home/projects/ai-1.webp",
-  "/assets/Home/projects/ai-2.webp",
-  "/assets/Home/projects/ai-3.webp",
-  "/assets/Home/projects/web3-1.webp",
-  "/assets/Home/projects/web3-2.webp",
-  "/assets/Home/projects/cloud-1.webp",
-  "/assets/Home/projects/cloud-2.webp",
-  "/assets/Home/projects/cloud-3.webp",
-  "/assets/Home/projects/cyber-1.webp",
-  "/assets/Home/projects/cyber-2.webp",
   "/assets/Events/Events1.webp",
   "/assets/Events/Events2.webp",
   "/assets/Events/Events3.webp",

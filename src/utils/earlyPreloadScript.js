@@ -1,7 +1,8 @@
 import { PRELOAD_IMAGES } from "@/config/preloadImages";
 
 /**
- * Inline script for layout: starts image preload before React hydrates (folio index.html pattern).
+ * Inline script: preload images + track progress on window only (no DOM writes).
+ * Avoids hydration mismatch — LoadingProvider updates the loader UI after mount.
  */
 export function getEarlyPreloadScript() {
   const urls = JSON.stringify(PRELOAD_IMAGES);
@@ -13,11 +14,7 @@ function loop(){
 if(s.done)return;
 var tp=s.total?(s.loaded/s.total)*100:100;
 s.prog=s.loaded>=s.total?100:Math.round(damp(s.prog,tp,0.08));
-var p=document.getElementById("csi-load-perc");
-var b=document.getElementById("csi-load-bar");
-if(p)p.textContent=s.prog;
-if(b)b.style.width=s.prog+"%";
-if(s.loaded>=s.total){s.done=true;s.prog=100;if(p)p.textContent="100";if(b)b.style.width="100%";return}
+if(s.loaded>=s.total){s.done=true;s.prog=100;return}
 requestAnimationFrame(loop);
 }
 if(!s.total){s.done=true;s.prog=100;return}

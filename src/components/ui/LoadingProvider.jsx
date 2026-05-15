@@ -51,6 +51,11 @@ export default function LoadingProvider({ children }) {
       if (!cancelled) setLoaderProgress(progress);
     };
 
+    const earlyStateOnMount = getPreloadState();
+    if (earlyStateOnMount?.prog) {
+      setLoaderProgress(earlyStateOnMount.prog);
+    }
+
     // Safety net if preload stalls (missing assets, damp never hits 100, etc.)
     const timeoutId = setTimeout(() => {
       const state = getPreloadState();
