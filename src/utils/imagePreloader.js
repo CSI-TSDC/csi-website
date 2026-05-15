@@ -1,207 +1,125 @@
 /**
- * Image Preloader Utility
- * Handles preloading critical images with Cache Storage API support
+ * Folio-style image preloader: parallel Image() loads + damped RAF progress.
  */
 
-const CACHE_NAME = 'csi-images-v1';
-const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const DAMP_RATE = 16;
 
-/**
- * Check if cache is supported
- */
-function isCacheSupported() {
-  return 'caches' in window && 'serviceWorker' in navigator;
+export function damp(current, target, factor) {
+  const t = 1 - Math.exp(Math.log(1 - factor) * DAMP_RATE);
+  return current + (target - current) * t;
+}
+
+export function getPreloadState() {
+  if (typeof window === "undefined") return null;
+  return window.__CSI_PRELOAD__;
+}
+
+function markComplete(state, onProgress, onComplete) {
+  state.done = true;
+  state.prog = 100;
+  onProgress?.(100, state.loaded, state.total);
+  onComplete?.();
 }
 
 /**
- * Get cache storage
+ * Start preloading URLs. Mirrors folio app.js startLoad + loop.
  */
-async function getCache() {
-  if (!isCacheSupported()) {
-    return null;
-  }
-  try {
-    return await caches.open(CACHE_NAME);
-  } catch (error) {
-    console.warn('Cache API not available:', error);
-    return null;
-  }
-}
-
-/**
- * Check if image is already cached
- */
-async function isImageCached(url) {
-  const cache = await getCache();
-  if (!cache) return false;
-  
-  try {
-    const response = await cache.match(url);
-    return !!response;
-  } catch (error) {
-    return false;
-  }
-}
-
-/**
- * Preload a single image
- */
-function preloadImage(url) {
-  return new Promise((resolve, reject) => {
-    // Check if image is already in browser cache
-    const img = new Image();
-    
-    img.onload = async () => {
-      // Cache the image in Cache Storage
-      const cache = await getCache();
-      if (cache) {
-        try {
-          // Fetch and cache the image
-          const response = await fetch(url, { mode: 'cors' });
-          if (response.ok) {
-            await cache.put(url, response.clone());
-          }
-        } catch (error) {
-          // Silently fail - browser cache is still working
-          console.warn('Failed to cache image:', url, error);
-        }
-      }
-      resolve({ url, success: true });
-    };
-    
-    img.onerror = () => {
-      resolve({ url, success: false });
-    };
-    
-    img.src = url;
-  });
-}
-
-/**
- * Preload multiple images with progress tracking
- */
-export async function preloadImages(imageUrls, onProgress) {
-  const total = imageUrls.length;
+export function startImagePreload(urls, { onProgress, onComplete } = {}) {
+  const total = urls.length;
   let loaded = 0;
-  const results = [];
-  
-  // Process images in batches to avoid overwhelming the browser
-  const batchSize = 5;
-  for (let i = 0; i < imageUrls.length; i += batchSize) {
-    const batch = imageUrls.slice(i, i + batchSize);
-    const batchPromises = batch.map(async (url) => {
-      // Check cache first
-      const cached = await isImageCached(url);
-      if (cached) {
+  let prog = 0;
+  let rafId = null;
+  let completed = false;
+
+  const state = {
+    loaded: 0,
+    total,
+    prog: 0,
+    done: false,
+  };
+
+  if (typeof window !== "undefined") {
+    window.__CSI_PRELOAD__ = state;
+  }
+
+  const tick = () => {
+    if (completed) return;
+
+    const targetProg = total === 0 ? 100 : (loaded / total) * 100;
+    prog = loaded >= total ? 100 : damp(prog, targetProg, 0.08);
+    const display = Math.round(prog);
+
+    state.loaded = loaded;
+    state.prog = display;
+    onProgress?.(display, loaded, total);
+
+    if (loaded >= total) {
+      completed = true;
+      markComplete(state, onProgress, onComplete);
+      return;
+    }
+
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const start = () => {
+    if (total === 0) {
+      markComplete(state, onProgress, onComplete);
+      return;
+    }
+
+    for (let i = 0; i < total; i++) {
+      const img = new Image();
+      img.onload = img.onerror = () => {
         loaded++;
-        if (onProgress) {
-          onProgress(loaded, total);
-        }
-        return { url, success: true, cached: true };
-      }
-      
-      // Preload image
-      const result = await preloadImage(url);
-      loaded++;
-      if (onProgress) {
-        onProgress(loaded, total);
-      }
-      return result;
-    });
-    
-    const batchResults = await Promise.all(batchPromises);
-    results.push(...batchResults);
-  }
-  
-  return results;
+        state.loaded = loaded;
+      };
+      img.src = urls[i];
+    }
+
+    rafId = requestAnimationFrame(tick);
+  };
+
+  const cancel = () => {
+    if (rafId) cancelAnimationFrame(rafId);
+  };
+
+  return { start, cancel, getState: () => state };
 }
 
-/**
- * Get critical images to preload
- * Excludes gallery masonry images and teams page cloudinary images
- */
-export function getCriticalImages() {
-  const images = [
-    // Logos
-    '/assets/Logos/csi_logo.webp',
-    '/assets/Logos/tsdc_logo.webp',
-    '/assets/Logos/envision_logo.webp',
-    '/assets/Logos/hackvision_logo.webp',
-    '/assets/Logos/teatechtalk_logo.webp',
-    '/assets/Logos/teatechtalk_logo.svg',
-    
-    // Gallery Hero Images
-    '/assets/Gallery_Hero/Gallery_T1.webp',
-    '/assets/Gallery_Hero/Gallery_T2.webp',
-    '/assets/Gallery_Hero/Gallery_T3.webp',
-    '/assets/Gallery_Hero/Gallery_First.webp',
-    '/assets/Gallery_Hero/Gallery_Middle.webp',
-    '/assets/Gallery_Hero/Gallery_Last.webp',
-    '/assets/Gallery_Hero/Gallery_B1.webp',
-    '/assets/Gallery_Hero/Gallery_B2.webp',
-    '/assets/Gallery_Hero/Gallery_B3.webp',
-    
-    // Teams Hero Images
-    '/assets/Teams/Hero/Team1.webp',
-    '/assets/Teams/Hero/Team2.webp',
-    '/assets/Teams/Hero/Team3.webp',
-    '/assets/Teams/Hero/Team4.webp',
-    '/assets/Teams/Hero/Team5.webp',
-    
-    // Home/Events Images (add more as needed)
-    '/assets/Home/homebg.webp',
-    '/assets/Home/bgoverlay.webp',
-    '/assets/Home/bgoverlay2.webp',
-    '/assets/Home/visionbg.webp',
-    '/assets/Home/events/envisionbg.webp',
-    '/assets/Home/events/hackvisionbg.webp',
-    '/assets/Home/events/SIHbg.webp',
-    '/assets/Home/events/SIHoverlay.webp',
-    '/assets/Home/events/teatechtalkbg.webp',
-    '/assets/Home/events/sticker1.webp',
-    '/assets/Events/Events1.webp',
-    '/assets/Events/Events2.webp',
-    '/assets/Events/Events3.webp',
-    '/assets/Events/Events4.webp',
-  ];
-  
-  return images;
-}
+/** Wait for an in-flight early preload (inline script) to finish */
+export function waitForEarlyPreload({ onProgress, onComplete }) {
+  const state = getPreloadState();
+  if (!state) return null;
 
-/**
- * Check if this is the first visit of the day
- */
-export function isFirstVisitToday() {
-  if (typeof window === 'undefined') return true;
-  
-  const lastVisitKey = 'csi_last_visit_date';
-  const today = new Date().toDateString();
-  const lastVisit = localStorage.getItem(lastVisitKey);
-  
-  if (lastVisit !== today) {
-    localStorage.setItem(lastVisitKey, today);
-    return true;
-  }
-  
-  return false;
-}
+  let rafId = null;
+  let lastProg = -1;
+  let completed = false;
 
-/**
- * Clear old cache entries (older than cache duration)
- */
-export async function clearOldCache() {
-  const cache = await getCache();
-  if (!cache) return;
-  
-  try {
-    const keys = await caches.keys();
-    const oldCaches = keys.filter(key => 
-      key.startsWith(CACHE_NAME) && key !== CACHE_NAME
-    );
-    
-    await Promise.all(oldCaches.map(key => caches.delete(key)));
-  } catch (error) {
-    console.warn('Failed to clear old cache:', error);
-  }
-}
+  const tick = () => {
+    if (completed) return;
 
+    if (state.prog !== lastProg) {
+      lastProg = state.prog;
+      onProgress?.(state.prog, state.loaded, state.total);
+    }
+
+    if (state.done || state.loaded >= state.total) {
+      completed = true;
+      state.done = true;
+      state.prog = 100;
+      onProgress?.(100, state.loaded, state.total);
+      onComplete?.();
+      return;
+    }
+
+    rafId = requestAnimationFrame(tick);
+  };
+
+  rafId = requestAnimationFrame(tick);
+
+  return () => {
+    completed = true;
+    if (rafId) cancelAnimationFrame(rafId);
+  };
+}

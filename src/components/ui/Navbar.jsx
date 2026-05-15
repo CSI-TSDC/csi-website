@@ -30,6 +30,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: '/', label: 'Home' },
+    // { href: '/projects', label: 'Projects' },
     { href: '/events', label: 'Events' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/teams', label: 'Team' },
