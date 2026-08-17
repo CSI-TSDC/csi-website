@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import EventCards from "@/components/Home/EventCards";
+import CalendarCard from "@/components/Home/CalendarCard";
 
 const photos = [
   {
@@ -31,7 +32,7 @@ const photos = [
   },
 ];
 
-const filters = ["Envision", "HackVision", "Tea Tech Talks", "Smart India Hackathon"];
+const filters = ["Envision", "HackVision", "Tea Tech Talks", "Smart India Hackathon", "Event Calendar"];
 
 const eventDetails = {
   "Hackathon": {
@@ -75,13 +76,15 @@ export default function CSIGallery() {
   const hackvisionRef = useRef(null);
   const teaTechTalksRef = useRef(null);
   const sihRef = useRef(null);
+  const calendarRef = useRef(null);
 
-  // Map filter names to article refs (in order: Envision, HackVision, Tea Tech Talks, Smart India Hackathon)
+  // Map filter names to article refs
   const filterToRefMap = {
     "Envision": envisionRef,
     "HackVision": hackvisionRef,
     "Tea Tech Talks": teaTechTalksRef,
     "Smart India Hackathon": sihRef,
+    "Event Calendar": calendarRef,
   };
 
   const filteredPhotos =
@@ -159,12 +162,17 @@ export default function CSIGallery() {
                   <button
                     key={f}
                     onClick={() => handleFilterClick(f)}
-                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm whitespace-nowrap  font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer ${activeFilter === f
+                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] sm:text-xs md:text-sm whitespace-nowrap font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer inline-flex items-center gap-1.5 ${activeFilter === f
                         ? "bg-gradient-to-r from-csi-blue-600 to-csi-blue-700 text-white shadow-lg shadow-csi-blue/30 border-2 border-csi-blue"
                         : "bg-csi-white text-gray-700 hover:text-gray-900 border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-sm"
                       }`}
                   >
-                    {f}
+                    {f === "Event Calendar" && (
+                      <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-current shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    )}
+                    <span>{f}</span>
                   </button>
                 ))}
               </div>
@@ -201,6 +209,12 @@ export default function CSIGallery() {
           sihRef={sihRef}
           cardClassName="w-full sm:w-[98%] md:w-[92%] lg:w-[88%] xl:w-[85%]"
         />
+
+        {/* Calendar-style event browser */}
+        <div ref={calendarRef} className="scroll-mt-24">
+          <CalendarCard />
+        </div>
+
         <div className="text-center mt-12 md:mt-16">
           <p className="text-black/80 text-lg sm:text-xl md:text-2xl font-bespoke-sans-semibold">
             More events to come!
