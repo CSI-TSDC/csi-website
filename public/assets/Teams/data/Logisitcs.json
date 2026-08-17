@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Rohit Gupta",
+      "photo": "Rohit_Gupta.webp",
+      "signature": "Rohit_Gupta_S.webp",
+      "designation": "Head",
+      "team": "Logistics"
+    },
+    {
+      "name": "Aaditya Jaiswal",
+      "photo": "Aaditya_Jaiswal.webp",
+      "signature": "Aaditya_Jaiswal_S.webp",
+      "designation": "Head",
+      "team": "Logistics"
+    },
+    {
+      "name": "Vikas Yadav",
+      "photo": "Vikas_Yadav.webp",
+      "signature": "Vikas_Yadav_S.webp",
+      "designation": "Asst. Head",
+      "team": "Logistics"
+    },
+    {
+      "name": "Aryan Yadav",
+      "photo": "Aryan_Yadav.webp",
+      "signature": "Aryan_Yadav_S.webp",
+      "designation": "Asst. Head",
+      "team": "Logistics"
+    },
+    {
+      "name": "Sujal Gajangi",
+      "photo": "Sujal_Gajangi.webp",
+      "signature": "Sujal_Gajangi_S.webp",
+      "designation": "Member",
+      "team": "Logistics"
+    }
+  ]
+  

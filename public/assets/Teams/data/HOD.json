@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Mrs. Abha Dhote",
+        "photo": "Abha_Dhote.webp",
+        "signature": "Abha_Dhote_S.webp",
+        "designation": "HOD",
+        "team": "C.S. Dept."
+    },
+    {
+        "name": "Mrs. Gayatri Bakhtiani",
+        "photo": "Gayatri_Bakhtiani.webp",
+        "signature": "Gayatri_Bakhtian_S.webp",
+        "designation": "HOD",
+        "team": "D.S. Dept."
+    },
+    {
+        "name": "Mr. Vijay Rawool",
+        "photo": "Vijay_Rawool.webp",
+        "signature": "Vijay_Rawool_S.webp",
+        "designation": "HOD",
+        "team": "I.T. Dept."
+    }
+]

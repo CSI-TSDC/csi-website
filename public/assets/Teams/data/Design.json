@@ -1,0 +1,45 @@
+[
+    {
+      "name": "Angad Dabholkar",
+      "photo": "Angad_Dabholkar.webp",
+      "signature": "Angad_Dabholkar_S.webp",
+      "designation": "Head",
+      "team": "Design"
+    },
+    {
+      "name": "Pragati Vishwakarma",
+      "photo": "Pragati_Vishwakarma.webp",
+      "signature": "Pragati_Vishwakarma_S.webp",
+      "designation": "Head",
+      "team": "Design"
+    },
+    {
+      "name": "Tanzila Jawed",
+      "photo": "Tanzila_Jawed.webp",
+      "signature": "Tanzila_Jawed_S.webp",
+      "designation": "Member",
+      "team": "Design"
+    },
+    {
+      "name": "Vivek Vishwakarma",
+      "photo": "Vivek_Vishwakarma.webp",
+      "signature": "Vivek_Vishwakarma_S.webp",
+      "designation": "Member",
+      "team": "Design"
+    },
+    {
+      "name": "Yukti Yadav",
+      "photo": "Yukti_Yadav.webp",
+      "signature": "Yukti_Yadav_S.webp",
+      "designation": "Member",
+      "team": "Design"
+    },
+    {
+      "name": "Kaveri Panchal",
+      "photo": "Kaveri_Panchal.webp",
+      "signature": "Kaveri_Panchal_S.webp",
+      "designation": "Member",
+      "team": "Design"
+    }
+  ]
+  

@@ -1,26 +1,312 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+@config "../../tailwind.config.js";
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/assets/Fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf') format('truetype-variations');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  line-height: 1;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Full-screen hero background images (base + overlay) using inline <img> */
+img.hero-bg,
+img.hero-bg-overlay {
+  /* Fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Fixed positioning for parallax-like effect */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Layering: base below, overlay above */
+img.hero-bg {
+  z-index: -2;
+}
+
+img.hero-bg-overlay {
+  z-index: -1;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image setup */
+  img.hero-bg,
+  img.hero-bg-overlay {
+    left: 50%;
+    margin-left: -512px; /* 50% of min-width to keep centered */
+  }
+}
+
+.font-dm-sans-regular {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+.font-dm-sans-medium {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+
+.font-dm-sans-semibold {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+}
+
+.font-dm-sans-bold {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+}
+
+.font-bespoke-sans-regular {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 400;
+}
+
+.font-bespoke-sans-medium {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 500;
+}
+
+.font-bespoke-sans-semibold {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 600;
+}
+
+.font-bespoke-sans-bold {
+  font-family: 'Bespoke Sans', sans-serif;
+  font-weight: 700;
+}
+
+@keyframes windmill-spin {
+  from { transform: translate(-100%, -100%) rotate(0deg); }
+  to { transform: translate(-100%, -100%) rotate(360deg); }
+}
+.animate-windmill {
+  animation: windmill-spin 4s linear infinite;
+  transform-origin: center;
+}
+
+.grid-bg {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0px;
+  inset: 0px;
+  min-width: 0px;
+  height: 100%;
+  background-size: 65px 65px;
+  background-image: linear-gradient(to right, #dedede 1px, transparent 1px), linear-gradient(#dedede 1px, transparent 1px);
+  background-position: center top;
+  mask-image: linear-gradient(transparent 0%, rgba(255, 255, 255, 0.5) 20%, white 100%);
+  opacity: 0.18;
+  z-index: 0;
+}
+.label {
+  @apply text-xs tracking-widest text-neutral-400;
+}
+
+.input {
+  @apply w-full border-b border-neutral-300 py-3 text-neutral-700
+         focus:outline-none focus:border-neutral-900 bg-transparent;
+}
+
+#teamsgrid>div:nth-child(2).mod2 {
+  grid-row: 1 / 3 !important;
+}
+
+#teamsgrid>div:nth-child(4).mod2 {
+  grid-column: 1 / 5 !important;
+}
+
+#teamsgrid>div:nth-child(6).mod2 {
+  grid-column: 1 / 5 !important;
+}
+
+.header-top:before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, .65), transparent);
+  content: "";
+  display: block;
+  height: 112px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+:root {
+  --radius: 0.625rem;
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* CSS Columns Masonry */
+.masonry-container {
+  column-count: auto;
+  column-width: 250px;
+  column-gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .masonry-container {
+    column-width: calc(50% - 12px);
+    column-count: 2;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .masonry-container {
+    column-width: calc(50% - 12px);
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1025px) {
+  .masonry-container {
+    column-width: 250px;
+    column-count: auto;
+  }
+}
+.prism-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#vision .pin-spacer:not(:first-child) {
+  pointer-events: none;
 }

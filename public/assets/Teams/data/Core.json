@@ -1,0 +1,45 @@
+[
+    {
+      "name": "Aaryan Shukla",
+      "photo": "Aaryan_Shukla.webp",
+      "signature": "Aaryan_Shukla_S.webp",
+      "designation": "Student Chairperson",
+      "team": "Core"
+    },
+    {
+      "name": "Aman Gupta",
+      "photo": "Aman_Gupta.webp",
+      "signature": "Aman_Gupta_S.webp",
+      "designation": "Student Vice-Chairperson",
+      "team": "Core"
+    },
+    {
+      "name": "Sakshi Jaiswal",
+      "photo": "Sakshi_Jaiswal.webp",
+      "signature": "Sakshi_Jaiswal_S.webp",
+      "designation": "Secretary",
+      "team": "Core"
+    },
+    {
+      "name": "Siddhika Narvekar",
+      "photo": "Siddhika_Narvekar.webp",
+      "signature": "Siddhika_Narvekar_S.webp",
+      "designation": "Secretary",
+      "team": "Core"
+    },
+    {
+      "name": "Suraj Singh",
+      "photo": "Suraj_Singh.webp",
+      "signature": "Suraj_Singh_S.webp",
+      "designation": "Treasurer",
+      "team": "Core"
+    },
+    {
+      "name": "Om Murkar",
+      "photo": "Om_Murkar.webp",
+      "signature": "Om_Murkar_S.webp",
+      "designation": "Treasurer",
+      "team": "Core"
+    }
+  ]
+  
