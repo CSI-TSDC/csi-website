@@ -88,24 +88,35 @@ export async function loadGalleryPhotos() {
       const tag = extractTag(filename, eventName);
       const photoNumber = extractPhotoNumber(filename);
       
-      // Use secure_url directly from Cloudinary - it's guaranteed to work
-      // This avoids any path reconstruction issues
-      let imageUrl;
-      
-      if (resource.secure_url) {
-        imageUrl = resource.secure_url;
-      } else {
-        // Fallback: construct URL from full path
-        const cloudinaryPath = fullPath;
-        imageUrl = getCloudinaryUrl(cloudinaryPath, {
+      // Extract dimensions if available
+      const width = resource.width || 1200;
+      const height = resource.height || 800;
+
+      // Master URL (for full-screen lightbox)
+      let fullUrl = resource.secure_url;
+      if (!fullUrl) {
+        fullUrl = getCloudinaryUrl(fullPath, {
           quality: 'auto',
           fetchFormat: 'auto'
         });
       }
+
+      // Responsive thumbnail URL (max 1000px, compressed WebP/AVIF) for gallery grid
+      let thumbUrl = fullUrl;
+      if (resource.secure_url && resource.secure_url.includes('/image/upload/')) {
+        thumbUrl = resource.secure_url.replace(
+          '/image/upload/',
+          '/image/upload/c_limit,w_1000,q_auto,f_auto/'
+        );
+      }
       
       return {
         id: `${year}-${event}-${photoNumber || filename}`,
-        src: imageUrl,
+        src: thumbUrl,
+        fullSrc: fullUrl,
+        width,
+        height,
+        aspectRatio: width / height,
         event: eventName,
         tag: tag,
         year: yearExtracted, // Use extracted year "2024" for filtering
@@ -121,7 +132,11 @@ export async function loadGalleryPhotos() {
       const response = await fetch('/assets/Gallery/manifest.json');
       if (response.ok) {
         const manifest = await response.json();
-        return manifest.photos || [];
+        return (manifest.photos || []).map((p) => ({
+          ...p,
+          fullSrc: p.src,
+          aspectRatio: p.width && p.height ? p.width / p.height : 1.5,
+        }));
       }
     } catch (fallbackError) {
       // Failed to load manifest

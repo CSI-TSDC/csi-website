@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { calendarEvents, MONTHS, isEventPassed } from "@/utils/calendarEventsData";
 
@@ -123,6 +124,11 @@ function EventList({ events, onEventClick }) {
 function EventDetailPopup({ event, onClose }) {
   const popupRef = useRef(null);
   const backdropRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close on Escape key
   useEffect(() => {
@@ -158,10 +164,10 @@ function EventDetailPopup({ event, onClose }) {
   const accentColor = event.color || "#0251c1";
   const isPassed = isEventPassed(event);
 
-  return (
+  const popupContent = (
     <div
       ref={backdropRef}
-      className="fixed inset-0 z-[999] flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[999999] flex items-center justify-center p-4 sm:p-6"
       style={{
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
@@ -174,13 +180,13 @@ function EventDetailPopup({ event, onClose }) {
       {/* Outer Card Container */}
       <div
         ref={popupRef}
-        className="relative w-full max-w-[400px] sm:max-w-[440px] bg-white text-neutral-900 rounded-[28px] overflow-hidden shadow-2xl flex flex-col border border-black/10 backdrop-blur-xl transition-all"
+        className="relative w-full max-w-[400px] sm:max-w-[440px] bg-white text-neutral-900 rounded-[28px] overflow-hidden shadow-2xl flex flex-col border border-black/10 backdrop-blur-xl transition-all max-h-[90vh]"
         style={{
           boxShadow: `0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px 0 ${accentColor}25`,
         }}
       >
         {/* Top Image Banner Section */}
-        <div className="relative w-full aspect-[16/10] bg-neutral-900 overflow-hidden group">
+        <div className="relative w-full aspect-[16/10] bg-neutral-900 overflow-hidden group shrink-0">
           {event.image ? (
             <Image
               src={event.image}
@@ -218,7 +224,7 @@ function EventDetailPopup({ event, onClose }) {
         </div>
 
         {/* Bottom Content Area */}
-        <div className="p-6 flex flex-col gap-4 bg-white -mt-2 relative z-10 rounded-t-2xl">
+        <div className="p-6 flex flex-col gap-4 bg-white -mt-2 relative z-10 rounded-t-2xl overflow-y-auto">
           {/* Title & Date Metadata */}
           <div className="flex flex-col gap-1.5">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight font-bespoke-sans leading-tight">
@@ -286,24 +292,48 @@ function EventDetailPopup({ event, onClose }) {
       </div>
     </div>
   );
+
+  if (!mounted) return null;
+  return typeof document !== "undefined"
+    ? createPortal(popupContent, document.body)
+    : popupContent;
 }
+
 
 /* ─────────────────── MAIN CALENDAR CARD ─────────────────── */
 
 export default function CalendarCard() {
   const [activeMonthIndex, setActiveMonthIndex] = useState(() => new Date().getMonth());
   const [selectedEventId, setSelectedEventId] = useState(null);
+  const [eventsList, setEventsList] = useState(calendarEvents);
+
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const res = await fetch("/api/events");
+        if (res.ok) {
+          const data = await res.json();
+          if (data.success && Array.isArray(data.events) && data.events.length > 0) {
+            setEventsList(data.events);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch dynamic events, using default events list:", err);
+      }
+    }
+    fetchEvents();
+  }, []);
 
   const activeMonthCode = MONTHS[activeMonthIndex];
 
   const filteredEvents = useMemo(
-    () => calendarEvents.filter((e) => e.month === activeMonthCode),
-    [activeMonthCode]
+    () => eventsList.filter((e) => e.month === activeMonthCode),
+    [activeMonthCode, eventsList]
   );
 
   const selectedEvent = useMemo(
-    () => calendarEvents.find((e) => e.id === selectedEventId) || null,
-    [selectedEventId]
+    () => eventsList.find((e) => e.id === selectedEventId) || null,
+    [selectedEventId, eventsList]
   );
 
   const handlePrevMonth = useCallback(() => {

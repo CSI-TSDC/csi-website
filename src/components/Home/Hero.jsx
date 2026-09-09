@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ShinyButton from "../ui/ShinyButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -84,7 +85,7 @@ export default function Hero() {
             </span>
           </div>
           <div className="relative mt-4 sm:mt-6 flex flex-nowrap gap-2 sm:gap-4">
-            <a
+            <ShinyButton
               href="#about"
               onClick={(e) => {
                 e.preventDefault();
@@ -93,11 +94,9 @@ export default function Hero() {
                   element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               }}
-              className="inline-block px-4 sm:px-8 md:px-10 py-2.5 sm:py-3.5 md:py-4 bg-gradient-to-r from-csi-blue-500 to-csi-blue-600 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white rounded-full font-semibold text-xs sm:text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap"
             >
               Let's Explore!
-            </a>
-
+            </ShinyButton>
           </div>
         </div>
       </div>

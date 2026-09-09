@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import MasonryGallery from "@/components/gallery/MasonryGallery";
+import EventBasedGallery from "@/components/gallery/EventBasedGallery";
 
 export default function Gallery() {
   return (
@@ -38,27 +38,24 @@ export default function Gallery() {
                     width={200}
                     height={120}
                     className="w-[120px] h-[80px] md:w-[200px] md:h-[120px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 1"
+                    priority
                   />
                   <Image
                     src="/assets/Gallery_Hero/Gallery_T2.webp"
                     width={160}
                     height={120}
                     className="w-[100px] h-[80px] md:w-[160px] md:h-[120px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 2"
+                    priority
                   />
                   <Image
                     src="/assets/Gallery_Hero/Gallery_T3.webp"
                     width={220}
                     height={120}
                     className="w-[130px] h-[80px] md:w-[220px] md:h-[120px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 3"
+                    priority
                   />
                 </div>
 
@@ -69,27 +66,24 @@ export default function Gallery() {
                     width={180}
                     height={145}
                     className="w-[110px] h-[90px] md:w-[180px] md:h-[145px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 4"
+                    priority
                   />
                   <Image
                     src="/assets/Gallery_Hero/Gallery_Middle.webp"
                     width={240}
                     height={145}
                     className="w-[140px] h-[90px] md:w-[240px] md:h-[145px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 5"
+                    priority
                   />
                   <Image
                     src="/assets/Gallery_Hero/Gallery_Last.webp"
                     width={150}
                     height={145}
                     className="w-[90px] h-[90px] md:w-[150px] md:h-[145px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 6"
+                    priority
                   />
                 </div>
 
@@ -100,27 +94,24 @@ export default function Gallery() {
                     width={210}
                     height={135}
                     className="w-[125px] h-[85px] md:w-[210px] md:h-[135px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 7"
+                    priority
                   />
                   <Image
                     src="/assets/Gallery_Hero/Gallery_B2.webp"
                     width={260}
                     height={135}
                     className="w-[150px] h-[85px] md:w-[260px] md:h-[135px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 8"
+                    priority
                   />
                   <Image
                     src="/assets/Gallery_Hero/Gallery_B3.webp"
                     width={190}
                     height={135}
                     className="w-[115px] h-[85px] md:w-[190px] md:h-[135px] object-cover rounded-xl md:rounded-2xl"
-                    alt=""
-                    unoptimized
-                    preload
+                    alt="Gallery Hero Preview 9"
+                    priority
                   />
                 </div>
 
@@ -129,8 +120,8 @@ export default function Gallery() {
           </div>
         </div>
       </section>
-      {/* Masonry Gallery */}
-      <MasonryGallery />
+      {/* Event-Based Scroll Gallery */}
+      <EventBasedGallery />
     </div>
   );
 }

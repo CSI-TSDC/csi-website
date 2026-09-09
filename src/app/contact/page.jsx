@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Github } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Twitter, Youtube, Instagram, Github, Navigation, ExternalLink, Copy, Check } from 'lucide-react';
+import GlassSurface from './GlassSurface';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,14 @@ export default function ContactPage() {
     message: '',
     newsletter: ''
   });
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyAddress = () => {
+    const addressText = "Thakur Shyamnarayan Degree College, 90 Feet Rd, Thakur Complex, Kandivali East, Mumbai, Maharashtra 400101";
+    navigator.clipboard.writeText(addressText);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -210,11 +219,99 @@ export default function ContactPage() {
       </div>
 
       {/* Map Section */}
-      <div className="py-12 sm:py-16 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl" style={{height: '300px'}}>
-            <div className="w-full h-full flex items-center justify-center text-slate-600 bg-gradient-to-br from-slate-100 to-slate-200">
-            <iframe className="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.577703117732!2d72.8623017756852!3d19.213638547636258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b731d4f3be13%3A0x6ac73cbebb4dc1de!2sThakur%20Shyamnarayan%20Degree%20College!5e0!3m2!1sen!2sin!4v1767002328085!5m2!1sen!2sin"></iframe>
+      <div className="py-16 sm:py-24 bg-gradient-to-b from-slate-50 via-sky-50/30 to-white relative overflow-hidden">
+        {/* Background decorative grid accents */}
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+          {/* Section Header */}
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100/80 border border-sky-200 text-csi-blue-600 text-xs sm:text-sm font-semibold mb-3">
+              <MapPin className="w-4 h-4" />
+              <span>Campus Location</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-bespoke-sans-semibold tracking-tight">
+              Visit Our Campus
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto mt-2 font-dm-sans-medium">
+              We are located at Thakur Shyamnarayan Degree College, Kandivali East, Mumbai. Stop by or reach out!
+            </p>
+          </div>
+
+          {/* Map Card Wrapper */}
+          <div className="relative rounded-3xl overflow-hidden bg-white shadow-2xl border border-slate-200/80 group">
+            {/* Interactive Floating Info Overlay Card (Tablet/Desktop Only) */}
+            <div className="hidden sm:block absolute top-6 left-6 z-20 max-w-sm">
+              <GlassSurface
+                displace={15}
+                distortionScale={-150}
+                redOffset={5}
+                greenOffset={15}
+                blueOffset={25}
+                brightness={70}
+                opacity={0.35}
+                dark={true}
+                borderRadius={24}
+                className="p-5 text-white shadow-2xl border border-white/30 backdrop-blur-md"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="p-2.5 bg-csi-blue-500/30 text-sky-300 rounded-xl border border-sky-400/40 shrink-0 backdrop-blur-sm shadow-inner">
+                    <MapPin className="w-5 h-5 drop-shadow-xs" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-base sm:text-lg leading-snug drop-shadow-xs">
+                      Thakur Shyamnarayan Degree College
+                    </h3>
+                    <p className="text-slate-200 text-xs sm:text-sm mt-1 leading-relaxed font-medium drop-shadow-xs">
+                      90 Feet Rd, Thakur Complex, Kandivali East, Mumbai, Maharashtra 400101
+                    </p>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2.5 mt-4 pt-3 border-t border-white/20">
+                  <a
+                    href="https://maps.google.com/?q=Thakur+Shyamnarayan+Degree+College+Kandivali+East+Mumbai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-gradient-to-r from-csi-blue-500/90 to-csi-blue-600/90 hover:from-csi-blue-600 hover:to-csi-blue-700 text-white text-xs sm:text-sm font-semibold rounded-xl transition-all shadow-md hover:shadow-sky-500/30 backdrop-blur-sm border border-white/20"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    <span>Directions</span>
+                    <ExternalLink className="w-3 h-3 opacity-80 ml-0.5" />
+                  </a>
+
+                  <button
+                    onClick={handleCopyAddress}
+                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-white/20 hover:bg-white/30 text-white text-xs sm:text-sm font-semibold rounded-xl border border-white/30 shadow-xs transition-all backdrop-blur-md"
+                    title="Copy full address"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-4 h-4 text-emerald-400" />
+                        <span className="text-emerald-400 font-semibold">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </GlassSurface>
+            </div>
+
+            {/* Google Map Iframe Container */}
+            <div className="w-full h-[400px] sm:h-[480px] md:h-[520px] relative bg-slate-100">
+              <iframe
+                className="w-full h-full border-0 filter contrast-[1.02] saturate-[1.05]"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.577703117732!2d72.8623017756852!3d19.213638547636258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b731d4f3be13%3A0x6ac73cbebb4dc1de!2sThakur%20Shyamnarayan%20Degree%20College!5e0!3m2!1sen!2sin!4v1767002328085!5m2!1sen!2sin"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Thakur Shyamnarayan Degree College Location Map"
+              ></iframe>
             </div>
           </div>
         </div>
