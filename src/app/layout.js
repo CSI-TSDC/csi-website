@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import LoadingProvider from "@/components/ui/LoadingProvider";
+import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 import EasterEgg from "@/components/ui/EasterEgg";
 import {
   PRELOAD_IMAGES,
@@ -68,10 +69,12 @@ export default function RootLayout({ children }) {
         />
 
         <LoadingProvider>
-          <EasterEgg />
-          <Navbar />
-          {children}
-          <Footer />
+          <SmoothScrollProvider>
+            <EasterEgg />
+            <Navbar />
+            {children}
+            <Footer />
+          </SmoothScrollProvider>
         </LoadingProvider>
       </body>
     </html>

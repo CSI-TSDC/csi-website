@@ -24,13 +24,19 @@ function hideLoader(scrollY, originalOverflow, originalPosition) {
   document.body.style.position = originalPosition;
   document.body.style.top = "";
   document.body.style.width = "";
-  window.scrollTo(0, scrollY);
+  if (window.__lenis) {
+    window.__lenis.scrollTo(scrollY, { immediate: true });
+    window.__lenis.start();
+  } else {
+    window.scrollTo(0, scrollY);
+  }
 }
 
 export default function LoadingProvider({ children }) {
   useEffect(() => {
     let cancelled = false;
 
+    window.__lenis?.stop();
     const originalOverflow = document.body.style.overflow;
     const originalPosition = document.body.style.position;
     const scrollY = window.scrollY;

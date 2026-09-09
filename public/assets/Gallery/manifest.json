@@ -1,6 +1,6 @@
 {
-  "generated": "2025-12-30T19:28:01.288Z",
-  "total": 100,
+  "generated": "2026-09-07T15:03:30.532Z",
+  "total": 99,
   "photos": [
     {
       "id": "2024-25-CL Meet-1",
@@ -9,7 +9,9 @@
       "tag": "CL Meet",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 1
+      "photoNumber": 1,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-CL Meet-2",
@@ -18,7 +20,9 @@
       "tag": "CL Meet",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 2
+      "photoNumber": 2,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-CL Meet-3",
@@ -27,7 +31,9 @@
       "tag": "CL Meet",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 3
+      "photoNumber": 3,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-CL Meet-4",
@@ -36,7 +42,9 @@
       "tag": "CL Meet",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 4
+      "photoNumber": 4,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-CL Meet-5",
@@ -45,7 +53,9 @@
       "tag": "CL Meet",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 5
+      "photoNumber": 5,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-1",
@@ -54,7 +64,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 1
+      "photoNumber": 1,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-Envision-2",
@@ -63,7 +75,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 2
+      "photoNumber": 2,
+      "width": 4080,
+      "height": 2296
     },
     {
       "id": "2024-25-Envision-3",
@@ -72,7 +86,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 3
+      "photoNumber": 3,
+      "width": 4080,
+      "height": 2296
     },
     {
       "id": "2024-25-Envision-4",
@@ -81,7 +97,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 4
+      "photoNumber": 4,
+      "width": 4080,
+      "height": 2296
     },
     {
       "id": "2024-25-Envision-5",
@@ -90,16 +108,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 5
-    },
-    {
-      "id": "2024-25-Envision-6",
-      "src": "/assets/Gallery/2024-25/Envision/Envision_6.webp",
-      "event": "Envision",
-      "tag": "Envision",
-      "year": "2024",
-      "fullYear": "2024-25",
-      "photoNumber": 6
+      "photoNumber": 5,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-Envision-7",
@@ -108,7 +119,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 7
+      "photoNumber": 7,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-8",
@@ -117,7 +130,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 8
+      "photoNumber": 8,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-9",
@@ -126,7 +141,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 9
+      "photoNumber": 9,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2024-25-Envision-10",
@@ -135,7 +152,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 10
+      "photoNumber": 10,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2024-25-Envision-11",
@@ -144,7 +163,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 11
+      "photoNumber": 11,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-12",
@@ -153,7 +174,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 12
+      "photoNumber": 12,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-13",
@@ -162,7 +185,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 13
+      "photoNumber": 13,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-14",
@@ -171,7 +196,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 14
+      "photoNumber": 14,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-15",
@@ -180,7 +207,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 15
+      "photoNumber": 15,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2024-25-Envision-16",
@@ -189,7 +218,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 16
+      "photoNumber": 16,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2024-25-Envision-17",
@@ -198,7 +229,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 17
+      "photoNumber": 17,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-18",
@@ -207,7 +240,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 18
+      "photoNumber": 18,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-Envision-19",
@@ -216,7 +251,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 19
+      "photoNumber": 19,
+      "width": 4080,
+      "height": 2296
     },
     {
       "id": "2024-25-Envision-20",
@@ -225,7 +262,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 20
+      "photoNumber": 20,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-Envision-21",
@@ -234,7 +273,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 21
+      "photoNumber": 21,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-22",
@@ -243,7 +284,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 22
+      "photoNumber": 22,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2024-25-Envision-23",
@@ -252,7 +295,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 23
+      "photoNumber": 23,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-24",
@@ -261,7 +306,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 24
+      "photoNumber": 24,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-25",
@@ -270,7 +317,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 25
+      "photoNumber": 25,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-26",
@@ -279,7 +328,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 26
+      "photoNumber": 26,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-27",
@@ -288,7 +339,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 27
+      "photoNumber": 27,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-28",
@@ -297,7 +350,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 28
+      "photoNumber": 28,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Envision-29",
@@ -306,7 +361,9 @@
       "tag": "Envision",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 29
+      "photoNumber": 29,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-Flashmob-1",
@@ -315,7 +372,9 @@
       "tag": "Flashmob",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 1
+      "photoNumber": 1,
+      "width": 900,
+      "height": 1600
     },
     {
       "id": "2024-25-Flashmob-2",
@@ -324,7 +383,9 @@
       "tag": "Flashmob",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 2
+      "photoNumber": 2,
+      "width": 4000,
+      "height": 3000
     },
     {
       "id": "2024-25-Flashmob-3",
@@ -333,7 +394,9 @@
       "tag": "Flashmob",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 3
+      "photoNumber": 3,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-Flashmob-4",
@@ -342,7 +405,9 @@
       "tag": "Flashmob",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 4
+      "photoNumber": 4,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-Flashmob-5",
@@ -351,7 +416,9 @@
       "tag": "Flashmob",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 5
+      "photoNumber": 5,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-Flashmob-6",
@@ -360,7 +427,9 @@
       "tag": "Flashmob",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 6
+      "photoNumber": 6,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2024-25-SIH-1",
@@ -369,7 +438,9 @@
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 1
+      "photoNumber": 1,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-SIH-2",
@@ -378,7 +449,9 @@
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 2
+      "photoNumber": 2,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-SIH-3",
@@ -387,7 +460,9 @@
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 3
+      "photoNumber": 3,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2024-25-SIH-4",
@@ -396,7 +471,9 @@
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 4
+      "photoNumber": 4,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2024-25-SIH-5",
@@ -405,7 +482,9 @@
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 5
+      "photoNumber": 5,
+      "width": 4624,
+      "height": 2602
     },
     {
       "id": "2024-25-SIH-6",
@@ -414,7 +493,9 @@
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 6
+      "photoNumber": 6,
+      "width": 4624,
+      "height": 2601
     },
     {
       "id": "2024-25-SIH-7",
@@ -423,7 +504,9 @@
       "tag": "SIH",
       "year": "2024",
       "fullYear": "2024-25",
-      "photoNumber": 7
+      "photoNumber": 7,
+      "width": 1600,
+      "height": 1200
     },
     {
       "id": "2025-26-SIH-1",
@@ -432,7 +515,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 1
+      "photoNumber": 1,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-2",
@@ -441,7 +526,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 2
+      "photoNumber": 2,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-3",
@@ -450,7 +537,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 3
+      "photoNumber": 3,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-4",
@@ -459,7 +548,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 4
+      "photoNumber": 4,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-5",
@@ -468,7 +559,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 5
+      "photoNumber": 5,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-SIH-6",
@@ -477,7 +570,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 6
+      "photoNumber": 6,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-7",
@@ -486,7 +581,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 7
+      "photoNumber": 7,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-8",
@@ -495,7 +592,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 8
+      "photoNumber": 8,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-9",
@@ -504,7 +603,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 9
+      "photoNumber": 9,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-10",
@@ -513,7 +614,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 10
+      "photoNumber": 10,
+      "width": 2592,
+      "height": 4608
     },
     {
       "id": "2025-26-SIH-11",
@@ -522,7 +625,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 11
+      "photoNumber": 11,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-12",
@@ -531,7 +636,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 12
+      "photoNumber": 12,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-SIH-13",
@@ -540,7 +647,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 13
+      "photoNumber": 13,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-14",
@@ -549,7 +658,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 14
+      "photoNumber": 14,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-SIH-15",
@@ -558,7 +669,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 15
+      "photoNumber": 15,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-16",
@@ -567,7 +680,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 16
+      "photoNumber": 16,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-17",
@@ -576,7 +691,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 17
+      "photoNumber": 17,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-SIH-18",
@@ -585,7 +702,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 18
+      "photoNumber": 18,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-SIH-19",
@@ -594,7 +713,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 19
+      "photoNumber": 19,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-SIH-20",
@@ -603,7 +724,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 20
+      "photoNumber": 20,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-21",
@@ -612,7 +735,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 21
+      "photoNumber": 21,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-SIH-22",
@@ -621,7 +746,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 22
+      "photoNumber": 22,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-SIH-23",
@@ -630,7 +757,9 @@
       "tag": "SIH",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 23
+      "photoNumber": 23,
+      "width": 5712,
+      "height": 4284
     },
     {
       "id": "2025-26-Tea Tech Talks-1",
@@ -639,7 +768,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 1
+      "photoNumber": 1,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2025-26-Tea Tech Talks-3",
@@ -648,7 +779,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 3
+      "photoNumber": 3,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2025-26-Tea Tech Talks-4",
@@ -657,7 +790,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 4
+      "photoNumber": 4,
+      "width": 4000,
+      "height": 3000
     },
     {
       "id": "2025-26-Tea Tech Talks-5",
@@ -666,7 +801,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 5
+      "photoNumber": 5,
+      "width": 4284,
+      "height": 5712
     },
     {
       "id": "2025-26-Tea Tech Talks-6",
@@ -675,7 +812,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 6
+      "photoNumber": 6,
+      "width": 4284,
+      "height": 5712
     },
     {
       "id": "2025-26-Tea Tech Talks-7",
@@ -684,7 +823,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 7
+      "photoNumber": 7,
+      "width": 1980,
+      "height": 3520
     },
     {
       "id": "2025-26-Tea Tech Talks-8",
@@ -693,7 +834,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 8
+      "photoNumber": 8,
+      "width": 3120,
+      "height": 4160
     },
     {
       "id": "2025-26-Tea Tech Talks-9",
@@ -702,7 +845,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 9
+      "photoNumber": 9,
+      "width": 3120,
+      "height": 4160
     },
     {
       "id": "2025-26-Tea Tech Talks-10",
@@ -711,7 +856,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 10
+      "photoNumber": 10,
+      "width": 3120,
+      "height": 4160
     },
     {
       "id": "2025-26-Tea Tech Talks-11",
@@ -720,7 +867,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 11
+      "photoNumber": 11,
+      "width": 1600,
+      "height": 1200
     },
     {
       "id": "2025-26-Tea Tech Talks-11",
@@ -729,7 +878,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 11
+      "photoNumber": 11,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-Tea Tech Talks-12",
@@ -738,7 +889,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 12
+      "photoNumber": 12,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-Tea Tech Talks-13",
@@ -747,7 +900,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 13
+      "photoNumber": 13,
+      "width": 3000,
+      "height": 4000
     },
     {
       "id": "2025-26-Tea Tech Talks-14",
@@ -756,7 +911,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 14
+      "photoNumber": 14,
+      "width": 1600,
+      "height": 1200
     },
     {
       "id": "2025-26-Tea Tech Talks-15",
@@ -765,7 +922,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 15
+      "photoNumber": 15,
+      "width": 4284,
+      "height": 5712
     },
     {
       "id": "2025-26-Tea Tech Talks-16",
@@ -774,7 +933,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 16
+      "photoNumber": 16,
+      "width": 5712,
+      "height": 4284
     },
     {
       "id": "2025-26-Tea Tech Talks-17",
@@ -783,7 +944,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 17
+      "photoNumber": 17,
+      "width": 4284,
+      "height": 5712
     },
     {
       "id": "2025-26-Tea Tech Talks-18",
@@ -792,7 +955,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 18
+      "photoNumber": 18,
+      "width": 4284,
+      "height": 5712
     },
     {
       "id": "2025-26-Tea Tech Talks-19",
@@ -801,7 +966,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 19
+      "photoNumber": 19,
+      "width": 4640,
+      "height": 3472
     },
     {
       "id": "2025-26-Tea Tech Talks-20",
@@ -810,7 +977,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 20
+      "photoNumber": 20,
+      "width": 4640,
+      "height": 3472
     },
     {
       "id": "2025-26-Tea Tech Talks-21",
@@ -819,7 +988,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 21
+      "photoNumber": 21,
+      "width": 4640,
+      "height": 3472
     },
     {
       "id": "2025-26-Tea Tech Talks-22",
@@ -828,7 +999,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 22
+      "photoNumber": 22,
+      "width": 5712,
+      "height": 4284
     },
     {
       "id": "2025-26-Tea Tech Talks-23",
@@ -837,7 +1010,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 23
+      "photoNumber": 23,
+      "width": 5712,
+      "height": 4284
     },
     {
       "id": "2025-26-Tea Tech Talks-24",
@@ -846,7 +1021,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 24
+      "photoNumber": 24,
+      "width": 4284,
+      "height": 5712
     },
     {
       "id": "2025-26-Tea Tech Talks-25",
@@ -855,7 +1032,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 25
+      "photoNumber": 25,
+      "width": 4284,
+      "height": 5712
     },
     {
       "id": "2025-26-Tea Tech Talks-26",
@@ -864,7 +1043,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 26
+      "photoNumber": 26,
+      "width": 4000,
+      "height": 3000
     },
     {
       "id": "2025-26-Tea Tech Talks-27",
@@ -873,7 +1054,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 27
+      "photoNumber": 27,
+      "width": 4000,
+      "height": 2252
     },
     {
       "id": "2025-26-Tea Tech Talks-28",
@@ -882,7 +1065,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 28
+      "photoNumber": 28,
+      "width": 3024,
+      "height": 4032
     },
     {
       "id": "2025-26-Tea Tech Talks-29",
@@ -891,7 +1076,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 29
+      "photoNumber": 29,
+      "width": 4032,
+      "height": 3024
     },
     {
       "id": "2025-26-Tea Tech Talks-30",
@@ -900,7 +1087,9 @@
       "tag": "Tea Tech Talks",
       "year": "2025",
       "fullYear": "2025-26",
-      "photoNumber": 30
+      "photoNumber": 30,
+      "width": 4032,
+      "height": 3024
     }
   ]
 }
