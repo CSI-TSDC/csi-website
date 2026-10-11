@@ -59,12 +59,12 @@
 html {
   line-height: 1;
   overscroll-behavior: none;
-  overflow-x: hidden;
+  overflow-x: clip;
   box-sizing: border-box;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Full-screen hero background images (base + overlay) using inline <img> */

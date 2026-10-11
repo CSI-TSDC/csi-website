@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Draggable } from "gsap/Draggable"
-import { InertiaPlugin } from "gsap/InertiaPlugin"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { Draggable } from "gsap/dist/Draggable"
+import { InertiaPlugin } from "gsap/dist/InertiaPlugin"
 import Image from "next/image"
 
 gsap.registerPlugin(ScrollTrigger, Draggable, InertiaPlugin)

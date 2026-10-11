@@ -16,6 +16,7 @@
     "gsap": "^3.14.2",
     "lenis": "^1.3.26",
     "lucide-react": "^0.562.0",
+    "motion": "^13.2.0",
     "next": "16.0.10",
     "ogl": "^1.0.11",
     "react": "19.2.1",
@@ -26,8 +27,11 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/node": "^22.20.2",
+    "@types/react": "^19.3.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "typescript": "^6.0.3"
   }
 }
