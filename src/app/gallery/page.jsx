@@ -1,125 +1,127 @@
 "use client";
 
-import Image from "next/image";
+import StackSpread from "@/components/ui/stack-spread";
 import EventBasedGallery from "@/components/gallery/EventBasedGallery";
+
+// CSI Showcase photos mapped to the 8 card spread positions
+const CSI_CARDS = [
+  // top-left: coding lab
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_B1.webp",
+      alt: "CSI Coding Competition",
+    },
+    stackOffset: { x: -8, y: -10 },
+    stackRotate: -18,
+    target: { x: -20, y: -34, rotate: 0, scale: 0.9, w: 17, h: 22 },
+    targetSm: { x: -22, y: -40 },
+    z: 2,
+  },
+  // top-right: seminar hall
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_T3.webp",
+      alt: "CSI Seminar & Workshop",
+    },
+    stackOffset: { x: 14, y: -10 },
+    stackRotate: 20,
+    target: { x: 32, y: -30, rotate: 0, scale: 0.9, w: 18, h: 32 },
+    targetSm: { x: 22, y: -40 },
+    z: 3,
+  },
+  // mid-left: felicitations
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_First.webp",
+      alt: "CSI Felicitations & Awards",
+    },
+    stackOffset: { x: -16, y: 0 },
+    stackRotate: -4,
+    target: { x: -36, y: -2, rotate: 0, scale: 0.9, w: 15, h: 32 },
+    targetSm: { x: -22, y: -19 },
+    z: 4,
+  },
+  // top-centre: main stage showcase
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_Middle.webp",
+      alt: "CSI Tech Fest Showcase",
+    },
+    stackOffset: { x: 1, y: -10 },
+    stackRotate: -2,
+    target: { x: 6, y: -32, rotate: 0, scale: 0.8, w: 25, h: 30 },
+    targetSm: { x: 22, y: -19 },
+    z: 5,
+  },
+  // mid-right: interactive team session
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_Last.webp",
+      alt: "CSI Team Brainstorming",
+    },
+    stackOffset: { x: 18, y: 1 },
+    stackRotate: 6,
+    target: { x: 37, y: 6, rotate: 0, scale: 0.8, w: 18, h: 32 },
+    targetSm: { x: -22, y: 20 },
+    z: 6,
+  },
+  // bottom-left: tech talks
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_B2.webp",
+      alt: "CSI Tech Talks",
+    },
+    stackOffset: { x: -6, y: 10 },
+    stackRotate: 6,
+    target: { x: -24, y: 34, rotate: 0, scale: 0.9, w: 22, h: 25 },
+    targetSm: { x: 22, y: 20 },
+    z: 7,
+  },
+  // bottom-centre: smart board presentation
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_T2.webp",
+      alt: "CSI Technical Presentation",
+    },
+    stackOffset: { x: 8, y: 7 },
+    stackRotate: 3,
+    target: { x: 2, y: 36, rotate: 0, scale: 0.8, w: 20, h: 26 },
+    targetSm: { x: -22, y: 40 },
+    z: 8,
+  },
+  // bottom-right: hackathon pair
+  {
+    item: {
+      src: "/assets/Gallery_Hero/Gallery_T1.webp",
+      alt: "CSI Hackathon Collaborators",
+    },
+    stackOffset: { x: 20, y: 12 },
+    stackRotate: -7,
+    target: { x: 30, y: 34, rotate: 0, scale: 0.9, w: 16, h: 20 },
+    targetSm: { x: 22, y: 40 },
+    z: 9,
+  },
+];
 
 export default function Gallery() {
   return (
     <div className="min-h-screen bg-[#f8f8f8]">
-      {/* Hero Section */}
-      <section className="px-4 sm:px-6 pb-4 md:pb-8 pt-20 sm:pt-24 md:pt-32 w-full gallery-bg">
-        <div id="showcase-bg"></div>
-        <div className="h-max w-full">
-          <div className="grid mx-auto max-w-6xl md:grid-cols-[1.15fr_1fr] gap-8 md:gap-16 items-center">
-            <div className="space-y-3 md:space-y-6 order-1 md:order-1 text-center md:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bespoke-sans-bold font-bold mb-6 text-csi-black leading-tight">
-                The <span className="text-csi-blue-400">CSI</span> Showcase
-              </h1>
+      {/* Interactive Scroll-Driven Showcase Hero */}
+      <StackSpread
+        cards={CSI_CARDS}
+        title={
+          <h1 className="w-full whitespace-pre-line text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bespoke-sans-bold font-bold leading-tight tracking-tight text-csi-black">
+            The <span className="text-csi-blue-400">CSI</span> Showcase
+          </h1>
+        }
+        subtitle="A look back at the energy, creativity, and people behind CSI x TSDC. Explore our collection of memories from events, workshops, hackathons, and community initiatives."
+        bgColor="#f8f8f8"
+        textColor="#141414"
+        scrollLength={300}
+        stackScale={0.85}
+        cardRadius={12}
+      />
 
-              <p className="text-base sm:text-lg md:text-xl text-left text-csi-black/80 leading-relaxed">
-                A look back at the energy, creativity, and people behind CSI x TSDC.
-              </p>
-
-              <p className="text-sm sm:text-base md:text-lg text-left text-csi-black/70 leading-relaxed">
-                Explore our collection of memories from events, workshops, hackathon, and other activities held every year.
-              </p>
-
-              <p className="text-xs sm:text-sm md:text-base text-left text-csi-black/60 leading-relaxed hidden sm:block">
-                From tech fests to coding competitions, every moment captured tells a story of innovation and collaboration.
-              </p>
-            </div>
-            <div className="relative w-full h-max overflow-hidden md:block order-2 md:order-1 flex justify-center md:justify-end">
-              <div className="relative space-y-3 md:space-y-6
-                  max-w-[92vw] sm:max-w-none scale-[0.9] sm:scale-100 origin-center">
-                {/* Row 1 */}
-                <div className="flex gap-2 md:gap-4">
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_T1.webp"
-                    width={200}
-                    height={120}
-                    className="w-[120px] h-[80px] md:w-[200px] md:h-[120px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 1"
-                    priority
-                  />
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_T2.webp"
-                    width={160}
-                    height={120}
-                    className="w-[100px] h-[80px] md:w-[160px] md:h-[120px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 2"
-                    priority
-                  />
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_T3.webp"
-                    width={220}
-                    height={120}
-                    className="w-[130px] h-[80px] md:w-[220px] md:h-[120px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 3"
-                    priority
-                  />
-                </div>
-
-                {/* Row 2 */}
-                <div className="flex gap-2 md:gap-4 translate-x-4 md:translate-x-14">
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_First.webp"
-                    width={180}
-                    height={145}
-                    className="w-[110px] h-[90px] md:w-[180px] md:h-[145px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 4"
-                    priority
-                  />
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_Middle.webp"
-                    width={240}
-                    height={145}
-                    className="w-[140px] h-[90px] md:w-[240px] md:h-[145px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 5"
-                    priority
-                  />
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_Last.webp"
-                    width={150}
-                    height={145}
-                    className="w-[90px] h-[90px] md:w-[150px] md:h-[145px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 6"
-                    priority
-                  />
-                </div>
-
-                {/* Row 3 — FIXED */}
-                <div className="flex gap-2 md:gap-4 translate-x-2 md:translate-x-6">
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_B1.webp"
-                    width={210}
-                    height={135}
-                    className="w-[125px] h-[85px] md:w-[210px] md:h-[135px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 7"
-                    priority
-                  />
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_B2.webp"
-                    width={260}
-                    height={135}
-                    className="w-[150px] h-[85px] md:w-[260px] md:h-[135px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 8"
-                    priority
-                  />
-                  <Image
-                    src="/assets/Gallery_Hero/Gallery_B3.webp"
-                    width={190}
-                    height={135}
-                    className="w-[115px] h-[85px] md:w-[190px] md:h-[135px] object-cover rounded-xl md:rounded-2xl"
-                    alt="Gallery Hero Preview 9"
-                    priority
-                  />
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Event-Based Scroll Gallery */}
       <EventBasedGallery />
     </div>
